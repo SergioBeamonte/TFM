@@ -1,4 +1,4 @@
-import pyAgrum as gum
+import pyagrum as gum
 import numpy as np
 from EDAspy.optimization import UMDAd  # Algoritmo UMDA discreto para variables binarias
 
