@@ -60,66 +60,66 @@
 		<genie version="1.0" app="GeNIe 5.0.5310.0 ACADEMIC" name="bypass2">
 			<node id="PAIN">
 				<name>PAIN</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>1001 95 1099 176</position>
+				<position>1545 160 1643 241</position>
 			</node>
 			<node id="ANGIOGRAM">
 				<name>ANGIOGRAM</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>670 47 944 131</position>
+				<position>669 81 943 165</position>
 			</node>
 			<node id="HEARTDISEASE">
 				<name>HEARTDISEASE</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>1275 30 1503 117</position>
+				<position>1192 4 1420 91</position>
 			</node>
 			<node id="HEARTSURGERY">
 				<name>HEARTSURGERY</name>
-				<interior color="e5f6f7" />
+				<interior color="ffcc99" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>158 340 446 421</position>
+				<position>138 426 426 507</position>
 			</node>
 			<node id="EARLYRESULTS">
 				<name>EARLYRESULTS</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>99 59 400 156</position>
+				<position>168 223 469 320</position>
 			</node>
 			<node id="HEARTPHARMA">
 				<name>HEARTPHARMA</name>
-				<interior color="e5f6f7" />
+				<interior color="ffcc99" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>1001 379 1317 475</position>
+				<position>1067 456 1383 552</position>
 			</node>
 			<node id="LIFEQ">
 				<name>LIFEQ</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>559 514 650 600</position>
+				<position>414 614 505 700</position>
 			</node>
 			<node id="ECONOMICALC">
 				<name>ECONOMICALC</name>
-				<interior color="e5f6f7" />
+				<interior color="ccffff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>1049 588 1308 686</position>
+				<position>837 615 1096 713</position>
 			</node>
 			<node id="UTILITY">
 				<name>UTILITY</name>
-				<interior color="e5f6f7" />
+				<interior color="cc99ff" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="14" />
-				<position>272 661 558 749</position>
+				<position>633 829 919 917</position>
 			</node>
 		</genie>
 	</extensions>
