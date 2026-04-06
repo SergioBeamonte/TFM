@@ -1,0 +1,46 @@
+EQUIVALENCIAS DE CODIFICACION CSV
+=================================
+
+Para nodos de azar y de entrada (predecesores):
+  Valor N > 0  => Estado de índice N-1
+Para el nodo de decisión objetivo:
+  Valor N < 0  => Acción de índice |N|-1
+
+DETALLE POR NODO:
+-----------------
+
+[ANGIOGRAM] (CHANCE)
+  1 : NEGATIVE
+  2 : POSITIVE
+
+[EARLYRESULTS] (CHANCE)
+  1 : CoRem
+  2 : PaRem
+  3 : NoChng
+  4 : PrgrsvDisease
+
+[ECONOMICALC] (CHANCE)
+  1 : LOW
+  2 : MEDIUM
+  3 : HIGH
+
+[HEARTDISEASE] (CHANCE)
+  1 : ABSENT
+  2 : PRESENT
+
+[HEARTPHARMA] (DECISION)
+  1 : NO
+  2 : YES
+
+[HEARTSURGERY] (DECISION)
+  1 : NO
+  2 : YES
+
+[LIFEQ] (CHANCE)
+  1 : DEAD
+  2 : LIVE2ALQ
+  3 : LIVE2AHQ
+
+[PAIN] (CHANCE)
+  1 : ABSENT
+  2 : PRESENT
