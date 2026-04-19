@@ -64,6 +64,11 @@ def run_evaluation(
         probabilities, max utility, and per-engine metadata.
     """
     # ── load ──────────────────────────────────────────────────────────────────
+    if not os.path.exists(xdsl_path):
+        candidate = os.path.join(os.path.dirname(__file__), xdsl_path)
+        if os.path.exists(candidate):
+            xdsl_path = candidate
+
     net = pysmile.Network()
     net.read_file(xdsl_path)
 
@@ -183,12 +188,12 @@ if __name__ == "__main__":
     run_evaluation(test_path, sample_data, engine="shachter")
 
     # --- NEW: Rule Generation Example ---
-    print("\n" + "#" * 60)
-    print("  GENERATING RANDOM RULES (CSV) ...")
-    print("#" * 60)
-    generate_rules(
-        xdsl_path=test_path,
-        n_rules=10,
-        output_path="reglas_ejemplo.csv",
-        respect_probs=False  # Equiprobable for diversity in small sample
-    )
+    # print("\n" + "#" * 60)
+    # print("  GENERATING RANDOM RULES (CSV) ...")
+    # print("#" * 60)
+    # # generate_rules(
+    #     xdsl_path=test_path,
+    #     n_rules=10,
+    #     output_path="reglas_ejemplo.csv",
+    #     respect_probs=False  # Equiprobable for diversity in small sample
+    # )

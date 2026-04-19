@@ -136,6 +136,7 @@ class ShachterEngine(BaseEngine):
         if final_d.ndim > 0:
             # Fallback: take the maximum value if we failed to reduce to scalar
             # (though this indicates an issue in the model's structural sequence)
+            print("[!] Warning: Final utility factor is not scalar. Taking maximum value as fallback.")
             max_eu = float(np.max(final_d))
         else:
             max_eu = float(final_d)

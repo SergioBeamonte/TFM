@@ -23,10 +23,11 @@ class NetworkExtractor:
             states = [net.get_outcome_id(h, i) for i in range(n_out)]
             pnames = [net.get_node_id(ph) for ph in net.get_parents(h)]
 
-            if   ntype == pysmile.NodeType.CPT:      kind = NodeKind.CHANCE
+            print(name, ntype, states, n_out, pnames)
+
+            if   ntype == pysmile.NodeType.CPT:       kind = NodeKind.CHANCE
             elif ntype == pysmile.NodeType.DECISION:  kind = NodeKind.DECISION
-            elif ntype == pysmile.NodeType.UTILITY:
-                kind, states = NodeKind.UTILITY, []
+            elif ntype == pysmile.NodeType.UTILITY:   kind, states = NodeKind.UTILITY, []
             else:
                 continue   # unknown node type – skip
 

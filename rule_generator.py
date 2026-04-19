@@ -122,21 +122,25 @@ class RuleGenerator:
                 sampled[name] = fixed_states[name]
                 continue
             
-            if not respect_probs or not nd.parents:
+            if not nd.parents:
+                # NODO RAÍZ (Sin padres)
                 if not respect_probs:
-                    sampled[name] = random.choice(nd.states)
+                    # Muestreo uniforme, pero excluyendo los que tienen 0% de probabilidad base
+                    valid_states = [s for i, s in enumerate(nd.states) if nd.table[i] > 0]
+                    # Fallback por si la tabla está rota y todos son 0
+                    sampled[name] = random.choice(valid_states if valid_states else nd.states)
                 else:
-                    # Nodo raíz con distribución fija
-                    p = nd.table
-                    p = p / np.sum(p)
+                    # Muestreo probabilístico ponderado
+                    p = np.array(nd.table)
+                    total = np.sum(p)
+                    p = p / total if total > 0 else np.ones(len(nd.states)) / len(nd.states)
                     sampled[name] = np.random.choice(nd.states, p=p)
             else:
-                # Nodo intermedio: elegir salida fija para la entrada dada (muestreo probabilístico)
-                # Calculamos el offset en la tabla CPT basado en los estados de los padres
+                # NODO INTERMEDIO: Siempre navegamos el CPT para obtener el contexto de los padres
                 stride = 1
                 offset = 0
                 for p_name in reversed(nd.parents):
-                    p_val = sampled[p_name] # Ya muestreado por orden topológico
+                    p_val = sampled[p_name] 
                     p_states = self.nodes[p_name].states
                     p_idx = p_states.index(p_val)
                     offset += p_idx * stride
@@ -144,17 +148,107 @@ class RuleGenerator:
                 
                 num_states = len(nd.states)
                 start = offset * num_states
-                probs = nd.table[start : start + num_states]
+                probs = np.array(nd.table[start : start + num_states])
                 
-                # Normalización de seguridad
-                total = np.sum(probs)
-                if total > 0:
-                    probs = probs / total
+                if not respect_probs:
+                    # NUEVA LÓGICA: Muestreo uniforme PERO solo sobre estados lógicamente posibles
+                    valid_indices = np.where(probs > 0)[0]
+                    
+                    if len(valid_indices) > 0:
+                        valid_states = [nd.states[i] for i in valid_indices]
+                        sampled[name] = random.choice(valid_states)
+                    else:
+                        # Fallback de seguridad extrema: si los estados de los padres han
+                        # derivado en una fila del CPT completamente a ceros (escenario imposible).
+                        sampled[name] = random.choice(nd.states)
                 else:
-                    probs = np.ones(num_states) / num_states
-                
-                sampled[name] = np.random.choice(nd.states, p=probs)
+                    # Lógica original: Muestreo probabilístico ponderado
+                    total = np.sum(probs)
+                    if total > 0:
+                        probs = probs / total
+                    else:
+                        probs = np.ones(num_states) / num_states
+                    
+                    sampled[name] = np.random.choice(nd.states, p=probs)
+                    
         return sampled
+
+
+    # Lógica alternativa para muestreo de nodos de azar (más robusta y bayesiana)
+
+    # def _sample_chance_nodes(self, fixed_states: Dict[str, str], respect_probs: bool) -> Dict[str, str]:
+    #     """
+    #     Muestreo bayesiano real: Inyecta evidencia, propaga la información 
+    #     hacia arriba/abajo, y luego muestrea dinámicamente.
+    #     """
+    #     # Asegurarnos de que el motor está limpio de iteraciones anteriores
+    #     self.net.clear_all_evidence()
+        
+    #     # 1. Inyectar la "realidad forzada" (fixed_states) como evidencia dura
+    #     for name, state in fixed_states.items():
+    #         if name in self.nodes and self.nodes[name].kind == NodeKind.CHANCE:
+    #             # Le decimos a SMILE: "Esto es un hecho inamovible"
+    #             self.net.set_evidence(name, state)
+                
+    #     # Obtenemos el orden topológico
+    #     eval_nodes = {k: v for k, v in self.nodes.items() if v.kind != NodeKind.UTILITY}
+    #     order = BaseEngine._topo_sort(eval_nodes)
+        
+    #     sampled = {}
+    #     for name in order:
+    #         nd = self.nodes[name]
+            
+    #         if nd.kind != NodeKind.CHANCE:
+    #             continue
+                
+    #         # Si el nodo es de los que el usuario ya ha fijado, lo guardamos y avanzamos
+    #         if name in fixed_states:
+    #             sampled[name] = fixed_states[name]
+    #             continue
+                
+    #         # 2. LA MAGIA BAYESIANA: Recalcular TODO el grafo
+    #         # Esto obliga a SMILE a propagar la evidencia (los fixed_states y lo que 
+    #         # ya hayamos muestreado) para recalcular la probabilidad exacta de ESTE nodo.
+    #         try:
+    #             self.net.update_beliefs()
+    #             # get_node_value devuelve el array de probabilidades posteriores (Beliefs)
+    #             beliefs = self.net.get_node_value(name)
+    #             probs = np.array(beliefs)
+    #         except pysmile.SMILEException:
+    #             # Fallback: Si las evidencias forzadas entran en una paradoja lógica imposible 
+    #             # según tu red (ej: forzar Embarazo=Sí en Hombre=Sí), SMILE lanza excepción.
+    #             probs = np.ones(len(nd.states)) / len(nd.states)
+                
+    #         # Normalización estándar (por seguridad de numpy)
+    #         total = np.sum(probs)
+    #         if total > 0:
+    #             probs = probs / total
+    #         else:
+    #             probs = np.ones(len(nd.states)) / len(nd.states)
+                
+    #         # 3. Muestreo sobre las probabilidades posteriores calculadas
+    #         if respect_probs:
+    #             # Muestreo ponderado normal
+    #             chosen_state = np.random.choice(nd.states, p=probs)
+    #         else:
+    #             # Muestreo Uniforme Inteligente (Solo sobre lo que es lógicamente posible)
+    #             valid_indices = np.where(probs > 0)[0]
+    #             if len(valid_indices) > 0:
+    #                 valid_states = [nd.states[i] for i in valid_indices]
+    #                 chosen_state = random.choice(valid_states)
+    #             else:
+    #                 chosen_state = random.choice(nd.states)
+                    
+    #         sampled[name] = chosen_state
+            
+    #         # 4. CRÍTICO: El valor que acabamos de inventar se convierte en una 
+    #         # nueva "realidad" (evidencia). Así condicionará correctamente a los 
+    #         # nodos que evaluemos en las siguientes vueltas del bucle.
+    #         self.net.set_evidence(name, chosen_state)
+            
+    #     # Limpiar la red antes de salir para no contaminar la siguiente fila del CSV
+    #     self.net.clear_all_evidence()
+    #     return sampled
 
     def _is_predecessor(self, potential_pred: str, target: str) -> bool:
         """Verifica si potential_pred es un antecesor (ancestro) de target en el DAG."""
@@ -176,7 +270,7 @@ class RuleGenerator:
 if __name__ == "__main__":
     # Test rápido de generación
     try:
-        gen = RuleGenerator("example/network-bypass2.xdsl")
-        gen.generate_csv(n_rules=10, output_path="reglas_generadas.csv", respect_probs=False)
+        gen = RuleGenerator(r"TFM\example\network-bypass2.xdsl")
+        gen.generate_csv(n_rules=30, output_path=r"TFM\example\reglas_generadas.csv", respect_probs=False)
     except Exception as e:
         print(f"[!] Error: {e}")
