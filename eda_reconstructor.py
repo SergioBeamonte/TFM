@@ -1,60 +1,6 @@
 """
 IDReconstructor - Improved version
 ===================================
-
-BUGS ENCONTRADOS EN EL CÓDIGO ORIGINAL:
-─────────────────────────────────────────
-
-BUG CRÍTICO 1 — Inferencia sobre red obsoleta (el EDA no optimiza nada)
-    _vector_to_nodes() actualiza self.nodes[name].table (objetos Python)
-    pero NUNCA llama a self.net.set_node_definition().
-    Si ShachterEngine usa self.net para inferir, siempre evalúa los
-    parámetros ORIGINALES del .xdsl, no los propuestos. El EDA busca
-    en el espacio pero la función de aptitud es constante → el algoritmo
-    no converge a nada significativo.
-
-BUG CRÍTICO 2 — Dimensiones desperdiciadas en utilidad
-    Las entradas best/worst se incluyen en el vector de optimización
-    (tamaño nd.table.size) pero siempre se sobreescriben con 10.0/0.0.
-    Esas dimensiones cuestan evaluaciones sin aportar información.
-    El EDA ve que cambiar esos valores no afecta a f → ruido puro.
-
-BUG 3 — Parseo de CSV frágil
-    int(val_str) explota con strings vacíos, espacios en blanco o
-    valores no enteros. Sin try/except el programa aborta.
-
-BUG 4 — zero_rows.squeeze(-1) para nodos raíz
-    Si el nodo no tiene padres, la tabla es 1D (solo n_states).
-    reshape(spec['shape']) da un array 1D, sum(axis=-1, keepdims=True)
-    da un escalar, y squeeze(-1) puede fallar o dar resultado inesperado.
-
-BUG 5 — ShachterEngine se instancia en cada llamada a fitness()
-    Con size_gen=50 y max_iter=30 → 1500 instanciaciones innecesarias.
-
-BUG 6 — UMDAc genera fuera de [0,1]
-    UMDAc es gaussiano: puede proponer valores negativos o >1.
-    np.clip(…, 0, 1) los recorta, pero eso introduce sesgo en el modelo:
-    el EDA "cree" que ha propuesto 0.0 cuando propuso -0.3, y actualiza
-    su media hacia valores artificialmente bajos.
-
-PROBLEMA DE DISEÑO 1 — Sin ordenación topológica en la inicialización
-    Los parámetros de nodos raíz (sin padres) son independientes.
-    Los de nodos hoja dependen estructuralmente de los de sus padres.
-    Inicializar todos uniformemente ignora esta estructura.
-
-PROBLEMA DE DISEÑO 2 — Reglas sin peso
-    Todas las reglas contribuyen igual a la aptitud. Un sistema de
-    pesos permite reflejar la confianza diferencial del experto.
-
-PROBLEMA DE DISEÑO 3 — Sin diagnóstico del modelo final
-    El modelo M^(T) del EDA contiene información sobre qué parámetros
-    están bien determinados por las reglas (varianza baja) y cuáles no
-    (varianza alta). Esta información no se extrae ni se reporta.
-
-PROBLEMA DE DISEÑO 4 — UMDAc cuando el espacio es naturalmente discreto
-    Si las CPTs se discretizan (L=10 niveles), UMDAcat sería más
-    apropiado. UMDAc fuerza un modelo gaussiano sobre un espacio que
-    es esencialmente categórico.
 """
 
 import os
