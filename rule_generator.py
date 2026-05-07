@@ -285,11 +285,11 @@ class RuleGenerator:
 
 if __name__ == "__main__":
     try:
-        gen = RuleGenerator(r"example\VentureTwoWay\Venture Two Way.xdsl")
-        gen.export_mappings(r"example\VentureTwoWay\rule_mappings.txt")
-        gen.export_utility_tables(r"example\VentureTwoWay\utility_tables.txt")
+        gen = RuleGenerator(r"example\nhlv1\network-nhlv1.xdsl")
+        gen.export_mappings(r"example\nhlv1\rule_mappings.txt")
+        gen.export_utility_tables(r"example\nhlv1\utility_tables.txt")
         
-        gen.generate_csv(n_rules=25, output_path=r"example\VentureTwoWay\reglas_generadas.csv")
+        gen.generate_csv(n_rules=25, output_path=r"example\nhlv1\reglas_generadas.csv")
         
     except Exception as e:
         print(f"[!] Error crítico: {e}")
