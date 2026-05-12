@@ -23,10 +23,10 @@ from typing import Dict, Optional, Tuple
 import pysmile
 import pysmile_license
 
-from models import EvaluationResult
-from extractor import NetworkExtractor
-from engines import BaseEngine, ShachterEngine, MonteCarloEngine
-from printer import ResultPrinter
+from evaluation_code.models import EvaluationResult
+from evaluation_code.extractor import NetworkExtractor
+from evaluation_code.engines import BaseEngine, ShachterEngine, MonteCarloEngine
+from evaluation_code.printer import ResultPrinter
 from rule_generator import RuleGenerator
 
 

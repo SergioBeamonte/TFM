@@ -1,5 +1,5 @@
 from typing import Dict
-from models import EvaluationResult
+from evaluation_code.models import EvaluationResult
 
 # ==============================================================================
 # 7  RESULT PRINTER

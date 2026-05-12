@@ -1,0 +1,397 @@
+"""
+Módulo con las clases principales para la recuperación de Diagramas de Influencia
+mediante Algoritmos de Estimación de Distribuciones (EDA).
+
+Clases:
+    - IDRecovery: Optimizador EDA que recupera parámetros de un ID a partir de reglas.
+    - AveragedExperiment: Contenedor de resultados promediados.
+    - BatchExperimenter: Ejecuta múltiples experimentos y promedia resultados.
+"""
+
+import pysmile_license
+import pysmile
+import numpy as np
+import random
+import csv
+from EDAspy.optimization import UMDAc, EGNA, EMNA
+
+
+class IDRecovery:
+    def __init__(self, xdsl_path, rules_csv, min_max_ut=False, u_range=(0, 10), save_plots=False,
+                 chance_init_bounds=(-5, 5), utility_init_bounds=(-10, 10),
+                 alpha=0.5, elite_factor=0.0, n_decision_rules=-1, 
+                 fitness_type='regret', stop_mode='best', optimizer_type='umda',
+                 random_seed = 42):
+
+        self.net = pysmile.Network()
+        self.net.read_file(xdsl_path)
+        self.u_min, self.u_max = u_range
+        self.min_max_ut = min_max_ut 
+        self.alpha = alpha
+        self.elite_factor = elite_factor
+        self.n_decision_rules = n_decision_rules
+        self.fitness_type = fitness_type 
+        self.stop_mode = stop_mode
+        self.optimizer_type = optimizer_type.lower()
+        
+        self.chance_init_bounds = chance_init_bounds
+        self.utility_init_bounds = utility_init_bounds
+
+        self.chance_nodes = self._get_nodes(["CPT", "TRUTHTABLE"])
+        self.utility_nodes = self._get_nodes(["UTILITY"])
+        
+        self.original_defs = {
+            name: np.array(self.net.get_node_definition(self.net.get_node(name))) 
+            for name in self.chance_nodes + self.utility_nodes
+        }
+
+        self.specs = self._build_specs()
+        self.total_vars = sum(s['free_size'] for s in self.specs)
+        
+        self.all_rules = self._compile_rules(rules_csv)
+        
+        random.seed(random_seed)
+        if self.n_decision_rules > 0 and self.n_decision_rules < len(self.all_rules):
+            self.train_rules = random.sample(self.all_rules, self.n_decision_rules)
+        else:
+            self.train_rules = self.all_rules
+            
+        print(f"Optimizador: {self.optimizer_type.upper()}")
+        print(f"Modo de Fitness: {self.fitness_type.upper()}")
+        print(f"Reglas totales para evaluar precisión: {len(self.all_rules)}")
+        print(f"Reglas usadas para entrenar (Fitness): {len(self.train_rules)}")
+        
+        self.eval_count = 0
+        self.current_gen = 1
+        
+        self.gen_individuals = []
+        self.gen_fitness = []
+        self.gen_errors = []
+        self.gen_accuracies = [] 
+        
+        self.history = []
+
+    def _get_nodes(self, types):
+        valid = [getattr(pysmile.NodeType, t) for t in types if hasattr(pysmile.NodeType, t)]
+        return [self.net.get_node_id(h) for h in self.net.get_all_nodes() if self.net.get_node_type(h) in valid]
+
+    def _build_specs(self):
+        specs = []
+        for name in self.chance_nodes + self.utility_nodes:
+            h = self.net.get_node(name)
+            size = len(self.net.get_node_definition(h))
+            kind = 'chance' if name in self.chance_nodes else 'utility'
+            parents = self.net.get_parents(h)
+            shape = tuple([self.net.get_outcome_count(p) for p in parents]) + ((self.net.get_outcome_count(h),) if kind == 'chance' else ())
+
+            mask = np.ones(size, dtype=bool)
+            fixed = []
+            
+            if kind == 'utility' and self.min_max_ut:
+                original_u = self.original_defs[name]
+                best_flat = np.argmax(original_u)
+                worst_flat = np.argmin(original_u)
+                best_idx = np.unravel_index(best_flat, shape)
+                worst_idx = np.unravel_index(worst_flat, shape)
+                
+                fixed.append((best_idx, self.u_max))
+                mask[best_flat] = False
+                
+                if worst_flat != best_flat:
+                    fixed.append((worst_idx, self.u_min))
+                    mask[worst_flat] = False
+            
+            specs.append({'name': name, 'kind': kind, 'size': size, 'free_size': mask.sum(), 'shape': shape, 'mask': mask, 'fixed': fixed})
+        return specs
+
+    def _compile_rules(self, path):
+        compiled = []
+        with open(path, 'r') as f:
+            for row in csv.DictReader(f):
+                ev = {k: int(v) - 1 for k, v in row.items() if int(v or 0) > 0}
+                target = next(k for k, v in row.items() if int(v or 0) < 0)
+                act_idx = abs(int(row[target])) - 1
+                h = self.net.get_node(target)
+                mult, c_idx = 1, 0
+                for p in reversed(self.net.get_parents(h)):
+                    c_idx += ev[self.net.get_node_id(p)] * mult
+                    mult *= self.net.get_outcome_count(p)
+                compiled.append({'node': target, 'c_idx': c_idx, 'a_idx': act_idx, 'n_act': self.net.get_outcome_count(h)})
+        return compiled
+
+    def _decode_vector(self, vector):
+        pos = 0
+        real_error = 0
+        decoded_vals = {}
+        
+        for s in self.specs:
+            raw = vector[pos:pos+s['free_size']]
+            pos += s['free_size']
+            
+            if s['kind'] == 'chance':
+                res = np.exp(raw.reshape(s['shape']))
+                val = (res / res.sum(axis=-1, keepdims=True)).flatten()
+            else:
+                val = np.zeros(s['size'])
+                val[s['mask']] = (1 / (1 + np.exp(-raw))) * (self.u_max - self.u_min) + self.u_min
+                for idx, fv in s['fixed']: 
+                    val[np.ravel_multi_index(idx, s['shape'])] = fv
+
+            decoded_vals[s['name']] = val
+            real_error += np.mean((val - self.original_defs[s['name']])**2)
+            
+        return decoded_vals, real_error
+
+    def fitness(self, vector):
+        decoded_vals, real_error = self._decode_vector(vector)
+        
+        for name, val in decoded_vals.items():
+            self.net.set_node_definition(name, val.tolist()) 
+        
+        try: 
+            self.net.update_beliefs()
+        except pysmile.SMILEException: 
+            return 1e6
+        
+        penalty_score = 0 
+        
+        # 1. EVALUAR FITNESS (Entrenamiento)
+        for r in self.train_rules:
+            try:
+                utils = self.net.get_node_value(r['node'])[r['c_idx']*r['n_act'] : (r['c_idx']+1)*r['n_act']]
+                max_u = max(utils)
+                rule_u = utils[r['a_idx']]
+                
+                if self.fitness_type == 'binary':
+                    if (max_u - rule_u) > 0:
+                        penalty_score += 1
+                        
+                elif self.fitness_type == 'regret':
+                    penalty_score += (max_u - rule_u)
+                    
+                elif self.fitness_type == 'margin':
+                    margen = 1.0 
+                    utilidades_alternativas = [u for i, u in enumerate(utils) if i != r['a_idx']]
+                    mejor_alternativa = max(utilidades_alternativas) if utilidades_alternativas else 0
+                    penalty_score += max(0, (mejor_alternativa + margen) - rule_u)
+                    
+                elif self.fitness_type == 'softmax':
+                    exp_utils = np.exp(np.array(utils) - max_u) 
+                    prob_rule = exp_utils[r['a_idx']] / np.sum(exp_utils)
+                    penalty_score += -np.log(prob_rule + 1e-9) 
+                    
+                elif self.fitness_type == 'regret_reg':
+                    penalty_score += (max_u - rule_u)
+                    
+            except IndexError:
+                return 1e6
+
+        # --- APLICAR REGULARIZACIÓN CIEGA ---
+        if self.fitness_type == 'regret_reg':
+            lambda_reg = 0.01 
+            l2_penalty = np.sum(vector**2)
+            penalty_score += (lambda_reg * l2_penalty)
+                
+        # --- RASTREO DEL MEJOR HISTÓRICO ---
+        if hasattr(self, 'best_historical_fitness') and penalty_score < self.best_historical_fitness:
+            self.best_historical_fitness = penalty_score
+            self.best_historical_ind = vector
+            
+        # 2. EVALUAR PRECISIÓN GLOBAL (Test/Gráficas)
+        rules_fulfilled = 0
+        for r in self.all_rules:
+            try:
+                utils = self.net.get_node_value(r['node'])[r['c_idx']*r['n_act'] : (r['c_idx']+1)*r['n_act']]
+                if (max(utils) - utils[r['a_idx']]) <= 1e-5:
+                    rules_fulfilled += 1
+            except IndexError:
+                return 1e6
+                
+        accuracy = (rules_fulfilled / len(self.all_rules)) * 100
+            
+        self.gen_individuals.append(vector)
+        self.gen_fitness.append(penalty_score) 
+        self.gen_errors.append(real_error)
+        self.gen_accuracies.append(accuracy)
+        self.eval_count += 1
+        
+        # --- FINAL DE GENERACIÓN ---
+        if hasattr(self, 'size_gen') and self.eval_count % self.size_gen == 0:
+            
+            self.history.append({
+                'gen': self.current_gen,
+                'errors': np.array(self.gen_errors),
+                'fitness': np.array(self.gen_fitness),
+                'accuracies': np.array(self.gen_accuracies)
+            })
+            
+            sorted_fitness = np.sort(self.gen_fitness)
+            
+            if self.stop_mode == 'top10':
+                target_idx = max(1, int(self.size_gen * 0.10)) - 1
+                msg_parada = f"El Top 10% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top30':
+                target_idx = max(1, int(self.size_gen * 0.30)) - 1
+                msg_parada = f"El Top 30% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top50':
+                target_idx = max(1, int(self.size_gen * 0.50)) - 1
+                msg_parada = f"El Top 50% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top70':
+                target_idx = max(1, int(self.size_gen * 0.70)) - 1
+                msg_parada = f"El Top 70% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top90':
+                target_idx = max(1, int(self.size_gen * 0.90)) - 1
+                msg_parada = f"El Top 90% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top95':
+                target_idx = max(1, int(self.size_gen * 0.95)) - 1
+                msg_parada = f"El Top 95% (>={target_idx+1} individuos) alcanzó"
+            elif self.stop_mode == 'top99':
+                target_idx = max(1, int(self.size_gen * 0.99)) - 1
+                msg_parada = f"El Top 99% (>={target_idx+1} individuos) alcanzó"
+            else:
+                target_idx = 0
+                msg_parada = "El mejor individuo absoluto alcanzó"
+                
+            value_to_check = sorted_fitness[target_idx]
+            
+            self.current_gen += 1
+            self.gen_individuals, self.gen_fitness, self.gen_errors, self.gen_accuracies = [], [], [], []
+            
+            if hasattr(self, 'target_fitness') and value_to_check <= self.target_fitness:
+                raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness}")
+            
+        return penalty_score
+
+    def run(self, g=100, i=100, target_fitness=1e-5):
+        self.size_gen = g
+        self.target_fitness = 0.0 if self.fitness_type == 'binary' else target_fitness
+        
+        self.best_historical_ind = None
+        self.best_historical_fitness = float('inf')
+        
+        lower_bounds = []
+        upper_bounds = []
+        for s in self.specs:
+            lb = self.chance_init_bounds[0] if s['kind'] == 'chance' else self.utility_init_bounds[0]
+            ub = self.chance_init_bounds[1] if s['kind'] == 'chance' else self.utility_init_bounds[1]
+            lower_bounds.extend([lb] * s['free_size'])
+            upper_bounds.extend([ub] * s['free_size'])
+            
+        lower_bounds = np.array(lower_bounds)
+        upper_bounds = np.array(upper_bounds)
+
+        # Configuración común de parámetros
+        optimizer_kwargs = {
+            'size_gen': g,
+            'max_iter': i,
+            'dead_iter': min(20, i),
+            'n_variables': self.total_vars,
+            'lower_bound': lower_bounds,
+            'upper_bound': upper_bounds,
+            'alpha': self.alpha,
+            'elite_factor': self.elite_factor,
+            'disp': False
+        }
+
+        # Selección dinámica del optimizador
+        if self.optimizer_type == 'umda':
+            optimizer = UMDAc(**optimizer_kwargs)
+        elif self.optimizer_type == 'egna':
+            optimizer = EGNA(**optimizer_kwargs)
+        elif self.optimizer_type == 'emna':
+            optimizer = EMNA(**optimizer_kwargs)
+        else:
+            raise ValueError(f"Optimizador '{self.optimizer_type}' no reconocido. Usa 'umda', 'egna' o 'emna'.")
+        
+        print("Iniciando optimización. Puedes usar visualizar_historial() al terminar.")
+        
+        try:
+            res = optimizer.minimize(self.fitness)
+            mejor_vector = res.best_ind
+            print("Optimización terminada por fin natural (max_iter o dead_iter).")
+        except StopIteration as e:
+            print(f"\n¡PARADA ANTICIPADA! {e}")
+            mejor_vector = self.best_historical_ind
+            
+        self.fitness(mejor_vector)
+        return mejor_vector
+
+
+class AveragedExperiment:
+    """Objeto contenedor que imita a IDRecovery para inyectarlo en tus gráficas."""
+    def __init__(self, history, **kwargs):
+        self.history = history
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+
+class BatchExperimenter:
+    def __init__(self, n_experiments=5, shuffle_rules_per_run=True, base_seed=42, **id_recovery_kwargs):
+        self.n_experiments = n_experiments
+        self.shuffle_rules_per_run = shuffle_rules_per_run
+        self.base_seed = base_seed
+        self.id_recovery_kwargs = id_recovery_kwargs
+        
+        self.experiments = []
+        self.best_overall_vector = None
+        self.best_overall_fitness = float('inf')
+
+    def run_batch(self, g=100, i=100, target_fitness=1e-5):
+        print(f"--- Iniciando Lote de {self.n_experiments} Experimentos ---")
+        
+        for exp_idx in range(self.n_experiments):
+            print(f"\n>> Ejecutando Experimento {exp_idx + 1}/{self.n_experiments}")
+            
+            # Determinamos la semilla para esta ejecución
+            current_seed = self.base_seed + exp_idx if self.shuffle_rules_per_run else self.base_seed
+            
+            # Copiamos los argumentos e inyectamos el random_seed
+            kwargs_for_this_run = self.id_recovery_kwargs.copy()
+            kwargs_for_this_run['random_seed'] = current_seed
+                
+            # Instanciamos y corremos el experimento
+            exp = IDRecovery(**kwargs_for_this_run)
+            best_vector = exp.run(g=g, i=i, target_fitness=target_fitness)
+            
+            self.experiments.append(exp)
+            
+            # Rastreamos el mejor individuo absoluto de todo el lote
+            if exp.best_historical_fitness < self.best_overall_fitness:
+                self.best_overall_fitness = exp.best_historical_fitness
+                self.best_overall_vector = best_vector
+
+        print("\n--- Lote finalizado. Promediando resultados ---")
+        averaged_obj = self._average_histories()
+        
+        return averaged_obj, self.best_overall_vector
+
+    def _average_histories(self):
+        # Encontramos la generación máxima alcanzada (por si algunos terminaron antes)
+        max_gens = max(len(exp.history) for exp in self.experiments)
+        avg_history = []
+        
+        for gen_idx in range(max_gens):
+            gen_fitness_list = []
+            gen_errors_list = []
+            gen_accs_list = []
+            
+            for exp in self.experiments:
+                # Si el experimento paró por 'stop_mode', usamos su última generación registrada (padding)
+                hist_idx = min(gen_idx, len(exp.history) - 1)
+                gen_data = exp.history[hist_idx]
+                
+                gen_fitness_list.append(gen_data['fitness'])
+                gen_errors_list.append(gen_data['errors'])
+                gen_accs_list.append(gen_data['accuracies'])
+            
+            # Promediamos arreglos de numpy a lo largo del eje 0 (los individuos)
+            avg_history.append({
+                'gen': gen_idx + 1,
+                'fitness': np.mean(gen_fitness_list, axis=0),
+                'errors': np.mean(gen_errors_list, axis=0),
+                'accuracies': np.mean(gen_accs_list, axis=0),
+                'fitness_std': np.std(gen_fitness_list, axis=0),
+                'accuracies_std': np.std(gen_accs_list, axis=0)
+            })
+            
+        return AveragedExperiment(avg_history, **self.id_recovery_kwargs)

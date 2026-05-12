@@ -2,7 +2,7 @@ from typing import Dict
 import numpy as np
 import pysmile
 
-from models import IDNode, NodeKind
+from evaluation_code.models import IDNode, NodeKind
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 2  NETWORK EXTRACTOR  (pysmile.Network → {name: IDNode})

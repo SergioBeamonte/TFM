@@ -5,8 +5,8 @@ from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import pysmile
 
-from models import IDNode, NodeKind, DecisionPolicy, EvaluationResult
-from math_utils import _expand, _sum_out, _max_out
+from evaluation_code.models import IDNode, NodeKind, DecisionPolicy, EvaluationResult
+from evaluation_code.math_utils import _expand, _sum_out, _max_out
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 4  BASE ENGINE

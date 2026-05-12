@@ -3,8 +3,8 @@ import os
 import itertools
 import random
 import numpy as np
+import pysmile_license
 import pysmile
-import pysmile_license  # Asegúrate de mantener tu licencia
 
 class RuleGenerator:
     """
