@@ -236,8 +236,7 @@ def main():
     parser.add_argument('--rules_csv', default=None, help='Ruta al CSV de reglas')
     parser.add_argument('--min_max_ut', type=lambda x: x.lower() not in ('false', '0', 'no'),
                         default=None, help='Normalizar utilidades (True/False)')
-    parser.add_argument('--optimizer_type', default=None, choices=['umda', 'egda'],
-                        help='Tipo de optimizador')
+    parser.add_argument('--optimizer_type', default=None, help='Tipo de optimizador')
     args = parser.parse_args()
 
     # Construir config efectiva: valores del script como base, args sobreescriben si se pasan

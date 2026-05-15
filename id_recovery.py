@@ -406,7 +406,10 @@ class IDRecovery:
             mejor_vector = self.best_historical_ind
             self.stagnation_counter = 0
 
-        self.fitness(mejor_vector)
+        try:
+            self.fitness(mejor_vector)
+        except StopIteration:
+            pass
         return mejor_vector
 
 
