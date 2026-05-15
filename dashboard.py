@@ -66,6 +66,13 @@ if df_results_all.empty and df_curves_all.empty:
 MODEL_COLORS   = alt.Scale(scheme="tableau10")
 FITNESS_COLORS = alt.Scale(scheme="set2")
 
+_CATEGORICAL_COLS = ["model", "fitness_type", "stop_mode", "n_decision_rules_pct"]
+_NUMERIC_COLS = (
+    [c for c in df_results_all.columns
+     if c not in _CATEGORICAL_COLS and pd.api.types.is_numeric_dtype(df_results_all[c])]
+    if not df_results_all.empty else []
+)
+
 # ─── SIDEBAR ──────────────────────────────────────────────────────────────────
 
 with st.sidebar:
@@ -83,6 +90,15 @@ with st.sidebar:
     sel_fitness = st.multiselect("Tipo de Fitness",      all_fitness, default=all_fitness)
     sel_stop    = st.multiselect("Modo de Parada",       all_stop,    default=all_stop)
     sel_pct     = st.multiselect("% Reglas de Decisión", all_pct,     default=all_pct)
+
+    st.divider()
+    st.subheader("📊 Explorador de Variables")
+    st.caption("Oculta características del explorador interactivo.")
+    excluded_num = st.multiselect("Ocultar métricas numéricas",     _NUMERIC_COLS,     default=[])
+    excluded_cat = st.multiselect("Ocultar características categ.", _CATEGORICAL_COLS, default=[])
+
+avail_num = [c for c in _NUMERIC_COLS     if c not in excluded_num]
+avail_cat = [c for c in _CATEGORICAL_COLS if c not in excluded_cat]
 
 
 def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
@@ -133,212 +149,132 @@ with tab_results:
 
         st.divider()
 
-        # ── CHART 1: Scatter accuracy vs gen. parada ───────────────────────────
-        st.subheader("1 · Accuracy vs Generación de Parada")
+        # ── EXPLORADOR INTERACTIVO ────────────────────────────────────────────
+        st.subheader("🔬 Explorador de Variables")
         st.caption(
-            "Cada punto = una configuración (fitness × stop mode × % reglas). "
-            "Color = fitness type · Forma = modelo."
+            "Selecciona 2–4 características (máx. 2 numéricas · máx. 2 categóricas). "
+            "2 numéricas → scatter · numérica + categórica → barras · "
+            "añade categóricas para separar por color y forma."
         )
 
-        scatter = (
-            alt.Chart(df_r)
-            .mark_point(size=90, opacity=0.8, filled=True)
-            .encode(
-                x=alt.X("stop_gen_mean:Q", title="Generación Media de Parada"),
-                y=alt.Y(
-                    "best_accuracy_mean:Q",
-                    title="Mejor Accuracy Medio (%)",
-                    scale=alt.Scale(zero=False),
-                ),
-                color=alt.Color("fitness_type:N", title="Fitness Type", scale=FITNESS_COLORS),
-                shape=alt.Shape("model:N", title="Modelo"),
-                tooltip=[
-                    alt.Tooltip("model:N",               title="Modelo"),
-                    alt.Tooltip("fitness_type:N",         title="Fitness"),
-                    alt.Tooltip("stop_mode:N",            title="Stop Mode"),
-                    alt.Tooltip("n_decision_rules_pct:Q", title="% Reglas"),
-                    alt.Tooltip("best_accuracy_mean:Q",   title="Best Acc. Mean",  format=".1f"),
-                    alt.Tooltip("mean_accuracy_mean:Q",   title="Mean Acc. Mean",  format=".1f"),
-                    alt.Tooltip("stop_gen_mean:Q",        title="Gen. Parada",     format=".1f"),
-                    alt.Tooltip("mean_mse_chance_mean:Q", title="MSE Chance",      format=".4f"),
-                    alt.Tooltip("mean_mse_utility_mean:Q",title="MSE Utility",     format=".4f"),
-                ],
-            )
-            .properties(height=400)
-            .interactive()
+        exp_c1, exp_c2 = st.columns(2)
+        sel_exp_num = exp_c1.multiselect(
+            "Variables numéricas (eje X / Y)",
+            avail_num,
+            default=avail_num[:2] if len(avail_num) >= 2 else avail_num,
+            key="exp_num",
         )
-        st.altair_chart(scatter, use_container_width=True)
-
-        st.divider()
-
-        # ── CHARTS 2 & 3: Por fitness type y por % reglas ─────────────────────
-        st.subheader("2 · Accuracy Medio por Fitness Type y por % Reglas")
-
-        ft_data = (
-            df_r.groupby(["model", "fitness_type"], as_index=False)
-            .agg(
-                best_accuracy_mean=("best_accuracy_mean", "mean"),
-                mean_accuracy_mean=("mean_accuracy_mean", "mean"),
-                stop_gen_mean=("stop_gen_mean", "mean"),
-            )
+        sel_exp_cat = exp_c2.multiselect(
+            "Variables categóricas (color / forma)",
+            avail_cat,
+            default=[],
+            key="exp_cat",
         )
 
-        pct_data = (
-            df_r.groupby(["model", "n_decision_rules_pct"], as_index=False)
-            .agg(
-                best_accuracy_mean=("best_accuracy_mean", "mean"),
-                mean_accuracy_mean=("mean_accuracy_mean", "mean"),
-                best_accuracy_max=("best_accuracy_max",   "max"),
-            )
-        )
+        n_num = len(sel_exp_num)
+        n_cat = len(sel_exp_cat)
+        total = n_num + n_cat
 
-        c2 = (
-            alt.Chart(ft_data)
-            .mark_bar()
-            .encode(
-                x=alt.X("fitness_type:N", title="Fitness Type", sort="-y"),
-                y=alt.Y("best_accuracy_mean:Q", title="Best Accuracy Medio (%)",
-                        scale=alt.Scale(zero=False)),
-                color=alt.Color("model:N", title="Modelo", scale=MODEL_COLORS),
-                xOffset="model:N",
-                tooltip=[
-                    "model:N", "fitness_type:N",
-                    alt.Tooltip("best_accuracy_mean:Q",  title="Best Acc. Mean",  format=".2f"),
-                    alt.Tooltip("mean_accuracy_mean:Q",  title="Mean Acc. Mean",  format=".2f"),
-                    alt.Tooltip("stop_gen_mean:Q",       title="Gen. Media",      format=".1f"),
-                ],
-            )
-            .properties(height=300, title="Por Fitness Type")
-        )
+        def _et(col):
+            return "N" if col in _CATEGORICAL_COLS else "Q"
 
-        c3 = (
-            alt.Chart(pct_data)
-            .mark_bar()
-            .encode(
-                x=alt.X("n_decision_rules_pct:O", title="% Reglas de Decisión"),
-                y=alt.Y("best_accuracy_mean:Q", title="Best Accuracy Medio (%)",
-                        scale=alt.Scale(zero=False)),
-                color=alt.Color("model:N", title="Modelo", scale=MODEL_COLORS),
-                xOffset="model:N",
-                tooltip=[
-                    "model:N",
-                    alt.Tooltip("n_decision_rules_pct:O",  title="% Reglas"),
-                    alt.Tooltip("best_accuracy_mean:Q",    format=".2f"),
-                    alt.Tooltip("best_accuracy_max:Q",     title="Máx. alcanzado", format=".2f"),
-                    alt.Tooltip("mean_accuracy_mean:Q",    title="Mean Acc. Mean", format=".2f"),
-                ],
-            )
-            .properties(height=300, title="Por % Reglas")
-        )
+        if total < 2:
+            st.info("Selecciona al menos 2 características.")
+        elif n_num > 2:
+            st.warning("Máximo 2 variables numéricas.")
+        elif n_cat > 2:
+            st.warning("Máximo 2 variables categóricas.")
+        elif n_num == 0:
+            st.warning("Selecciona al menos 1 variable numérica.")
+        else:
+            _exp_chart = None
+            all_sel = sel_exp_num + sel_exp_cat
+            _tooltip = [alt.Tooltip(f"{c}:{_et(c)}", title=c) for c in all_sel]
+            _base = alt.Chart(df_r)
 
-        col_a, col_b = st.columns(2)
-        col_a.altair_chart(c2, use_container_width=True)
-        col_b.altair_chart(c3, use_container_width=True)
+            if n_num == 2 and n_cat == 0:
+                _exp_chart = (
+                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    .encode(
+                        x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
+                        y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
+                        tooltip=_tooltip,
+                    )
+                    .properties(height=440)
+                    .interactive()
+                )
 
-        st.divider()
+            elif n_num == 2 and n_cat == 1:
+                _exp_chart = (
+                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    .encode(
+                        x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
+                        y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
+                        color=alt.Color(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], scale=MODEL_COLORS),
+                        tooltip=_tooltip,
+                    )
+                    .properties(height=440)
+                    .interactive()
+                )
 
-        # ── CHART 4: Heatmap fitness × stop_mode por modelo ───────────────────
-        st.subheader("3 · Mapa de Calor — Best Accuracy por Fitness × Stop Mode")
-        st.caption("Facetado por modelo.")
+            elif n_num == 2 and n_cat == 2:
+                _exp_chart = (
+                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    .encode(
+                        x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
+                        y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
+                        color=alt.Color(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], scale=MODEL_COLORS),
+                        shape=alt.Shape(f"{sel_exp_cat[1]}:N", title=sel_exp_cat[1]),
+                        tooltip=_tooltip,
+                    )
+                    .properties(height=440)
+                    .interactive()
+                )
 
-        heat_data = (
-            df_r.groupby(["model", "fitness_type", "stop_mode"], as_index=False)
-            ["best_accuracy_mean"].mean()
-        )
+            elif n_num == 1 and n_cat == 1:
+                _agg = df_r.groupby(sel_exp_cat[0], as_index=False)[sel_exp_num[0]].mean()
+                _exp_chart = (
+                    alt.Chart(_agg)
+                    .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+                    .encode(
+                        x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], sort="-y"),
+                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}",
+                                scale=alt.Scale(zero=False)),
+                        color=alt.Color(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0],
+                                        scale=MODEL_COLORS, legend=None),
+                        tooltip=[
+                            alt.Tooltip(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0]),
+                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".3f"),
+                        ],
+                    )
+                    .properties(height=440)
+                )
 
-        heatmap = (
-            alt.Chart(heat_data)
-            .mark_rect(stroke="white", strokeWidth=1)
-            .encode(
-                x=alt.X("stop_mode:N",    title="Stop Mode",    sort=all_stop),
-                y=alt.Y("fitness_type:N", title="Fitness Type", sort=all_fitness),
-                color=alt.Color(
-                    "best_accuracy_mean:Q",
-                    title="Best Acc. Medio (%)",
-                    scale=alt.Scale(scheme="blues", domain=[
-                        heat_data["best_accuracy_mean"].min() - 2,
-                        heat_data["best_accuracy_mean"].max(),
-                    ]),
-                ),
-                facet=alt.Facet("model:N", columns=max(1, len(sel_models))),
-                tooltip=[
-                    "model:N", "fitness_type:N", "stop_mode:N",
-                    alt.Tooltip("best_accuracy_mean:Q", title="Best Acc. Medio (%)", format=".1f"),
-                ],
-            )
-            .properties(width=200, height=150)
-        )
-        st.altair_chart(heatmap)
+            elif n_num == 1 and n_cat == 2:
+                _agg = df_r.groupby(sel_exp_cat, as_index=False)[sel_exp_num[0]].mean()
+                _exp_chart = (
+                    alt.Chart(_agg)
+                    .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+                    .encode(
+                        x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], sort="-y"),
+                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}",
+                                scale=alt.Scale(zero=False)),
+                        color=alt.Color(f"{sel_exp_cat[1]}:N", title=sel_exp_cat[1], scale=MODEL_COLORS),
+                        xOffset=f"{sel_exp_cat[1]}:N",
+                        tooltip=[
+                            alt.Tooltip(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0]),
+                            alt.Tooltip(f"{sel_exp_cat[1]}:N", title=sel_exp_cat[1]),
+                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".3f"),
+                        ],
+                    )
+                    .properties(height=440)
+                )
 
-        st.divider()
+            else:
+                st.warning("Combinación no soportada.")
 
-        # ── CHART 5: Best vs Mean accuracy por modelo ─────────────────────────
-        st.subheader("4 · Best Accuracy vs Mean Accuracy por Modelo")
-        st.caption(
-            "Diferencia entre el mejor individuo encontrado (best) y la media de accuracy "
-            "del run completo (mean). Mayor separación = el EDA encuentra buenas soluciones "
-            "puntualmente pero la media del run es más baja."
-        )
-
-        bvm_data = (
-            df_r.groupby("model", as_index=False)
-            .agg(
-                Best=("best_accuracy_mean",  "mean"),
-                Mean=("mean_accuracy_mean",  "mean"),
-            )
-            .melt(id_vars="model", var_name="stat", value_name="accuracy")
-        )
-
-        ch5 = (
-            alt.Chart(bvm_data)
-            .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
-            .encode(
-                x=alt.X("model:N", title="Modelo"),
-                y=alt.Y("accuracy:Q", title="Accuracy (%)", scale=alt.Scale(zero=False)),
-                color=alt.Color(
-                    "stat:N",
-                    title="Estadístico",
-                    scale=alt.Scale(
-                        domain=["Best", "Mean"],
-                        range=["#2ecc71", "#3498db"],
-                    ),
-                ),
-                xOffset="stat:N",
-                tooltip=["model:N", "stat:N", alt.Tooltip("accuracy:Q", format=".2f")],
-            )
-            .properties(height=300)
-        )
-        st.altair_chart(ch5, use_container_width=True)
-
-        st.divider()
-
-        # ── CHART 6: MSE Chance vs MSE Utility ───────────────────────────────
-        st.subheader("5 · Error: MSE Chance vs MSE Utility")
-        st.caption(
-            "Scatter de los dos componentes del error. Cada punto es una configuración. "
-            "Color = modelo · Forma = fitness type."
-        )
-
-        mse_scatter = (
-            alt.Chart(df_r)
-            .mark_point(size=80, opacity=0.75, filled=True)
-            .encode(
-                x=alt.X("mean_mse_chance_mean:Q",   title="MSE Chance (media)",   scale=alt.Scale(zero=False)),
-                y=alt.Y("mean_mse_utility_mean:Q",  title="MSE Utility (media)",  scale=alt.Scale(zero=False)),
-                color=alt.Color("model:N",       title="Modelo",      scale=MODEL_COLORS),
-                shape=alt.Shape("fitness_type:N", title="Fitness Type"),
-                tooltip=[
-                    "model:N", "fitness_type:N", "stop_mode:N",
-                    alt.Tooltip("n_decision_rules_pct:Q",  title="% Reglas"),
-                    alt.Tooltip("mean_mse_chance_mean:Q",  title="MSE Chance",   format=".4f"),
-                    alt.Tooltip("mean_mse_utility_mean:Q", title="MSE Utility",  format=".4f"),
-                    alt.Tooltip("best_accuracy_mean:Q",    title="Best Acc.",    format=".1f"),
-                ],
-            )
-            .properties(height=380)
-            .interactive()
-        )
-        st.altair_chart(mse_scatter, use_container_width=True)
+            if _exp_chart is not None:
+                st.altair_chart(_exp_chart, use_container_width=True)
 
         # ── TABLA COMPLETA ─────────────────────────────────────────────────────
         st.divider()
@@ -416,7 +352,7 @@ with tab_curves:
         df_c["model_config"] = df_c["model"] + " · " + df_c["config"]
 
         # ── CONTROLES ─────────────────────────────────────────────────────────
-        ctrl1, ctrl2, ctrl3 = st.columns([1, 1, 2])
+        ctrl1, ctrl2, ctrl3, ctrl4 = st.columns(4)
 
         sel_metric_label = ctrl1.selectbox("Métrica principal", list(CURVE_METRICS.keys()))
         sel_metric = CURVE_METRICS[sel_metric_label]
@@ -424,7 +360,17 @@ with tab_curves:
         max_gen  = int(df_c["generation"].max())
         gen_range = ctrl2.slider("Rango de generaciones", 1, max_gen, (1, max_gen))
 
-        curve_fitness = ctrl3.multiselect(
+        _COLOR_OPTIONS = {
+            "Modelo":           "model",
+            "Fitness Type":     "fitness_type",
+            "Stop Mode":        "stop_mode",
+            "% Reglas":         "n_decision_rules_pct",
+        }
+        sel_color_label = ctrl3.selectbox("Color por", list(_COLOR_OPTIONS.keys()))
+        sel_color_col   = _COLOR_OPTIONS[sel_color_label]
+        _cenc = "O" if sel_color_col == "n_decision_rules_pct" else "N"
+
+        curve_fitness = ctrl4.multiselect(
             "Fitness (filtro adicional curvas)",
             sorted(df_c["fitness_type"].unique()),
             default=sorted(df_c["fitness_type"].unique()),
@@ -450,15 +396,16 @@ with tab_curves:
         # ── CTAB 1: Todas las curvas ───────────────────────────────────────────
         with ctab1:
             st.subheader(f"{sel_metric_label} — todas las configuraciones")
-            st.caption("Clic en el modelo de la leyenda para resaltar sus curvas.")
+            st.caption(f"Color por **{sel_color_label}**. Clic en la leyenda para resaltar.")
 
-            sel = alt.selection_point(fields=["model"], bind="legend")
+            sel = alt.selection_point(fields=[sel_color_col], bind="legend")
 
             base = alt.Chart(df_cf).encode(
                 x=alt.X("generation:Q", title="Generación"),
                 y=alt.Y(f"{sel_metric}:Q", title=sel_metric_label,
                         scale=alt.Scale(zero=False)),
-                color=alt.Color("model:N", title="Modelo", scale=MODEL_COLORS),
+                color=alt.Color(f"{sel_color_col}:{_cenc}", title=sel_color_label,
+                                scale=MODEL_COLORS),
                 detail="model_config:N",
                 opacity=alt.condition(sel, alt.value(0.8), alt.value(0.06)),
                 tooltip=[
@@ -477,18 +424,19 @@ with tab_curves:
             st.altair_chart(all_curves, use_container_width=True)
 
             # Mini-charts de las 4 métricas en paralelo
-            st.subheader("Curva promedio por modelo — las cuatro métricas")
+            st.subheader(f"Curva promedio por {sel_color_label} — las cuatro métricas")
             m_cols = st.columns(4)
             for col, (lbl, m) in zip(m_cols, CURVE_METRICS.items()):
-                avg = df_cf.groupby(["model", "generation"], as_index=False)[m].mean()
+                avg = df_cf.groupby([sel_color_col, "generation"], as_index=False)[m].mean()
                 mini = (
                     alt.Chart(avg)
                     .mark_line(strokeWidth=2.5)
                     .encode(
                         x=alt.X("generation:Q", title="Gen."),
                         y=alt.Y(f"{m}:Q", title=lbl, scale=alt.Scale(zero=False)),
-                        color=alt.Color("model:N", legend=None, scale=MODEL_COLORS),
-                        tooltip=["model:N", "generation:Q",
+                        color=alt.Color(f"{sel_color_col}:{_cenc}", legend=None,
+                                        scale=MODEL_COLORS),
+                        tooltip=[f"{sel_color_col}:{_cenc}", "generation:Q",
                                  alt.Tooltip(f"{m}:Q", format=".4f")],
                     )
                     .properties(height=210, title=lbl)
@@ -498,9 +446,9 @@ with tab_curves:
 
         # ── CTAB 2: Promedios por factor ───────────────────────────────────────
         with ctab2:
-            st.subheader(f"Promedio de {sel_metric_label} por Modelo")
+            st.subheader(f"Promedio de {sel_metric_label} por {sel_color_label}")
 
-            avg_model = df_cf.groupby(["model", "generation"], as_index=False)[sel_metric].mean()
+            avg_model = df_cf.groupby([sel_color_col, "generation"], as_index=False)[sel_metric].mean()
             ch_model = (
                 alt.Chart(avg_model)
                 .mark_line(strokeWidth=3)
@@ -508,8 +456,9 @@ with tab_curves:
                     x=alt.X("generation:Q", title="Generación"),
                     y=alt.Y(f"{sel_metric}:Q", title=sel_metric_label,
                             scale=alt.Scale(zero=False)),
-                    color=alt.Color("model:N", title="Modelo", scale=MODEL_COLORS),
-                    tooltip=["model:N", "generation:Q",
+                    color=alt.Color(f"{sel_color_col}:{_cenc}", title=sel_color_label,
+                                    scale=MODEL_COLORS),
+                    tooltip=[f"{sel_color_col}:{_cenc}", "generation:Q",
                              alt.Tooltip(f"{sel_metric}:Q", format=".4f")],
                 )
                 .properties(height=320)

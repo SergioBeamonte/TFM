@@ -50,7 +50,7 @@ TARGET_FITNESS = 1e-5
 # --- Grid de búsqueda ---
 # n_decision_rules se calcula como % del total de reglas
 RULES_PERCENTAGES = [5, 10, 20, 40, 60]  # porcentajes
-FITNESS_TYPES = ["binary", "margin", "softmax", "regret_reg", "regret", "entropy"]
+FITNESS_TYPES = ["binary", "margin", "softmax", "regret", "entropy"]
 STOP_MODES = ["top10", "top30", "top70", "top90"]
 
 # --- Repeticiones ---
