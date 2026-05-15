@@ -404,7 +404,8 @@ class IDRecovery:
         except StopIteration as e:
             print(f"\n¡PARADA ANTICIPADA! {e}")
             mejor_vector = self.best_historical_ind
-            
+            self.stagnation_counter = 0
+
         self.fitness(mejor_vector)
         return mejor_vector
 
