@@ -64,13 +64,16 @@ jobs:
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
-          # pandas es transitivo de EDAspy pero no lo declara, lo instalamos explicito
-          pip install numpy scipy pandas EDAspy
+          # EDAspy importa varios paquetes transitivamente pero no los declara como deps:
+          # pandas, pybnesian, pgmpy, matplotlib, networkx. Los instalamos explicitos.
+          pip install numpy scipy pandas pybnesian pgmpy matplotlib networkx EDAspy
           pip install vendor/pysmile-2.4.0-cp313-cp313-win_amd64.whl
 
-      - name: Smoke test (pysmile carga con licencia)
+      - name: Smoke test (pysmile + EDAspy cargan)
         shell: pwsh
-        run: python -c "import pysmile_license; import pysmile; print('pysmile OK', pysmile.__file__)"
+        run: |
+          python -c "import pysmile_license; import pysmile; print('pysmile OK', pysmile.__file__)"
+          python -c "from EDAspy.optimization import UMDAc, EGNA, EMNA; print('EDAspy OK')"
 
       - name: Wipe previous CSVs if requested
         if: ${{ inputs.fresh_start }}
