@@ -8,7 +8,7 @@ con N repeticiones por combinación, y guarda:
 
 Uso:
     py grid_search.py
-    py grid_search.py --optimizer_type egda
+    py grid_search.py --optimizer_type egna
     py grid_search.py --xdsl_path ruta/red.xdsl --rules_csv ruta/reglas.csv --min_max_ut True --optimizer_type umda
 """
 
@@ -25,10 +25,11 @@ import numpy as np
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # --- Red y reglas ---
-BASE_FOLDER = r"example\nhlv1"
+# BASE_FOLDER = r"example\nhlv1"
+BASE_FOLDER = r"example\bypass2"
 
-# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
-XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
+XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
+# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
 RULES_CSV = os.path.join(BASE_FOLDER, r"reglas_generadas.csv")
 
 # --- Parámetros fijos del optimizador ---
@@ -39,7 +40,7 @@ BASE_CONFIG = {
     'u_range': (0, 10),
     'alpha': 0.5,
     'elite_factor': 0.0,
-    'optimizer_type': 'umda',
+    'optimizer_type': 'egna',
 }
 
 # --- Parámetros del optimizador ---
@@ -106,48 +107,29 @@ def run_single_experiment(config, g, i, target_fitness):
     if exp.history:
         last_gen = exp.history[-1]
         stop_generation = last_gen['gen']
-        best_fitness = float(np.min(last_gen['fitness']))
-        mean_fitness = float(np.mean(last_gen['fitness']))
-        best_accuracy = float(np.max(last_gen['accuracies']))
-        mean_accuracy = float(np.mean(last_gen['accuracies']))
-        # MSE separados por tipo de nodo (chance = CPTs, utility = utilidades reescaladas)
-        best_mse_chance = float(np.min(last_gen['errors_chance']))
-        mean_mse_chance = float(np.mean(last_gen['errors_chance']))
-        best_mse_utility = float(np.min(last_gen['errors_utility']))
-        mean_mse_utility = float(np.mean(last_gen['errors_utility']))
-        # Diagnósticos de sesgo (parametrización logit/sigmoide):
-        # - entropy_norm: BAJO = CPTs decisivas (deseable); ALTO = sesgo al centro del simplex
-        # - util_dev:     ALTO = utilidades dispersas (deseable); BAJO = sesgo al centro del rango
+        best_fitness   = float(np.min(last_gen['fitness']))
+        best_accuracy  = float(np.max(last_gen['accuracies']))
+        best_mse_chance   = float(np.min(last_gen['errors_chance']))
+        best_mse_utility  = float(np.min(last_gen['errors_utility']))
         best_entropy_norm = float(np.min(last_gen['entropy_norm']))
-        mean_entropy_norm = float(np.mean(last_gen['entropy_norm']))
-        best_util_dev = float(np.max(last_gen['util_dev']))
-        mean_util_dev = float(np.mean(last_gen['util_dev']))
+        best_util_dev     = float(np.max(last_gen['util_dev']))
     else:
-        # Si no hay historial (paró en la primera evaluación)
         stop_generation = 0
-        best_fitness = float(exp.best_historical_fitness) if exp.best_historical_fitness != float('inf') else float('nan')
-        mean_fitness = float('nan')
-        best_accuracy = float('nan')
-        mean_accuracy = float('nan')
-        best_mse_chance = mean_mse_chance = float('nan')
-        best_mse_utility = mean_mse_utility = float('nan')
-        best_entropy_norm = mean_entropy_norm = float('nan')
-        best_util_dev = mean_util_dev = float('nan')
+        best_fitness      = float(exp.best_historical_fitness) if exp.best_historical_fitness != float('inf') else float('nan')
+        best_accuracy     = float('nan')
+        best_mse_chance   = float('nan')
+        best_mse_utility  = float('nan')
+        best_entropy_norm = float('nan')
+        best_util_dev     = float('nan')
 
     results = {
-        'stop_generation': stop_generation,
-        'best_fitness': best_fitness,
-        'mean_fitness': mean_fitness,
-        'best_accuracy': best_accuracy,
-        'mean_accuracy': mean_accuracy,
-        'best_mse_chance': best_mse_chance,
-        'mean_mse_chance': mean_mse_chance,
-        'best_mse_utility': best_mse_utility,
-        'mean_mse_utility': mean_mse_utility,
-        'best_entropy_norm': best_entropy_norm,
-        'mean_entropy_norm': mean_entropy_norm,
-        'best_util_dev': best_util_dev,
-        'mean_util_dev': mean_util_dev,
+        'stop_generation':    stop_generation,
+        'best_fitness':       best_fitness,
+        'best_accuracy':      best_accuracy,
+        'best_mse_chance':    best_mse_chance,
+        'best_mse_utility':   best_mse_utility,
+        'best_entropy_norm':  best_entropy_norm,
+        'best_util_dev':      best_util_dev,
     }
 
     return exp, results
@@ -206,22 +188,12 @@ RESULTS_HEADER = [
     'total_rules',
     'stop_gen_mean', 'stop_gen_std', 'stop_gen_min', 'stop_gen_max',
     'best_fitness_mean', 'best_fitness_std',
-    'mean_accuracy_mean', 'mean_accuracy_std',
-    'best_accuracy_mean', 'best_accuracy_std', 'best_accuracy_min', 'best_accuracy_max',
-    # MSE de CPTs (nodos chance) — mejor por experimento, agregado sobre el batch
-    'best_mse_chance_mean', 'best_mse_chance_std', 'best_mse_chance_min', 'best_mse_chance_max',
-    'mean_mse_chance_mean', 'mean_mse_chance_std', 'mean_mse_chance_min', 'mean_mse_chance_max',
-    # MSE de utilidades (reescaladas a [u_min, u_max]) — mejor por experimento, agregado sobre el batch
-    'best_mse_utility_mean', 'best_mse_utility_std', 'best_mse_utility_min', 'best_mse_utility_max',
-    'mean_mse_utility_mean', 'mean_mse_utility_std', 'mean_mse_utility_min', 'mean_mse_utility_max',
-    # Entropía normalizada total de las CPTs (Σ H(p)/log(k) sobre filas).
-    # Bajo => CPTs decisivas; alto => sesgo al centro del simplex.
-    'best_entropy_norm_mean', 'best_entropy_norm_std', 'best_entropy_norm_min', 'best_entropy_norm_max',
-    'mean_entropy_norm_mean', 'mean_entropy_norm_std', 'mean_entropy_norm_min', 'mean_entropy_norm_max',
-    # Suma de |u - mean(u)| sobre todos los valores de cada nodo utility, acumulado entre nodos.
-    # Alto => utilidades dispersas; bajo => sesgo al centro del rango.
-    'best_util_dev_mean', 'best_util_dev_std', 'best_util_dev_min', 'best_util_dev_max',
-    'mean_util_dev_mean', 'mean_util_dev_std', 'mean_util_dev_min', 'mean_util_dev_max',
+    # Mejor individuo de la última generación, promediado sobre las N repeticiones
+    'accuracy_mean', 'accuracy_std', 'accuracy_min', 'accuracy_max',
+    'mse_chance_mean', 'mse_chance_std',
+    'mse_utility_mean', 'mse_utility_std',
+    'entropy_norm_mean', 'entropy_norm_std',
+    'util_dev_mean', 'util_dev_std',
 ]
 
 CURVES_HEADER = [
@@ -372,73 +344,40 @@ def main():
         
         combo_elapsed = time.time() - combo_start
         
-        # --- Calcular estadísticas agregadas ---
-        # Cada lista tiene N_REPETITIONS valores: uno por experimento.
-        # Cada valor proviene de la ultima generacion (etapa final) del experimento.
-        stop_gens = [r['stop_generation'] for r in all_results]
-        best_fits = [r['best_fitness'] for r in all_results]
-        mean_accs = [r['mean_accuracy'] for r in all_results]
-        best_accs = [r['best_accuracy'] for r in all_results]
-        best_mse_chance = [r['best_mse_chance'] for r in all_results]
-        mean_mse_chance = [r['mean_mse_chance'] for r in all_results]
-        best_mse_utility = [r['best_mse_utility'] for r in all_results]
-        mean_mse_utility = [r['mean_mse_utility'] for r in all_results]
-        best_entropy_norm = [r['best_entropy_norm'] for r in all_results]
-        mean_entropy_norm = [r['mean_entropy_norm'] for r in all_results]
-        best_util_dev = [r['best_util_dev'] for r in all_results]
-        mean_util_dev = [r['mean_util_dev'] for r in all_results]
+        # --- Calcular estadísticas agregadas sobre las N repeticiones ---
+        # Cada lista tiene N_REPETITIONS valores, uno por experimento (última generación).
+        stop_gens     = [r['stop_generation']   for r in all_results]
+        best_fits     = [r['best_fitness']       for r in all_results]
+        best_accs     = [r['best_accuracy']      for r in all_results]
+        mse_chances   = [r['best_mse_chance']    for r in all_results]
+        mse_utilities = [r['best_mse_utility']   for r in all_results]
+        entropy_norms = [r['best_entropy_norm']  for r in all_results]
+        util_devs     = [r['best_util_dev']      for r in all_results]
 
         row = {
-            'fitness_type': fitness_type,
-            'stop_mode': stop_mode,
-            'n_decision_rules': n_rules,
+            'fitness_type':        fitness_type,
+            'stop_mode':           stop_mode,
+            'n_decision_rules':    n_rules,
             'n_decision_rules_pct': rules_pct,
-            'total_rules': total_rules,
-            
-            'stop_gen_mean': f"{np.mean(stop_gens):.2f}",
-            'stop_gen_std': f"{np.std(stop_gens):.2f}",
-            'stop_gen_min': min(stop_gens),
-            'stop_gen_max': max(stop_gens),
-            'best_fitness_mean': f"{np.mean(best_fits):.6f}",
-            'best_fitness_std': f"{np.std(best_fits):.6f}",
-            'mean_accuracy_mean': f"{np.mean(mean_accs):.2f}",
-            'mean_accuracy_std': f"{np.std(mean_accs):.2f}",
-            'best_accuracy_mean': f"{np.mean(best_accs):.2f}",
-            'best_accuracy_std': f"{np.std(best_accs):.2f}",
-            'best_accuracy_min': f"{min(best_accs):.2f}",
-            'best_accuracy_max': f"{max(best_accs):.2f}",
-            'best_mse_chance_mean': f"{np.mean(best_mse_chance):.6f}",
-            'best_mse_chance_std':  f"{np.std(best_mse_chance):.6f}",
-            'best_mse_chance_min':  f"{min(best_mse_chance):.6f}",
-            'best_mse_chance_max':  f"{max(best_mse_chance):.6f}",
-            'mean_mse_chance_mean': f"{np.mean(mean_mse_chance):.6f}",
-            'mean_mse_chance_std':  f"{np.std(mean_mse_chance):.6f}",
-            'mean_mse_chance_min':  f"{min(mean_mse_chance):.6f}",
-            'mean_mse_chance_max':  f"{max(mean_mse_chance):.6f}",
-            'best_mse_utility_mean': f"{np.mean(best_mse_utility):.6f}",
-            'best_mse_utility_std':  f"{np.std(best_mse_utility):.6f}",
-            'best_mse_utility_min':  f"{min(best_mse_utility):.6f}",
-            'best_mse_utility_max':  f"{max(best_mse_utility):.6f}",
-            'mean_mse_utility_mean': f"{np.mean(mean_mse_utility):.6f}",
-            'mean_mse_utility_std':  f"{np.std(mean_mse_utility):.6f}",
-            'mean_mse_utility_min':  f"{min(mean_mse_utility):.6f}",
-            'mean_mse_utility_max':  f"{max(mean_mse_utility):.6f}",
-            'best_entropy_norm_mean': f"{np.mean(best_entropy_norm):.6f}",
-            'best_entropy_norm_std':  f"{np.std(best_entropy_norm):.6f}",
-            'best_entropy_norm_min':  f"{min(best_entropy_norm):.6f}",
-            'best_entropy_norm_max':  f"{max(best_entropy_norm):.6f}",
-            'mean_entropy_norm_mean': f"{np.mean(mean_entropy_norm):.6f}",
-            'mean_entropy_norm_std':  f"{np.std(mean_entropy_norm):.6f}",
-            'mean_entropy_norm_min':  f"{min(mean_entropy_norm):.6f}",
-            'mean_entropy_norm_max':  f"{max(mean_entropy_norm):.6f}",
-            'best_util_dev_mean': f"{np.mean(best_util_dev):.6f}",
-            'best_util_dev_std':  f"{np.std(best_util_dev):.6f}",
-            'best_util_dev_min':  f"{min(best_util_dev):.6f}",
-            'best_util_dev_max':  f"{max(best_util_dev):.6f}",
-            'mean_util_dev_mean': f"{np.mean(mean_util_dev):.6f}",
-            'mean_util_dev_std':  f"{np.std(mean_util_dev):.6f}",
-            'mean_util_dev_min':  f"{min(mean_util_dev):.6f}",
-            'mean_util_dev_max':  f"{max(mean_util_dev):.6f}",
+            'total_rules':         total_rules,
+            'stop_gen_mean':       f"{np.mean(stop_gens):.2f}",
+            'stop_gen_std':        f"{np.std(stop_gens):.2f}",
+            'stop_gen_min':        min(stop_gens),
+            'stop_gen_max':        max(stop_gens),
+            'best_fitness_mean':   f"{np.mean(best_fits):.6f}",
+            'best_fitness_std':    f"{np.std(best_fits):.6f}",
+            'accuracy_mean':       f"{np.mean(best_accs):.2f}",
+            'accuracy_std':        f"{np.std(best_accs):.2f}",
+            'accuracy_min':        f"{min(best_accs):.2f}",
+            'accuracy_max':        f"{max(best_accs):.2f}",
+            'mse_chance_mean':     f"{np.mean(mse_chances):.6f}",
+            'mse_chance_std':      f"{np.std(mse_chances):.6f}",
+            'mse_utility_mean':    f"{np.mean(mse_utilities):.6f}",
+            'mse_utility_std':     f"{np.std(mse_utilities):.6f}",
+            'entropy_norm_mean':   f"{np.mean(entropy_norms):.6f}",
+            'entropy_norm_std':    f"{np.std(entropy_norms):.6f}",
+            'util_dev_mean':       f"{np.mean(util_devs):.6f}",
+            'util_dev_std':        f"{np.std(util_devs):.6f}",
         }
 
         append_results_row(results_csv, row)

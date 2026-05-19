@@ -15,17 +15,61 @@ st.caption("Barrido paramétrico para recuperación de IDs. Carga automática de
 
 # ─── DISCOVERY ────────────────────────────────────────────────────────────────
 
-@st.cache_data
+@st.cache_data(ttl=30)
 def discover_models():
     found = {}
     for f in glob.glob("**/grid_search_results_*.csv", recursive=True):
-        model = os.path.basename(f).replace("grid_search_results_", "").replace(".csv", "")
-        curves = f.replace("results", "curves")
-        found[model] = (
+        # Ignorar worktrees de git y carpetas ocultas
+        parts = f.replace("\\", "/").split("/")
+        if any(p.startswith(".") for p in parts):
+            continue
+        optimizer = os.path.basename(f).replace("grid_search_results_", "").replace(".csv", "")
+        subdir    = os.path.basename(os.path.dirname(f))
+        key       = f"{subdir} · {optimizer}"
+        curves    = f.replace("results", "curves")
+        found[key] = (
             os.path.normpath(f),
             os.path.normpath(curves) if os.path.exists(curves) else None,
         )
     return found
+
+
+_RESULTS_RENAME = {
+    'best_accuracy_mean':    'accuracy_mean',
+    'best_accuracy_std':     'accuracy_std',
+    'best_accuracy_min':     'accuracy_min',
+    'best_accuracy_max':     'accuracy_max',
+    'best_mse_chance_mean':  'mse_chance_mean',
+    'best_mse_chance_std':   'mse_chance_std',
+    'best_mse_utility_mean': 'mse_utility_mean',
+    'best_mse_utility_std':  'mse_utility_std',
+    'best_entropy_norm_mean':'entropy_norm_mean',
+    'best_entropy_norm_std': 'entropy_norm_std',
+    'best_util_dev_mean':    'util_dev_mean',
+    'best_util_dev_std':     'util_dev_std',
+}
+_RESULTS_DROP = {
+    'mean_accuracy_mean', 'mean_accuracy_std',
+    'mean_mse_chance_mean', 'mean_mse_chance_std',
+    'mean_mse_chance_min', 'mean_mse_chance_max',
+    'best_mse_chance_min', 'best_mse_chance_max',
+    'mean_mse_utility_mean', 'mean_mse_utility_std',
+    'mean_mse_utility_min', 'mean_mse_utility_max',
+    'best_mse_utility_min', 'best_mse_utility_max',
+    'mean_entropy_norm_mean', 'mean_entropy_norm_std',
+    'mean_entropy_norm_min', 'mean_entropy_norm_max',
+    'best_entropy_norm_min', 'best_entropy_norm_max',
+    'mean_util_dev_mean', 'mean_util_dev_std',
+    'mean_util_dev_min', 'mean_util_dev_max',
+    'best_util_dev_min', 'best_util_dev_max',
+    'mean_fitness',
+}
+
+
+def _normalize_results(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.rename(columns={k: v for k, v in _RESULTS_RENAME.items() if k in df.columns})
+    df = df.drop(columns=[c for c in _RESULTS_DROP if c in df.columns])
+    return df
 
 
 @st.cache_data
@@ -36,7 +80,7 @@ def load_all(model_dict_frozen):
             df = pd.read_csv(results_path)
             if not df.empty:
                 df.insert(0, "model", model)
-                res_list.append(df)
+                res_list.append(_normalize_results(df))
         if curves_path and os.path.exists(curves_path):
             df = pd.read_csv(curves_path)
             if not df.empty:
@@ -65,6 +109,49 @@ if df_results_all.empty and df_curves_all.empty:
 
 MODEL_COLORS   = alt.Scale(scheme="tableau10")
 FITNESS_COLORS = alt.Scale(scheme="set2")
+
+
+def _register_theme():
+    def _theme():
+        return {
+            "config": {
+                "background": "white",
+                "axis": {
+                    "domainColor": "#d1d5db",
+                    "gridColor":   "#f3f4f6",
+                    "gridWidth":   1,
+                    "labelColor":  "#6b7280",
+                    "labelFontSize": 11,
+                    "tickColor":   "#d1d5db",
+                    "tickSize":    4,
+                    "titleColor":  "#374151",
+                    "titleFontSize": 12,
+                    "titleFontWeight": "normal",
+                    "titlePadding": 8,
+                },
+                "legend": {
+                    "labelColor":       "#6b7280",
+                    "labelFontSize":    11,
+                    "titleColor":       "#374151",
+                    "titleFontSize":    12,
+                    "titleFontWeight":  "normal",
+                    "padding":          4,
+                },
+                "title": {
+                    "color":       "#111827",
+                    "fontSize":    13,
+                    "fontWeight":  "600",
+                    "anchor":      "start",
+                    "offset":      8,
+                },
+                "view": {"strokeWidth": 0},
+            }
+        }
+    alt.themes.register("tfm_pro", _theme)
+    alt.themes.enable("tfm_pro")
+
+
+_register_theme()
 
 _CATEGORICAL_COLS = ["model", "fitness_type", "stop_mode", "n_decision_rules_pct"]
 _NUMERIC_COLS = (
@@ -129,21 +216,21 @@ with tab_results:
         st.info("Sin datos de resultados para los filtros seleccionados.")
     else:
         # ── KPIs ──────────────────────────────────────────────────────────────
-        best = df_r.loc[df_r["best_accuracy_mean"].idxmax()]
+        best = df_r.loc[df_r["accuracy_mean"].idxmax()]
         k1, k2, k3, k4, k5 = st.columns(5)
         k1.metric("Configuraciones totales", len(df_r))
         k2.metric(
-            "Mejor Accuracy (best_mean)",
-            f"{best['best_accuracy_mean']:.1f}%",
+            "Mejor Accuracy (media)",
+            f"{best['accuracy_mean']:.1f}%",
             delta=f"{best['model']} · {best['fitness_type']} · {best['stop_mode']} · {best['n_decision_rules_pct']}%",
         )
         k3.metric(
             "Accuracy Global Máximo",
-            f"{df_r['best_accuracy_max'].max():.1f}%",
+            f"{df_r['accuracy_max'].max():.1f}%",
         )
         k4.metric(
             "Menor MSE Chance (media)",
-            f"{df_r['mean_mse_chance_mean'].min():.3f}",
+            f"{df_r['mse_chance_mean'].min():.3f}",
         )
         k5.metric("Gen. Media de Parada", f"{df_r['stop_gen_mean'].mean():.1f}")
 
@@ -151,20 +238,15 @@ with tab_results:
 
         # ── EXPLORADOR INTERACTIVO ────────────────────────────────────────────
         st.subheader("🔬 Explorador de Variables")
-        st.caption(
-            "Selecciona 2–4 características (máx. 2 numéricas · máx. 2 categóricas). "
-            "2 numéricas → scatter · numérica + categórica → barras · "
-            "añade categóricas para separar por color y forma."
-        )
 
-        exp_c1, exp_c2 = st.columns(2)
-        sel_exp_num = exp_c1.multiselect(
+        _sel_row = st.columns([2, 2, 1])
+        sel_exp_num = _sel_row[0].multiselect(
             "Variables numéricas (eje X / Y)",
             avail_num,
             default=avail_num[:2] if len(avail_num) >= 2 else avail_num,
             key="exp_num",
         )
-        sel_exp_cat = exp_c2.multiselect(
+        sel_exp_cat = _sel_row[1].multiselect(
             "Variables categóricas (color / forma)",
             avail_cat,
             default=[],
@@ -174,6 +256,14 @@ with tab_results:
         n_num = len(sel_exp_num)
         n_cat = len(sel_exp_cat)
         total = n_num + n_cat
+
+        _chart_type = "Scatter"
+        if n_num == 2:
+            _chart_type = _sel_row[2].radio(
+                "Tipo",
+                ["Scatter", "Boxplot"],
+                key="chart_type_toggle",
+            )
 
         def _et(col):
             return "N" if col in _CATEGORICAL_COLS else "Q"
@@ -192,9 +282,33 @@ with tab_results:
             _tooltip = [alt.Tooltip(f"{c}:{_et(c)}", title=c) for c in all_sel]
             _base = alt.Chart(df_r)
 
-            if n_num == 2 and n_cat == 0:
+            # ── BOXPLOT ──────────────────────────────────────────────────────
+            if _chart_type == "Boxplot":
+                if n_cat != 1:
+                    st.warning("El boxplot requiere exactamente 1 variable categórica para agrupar.")
+                else:
+                    def _boxplot(y_col):
+                        return (
+                            alt.Chart(df_r)
+                            .mark_boxplot(extent="min-max", size=28)
+                            .encode(
+                                x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0],
+                                        sort=alt.EncodingSortField(f"{y_col}", op="median", order="descending")),
+                                y=alt.Y(f"{y_col}:Q", title=y_col, scale=alt.Scale(zero=False)),
+                                color=alt.Color(f"{sel_exp_cat[0]}:N", scale=MODEL_COLORS, legend=None),
+                                tooltip=[
+                                    alt.Tooltip(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0]),
+                                    alt.Tooltip(f"{y_col}:Q", title=y_col, format=".4f"),
+                                ],
+                            )
+                            .properties(height=400, title=y_col)
+                        )
+                    _exp_chart = (_boxplot(sel_exp_num[0]) | _boxplot(sel_exp_num[1]))
+
+            # ── SCATTER / BARRAS ─────────────────────────────────────────────
+            elif n_num == 2 and n_cat == 0:
                 _exp_chart = (
-                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    _base.mark_point(size=80, opacity=0.75, filled=True)
                     .encode(
                         x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
                         y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
@@ -206,7 +320,7 @@ with tab_results:
 
             elif n_num == 2 and n_cat == 1:
                 _exp_chart = (
-                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    _base.mark_point(size=80, opacity=0.75, filled=True)
                     .encode(
                         x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
                         y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
@@ -219,7 +333,7 @@ with tab_results:
 
             elif n_num == 2 and n_cat == 2:
                 _exp_chart = (
-                    _base.mark_point(size=90, opacity=0.8, filled=True)
+                    _base.mark_point(size=80, opacity=0.75, filled=True)
                     .encode(
                         x=alt.X(f"{sel_exp_num[0]}:Q", title=sel_exp_num[0], scale=alt.Scale(zero=False)),
                         y=alt.Y(f"{sel_exp_num[1]}:Q", title=sel_exp_num[1], scale=alt.Scale(zero=False)),
@@ -238,13 +352,13 @@ with tab_results:
                     .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
                     .encode(
                         x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], sort="-y"),
-                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}",
+                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media — {sel_exp_num[0]}",
                                 scale=alt.Scale(zero=False)),
                         color=alt.Color(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0],
                                         scale=MODEL_COLORS, legend=None),
                         tooltip=[
                             alt.Tooltip(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0]),
-                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".3f"),
+                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".4f"),
                         ],
                     )
                     .properties(height=440)
@@ -257,14 +371,14 @@ with tab_results:
                     .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
                     .encode(
                         x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0], sort="-y"),
-                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}",
+                        y=alt.Y(f"{sel_exp_num[0]}:Q", title=f"Media — {sel_exp_num[0]}",
                                 scale=alt.Scale(zero=False)),
                         color=alt.Color(f"{sel_exp_cat[1]}:N", title=sel_exp_cat[1], scale=MODEL_COLORS),
                         xOffset=f"{sel_exp_cat[1]}:N",
                         tooltip=[
                             alt.Tooltip(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0]),
                             alt.Tooltip(f"{sel_exp_cat[1]}:N", title=sel_exp_cat[1]),
-                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".3f"),
+                            alt.Tooltip(f"{sel_exp_num[0]}:Q", title=f"Media {sel_exp_num[0]}", format=".4f"),
                         ],
                     )
                     .properties(height=440)
@@ -274,7 +388,7 @@ with tab_results:
                 st.warning("Combinación no soportada.")
 
             if _exp_chart is not None:
-                st.altair_chart(_exp_chart, use_container_width=True)
+                st.altair_chart(_exp_chart, width='stretch')
 
         # ── TABLA COMPLETA ─────────────────────────────────────────────────────
         st.divider()
@@ -282,49 +396,49 @@ with tab_results:
 
         ordered_cols = [
             "model", "fitness_type", "stop_mode", "n_decision_rules_pct",
-            "best_accuracy_mean",  "best_accuracy_std",  "best_accuracy_min",  "best_accuracy_max",
-            "mean_accuracy_mean",  "mean_accuracy_std",
-            "mean_mse_chance_mean","mean_mse_chance_std",
-            "mean_mse_utility_mean","mean_mse_utility_std",
-            "best_mse_chance_mean","best_mse_utility_mean",
-            "stop_gen_mean",       "stop_gen_std",        "stop_gen_min",       "stop_gen_max",
-            "best_fitness_mean",   "best_fitness_std",
-            "total_rules",         "n_decision_rules",
+            "accuracy_mean", "accuracy_std", "accuracy_min", "accuracy_max",
+            "mse_chance_mean", "mse_chance_std",
+            "mse_utility_mean", "mse_utility_std",
+            "entropy_norm_mean", "entropy_norm_std",
+            "util_dev_mean", "util_dev_std",
+            "stop_gen_mean", "stop_gen_std", "stop_gen_min", "stop_gen_max",
+            "best_fitness_mean", "best_fitness_std",
+            "total_rules", "n_decision_rules",
         ]
         show_cols = [c for c in ordered_cols if c in df_r.columns]
         table = df_r[show_cols].sort_values(
-            ["best_accuracy_mean", "model"], ascending=[False, True]
+            ["accuracy_mean", "model"], ascending=[False, True]
         )
 
         st.dataframe(
             table,
-            use_container_width=True,
+            width='stretch',
             hide_index=True,
             column_config={
-                "model":                   st.column_config.TextColumn("Modelo"),
-                "fitness_type":            st.column_config.TextColumn("Fitness"),
-                "stop_mode":               st.column_config.TextColumn("Stop Mode"),
-                "n_decision_rules_pct":    st.column_config.NumberColumn("% Reglas",         format="%d %%"),
-                "best_accuracy_mean":      st.column_config.NumberColumn("Best Acc. Mean",   format="%.1f %%"),
-                "best_accuracy_std":       st.column_config.NumberColumn("Best Acc. σ",      format="%.2f"),
-                "best_accuracy_min":       st.column_config.NumberColumn("Best Acc. Min",    format="%.1f %%"),
-                "best_accuracy_max":       st.column_config.NumberColumn("Best Acc. Max",    format="%.1f %%"),
-                "mean_accuracy_mean":      st.column_config.NumberColumn("Mean Acc. Mean",   format="%.1f %%"),
-                "mean_accuracy_std":       st.column_config.NumberColumn("Mean Acc. σ",      format="%.2f"),
-                "mean_mse_chance_mean":    st.column_config.NumberColumn("MSE Chance (med)", format="%.3f"),
-                "mean_mse_chance_std":     st.column_config.NumberColumn("MSE Chance σ",     format="%.3f"),
-                "mean_mse_utility_mean":   st.column_config.NumberColumn("MSE Utility (med)",format="%.3f"),
-                "mean_mse_utility_std":    st.column_config.NumberColumn("MSE Utility σ",    format="%.3f"),
-                "best_mse_chance_mean":    st.column_config.NumberColumn("Best MSE Chance",  format="%.3f"),
-                "best_mse_utility_mean":   st.column_config.NumberColumn("Best MSE Utility", format="%.3f"),
-                "stop_gen_mean":           st.column_config.NumberColumn("Gen. Media",        format="%.1f"),
-                "stop_gen_std":            st.column_config.NumberColumn("Gen. σ",            format="%.2f"),
-                "stop_gen_min":            st.column_config.NumberColumn("Gen. Min",          format="%.0f"),
-                "stop_gen_max":            st.column_config.NumberColumn("Gen. Max",          format="%.0f"),
-                "best_fitness_mean":       st.column_config.NumberColumn("Best Fitness Mean", format="%.4f"),
-                "best_fitness_std":        st.column_config.NumberColumn("Best Fitness σ",    format="%.4f"),
-                "total_rules":             st.column_config.NumberColumn("Total Reglas"),
-                "n_decision_rules":        st.column_config.NumberColumn("N Reglas"),
+                "model":               st.column_config.TextColumn("Modelo"),
+                "fitness_type":        st.column_config.TextColumn("Fitness"),
+                "stop_mode":           st.column_config.TextColumn("Stop Mode"),
+                "n_decision_rules_pct":st.column_config.NumberColumn("% Reglas",       format="%.0f %%"),
+                "accuracy_mean":       st.column_config.NumberColumn("Accuracy Media",  format="%.1f %%"),
+                "accuracy_std":        st.column_config.NumberColumn("Accuracy σ",      format="%.2f"),
+                "accuracy_min":        st.column_config.NumberColumn("Accuracy Min",    format="%.1f %%"),
+                "accuracy_max":        st.column_config.NumberColumn("Accuracy Max",    format="%.1f %%"),
+                "mse_chance_mean":     st.column_config.NumberColumn("MSE Chance",      format="%.3f"),
+                "mse_chance_std":      st.column_config.NumberColumn("MSE Chance σ",    format="%.3f"),
+                "mse_utility_mean":    st.column_config.NumberColumn("MSE Utility",     format="%.3f"),
+                "mse_utility_std":     st.column_config.NumberColumn("MSE Utility σ",   format="%.3f"),
+                "entropy_norm_mean":   st.column_config.NumberColumn("Entropía Norm.",  format="%.4f"),
+                "entropy_norm_std":    st.column_config.NumberColumn("Entropía σ",      format="%.4f"),
+                "util_dev_mean":       st.column_config.NumberColumn("Util Dev",        format="%.4f"),
+                "util_dev_std":        st.column_config.NumberColumn("Util Dev σ",      format="%.4f"),
+                "stop_gen_mean":       st.column_config.NumberColumn("Gen. Media",      format="%.1f"),
+                "stop_gen_std":        st.column_config.NumberColumn("Gen. σ",          format="%.2f"),
+                "stop_gen_min":        st.column_config.NumberColumn("Gen. Min",        format="%.0f"),
+                "stop_gen_max":        st.column_config.NumberColumn("Gen. Max",        format="%.0f"),
+                "best_fitness_mean":   st.column_config.NumberColumn("Best Fitness",    format="%.4f"),
+                "best_fitness_std":    st.column_config.NumberColumn("Best Fitness σ",  format="%.4f"),
+                "total_rules":         st.column_config.NumberColumn("Total Reglas"),
+                "n_decision_rules":    st.column_config.NumberColumn("N Reglas"),
             },
         )
 
@@ -334,10 +448,12 @@ with tab_results:
 # ══════════════════════════════════════════════════════════════════════════════
 
 CURVE_METRICS = {
-    "Accuracy (%)":   "mean_accuracy",
-    "Fitness":        "mean_fitness",
-    "MSE Chance":     "mean_error_chance",
-    "MSE Utility":    "mean_error_utility",
+    "Accuracy (%)":    "mean_accuracy",
+    "Fitness":         "mean_fitness",
+    "MSE Chance":      "mean_error_chance",
+    "MSE Utility":     "mean_error_utility",
+    "Entropía Norm.":  "mean_entropy_norm",
+    "Util Dev":        "mean_util_dev",
 }
 
 with tab_curves:
@@ -354,8 +470,9 @@ with tab_curves:
         # ── CONTROLES ─────────────────────────────────────────────────────────
         ctrl1, ctrl2, ctrl3, ctrl4 = st.columns(4)
 
-        sel_metric_label = ctrl1.selectbox("Métrica principal", list(CURVE_METRICS.keys()))
-        sel_metric = CURVE_METRICS[sel_metric_label]
+        _avail_metrics = {lbl: m for lbl, m in CURVE_METRICS.items() if m in df_c.columns}
+        sel_metric_label = ctrl1.selectbox("Métrica principal", list(_avail_metrics.keys()))
+        sel_metric = _avail_metrics[sel_metric_label]
 
         max_gen  = int(df_c["generation"].max())
         gen_range = ctrl2.slider("Rango de generaciones", 1, max_gen, (1, max_gen))
@@ -421,14 +538,14 @@ with tab_curves:
                 + base.mark_circle(size=1).add_params(sel)
             ).properties(height=420).interactive()
 
-            st.altair_chart(all_curves, use_container_width=True)
+            st.altair_chart(all_curves, width='stretch')
 
-            # Mini-charts de las 4 métricas en paralelo
-            st.subheader(f"Curva promedio por {sel_color_label} — las cuatro métricas")
+            # Mini-charts de las 6 métricas en paralelo (2 filas × 3)
+            st.subheader(f"Curva promedio por {sel_color_label} — todas las métricas")
             # Forward-fill cada curva individual hasta la gen. máxima antes de promediar,
             # para que las curvas cortas (convergencia temprana) no arrastren la media a 0.
             _all_gens = sorted(df_cf["generation"].unique())
-            _metric_cols = list(CURVE_METRICS.values())
+            _metric_cols = [c for c in CURVE_METRICS.values() if c in df_cf.columns]
             _cat_cols_present = [c for c in _CATEGORICAL_COLS if c in df_cf.columns]
             _fill_pieces = []
             for _cfg, _grp in df_cf.groupby("model_config"):
@@ -444,24 +561,28 @@ with tab_curves:
                 _fill_pieces.append(_sub)
             _df_mini = pd.concat(_fill_pieces, ignore_index=True) if _fill_pieces else df_cf
 
-            m_cols = st.columns(4)
-            for col, (lbl, m) in zip(m_cols, CURVE_METRICS.items()):
-                avg = _df_mini.groupby([sel_color_col, "generation"], as_index=False)[m].mean()
-                mini = (
-                    alt.Chart(avg)
-                    .mark_line(strokeWidth=2.5)
-                    .encode(
-                        x=alt.X("generation:Q", title="Gen."),
-                        y=alt.Y(f"{m}:Q", title=lbl, scale=alt.Scale(zero=False)),
-                        color=alt.Color(f"{sel_color_col}:{_cenc}", legend=None,
-                                        scale=MODEL_COLORS),
-                        tooltip=[f"{sel_color_col}:{_cenc}", "generation:Q",
-                                 alt.Tooltip(f"{m}:Q", format=".4f")],
+            _metrics_items = [(lbl, m) for lbl, m in CURVE_METRICS.items() if m in df_cf.columns]
+            for _row_items in [_metrics_items[:3], _metrics_items[3:]]:
+                if not _row_items:
+                    continue
+                _row_cols = st.columns(len(_row_items))
+                for col, (lbl, m) in zip(_row_cols, _row_items):
+                    avg = _df_mini.groupby([sel_color_col, "generation"], as_index=False)[m].mean()
+                    mini = (
+                        alt.Chart(avg)
+                        .mark_line(strokeWidth=2.5)
+                        .encode(
+                            x=alt.X("generation:Q", title="Gen."),
+                            y=alt.Y(f"{m}:Q", title=lbl, scale=alt.Scale(zero=False)),
+                            color=alt.Color(f"{sel_color_col}:{_cenc}", legend=None,
+                                            scale=MODEL_COLORS),
+                            tooltip=[f"{sel_color_col}:{_cenc}", "generation:Q",
+                                     alt.Tooltip(f"{m}:Q", format=".4f")],
+                        )
+                        .properties(height=210, title=lbl)
+                        .interactive()
                     )
-                    .properties(height=210, title=lbl)
-                    .interactive()
-                )
-                col.altair_chart(mini, use_container_width=True)
+                    col.altair_chart(mini, width='stretch')
 
         # ── CTAB 2: Promedios por factor ───────────────────────────────────────
         with ctab2:
@@ -483,7 +604,7 @@ with tab_curves:
                 .properties(height=320)
                 .interactive()
             )
-            st.altair_chart(ch_model, use_container_width=True)
+            st.altair_chart(ch_model, width='stretch')
 
             f1, f2 = st.columns(2)
 
@@ -505,7 +626,7 @@ with tab_curves:
                     .properties(height=270)
                     .interactive()
                 )
-                st.altair_chart(ch_stop, use_container_width=True)
+                st.altair_chart(ch_stop, width='stretch')
 
             with f2:
                 st.subheader("Por % Reglas")
@@ -527,7 +648,7 @@ with tab_curves:
                     .properties(height=270)
                     .interactive()
                 )
-                st.altair_chart(ch_pct, use_container_width=True)
+                st.altair_chart(ch_pct, width='stretch')
 
             st.subheader("Por Fitness Type")
             avg_ft = df_cf.groupby(["fitness_type", "generation"], as_index=False)[sel_metric].mean()
@@ -546,7 +667,7 @@ with tab_curves:
                 .properties(height=280)
                 .interactive()
             )
-            st.altair_chart(ch_ft, use_container_width=True)
+            st.altair_chart(ch_ft, width='stretch')
 
         # ── CTAB 3: Drilldown ──────────────────────────────────────────────────
         with ctab3:
@@ -598,18 +719,29 @@ with tab_curves:
                         .interactive()
                     )
 
-                # 2×2 grid con las 4 métricas
+                # Grid de métricas: siempre 2 columnas, filas según disponibilidad
                 row1_c1, row1_c2 = st.columns(2)
                 row2_c1, row2_c2 = st.columns(2)
 
                 row1_c1.subheader("Accuracy (%)")
-                row1_c1.altair_chart(drill_chart("mean_accuracy",     "Accuracy (%)"),   use_container_width=True)
+                row1_c1.altair_chart(drill_chart("mean_accuracy",      "Accuracy (%)"),    width='stretch')
                 row1_c2.subheader("Fitness")
-                row1_c2.altair_chart(drill_chart("mean_fitness",      "Fitness"),        use_container_width=True)
+                row1_c2.altair_chart(drill_chart("mean_fitness",       "Fitness"),         width='stretch')
                 row2_c1.subheader("MSE Chance")
-                row2_c1.altair_chart(drill_chart("mean_error_chance",  "MSE Chance"),    use_container_width=True)
+                row2_c1.altair_chart(drill_chart("mean_error_chance",  "MSE Chance"),      width='stretch')
                 row2_c2.subheader("MSE Utility")
-                row2_c2.altair_chart(drill_chart("mean_error_utility", "MSE Utility"),   use_container_width=True)
+                row2_c2.altair_chart(drill_chart("mean_error_utility", "MSE Utility"),     width='stretch')
+
+                _has_ent = "mean_entropy_norm" in drill.columns
+                _has_dev = "mean_util_dev" in drill.columns
+                if _has_ent or _has_dev:
+                    row3_c1, row3_c2 = st.columns(2)
+                    if _has_ent:
+                        row3_c1.subheader("Entropía Norm.")
+                        row3_c1.altair_chart(drill_chart("mean_entropy_norm", "Entropía Norm."), width='stretch')
+                    if _has_dev:
+                        row3_c2.subheader("Util Dev")
+                        row3_c2.altair_chart(drill_chart("mean_util_dev",     "Util Dev"),        width='stretch')
 
                 # Velocidad de convergencia
                 st.subheader("Velocidad de convergencia — gen. donde se alcanza el 98% del accuracy final")
@@ -621,18 +753,23 @@ with tab_curves:
                         continue
                     final_acc = md["mean_accuracy"].iloc[-1]
                     hit = md[md["mean_accuracy"] >= final_acc * 0.98]
-                    conv_rows.append({
-                        "Modelo":                  model,
-                        "Gen. Conv. (98%)":        int(hit["generation"].min()) if not hit.empty else None,
-                        "Accuracy Final":          round(final_acc, 2),
-                        "Fitness Final":           round(md["mean_fitness"].iloc[-1], 4),
-                        "MSE Chance Final":        round(md["mean_error_chance"].iloc[-1], 4),
-                        "MSE Utility Final":       round(md["mean_error_utility"].iloc[-1], 4),
-                    })
+                    row = {
+                        "Modelo":             model,
+                        "Gen. Conv. (98%)":   int(hit["generation"].min()) if not hit.empty else None,
+                        "Accuracy Final":     round(final_acc, 2),
+                        "Fitness Final":      round(md["mean_fitness"].iloc[-1], 4),
+                        "MSE Chance Final":   round(md["mean_error_chance"].iloc[-1], 4),
+                        "MSE Utility Final":  round(md["mean_error_utility"].iloc[-1], 4),
+                    }
+                    if "mean_entropy_norm" in md.columns:
+                        row["Entropía Norm. Final"] = round(md["mean_entropy_norm"].iloc[-1], 4)
+                    if "mean_util_dev" in md.columns:
+                        row["Util Dev Final"] = round(md["mean_util_dev"].iloc[-1], 4)
+                    conv_rows.append(row)
 
                 if conv_rows:
                     conv_df = pd.DataFrame(conv_rows)
-                    st.dataframe(conv_df, use_container_width=True, hide_index=True)
+                    st.dataframe(conv_df, width='stretch', hide_index=True)
 
                     conv_bar = (
                         alt.Chart(conv_df.dropna(subset=["Gen. Conv. (98%)"]))
@@ -646,4 +783,4 @@ with tab_curves:
                         )
                         .properties(height=230)
                     )
-                    st.altair_chart(conv_bar, use_container_width=True)
+                    st.altair_chart(conv_bar, width='stretch')
