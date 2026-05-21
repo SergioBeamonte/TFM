@@ -64,6 +64,9 @@ UTILITY_TEMPERATURES = [1.0, 3.0, 5.0]
 #   'utility_only' → fija CPTs a las originales, solo busca utilidades.
 #   'chance_only'  → fija utilidades, solo busca CPTs.
 MODES = ['both', 'utility_only', 'chance_only']
+# Muestreo antitético en pm.sample: simétrico fuerza mismo nº de cuentas a izquierda
+# y derecha de la media en cada generación; non_symmetric es el comportamiento estándar.
+SAMPLING_MODES = ['non_symmetric', 'symmetric']
 
 # --- Repeticiones ---
 N_REPETITIONS = 5
@@ -99,7 +102,8 @@ def get_completed_combinations(results_csv_path):
             ct = row.get('chance_temperature') or '1.0'
             ut = row.get('utility_temperature') or '1.0'
             md = row.get('mode') or 'both'
-            key = (md, ct, ut, row['fitness_type'], row['stop_mode'], row['n_decision_rules'])
+            sm = row.get('sampling_mode') or 'non_symmetric'
+            key = (md, sm, ct, ut, row['fitness_type'], row['stop_mode'], row['n_decision_rules'])
             completed.add(key)
     return completed
 
@@ -202,7 +206,7 @@ def average_histories(experiments):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 RESULTS_HEADER = [
-    'mode', 'chance_temperature', 'utility_temperature',
+    'mode', 'sampling_mode', 'chance_temperature', 'utility_temperature',
     'fitness_type', 'stop_mode', 'n_decision_rules', 'n_decision_rules_pct',
     'total_rules',
     'stop_gen_mean', 'stop_gen_std', 'stop_gen_min', 'stop_gen_max',
@@ -215,7 +219,7 @@ RESULTS_HEADER = [
 ]
 
 CURVES_HEADER = [
-    'mode', 'chance_temperature', 'utility_temperature',
+    'mode', 'sampling_mode', 'chance_temperature', 'utility_temperature',
     'fitness_type', 'stop_mode', 'n_decision_rules', 'n_decision_rules_pct',
     'generation', 'mean_fitness', 'mean_accuracy',
     'mean_error_chance', 'mean_error_utility', 'mean_entropy_norm', 'mean_util_dev']
@@ -297,6 +301,7 @@ def main():
     # Generar todas las combinaciones
     grid = list(itertools.product(
         MODES,
+        SAMPLING_MODES,
         CHANCE_TEMPERATURES,
         UTILITY_TEMPERATURES,
         FITNESS_TYPES,
@@ -323,19 +328,19 @@ def main():
     global_start = time.time()
     combo_done = len(completed)
     
-    for combo_idx, (mode, chance_t, utility_t, fitness_type, stop_mode, (rules_pct, n_rules)) in enumerate(grid, 1):
-        combo_key = (mode, f"{chance_t}", f"{utility_t}", fitness_type, stop_mode, str(n_rules))
+    for combo_idx, (mode, sampling_mode, chance_t, utility_t, fitness_type, stop_mode, (rules_pct, n_rules)) in enumerate(grid, 1):
+        combo_key = (mode, sampling_mode, f"{chance_t}", f"{utility_t}", fitness_type, stop_mode, str(n_rules))
 
         if combo_key in completed:
             print(f"[{combo_idx}/{total_combinations}] SALTANDO (ya completada): "
-                  f"mode={mode} | Tc={chance_t} | Tu={utility_t} | fitness={fitness_type} | "
-                  f"stop={stop_mode} | rules={n_rules} ({rules_pct}%)")
+                  f"mode={mode} | sampling={sampling_mode} | Tc={chance_t} | Tu={utility_t} | "
+                  f"fitness={fitness_type} | stop={stop_mode} | rules={n_rules} ({rules_pct}%)")
             continue
 
         print(f"\n{'-' * 70}")
         print(f"[{combo_idx}/{total_combinations}] "
-              f"mode={mode} | Tc={chance_t} | Tu={utility_t} | fitness={fitness_type} | "
-              f"stop={stop_mode} | rules={n_rules} ({rules_pct}%)")
+              f"mode={mode} | sampling={sampling_mode} | Tc={chance_t} | Tu={utility_t} | "
+              f"fitness={fitness_type} | stop={stop_mode} | rules={n_rules} ({rules_pct}%)")
         print(f"{'-' * 70}")
 
         # --- Ejecutar N repeticiones ---
@@ -356,6 +361,7 @@ def main():
                 'chance_temperature': chance_t,
                 'utility_temperature': utility_t,
                 'mode': mode,
+                'symmetric_sampling': (sampling_mode == 'symmetric'),
                 'random_seed': seed,
             }
 
@@ -381,6 +387,7 @@ def main():
 
         row = {
             'mode':                mode,
+            'sampling_mode':       sampling_mode,
             'chance_temperature':  chance_t,
             'utility_temperature': utility_t,
             'fitness_type':        fitness_type,
@@ -416,6 +423,7 @@ def main():
         for point in avg_curves:
             curve_rows.append({
                 'mode': mode,
+                'sampling_mode': sampling_mode,
                 'chance_temperature': chance_t,
                 'utility_temperature': utility_t,
                 'fitness_type': fitness_type,

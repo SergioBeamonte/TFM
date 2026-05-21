@@ -17,13 +17,41 @@ from scipy.special import expit
 from EDAspy.optimization import UMDAc, EGNA, EMNA, UnivariateKEDA
 
 
+def _wrap_antithetic_sampling(pm, get_mean_fn):
+    """Envuelve pm.sample para devolver muestras espejo (antithetic sampling).
+
+    Por cada muestra x se incluye su reflejo 2*mu - x respecto al vector de medias
+    del modelo probabilístico. Para Gaussianas (UMDAc/EMNA/EGNA) la distribución es
+    simétrica y el par (x, 2mu-x) tiene exactamente la misma densidad: no se
+    introduce sesgo, la media empírica queda anclada en mu y la varianza/covarianza
+    empírica sigue siendo un estimador insesgado. Para KEDA (KDE univariado) la
+    simetría no es exacta — la mezcla de kernels puede ser asimétrica — pero la
+    media empírica sí queda anclada, que es el objetivo principal.
+
+    Si size es impar, el primer individuo va "suelto" y el resto en pares espejo.
+    """
+    orig_sample = pm.sample
+
+    def antithetic_sample(size):
+        half = size // 2
+        extra = size - 2 * half  # 0 o 1
+        free = orig_sample(half + extra)
+        if half == 0:
+            return free
+        mu = np.asarray(get_mean_fn()).reshape(1, -1)
+        mirror = 2 * mu - free[extra:]
+        return np.concatenate([free, mirror], axis=0)
+
+    pm.sample = antithetic_sample
+
+
 class IDRecovery:
     def __init__(self, xdsl_path, rules_csv, min_max_ut=False, u_range=(0, 10),
                  chance_init_bounds=(-5, 5), utility_init_bounds=(-10, 10),
                  alpha=0.5, elite_factor=0.0, n_decision_rules=-1,
                  fitness_type='regret', stop_mode='best', optimizer_type='umda',
                  chance_temperature=1.0, utility_temperature=1.0,
-                 mode='both', random_seed=42):
+                 mode='both', symmetric_sampling=False, random_seed=42):
 
         self.net = pysmile.Network()
         self.net.read_file(xdsl_path)
@@ -53,6 +81,10 @@ class IDRecovery:
         if mode not in ('both', 'utility_only', 'chance_only'):
             raise ValueError(f"mode debe ser 'both' | 'utility_only' | 'chance_only', no '{mode}'")
         self.mode = mode
+        # Muestreo antitético: por cada individuo x se incluye su espejo 2*mu - x
+        # respecto al vector de medias del modelo. Mantiene la media empírica
+        # exactamente igual a mu (mismo número de cuentas a izquierda y derecha).
+        self.symmetric_sampling = bool(symmetric_sampling)
 
         self.chance_init_bounds = chance_init_bounds
         self.utility_init_bounds = utility_init_bounds
@@ -460,17 +492,26 @@ class IDRecovery:
 
         if self.optimizer_type == 'umda':
             optimizer = UMDAc(**optimizer_kwargs)
+            mean_fn = lambda: optimizer.pm.pm[0, :]
         elif self.optimizer_type == 'egna':
             optimizer = EGNA(**optimizer_kwargs)
+            # GBN devuelve columnas en orden pm.variables; mu en el mismo orden
+            mean_fn = lambda: optimizer.pm.get_mu(var_mus=optimizer.pm.variables)
         elif self.optimizer_type == 'emna':
             optimizer = EMNA(**optimizer_kwargs)
+            mean_fn = lambda: optimizer.pm.pm_means
         elif self.optimizer_type == 'keda':
             # KEDA univariado: como UMDAc pero modela cada variable con un KDE en vez
             # de una Gaussiana. Útil cuando la distribución óptima en raw es asimétrica
             # o multimodal (no encajaría en una sola Gaussiana).
             optimizer = UnivariateKEDA(**optimizer_kwargs)
+            # gaussian_kde.dataset tiene shape (d, n); media por dim sobre los samples
+            mean_fn = lambda: optimizer.pm.kernel.dataset.mean(axis=1)
         else:
             raise ValueError(f"Optimizador '{self.optimizer_type}' no reconocido.")
+
+        if self.symmetric_sampling:
+            _wrap_antithetic_sampling(optimizer.pm, mean_fn)
         
         print("Iniciando optimización...")
         
