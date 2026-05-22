@@ -330,13 +330,20 @@ with tab_results:
                 if n_cat != 1:
                     st.warning("El boxplot requiere exactamente 1 variable categórica para agrupar.")
                 else:
+                    # Altair hconcat ignora use_container_width: fijamos ancho explícito
+                    # por sub-gráfico, escalando con el nº de categorías para que las
+                    # cajas tengan aire.
+                    _n_cats = df_r[sel_exp_cat[0]].nunique()
+                    _sub_w = max(450, _n_cats * 75)
+
                     def _boxplot(y_col):
                         return (
                             alt.Chart(df_r)
-                            .mark_boxplot(extent="min-max", size=28)
+                            .mark_boxplot(extent="min-max", size=42)
                             .encode(
                                 x=alt.X(f"{sel_exp_cat[0]}:N", title=sel_exp_cat[0],
-                                        sort=alt.EncodingSortField(f"{y_col}", op="median", order="descending")),
+                                        sort=alt.EncodingSortField(f"{y_col}", op="median", order="descending"),
+                                        axis=alt.Axis(labelAngle=-25, labelLimit=180)),
                                 y=alt.Y(f"{y_col}:Q", title=y_col, scale=alt.Scale(zero=False)),
                                 color=alt.Color(f"{sel_exp_cat[0]}:N", scale=MODEL_COLORS, legend=None),
                                 tooltip=[
@@ -344,9 +351,13 @@ with tab_results:
                                     alt.Tooltip(f"{y_col}:Q", title=y_col, format=".4f"),
                                 ],
                             )
-                            .properties(height=400, title=y_col)
+                            .properties(width=_sub_w, height=440, title=y_col)
                         )
-                    _exp_chart = (_boxplot(sel_exp_num[0]) | _boxplot(sel_exp_num[1]))
+                    _exp_chart = alt.hconcat(
+                        _boxplot(sel_exp_num[0]),
+                        _boxplot(sel_exp_num[1]),
+                        spacing=40,
+                    )
 
             # ── SCATTER / BARRAS ─────────────────────────────────────────────
             elif n_num == 2 and n_cat == 0:

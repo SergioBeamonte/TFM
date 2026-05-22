@@ -25,11 +25,11 @@ import numpy as np
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # --- Red y reglas ---
-BASE_FOLDER = r"example\nhlv1"
-# BASE_FOLDER = r"example\bypass2"
+# BASE_FOLDER = r"example\nhlv1"
+BASE_FOLDER = r"example\bypass2"
 
-# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
-XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
+XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
+# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
 RULES_CSV = os.path.join(BASE_FOLDER, r"reglas_generadas.csv")
 
 # --- Parámetros fijos del optimizador ---
@@ -47,25 +47,21 @@ BASE_CONFIG = {
 SIZE_GEN = 50       # tamaño de población por generación
 MAX_ITER = 60       # máximo de generaciones
 TARGET_FITNESS = 1e-5
+# KEDA necesita samples > variables para que gaussian_kde no sea singular. Con
+# bypass2 mode='both' tenemos 95 vars, así que truncation_length (SIZE_GEN*alpha)
+# debe ser > 95 → SIZE_GEN ≥ 192 con alpha=0.5. Subimos a 200 para márgen.
+SIZE_GEN_PER_OPTIMIZER = {'keda': 200}
 
 # --- Grid de búsqueda ---
-# n_decision_rules se calcula como % del total de reglas
-RULES_PERCENTAGES = [5, 10, 20]  # porcentajes
+# GRID INICIAL del modelo pequeño: barrido amplio para evaluar el método y aislar
+# después con grids específicos (temps, optimizadores). Lanzar una vez por
+# optimizer_type para acumular CSVs separados por optimizador.
+RULES_PERCENTAGES = [5, 10, 20, 40]
 FITNESS_TYPES = ["binary", "margin", "softmax", "regret", "entropy"]
 STOP_MODES = ["top50"]
-# Temperaturas para softmax (CPTs) y sigmoid (utilidades).
-#   T<1  → curva afilada. Buena si CPTs/utilidades son cuasi-binarias.
-#   T=1  → comportamiento clásico (default actual).
-#   T>1  → curva estirada/casi-lineal. Buena para CPTs/utilidades suaves.
-CHANCE_TEMPERATURES = [0.5, 1.0, 2.0]
-UTILITY_TEMPERATURES = [1.0, 3.0, 5.0]
-# Modos de descomposición del problema:
-#   'both'         → optimiza CPTs y utilidades a la vez (caso general).
-#   'utility_only' → fija CPTs a las originales, solo busca utilidades.
-#   'chance_only'  → fija utilidades, solo busca CPTs.
+CHANCE_TEMPERATURES = [1.0]
+UTILITY_TEMPERATURES = [1.0]
 MODES = ['both', 'utility_only', 'chance_only']
-# Muestreo antitético en pm.sample: simétrico fuerza mismo nº de cuentas a izquierda
-# y derecha de la media en cada generación; non_symmetric es el comportamiento estándar.
 SAMPLING_MODES = ['non_symmetric', 'symmetric']
 
 # --- Repeticiones ---
@@ -119,11 +115,29 @@ def run_single_experiment(config, g, i, target_fitness):
     Las métricas finales se calculan sobre la ÚLTIMA generación registrada:
     - best_*: mejor individuo en esa generación (np.min/np.max segun la metrica)
     - mean_*: media sobre toda la poblacion de esa generacion
+
+    Si la EDA lanza una excepción (p.ej. KEDA con menos muestras que dimensiones
+    → matriz de covarianza singular en gaussian_kde) la combinación se marca con
+    NaN para que el grid siga adelante en vez de tumbarse entero.
     """
     from id_recovery import IDRecovery
 
     exp = IDRecovery(**config)
-    best_vector = exp.run(g=g, i=i, target_fitness=target_fitness)
+    try:
+        best_vector = exp.run(g=g, i=i, target_fitness=target_fitness)
+    except (ValueError, np.linalg.LinAlgError) as e:
+        print(f"    !! Run abortado por error del optimizador: {type(e).__name__}: {e}")
+        # Fabricamos un exp vacío con history=[] para que el caller lo trate como NaN.
+        exp.history = []
+        return exp, {
+            'stop_generation':    0,
+            'best_fitness':       float('nan'),
+            'best_accuracy':      float('nan'),
+            'best_mse_chance':    float('nan'),
+            'best_mse_utility':   float('nan'),
+            'best_entropy_norm':  float('nan'),
+            'best_util_dev':      float('nan'),
+        }
 
     # Extraer métricas de la última generación del historial
     if exp.history:
@@ -165,6 +179,11 @@ def average_histories(experiments):
     Para cada generación se promedia primero sobre la poblacion (dentro de cada experimento)
     y despues sobre los experimentos. Asi cada curva representa la evolucion media del batch.
     """
+    # Ignoramos experimentos con history vacío (corridas que fallaron por error
+    # del optimizador). Si TODAS fallaron, devolvemos curvas vacías.
+    experiments = [e for e in experiments if e.history]
+    if not experiments:
+        return []
     max_gens = max(len(exp.history) for exp in experiments)
     avg_history = []
 
@@ -279,6 +298,9 @@ def main():
     results_csv = os.path.join(base_folder, f"grid_search_results{suffix}.csv")
     curves_csv = os.path.join(base_folder, f"grid_search_curves{suffix}.csv")
 
+    # Tamaño de población efectivo (override por optimizador si está mapeado).
+    effective_size_gen = SIZE_GEN_PER_OPTIMIZER.get(effective_config['optimizer_type'], SIZE_GEN)
+
     print("=" * 70)
     print("  GRID SEARCH — IDRecovery")
     print("=" * 70)
@@ -289,6 +311,7 @@ def main():
     print(f"base_folder: {base_folder}")
     print(f"results:     {results_csv}")
     print(f"curves:      {curves_csv}")
+    print(f"size_gen:    {effective_size_gen}")
 
     # Contar reglas totales
     total_rules = count_total_rules(effective_rules_csv)
@@ -365,7 +388,7 @@ def main():
                 'random_seed': seed,
             }
 
-            exp, results = run_single_experiment(config, SIZE_GEN, MAX_ITER, TARGET_FITNESS)
+            exp, results = run_single_experiment(config, effective_size_gen, MAX_ITER, TARGET_FITNESS)
             experiments.append(exp)
             all_results.append(results)
 
