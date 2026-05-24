@@ -1,0 +1,398 @@
+% ==============================================================
+%  Chapter 2 -- Theoretical Framework
+% ==============================================================
+
+\chapter{Theoretical Framework}
+\label{ch:framework}
+
+This chapter introduces the theoretical background that the rest of
+the thesis relies on. We start with Decision Support Systems and
+their graphical formulation as Influence Diagrams, fix the formal
+definitions that are used in subsequent chapters and motivate the
+parameter-estimation problem that we tackle. We then present
+Estimation of Distribution Algorithms with the level of detail
+required to justify our design choices, including the specific
+variants and the convergence guarantees that ground the empirical
+study of Chapter~4.
+
+% ==============================================================
+\section{Decision Support Systems and Influence Diagrams}
+% ==============================================================
+
+A \emph{Decision Support System} (DSS) is a model or piece of
+software designed to assist decision-makers by facilitating access to
+relevant data and by applying analytical models and techniques to
+ill-structured problems~\cite{insua2005,bielza2002,howard2008foundations}.
+The role of a DSS is not to replace the decision-maker but to provide
+structured access to information and a principled way of evaluating
+alternatives before a final decision is reached.
+
+Among the many graphical formalisms available, \emph{Influence
+Diagrams} (IDs) have established themselves as one of the most
+compact and expressive
+representations~\cite{howard2005influence,koller2009pgm}. An ID
+is a directed acyclic graph whose nodes encode the three fundamental
+ingredients of a sequential decision problem — random variables,
+controllable choices and preferences — and whose arcs encode
+conditional dependencies and informational precedence.
+
+\subsection{Formal definition}
+
+\begin{definition}[Influence Diagram]
+\label{def:id}
+An \emph{Influence Diagram} is a tuple
+$\mathcal{D} = (\mathbf{C}, \mathbf{D}, V, \mathcal{E})$ where:
+\begin{itemize}
+    \item $\mathbf{C} = \{C_1,\ldots,C_n\}$ is a finite set of
+          \emph{chance nodes}, each modelling a discrete random
+          variable with finite domain $\Omega_{C_i}$;
+    \item $\mathbf{D} = \{D_1,\ldots,D_k\}$ is a finite set of
+          \emph{decision nodes}, each with a finite action set
+          $\mathcal{A}_{D_i}$;
+    \item $V$ is a single \emph{utility} (value) node encoding the
+          preferences of the decision-maker;
+    \item $\mathcal{E}$ is a set of directed arcs split into
+          probabilistic, informational and functional arcs.
+\end{itemize}
+\end{definition}
+
+For the ID to admit a well-defined evaluation procedure the graph
+must be \emph{regular}: it is a DAG, the value node has no
+successors, and the decisions can be linearly ordered by a directed
+path that traverses all of them. Throughout this work all IDs are
+assumed to be regular.
+
+\subsection{Quantitative parameterisation}
+
+Each chance node $C_i$ carries a \emph{conditional probability
+table} (CPT) $\theta_{C_i}$ that assigns to every configuration of
+its probabilistic parents $\Pi(C_i)$ a probability distribution over
+$\Omega_{C_i}$:
+\[
+   \theta_{C_i}\bigl(\cdot \mid \mathbf{pa}\bigr) \;\in\;
+   \Delta(\Omega_{C_i})
+   \qquad
+   \forall \mathbf{pa}\in\prod_{C_j\in\Pi(C_i)}\Omega_{C_j},
+\]
+where $\Delta(\Omega_{C_i})$ denotes the probability simplex over the
+states of $C_i$. The utility node carries a real-valued mapping
+\[
+   u : \prod_{X\in\Pi(V)}\Omega_X \longrightarrow \mathbb{R},
+\]
+where $\Omega_{D_i}\equiv\mathcal{A}_{D_i}$ for any decision parent.
+The collection of all CPTs and the utility table is the
+\emph{parameter vector} of the diagram, written $\boldsymbol{\Theta}$.
+
+\begin{remark}[Combinatorial explosion]
+\label{rem:explosion}
+The number of free entries of a CPT grows multiplicatively with the
+parents: a node with $m$ parents, each taking $r$ states, and $r$
+own states contributes $r^{m}(r-1)$ free parameters. This
+exponential growth is the source of the elicitation bottleneck
+discussed in Chapter~\ref{ch:introduction} and the reason why
+parameter optimisation rather than exhaustive elicitation is
+necessary.
+\end{remark}
+
+A \emph{decision rule} for $D_i$ is a mapping
+$\delta_i : \prod_{C_j\in\Pi_{\text{info}}(D_i)}\Omega_{C_j}
+\longrightarrow \mathcal{A}_{D_i}$
+that prescribes an action for every observable context. The
+collection $\boldsymbol{\delta}=(\delta_1,\ldots,\delta_k)$ over all
+decisions is called a \emph{policy}. The expected utility of a
+policy under a parameter vector $\boldsymbol{\Theta}$ is
+\begin{equation}
+\label{eq:eu}
+   \mathrm{EU}(\boldsymbol{\delta}\mid\boldsymbol{\Theta}) =
+   \sum_{\mathbf{c}} u\!\bigl(\mathbf{c},
+                              \boldsymbol{\delta}(\mathbf{c})\bigr)
+   \prod_{C_i\in\mathbf{C}}
+   \theta_{C_i}\!\bigl(c_i \mid \mathbf{pa}(c_i)\bigr),
+\end{equation}
+and the \emph{optimal policy} is
+$\boldsymbol{\delta}^{\!*}(\boldsymbol{\Theta}) =
+\arg\max_{\boldsymbol{\delta}}
+\mathrm{EU}(\boldsymbol{\delta}\mid\boldsymbol{\Theta})$.
+
+\noindent The classical algorithm of
+Shachter~\cite{shachter1986evaluating} computes
+$\boldsymbol{\delta}^{\!*}(\boldsymbol{\Theta})$ in polynomial time
+for any fixed $\boldsymbol{\Theta}$ by successively reversing arcs
+and eliminating nodes from the graph.
+
+% ==============================================================
+\section{The Knowledge-Acquisition Problem}
+% ==============================================================
+
+In practice the structure of the ID is elicited from the expert in a
+small number of modelling sessions, but the numerical
+parameterisation $\boldsymbol{\Theta}$ is far harder to obtain. The
+classical cycle of~\cite{bielza2002,bielza2010modeling} proceeds in
+five stages — problem identification, enumeration of alternatives,
+modelling, evaluation and sensitivity analysis — and the modelling
+stage alone accounts for the bulk of the cost. As anticipated in
+Remark~\ref{rem:explosion}, the size of $\boldsymbol{\Theta}$ grows
+exponentially with the connectivity of the diagram, so an exhaustive
+elicitation is unrealistic for any diagram of practical size.
+
+We assume instead that the expert can provide a \emph{small set of
+decision rules} that need only be partial: some variables can be
+declared irrelevant, in which case the rule applies for every value
+of those variables.
+
+\begin{definition}[Expert rule base]
+\label{def:rules}
+A \emph{rule base} is a finite set
+\[
+   \mathcal{R} = \bigl\{(\mathbf{x}^{(l)}, D_{i_l}, a^{(l)})\bigr\}_{l=1}^{L},
+\]
+where $\mathbf{x}^{(l)}$ is a (possibly partial) observation vector
+on the informational parents of decision $D_{i_l}$, and
+$a^{(l)}\in\mathcal{A}_{D_{i_l}}$ is the action the expert deems
+optimal under $\mathbf{x}^{(l)}$. Components marked as
+``irrelevant'' contribute no constraint and the rule must hold for
+every value they may take.
+\end{definition}
+
+Given such a rule base we measure the consistency of a parameter
+vector with the expert by a simple accuracy:
+
+\begin{definition}[Fitness function]
+\label{def:fitness}
+The fitness of $\boldsymbol{\Theta}$ on $\mathcal{R}$ is
+\[
+   f(\boldsymbol{\Theta}) =
+   \frac{1}{|\mathcal{R}|} \sum_{(\mathbf{x}^{(l)},D_{i_l},a^{(l)})\in\mathcal{R}}
+   \mathbb{1}\!\left[\delta^{*}_{i_l}(\boldsymbol{\Theta},
+                                       \mathbf{x}^{(l)}) = a^{(l)}\right]
+   \;\in\;[0,1],
+\]
+where $\delta^{*}_{i_l}(\boldsymbol{\Theta},\mathbf{x}^{(l)})$ is the
+action prescribed by the optimal policy of the ID under
+$\boldsymbol{\Theta}$ when the evidence $\mathbf{x}^{(l)}$ is
+entered. Irrelevant components are averaged over.
+\end{definition}
+
+The parameter-recovery problem is then the constrained search
+\[
+   \boldsymbol{\Theta}^{\star} =
+   \arg\max_{\boldsymbol{\Theta}} f(\boldsymbol{\Theta}),
+\]
+with $\boldsymbol{\Theta}$ ranging over the product of all valid
+CPTs and utility tables. The next proposition justifies the use of
+a derivative-free metaheuristic instead of a gradient-based
+optimiser.
+
+\begin{proposition}[Non-smoothness of $f$]
+\label{prop:nonsmooth}
+The fitness $f$ of Definition~\ref{def:fitness} is in general
+non-convex and not differentiable with respect to
+$\boldsymbol{\Theta}$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+The optimal policy is obtained through an $\arg\max$ over a sum of
+products of the parameters. Any infinitesimal perturbation of
+$\boldsymbol{\Theta}$ that flips the $\arg\max$ at some rule causes
+a unit jump in the indicator of Definition~\ref{def:fitness}; hence
+$f$ is piecewise constant and discontinuous. Non-convexity follows
+from the non-linearity introduced by the $\arg\max$.
+\end{proof}
+
+\noindent Proposition~\ref{prop:nonsmooth} rules out gradient-based
+estimators and motivates the population-based, derivative-free
+strategy adopted in the rest of the document.
+
+% ==============================================================
+\section{Estimation of Distribution Algorithms}
+% ==============================================================
+
+Estimation of Distribution Algorithms
+(EDAs)~\cite{larranaga2002eda,larranaga2024edas} are a class of
+evolutionary metaheuristics in which the classical
+crossover-and-mutation operators are replaced by the
+\emph{construction and sampling of an explicit probabilistic model}
+of the search space. At every generation a probability distribution
+is fitted to the best individuals of the current population and used
+to generate the next generation. Algorithm~\ref{alg:eda} states the
+generic scheme.
+
+\begin{algorithm}[H]
+\caption{Generic EDA}
+\label{alg:eda}
+\begin{algorithmic}[1]
+\State Initialise $\mathcal{P}_0$ of $N$ individuals from a prior on
+       the search space.
+\State $t \leftarrow 0$
+\Repeat
+    \State Evaluate $f$ on every $\boldsymbol{\Theta}\in\mathcal{P}_t$.
+    \State Select the top-$S$ individuals
+           $\mathcal{P}_t^{\text{sel}}$.
+    \State Estimate a probabilistic model $\hat{p}_t$ on
+           $\mathcal{P}_t^{\text{sel}}$.
+    \State Sample $N$ new individuals from $\hat{p}_t$ to form
+           $\mathcal{P}_{t+1}$.
+    \State $t \leftarrow t+1$
+\Until{stopping criterion is met}
+\State \Return best individual found.
+\end{algorithmic}
+\end{algorithm}
+
+The defining choice of an EDA is the family used for $\hat{p}_t$:
+richer families capture more structure of the search space at the
+expense of a higher estimation cost.
+
+\subsection{Variants relevant for this work}
+
+Because the parameter vector of an ID lives in a continuous space
+(every CPT entry and every utility value is a real number), only
+continuous EDAs are relevant. The three variants considered in this
+thesis are:
+
+\paragraph{UMDA\textsubscript{c}.} In the continuous Univariate
+Marginal Distribution Algorithm~\cite{larranaga2002eda} each dimension
+is modelled by an independent Gaussian:
+\[
+    \hat{p}_t^{j}(\phi_j) = \mathcal{N}\bigl(\phi_j;\,
+    \hat{\mu}_t^{j},\,(\hat{\sigma}_t^{j})^{2}\bigr),
+\]
+with mean and variance estimated by the sample moments of the
+selected individuals. UMDA\textsubscript{c} is the cheapest and most
+scalable variant but cannot capture inter-variable dependencies.
+
+\paragraph{EGNA.} The Estimation of Gaussian Networks
+Algorithm~\cite{larranaga2002eda} fits a Gaussian Bayesian network
+to $\mathcal{P}_t^{\text{sel}}$ and samples from it. It captures
+pairwise (and higher-order) linear dependencies between the
+parameters of the model but pays a cost of $O(d^2 N)$ per generation
+for a $d$-dimensional problem with $N$ individuals.
+
+\paragraph{KEDA and SPEDA.} Recent variants replace the Gaussian
+assumption by kernel density estimators (KEDA) or mix Gaussian and
+non-parametric nodes (SPEDA)~\cite{soloviev2023speda}. They are of
+interest for multi-modal problems and are listed in the perspectives
+chapter.
+
+\subsection{Selection and exploration--exploitation}
+
+The most common selection scheme — and the one adopted in this work
+— is \emph{truncation}: only the top fraction $\mu$ of the population
+contributes to $\hat{p}_t$.
+
+\begin{proposition}[Diversity--convergence trade-off]
+\label{prop:tradeoff}
+Under truncation selection with ratio $\mu\in(0,1)$, decreasing
+$\mu$ raises the selection pressure, shrinks the support of the
+estimated model and accelerates convergence at the cost of an
+increased risk of premature convergence to a local optimum.
+\end{proposition}
+
+\begin{proof}[Sketch]
+As $\mu\to 0$ the selected set shrinks to the current best
+individual and $\hat{p}_t$ concentrates its mass arbitrarily close to
+it. As $\mu\to 1$ no information is extracted from the fitness
+function and the algorithm degenerates to uniform random search.
+The optimal trade-off lies in between and is problem-dependent.
+\end{proof}
+
+\subsection{Constraint handling: simplex projection}
+
+The CPT rows of the ID must lie on the probability simplex
+$\Delta^{r-1}=\{p\in\mathbb{R}_{\geq 0}^{r}\mid\sum_i p_i = 1\}$.
+Gaussian samples in $\mathbb{R}^d$ generally violate this constraint
+and must be repaired.
+
+\begin{definition}[Euclidean simplex projection]
+The projection of $\mathbf{v}\in\mathbb{R}^{r}$ onto $\Delta^{r-1}$
+is the unique vector
+\[
+    \Pi_{\Delta}(\mathbf{v}) = \arg\min_{\mathbf{p}\in\Delta^{r-1}}
+    \lVert\mathbf{p}-\mathbf{v}\rVert_2.
+\]
+\end{definition}
+
+\begin{proposition}[Sorting algorithm of Duchi et al.]
+\label{prop:duchi}
+$\Pi_{\Delta}(\mathbf{v})$ can be computed exactly in $O(r\log r)$
+time by sorting $\mathbf{v}$ and finding a threshold $\rho$ such that
+$p_i=\max(v_i-\rho,0)$ satisfies $\sum_i p_i = 1$.
+\end{proposition}
+
+\begin{proof}
+See~\cite{duchi2008projections} for the standard sorting-based
+derivation.
+\end{proof}
+
+The implementation chapter exploits a simpler $\ell_1$ normalisation
+that is equivalent to $\Pi_{\Delta}$ when the candidate vector is
+non-negative, which can be enforced by clipping the EDA samples to
+$[0,1]^d$.
+
+\subsection{Convergence under elitism}
+
+A final theoretical fact justifies the use of elitism — the
+preservation of the best individual across generations — that we
+adopt in Chapter~\ref{ch:implementation}.
+
+\begin{theorem}[Asymptotic convergence of an elitist EDA]
+\label{thm:convergence}
+Let $f^{\star}=\sup_{\boldsymbol{\Theta}} f(\boldsymbol{\Theta})$ and
+let $f^{\max}_t$ be the fitness of the best individual in
+$\mathcal{P}_t$. If the algorithm preserves at least one copy of
+the best individual at every generation (elitism) and the model
+$\hat{p}_t$ assigns positive probability to every region of positive
+volume of the search space, then
+\[
+    \lim_{t\to\infty} f^{\max}_t = f^{\star}
+    \qquad \text{almost surely.}
+\]
+\end{theorem}
+
+\begin{proof}[Sketch]
+Elitism makes the sequence $\{f^{\max}_t\}$ monotone
+non-decreasing. Positive support of $\hat{p}_t$ ensures that every
+neighbourhood of an optimum is sampled with positive probability at
+every step; a Borel--Cantelli argument shows that the probability of
+never sampling an $\varepsilon$-optimal point decays to zero for any
+$\varepsilon>0$.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:convergence} is asymptotic and does not specify a
+convergence rate. The rate depends on the model family, the
+selection ratio and the population size, all of which must be tuned
+empirically — as we do in Chapter~4.
+\end{remark}
+
+\subsection{Comparison with classical Genetic Algorithms}
+
+It is illuminating to compare an EDA with the standard Genetic
+Algorithm (GA) approach used in the predecessor of this
+work~\cite{henriquez2024tfm}. A univariate EDA with Gaussian
+marginals performs, in effect, an \emph{implicit uniform crossover}
+over the selected population: sampling independently from each
+marginal is equivalent to drawing each gene from a uniformly chosen
+parent. The main advantage of an EDA over a GA is that the
+probabilistic model is built and inspected \emph{explicitly}, which
+makes the dependency structure of the search space visible and
+exploitable. A second advantage, crucial in our setting, is that
+the EDA needs no problem-specific crossover operator; designing such
+an operator for vectors constrained to a product of simplices is far
+from trivial.
+
+% ==============================================================
+\section{Summary}
+% ==============================================================
+
+We have introduced the formal machinery needed to state the
+parameter-recovery problem: the definition of an Influence Diagram,
+its quantitative parameterisation and the notion of an optimal
+policy obtained by the Shachter algorithm. We have then formalised
+the expert rule base, the fitness function and shown
+(Proposition~\ref{prop:nonsmooth}) that the resulting optimisation
+problem is non-convex and non-smooth — hence the choice of a
+derivative-free method. Finally, we have presented the EDA family
+with the variants used in this work, the selection and constraint
+machinery, and the convergence guarantee under elitism. The next
+chapter turns these theoretical pieces into an executable
+implementation.
