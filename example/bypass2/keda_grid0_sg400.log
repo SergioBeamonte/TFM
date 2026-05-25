@@ -9986,4 +9986,4053 @@ IT:  13 	Best cost:  0.0
 IT:  14 	Best cost:  0.0
 IT:  15 	Best cost:  0.0
 IT:  16 	Best cost:  0.0
-IT:  17 	Best cost: 
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.315348 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.785406 | Mejor accuracy: 90.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.262661 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.350806 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.411452 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 37.3s
+    Progreso: 86/120 | Tiempo total: 85.4min | Estimado restante: 33.8min
+
+----------------------------------------------------------------------
+[87/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.295147 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.441799 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 2.866966 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.003764 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.310321 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 46.7s
+    Progreso: 87/120 | Tiempo total: 86.2min | Estimado restante: 32.7min
+
+----------------------------------------------------------------------
+[88/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.8650701555795757
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 22 | Mejor fitness: 6.806325 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.6345172784020798
+IT:  1 	Best cost:  0.6345172784020798
+IT:  2 	Best cost:  0.6345172784020798
+IT:  3 	Best cost:  0.6345172784020798
+IT:  4 	Best cost:  0.16201014536406178
+IT:  5 	Best cost:  0.16201014536406178
+IT:  6 	Best cost:  0.16201014536406178
+IT:  7 	Best cost:  0.16201014536406178
+IT:  8 	Best cost:  0.16201014536406178
+IT:  9 	Best cost:  0.16201014536406178
+IT:  10 	Best cost:  0.16201014536406178
+IT:  11 	Best cost:  0.16201014536406178
+IT:  12 	Best cost:  0.16201014536406178
+IT:  13 	Best cost:  0.16201014536406178
+IT:  14 	Best cost:  0.16201014536406178
+IT:  15 	Best cost:  0.16201014536406178
+IT:  16 	Best cost:  0.16201014536406178
+IT:  17 	Best cost:  0.16201014536406178
+IT:  18 	Best cost:  0.16201014536406178
+IT:  19 	Best cost:  0.16201014536406178
+IT:  20 	Best cost:  0.16201014536406178
+IT:  21 	Best cost:  0.16201014536406178
+IT:  22 	Best cost:  0.16201014536406178
+IT:  23 	Best cost:  0.16201014536406178
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 25 | Mejor fitness: 7.160403 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  1.1550161441078908
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 22 | Mejor fitness: 6.359516 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.8243274220068402
+IT:  1 	Best cost:  0.3620358077379864
+IT:  2 	Best cost:  0.3620358077379864
+IT:  3 	Best cost:  0.11513730736255035
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+IT:  23 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 25 | Mejor fitness: 6.824274 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.3518989718333323
+IT:  1 	Best cost:  0.23398306497847
+IT:  2 	Best cost:  0.23398306497847
+IT:  3 	Best cost:  0.23398306497847
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+IT:  23 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 25 | Mejor fitness: 6.700323 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 41.4s
+    Progreso: 88/120 | Tiempo total: 86.9min | Estimado restante: 31.6min
+
+----------------------------------------------------------------------
+[89/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0019705162292254887
+IT:  1 	Best cost:  0.00174421488528468
+IT:  2 	Best cost:  0.0015810805640729775
+IT:  3 	Best cost:  0.0015769125150872853
+IT:  4 	Best cost:  0.0015767626614244747
+IT:  5 	Best cost:  0.0015767306272400268
+IT:  6 	Best cost:  0.001576730298218099
+IT:  7 	Best cost:  0.0015767302982122055
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+IT:  12 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.249162 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0017854697087025184
+IT:  1 	Best cost:  0.0016973975432304155
+IT:  2 	Best cost:  0.0015854711548927319
+IT:  3 	Best cost:  0.001576788703362173
+IT:  4 	Best cost:  0.001576730970951366
+IT:  5 	Best cost:  0.0015767306421205864
+IT:  6 	Best cost:  0.0015767303026782305
+IT:  7 	Best cost:  0.0015767302982252157
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+IT:  12 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.480046 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.001717356770277514
+IT:  1 	Best cost:  0.0016107101358193744
+IT:  2 	Best cost:  0.0015862397807514706
+IT:  3 	Best cost:  0.0015769503501764698
+IT:  4 	Best cost:  0.0015767320310190829
+IT:  5 	Best cost:  0.0015767302982281069
+IT:  6 	Best cost:  0.0015767302982134287
+IT:  7 	Best cost:  0.0015767302982134287
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 0.373590 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.002490010283927003
+IT:  1 	Best cost:  0.0017265341891458963
+IT:  2 	Best cost:  0.001595066933127937
+IT:  3 	Best cost:  0.0015836556077709232
+IT:  4 	Best cost:  0.0015768059320094069
+IT:  5 	Best cost:  0.0015767317610582575
+IT:  6 	Best cost:  0.001576730336170693
+IT:  7 	Best cost:  0.001576730298248456
+IT:  8 	Best cost:  0.0015767302982152079
+IT:  9 	Best cost:  0.0015767302982152079
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+IT:  12 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.347363 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0015851311508539906
+IT:  1 	Best cost:  0.0015771874694504074
+IT:  2 	Best cost:  0.0015771874694504074
+IT:  3 	Best cost:  0.0015767304915805312
+IT:  4 	Best cost:  0.0015767304857931465
+IT:  5 	Best cost:  0.0015767304146234152
+IT:  6 	Best cost:  0.0015767302982127615
+IT:  7 	Best cost:  0.0015767302982119832
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 12 | Mejor fitness: 0.270121 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 26.7s
+    Progreso: 89/120 | Tiempo total: 87.3min | Estimado restante: 30.4min
+
+----------------------------------------------------------------------
+[90/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.006215359407181673
+IT:  1 	Best cost:  0.004949552758068807
+IT:  2 	Best cost:  0.0031584714302885586
+IT:  3 	Best cost:  0.0031584714302885586
+IT:  4 	Best cost:  0.0031584714302885586
+IT:  5 	Best cost:  0.0031584714302885586
+IT:  6 	Best cost:  0.0031584714302885586
+IT:  7 	Best cost:  0.0031584714302885586
+IT:  8 	Best cost:  0.0031584714302885586
+IT:  9 	Best cost:  0.0031566867866202877
+IT:  10 	Best cost:  0.0031566867866202877
+IT:  11 	Best cost:  0.0031566867866202877
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 1.031823 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.003959028851362997
+IT:  1 	Best cost:  0.0033674899748748497
+IT:  2 	Best cost:  0.0032710202280443954
+IT:  3 	Best cost:  0.0031589905366486227
+IT:  4 	Best cost:  0.0031534880843667517
+IT:  5 	Best cost:  0.0031534880843667517
+IT:  6 	Best cost:  0.003153460602262057
+IT:  7 	Best cost:  0.0031534605966234545
+IT:  8 	Best cost:  0.0031534605964239665
+IT:  9 	Best cost:  0.0031534605964239665
+IT:  10 	Best cost:  0.0031534605964239665
+IT:  11 	Best cost:  0.0031534605964239665
+IT:  12 	Best cost:  0.0031534605964239665
+IT:  13 	Best cost:  0.0031534605964239665
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 0.824884 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.040369734126238156
+IT:  1 	Best cost:  0.040369734126238156
+IT:  2 	Best cost:  0.004962581479656733
+IT:  3 	Best cost:  0.004962581479656733
+IT:  4 	Best cost:  0.001645453228657453
+IT:  5 	Best cost:  0.001645453228657453
+IT:  6 	Best cost:  0.001645453228657453
+IT:  7 	Best cost:  0.001645453228657453
+IT:  8 	Best cost:  0.001645453228657453
+IT:  9 	Best cost:  0.001645453228657453
+IT:  10 	Best cost:  0.001645453228657453
+IT:  11 	Best cost:  0.001645453228657453
+IT:  12 	Best cost:  0.001645453228657453
+IT:  13 	Best cost:  0.0016222627618325343
+IT:  14 	Best cost:  0.0016222627618325343
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 0.798724 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.0489490316386826
+IT:  1 	Best cost:  0.004380294557191897
+IT:  2 	Best cost:  0.0035274871058470184
+IT:  3 	Best cost:  0.003203505983589968
+IT:  4 	Best cost:  0.003200896960191734
+IT:  5 	Best cost:  0.0031545681788096172
+IT:  6 	Best cost:  0.0031545681788096172
+IT:  7 	Best cost:  0.0031545681788096172
+IT:  8 	Best cost:  0.0031545681788096172
+IT:  9 	Best cost:  0.0031545681788096172
+IT:  10 	Best cost:  0.0031545681788096172
+IT:  11 	Best cost:  0.0031545681788096172
+IT:  12 	Best cost:  0.0031545681788096172
+IT:  13 	Best cost:  0.0031545681788096172
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 0.984093 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.05765293516610531
+IT:  1 	Best cost:  0.03456506652881716
+IT:  2 	Best cost:  0.03456506652881716
+IT:  3 	Best cost:  0.022959577093410302
+IT:  4 	Best cost:  0.008637004305594605
+IT:  5 	Best cost:  0.008637004305594605
+IT:  6 	Best cost:  0.008637004305594605
+IT:  7 	Best cost:  0.008637004305594605
+IT:  8 	Best cost:  0.008637004305594605
+IT:  9 	Best cost:  0.008637004305594605
+IT:  10 	Best cost:  0.008637004305594605
+IT:  11 	Best cost:  0.008637004305594605
+IT:  12 	Best cost:  0.008637004305594605
+IT:  13 	Best cost:  0.008637004305594605
+IT:  14 	Best cost:  0.008637004305594605
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 1.024696 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 96.8s
+    Progreso: 90/120 | Tiempo total: 89.0min | Estimado restante: 29.7min
+
+----------------------------------------------------------------------
+[91/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.24561112378792266
+IT:  1 	Best cost:  0.06349683612225746
+IT:  2 	Best cost:  0.06349683612225746
+IT:  3 	Best cost:  0.06349683612225746
+IT:  4 	Best cost:  0.06349683612225746
+IT:  5 	Best cost:  0.06349683612225746
+IT:  6 	Best cost:  0.06349683612225746
+IT:  7 	Best cost:  0.06349683612225746
+IT:  8 	Best cost:  0.06349683612225746
+IT:  9 	Best cost:  0.06349683612225746
+IT:  10 	Best cost:  0.06349683612225746
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 2.264419 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.24599939639981125
+IT:  1 	Best cost:  0.21723281099528888
+IT:  2 	Best cost:  0.11316661806287857
+IT:  3 	Best cost:  0.08716230993773397
+IT:  4 	Best cost:  0.08716230993773397
+IT:  5 	Best cost:  0.08716230993773397
+IT:  6 	Best cost:  0.08716230993773397
+IT:  7 	Best cost:  0.08716230993773397
+IT:  8 	Best cost:  0.08716230993773397
+IT:  9 	Best cost:  0.08716230993773397
+IT:  10 	Best cost:  0.08716230993773397
+IT:  11 	Best cost:  0.08716230993773397
+IT:  12 	Best cost:  0.08716230993773397
+IT:  13 	Best cost:  0.08716230993773397
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 2.333855 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.11925061944186853
+IT:  1 	Best cost:  0.06064800576447076
+IT:  2 	Best cost:  0.06064800576447076
+IT:  3 	Best cost:  0.06064800576447076
+IT:  4 	Best cost:  0.06064800576447076
+IT:  5 	Best cost:  0.06064800576447076
+IT:  6 	Best cost:  0.06064800576447076
+IT:  7 	Best cost:  0.06064800576447076
+IT:  8 	Best cost:  0.06064800576447076
+IT:  9 	Best cost:  0.06064800576447076
+IT:  10 	Best cost:  0.04399107468175643
+IT:  11 	Best cost:  0.04399107468175643
+IT:  12 	Best cost:  0.04399107468175643
+IT:  13 	Best cost:  0.04399107468175643
+IT:  14 	Best cost:  0.04399107468175643
+IT:  15 	Best cost:  0.04399107468175643
+IT:  16 	Best cost:  0.04399107468175643
+IT:  17 	Best cost:  0.04399107468175643
+IT:  18 	Best cost:  0.04399107468175643
+IT:  19 	Best cost:  0.04399107468175643
+IT:  20 	Best cost:  0.04399107468175643
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 22 | Mejor fitness: 1.905528 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.14184179970191757
+IT:  1 	Best cost:  0.14184179970191757
+IT:  2 	Best cost:  0.14184179970191757
+IT:  3 	Best cost:  0.06573090852187702
+IT:  4 	Best cost:  0.06573090852187702
+IT:  5 	Best cost:  0.06573090852187702
+IT:  6 	Best cost:  0.06573090852187702
+IT:  7 	Best cost:  0.04614698531280362
+IT:  8 	Best cost:  0.04614698531280362
+IT:  9 	Best cost:  0.04614698531280362
+IT:  10 	Best cost:  0.04614698531280362
+IT:  11 	Best cost:  0.04614698531280362
+IT:  12 	Best cost:  0.04614698531280362
+IT:  13 	Best cost:  0.04614698531280362
+IT:  14 	Best cost:  0.04614698531280362
+IT:  15 	Best cost:  0.04614698531280362
+IT:  16 	Best cost:  0.04614698531280362
+IT:  17 	Best cost:  0.04614698531280362
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 19 | Mejor fitness: 2.150982 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.43293513736406564
+IT:  1 	Best cost:  0.24043193275211103
+IT:  2 	Best cost:  0.22210793939252144
+IT:  3 	Best cost:  0.1257548433713267
+IT:  4 	Best cost:  0.1257548433713267
+IT:  5 	Best cost:  0.10243026207286386
+IT:  6 	Best cost:  0.10243026207286386
+IT:  7 	Best cost:  0.10243026207286386
+IT:  8 	Best cost:  0.10243026207286386
+IT:  9 	Best cost:  0.10243026207286386
+IT:  10 	Best cost:  0.10243026207286386
+IT:  11 	Best cost:  0.10243026207286386
+IT:  12 	Best cost:  0.10243026207286386
+IT:  13 	Best cost:  0.10243026207286386
+IT:  14 	Best cost:  0.10243026207286386
+IT:  15 	Best cost:  0.10243026207286386
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 2.463439 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 34.5s
+    Progreso: 91/120 | Tiempo total: 89.5min | Estimado restante: 28.5min
+
+----------------------------------------------------------------------
+[92/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  0.7662527265181731
+IT:  1 	Best cost:  0.37418175606488635
+IT:  2 	Best cost:  0.22154111289008618
+IT:  3 	Best cost:  0.22154111289008618
+IT:  4 	Best cost:  0.22154111289008618
+IT:  5 	Best cost:  0.22154111289008618
+IT:  6 	Best cost:  0.22154111289008618
+IT:  7 	Best cost:  0.22154111289008618
+IT:  8 	Best cost:  0.22154111289008618
+IT:  9 	Best cost:  0.22154111289008618
+IT:  10 	Best cost:  0.22154111289008618
+IT:  11 	Best cost:  0.22154111289008618
+IT:  12 	Best cost:  0.22154111289008618
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 4.895632 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.32952567459197
+IT:  1 	Best cost:  0.556694119870441
+IT:  2 	Best cost:  0.556694119870441
+IT:  3 	Best cost:  0.556694119870441
+IT:  4 	Best cost:  0.556694119870441
+IT:  5 	Best cost:  0.5498322699397729
+IT:  6 	Best cost:  0.5498322699397729
+IT:  7 	Best cost:  0.5498322699397729
+IT:  8 	Best cost:  0.5498322699397729
+IT:  9 	Best cost:  0.5498322699397729
+IT:  10 	Best cost:  0.5498322699397729
+IT:  11 	Best cost:  0.5498322699397729
+IT:  12 	Best cost:  0.5498322699397729
+IT:  13 	Best cost:  0.5498322699397729
+IT:  14 	Best cost:  0.5498322699397729
+IT:  15 	Best cost:  0.5498322699397729
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 5.104552 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.1712513082709783
+IT:  1 	Best cost:  1.1712513082709783
+IT:  2 	Best cost:  0.46413024334219116
+IT:  3 	Best cost:  0.331916515575851
+IT:  4 	Best cost:  0.331916515575851
+IT:  5 	Best cost:  0.331916515575851
+IT:  6 	Best cost:  0.331916515575851
+IT:  7 	Best cost:  0.331916515575851
+IT:  8 	Best cost:  0.331916515575851
+IT:  9 	Best cost:  0.331916515575851
+IT:  10 	Best cost:  0.331916515575851
+IT:  11 	Best cost:  0.331916515575851
+IT:  12 	Best cost:  0.331916515575851
+IT:  13 	Best cost:  0.331916515575851
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 3.940193 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.9567821002260093
+IT:  1 	Best cost:  1.1310147908060126
+IT:  2 	Best cost:  0.9607637465087072
+IT:  3 	Best cost:  0.9607637465087072
+IT:  4 	Best cost:  0.8891960847626066
+IT:  5 	Best cost:  0.6256330523590152
+IT:  6 	Best cost:  0.6256330523590152
+IT:  7 	Best cost:  0.6256330523590152
+IT:  8 	Best cost:  0.6256330523590152
+IT:  9 	Best cost:  0.6256330523590152
+IT:  10 	Best cost:  0.6256330523590152
+IT:  11 	Best cost:  0.6256330523590152
+IT:  12 	Best cost:  0.6256330523590152
+IT:  13 	Best cost:  0.6256330523590152
+IT:  14 	Best cost:  0.6256330523590152
+IT:  15 	Best cost:  0.6256330523590152
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 5.028888 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  0.9272408511132869
+IT:  1 	Best cost:  0.9272408511132869
+IT:  2 	Best cost:  0.9272408511132869
+IT:  3 	Best cost:  0.9272408511132869
+IT:  4 	Best cost:  0.9272408511132869
+IT:  5 	Best cost:  0.9272408511132869
+IT:  6 	Best cost:  0.9272408511132869
+IT:  7 	Best cost:  0.5618185352704601
+IT:  8 	Best cost:  0.3736143949095542
+IT:  9 	Best cost:  0.3736143949095542
+IT:  10 	Best cost:  0.3736143949095542
+IT:  11 	Best cost:  0.3736143949095542
+IT:  12 	Best cost:  0.3736143949095542
+IT:  13 	Best cost:  0.3736143949095542
+IT:  14 	Best cost:  0.3736143949095542
+IT:  15 	Best cost:  0.3736143949095542
+IT:  16 	Best cost:  0.3736143949095542
+IT:  17 	Best cost:  0.3736143949095542
+IT:  18 	Best cost:  0.3736143949095542
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 20 | Mejor fitness: 4.832516 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 34.7s
+    Progreso: 92/120 | Tiempo total: 90.1min | Estimado restante: 27.4min
+
+----------------------------------------------------------------------
+[93/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.577450 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.490354 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.123737 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.146851 | Mejor accuracy: 95.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.095783 | Mejor accuracy: 85.0%
+
+  OK Combinación completada en 3.7s
+    Progreso: 93/120 | Tiempo total: 90.2min | Estimado restante: 26.2min
+
+----------------------------------------------------------------------
+[94/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.206767 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.964824 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.549389 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.257491 | Mejor accuracy: 90.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.238252 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 5.7s
+    Progreso: 94/120 | Tiempo total: 90.3min | Estimado restante: 25.0min
+
+----------------------------------------------------------------------
+[95/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 4 | Mejor fitness: 0.403585 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.466973 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 7 | Mejor fitness: 0.673114 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 9 | Mejor fitness: 0.515524 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 7 | Mejor fitness: 0.328518 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 13.5s
+    Progreso: 95/120 | Tiempo total: 90.5min | Estimado restante: 23.8min
+
+----------------------------------------------------------------------
+[96/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 12 | Mejor fitness: 0.564606 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 10 | Mejor fitness: 0.503324 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 10 | Mejor fitness: 0.777717 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 1.030242 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 13 | Mejor fitness: 0.707928 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 24.6s
+    Progreso: 96/120 | Tiempo total: 90.9min | Estimado restante: 22.7min
+
+----------------------------------------------------------------------
+[97/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0033936908012843527
+IT:  1 	Best cost:  0.003025348713830728
+IT:  2 	Best cost:  0.0027579995495764513
+IT:  3 	Best cost:  0.0027511472774521028
+IT:  4 	Best cost:  0.002750900897353823
+IT:  5 	Best cost:  0.0027508482285480713
+IT:  6 	Best cost:  0.0027508476875884565
+IT:  7 	Best cost:  0.0027508476875787256
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0351
+    -> Parada en gen 10 | Mejor fitness: 0.271673 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.003092708172394474
+IT:  1 	Best cost:  0.002948787423955903
+IT:  2 	Best cost:  0.0027652164810028895
+IT:  3 	Best cost:  0.00275094371399585
+IT:  4 	Best cost:  0.0027508487936593173
+IT:  5 	Best cost:  0.002750848253013959
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0351
+    -> Parada en gen 8 | Mejor fitness: 0.288807 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0029814428713932518
+IT:  1 	Best cost:  0.0028066787654407307
+IT:  2 	Best cost:  0.00276647976553095
+IT:  3 	Best cost:  0.002751209483331884
+IT:  4 	Best cost:  0.0027508505365640683
+IT:  5 	Best cost:  0.002750847687604864
+IT:  6 	Best cost:  0.0027508476875807686
+IT:  7 	Best cost:  0.0027508476875807686
+IT:  8 	Best cost:  0.0027508476875782767
+IT:  9 	Best cost:  0.0027508476875782767
+IT:  10 	Best cost:  0.0027508476875782767
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 0.327640 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0042297227336109446
+IT:  1 	Best cost:  0.002996450238233391
+IT:  2 	Best cost:  0.002780985050332533
+IT:  3 	Best cost:  0.002762232366712444
+IT:  4 	Best cost:  0.002750972040313479
+IT:  5 	Best cost:  0.0027508500927094365
+IT:  6 	Best cost:  0.0027508477499880377
+IT:  7 	Best cost:  0.0027508476876384035
+IT:  8 	Best cost:  0.0027508476875836895
+IT:  9 	Best cost:  0.0027508476875836895
+IT:  10 	Best cost:  0.0027508476875836895
+IT:  11 	Best cost:  0.0027508476875782767
+IT:  12 	Best cost:  0.0027508476875782767
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.390475 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.002764657651165569
+IT:  1 	Best cost:  0.002751599336624737
+IT:  2 	Best cost:  0.002751599336624737
+IT:  3 	Best cost:  0.002750848005504251
+IT:  4 	Best cost:  0.0027508479959890385
+IT:  5 	Best cost:  0.002750847878975586
+IT:  6 	Best cost:  0.0027508476875796194
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0351
+    -> Parada en gen 9 | Mejor fitness: 0.284370 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 24.9s
+    Progreso: 97/120 | Tiempo total: 91.3min | Estimado restante: 21.7min
+
+----------------------------------------------------------------------
+[98/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.010417697584669516
+IT:  1 	Best cost:  0.010417697584669516
+IT:  2 	Best cost:  0.007690177727200939
+IT:  3 	Best cost:  0.006383435843045073
+IT:  4 	Best cost:  0.005804426576246373
+IT:  5 	Best cost:  0.005521641575421756
+IT:  6 	Best cost:  0.005501838270812285
+IT:  7 	Best cost:  0.005501705041060083
+IT:  8 	Best cost:  0.005501705041060083
+IT:  9 	Best cost:  0.005501695375163358
+IT:  10 	Best cost:  0.005501695375163358
+IT:  11 	Best cost:  0.005501695375163358
+IT:  12 	Best cost:  0.005501695375163358
+IT:  13 	Best cost:  0.005501695375163358
+IT:  14 	Best cost:  0.005501695375163358
+IT:  15 	Best cost:  0.005501695375163358
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 1.395351 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.006816560786877278
+IT:  1 	Best cost:  0.005839268652855836
+IT:  2 	Best cost:  0.005603626251505829
+IT:  3 	Best cost:  0.005502585383716053
+IT:  4 	Best cost:  0.0055021342706351156
+IT:  5 	Best cost:  0.005501703837472318
+IT:  6 	Best cost:  0.005501701125002248
+IT:  7 	Best cost:  0.005501695375355681
+IT:  8 	Best cost:  0.005501695375198878
+IT:  9 	Best cost:  0.005501695375156553
+IT:  10 	Best cost:  0.005501695375156553
+IT:  11 	Best cost:  0.005501695375156553
+IT:  12 	Best cost:  0.005501695375156553
+IT:  13 	Best cost:  0.005501695375156553
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 1.139586 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.04097864324232593
+IT:  1 	Best cost:  0.009284566300000865
+IT:  2 	Best cost:  0.009284566300000865
+IT:  3 	Best cost:  0.006931394446931111
+IT:  4 	Best cost:  0.0038706337187489987
+IT:  5 	Best cost:  0.0038706337187489987
+IT:  6 	Best cost:  0.0037948964879417377
+IT:  7 	Best cost:  0.00296258784858675
+IT:  8 	Best cost:  0.0028828417359731038
+IT:  9 	Best cost:  0.0028828417359731038
+IT:  10 	Best cost:  0.0028828417359731038
+IT:  11 	Best cost:  0.002881561703687129
+IT:  12 	Best cost:  0.002881561703687129
+IT:  13 	Best cost:  0.002881561703687129
+IT:  14 	Best cost:  0.002881561703687129
+IT:  15 	Best cost:  0.002881561703687129
+IT:  16 	Best cost:  0.002881561703687129
+IT:  17 	Best cost:  0.002881561703687129
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 19 | Mejor fitness: 0.995192 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.04807955841001603
+IT:  1 	Best cost:  0.042599166751319514
+IT:  2 	Best cost:  0.03558367069426067
+IT:  3 	Best cost:  0.02333368599173808
+IT:  4 	Best cost:  0.02333368599173808
+IT:  5 	Best cost:  0.02333368599173808
+IT:  6 	Best cost:  0.02333368599173808
+IT:  7 	Best cost:  0.008556371567190794
+IT:  8 	Best cost:  0.0059030292629305954
+IT:  9 	Best cost:  0.0059030292629305954
+IT:  10 	Best cost:  0.0059030292629305954
+IT:  11 	Best cost:  0.0059030292629305954
+IT:  12 	Best cost:  0.0059030292629305954
+IT:  13 	Best cost:  0.0059030292629305954
+IT:  14 	Best cost:  0.0059030292629305954
+IT:  15 	Best cost:  0.0059030292629305954
+IT:  16 	Best cost:  0.0059030292629305954
+IT:  17 	Best cost:  0.0059030292629305954
+IT:  18 	Best cost:  0.0059030292629305954
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 20 | Mejor fitness: 1.255307 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.0667251592657424
+IT:  1 	Best cost:  0.02803342191357885
+IT:  2 	Best cost:  0.018839591754474385
+IT:  3 	Best cost:  0.01002953172035101
+IT:  4 	Best cost:  0.007775584536459308
+IT:  5 	Best cost:  0.007775584536459308
+IT:  6 	Best cost:  0.007775584536459308
+IT:  7 	Best cost:  0.007775584536459308
+IT:  8 	Best cost:  0.007775584536459308
+IT:  9 	Best cost:  0.007775584536459308
+IT:  10 	Best cost:  0.007775584536459308
+IT:  11 	Best cost:  0.007775584536459308
+IT:  12 	Best cost:  0.005501695375156554
+IT:  13 	Best cost:  0.005501695375156554
+IT:  14 	Best cost:  0.005501695375156554
+IT:  15 	Best cost:  0.005501695375156554
+IT:  16 	Best cost:  0.005501695375156554
+IT:  17 	Best cost:  0.005501695375156554
+IT:  18 	Best cost:  0.005501695375156554
+IT:  19 	Best cost:  0.005501695375156554
+IT:  20 	Best cost:  0.005501695375156554
+IT:  21 	Best cost:  0.005501695375156554
+IT:  22 	Best cost:  0.005501695375156554
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 24 | Mejor fitness: 1.038739 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 33.8s
+    Progreso: 98/120 | Tiempo total: 91.9min | Estimado restante: 20.6min
+
+----------------------------------------------------------------------
+[99/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.3161073369619789
+IT:  1 	Best cost:  0.0545499302663751
+IT:  2 	Best cost:  0.0545499302663751
+IT:  3 	Best cost:  0.02682930756927851
+IT:  4 	Best cost:  0.02682930756927851
+IT:  5 	Best cost:  0.02682930756927851
+IT:  6 	Best cost:  0.02682930756927851
+IT:  7 	Best cost:  0.02682930756927851
+IT:  8 	Best cost:  0.02682930756927851
+IT:  9 	Best cost:  0.02682930756927851
+IT:  10 	Best cost:  0.02682930756927851
+IT:  11 	Best cost:  0.02682930756927851
+IT:  12 	Best cost:  0.02682930756927851
+IT:  13 	Best cost:  0.02682930756927851
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 2.362211 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.22676694368998715
+IT:  1 	Best cost:  0.15642237269075798
+IT:  2 	Best cost:  0.11211493472352899
+IT:  3 	Best cost:  0.08862447743099328
+IT:  4 	Best cost:  0.07446315037739158
+IT:  5 	Best cost:  0.07446315037739158
+IT:  6 	Best cost:  0.07446315037739158
+IT:  7 	Best cost:  0.07446315037739158
+IT:  8 	Best cost:  0.07446315037739158
+IT:  9 	Best cost:  0.07446315037739158
+IT:  10 	Best cost:  0.07446315037739158
+IT:  11 	Best cost:  0.07446315037739158
+IT:  12 	Best cost:  0.07446315037739158
+IT:  13 	Best cost:  0.07446315037739158
+IT:  14 	Best cost:  0.07446315037739158
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 2.527417 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.17951655733217423
+IT:  1 	Best cost:  0.16599783844153082
+IT:  2 	Best cost:  0.14003234913261275
+IT:  3 	Best cost:  0.10286821698994705
+IT:  4 	Best cost:  0.06756027149623997
+IT:  5 	Best cost:  0.06756027149623997
+IT:  6 	Best cost:  0.06756027149623997
+IT:  7 	Best cost:  0.06756027149623997
+IT:  8 	Best cost:  0.06756027149623997
+IT:  9 	Best cost:  0.06756027149623997
+IT:  10 	Best cost:  0.06756027149623997
+IT:  11 	Best cost:  0.06756027149623997
+IT:  12 	Best cost:  0.06756027149623997
+IT:  13 	Best cost:  0.06756027149623997
+IT:  14 	Best cost:  0.06756027149623997
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 1.936794 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.1920755622824663
+IT:  1 	Best cost:  0.1920755622824663
+IT:  2 	Best cost:  0.1920755622824663
+IT:  3 	Best cost:  0.08397601034231705
+IT:  4 	Best cost:  0.08397601034231705
+IT:  5 	Best cost:  0.08397601034231705
+IT:  6 	Best cost:  0.08397601034231705
+IT:  7 	Best cost:  0.08397601034231705
+IT:  8 	Best cost:  0.08397601034231705
+IT:  9 	Best cost:  0.08397601034231705
+IT:  10 	Best cost:  0.08397601034231705
+IT:  11 	Best cost:  0.08397601034231705
+IT:  12 	Best cost:  0.08397601034231705
+IT:  13 	Best cost:  0.08397601034231705
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 2.394004 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.27631550095567275
+IT:  1 	Best cost:  0.27631550095567275
+IT:  2 	Best cost:  0.1629390420568894
+IT:  3 	Best cost:  0.15579947703169433
+IT:  4 	Best cost:  0.15282952775636344
+IT:  5 	Best cost:  0.13702438701985187
+IT:  6 	Best cost:  0.13702438701985187
+IT:  7 	Best cost:  0.13702438701985187
+IT:  8 	Best cost:  0.13702438701985187
+IT:  9 	Best cost:  0.10673619146827887
+IT:  10 	Best cost:  0.10673619146827887
+IT:  11 	Best cost:  0.10673619146827887
+IT:  12 	Best cost:  0.10673619146827887
+IT:  13 	Best cost:  0.10673619146827887
+IT:  14 	Best cost:  0.10673619146827887
+IT:  15 	Best cost:  0.10673619146827887
+IT:  16 	Best cost:  0.10673619146827887
+IT:  17 	Best cost:  0.10673619146827887
+IT:  18 	Best cost:  0.10673619146827887
+IT:  19 	Best cost:  0.10673619146827887
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 21 | Mejor fitness: 2.640677 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 33.8s
+    Progreso: 99/120 | Tiempo total: 92.4min | Estimado restante: 19.6min
+
+----------------------------------------------------------------------
+[100/120] mode=chance_only | sampling=non_symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.2443713667385827
+IT:  1 	Best cost:  1.0578835277739966
+IT:  2 	Best cost:  0.5202404294244514
+IT:  3 	Best cost:  0.5202404294244514
+IT:  4 	Best cost:  0.5202404294244514
+IT:  5 	Best cost:  0.5202404294244514
+IT:  6 	Best cost:  0.2785805747263335
+IT:  7 	Best cost:  0.2785805747263335
+IT:  8 	Best cost:  0.2785805747263335
+IT:  9 	Best cost:  0.2785805747263335
+IT:  10 	Best cost:  0.2785805747263335
+IT:  11 	Best cost:  0.2785805747263335
+IT:  12 	Best cost:  0.2785805747263335
+IT:  13 	Best cost:  0.2785805747263335
+IT:  14 	Best cost:  0.2785805747263335
+IT:  15 	Best cost:  0.2785805747263335
+IT:  16 	Best cost:  0.2785805747263335
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 18 | Mejor fitness: 5.170657 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.8037959690578864
+IT:  1 	Best cost:  1.8037959690578864
+IT:  2 	Best cost:  1.8037959690578864
+IT:  3 	Best cost:  1.6364583460940292
+IT:  4 	Best cost:  1.277746787625735
+IT:  5 	Best cost:  0.8777343381031998
+IT:  6 	Best cost:  0.8777343381031998
+IT:  7 	Best cost:  0.8777343381031998
+IT:  8 	Best cost:  0.8777343381031998
+IT:  9 	Best cost:  0.8777343381031998
+IT:  10 	Best cost:  0.8777343381031998
+IT:  11 	Best cost:  0.8777343381031998
+IT:  12 	Best cost:  0.8777343381031998
+IT:  13 	Best cost:  0.8777343381031998
+IT:  14 	Best cost:  0.8777343381031998
+IT:  15 	Best cost:  0.8777343381031998
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 5.497446 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  0.8351925545639358
+IT:  1 	Best cost:  0.8351925545639358
+IT:  2 	Best cost:  0.8351925545639358
+IT:  3 	Best cost:  0.8341788036340559
+IT:  4 	Best cost:  0.8341788036340559
+IT:  5 	Best cost:  0.7574142374015042
+IT:  6 	Best cost:  0.7574142374015042
+IT:  7 	Best cost:  0.7574142374015042
+IT:  8 	Best cost:  0.7574142374015042
+IT:  9 	Best cost:  0.7180844501020709
+IT:  10 	Best cost:  0.7180844501020709
+IT:  11 	Best cost:  0.7180844501020709
+IT:  12 	Best cost:  0.7180844501020709
+IT:  13 	Best cost:  0.7180844501020709
+IT:  14 	Best cost:  0.7180844501020709
+IT:  15 	Best cost:  0.7180844501020709
+IT:  16 	Best cost:  0.7180844501020709
+IT:  17 	Best cost:  0.7180844501020709
+IT:  18 	Best cost:  0.7180844501020709
+IT:  19 	Best cost:  0.7180844501020709
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 21 | Mejor fitness: 4.946262 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.8229231191092075
+IT:  1 	Best cost:  1.7259763505001218
+IT:  2 	Best cost:  1.7259763505001218
+IT:  3 	Best cost:  1.6798093461099808
+IT:  4 	Best cost:  1.6258723168579223
+IT:  5 	Best cost:  1.05904949247256
+IT:  6 	Best cost:  1.05904949247256
+IT:  7 	Best cost:  0.909928836485353
+IT:  8 	Best cost:  0.909928836485353
+IT:  9 	Best cost:  0.909928836485353
+IT:  10 	Best cost:  0.909928836485353
+IT:  11 	Best cost:  0.909928836485353
+IT:  12 	Best cost:  0.909928836485353
+IT:  13 	Best cost:  0.909928836485353
+IT:  14 	Best cost:  0.909928836485353
+IT:  15 	Best cost:  0.909928836485353
+IT:  16 	Best cost:  0.909928836485353
+IT:  17 	Best cost:  0.909928836485353
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 19 | Mejor fitness: 5.529988 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.1992110258940794
+IT:  1 	Best cost:  1.0973242340087421
+IT:  2 	Best cost:  0.9181142924469502
+IT:  3 	Best cost:  0.7219184489689217
+IT:  4 	Best cost:  0.7219184489689217
+IT:  5 	Best cost:  0.7219184489689217
+IT:  6 	Best cost:  0.7219184489689217
+IT:  7 	Best cost:  0.7219184489689217
+IT:  8 	Best cost:  0.7219184489689217
+IT:  9 	Best cost:  0.7219184489689217
+IT:  10 	Best cost:  0.7219184489689217
+IT:  11 	Best cost:  0.7219184489689217
+IT:  12 	Best cost:  0.7219184489689217
+IT:  13 	Best cost:  0.7219184489689217
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 5.334841 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 38.5s
+    Progreso: 100/120 | Tiempo total: 93.1min | Estimado restante: 18.6min
+
+----------------------------------------------------------------------
+[101/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=binary | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.470000 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.460000 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.232500 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.175000 | Mejor accuracy: 95.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.250000 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 3.8s
+    Progreso: 101/120 | Tiempo total: 93.1min | Estimado restante: 17.5min
+
+----------------------------------------------------------------------
+[102/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=binary | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.497500 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.922500 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.425000 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.562500 | Mejor accuracy: 95.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 4 | Mejor fitness: 0.442500 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 7.0s
+    Progreso: 102/120 | Tiempo total: 93.3min | Estimado restante: 16.5min
+
+----------------------------------------------------------------------
+[103/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=binary | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 6 | Mejor fitness: 0.677500 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.700000 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 9 | Mejor fitness: 0.710000 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 0.435000 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 9 | Mejor fitness: 0.395000 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 17.6s
+    Progreso: 103/120 | Tiempo total: 93.6min | Estimado restante: 15.4min
+
+----------------------------------------------------------------------
+[104/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=binary | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 12 | Mejor fitness: 0.662500 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 0.585000 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 0.900000 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 12 | Mejor fitness: 0.587500 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 13 | Mejor fitness: 0.575000 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 26.7s
+    Progreso: 104/120 | Tiempo total: 94.0min | Estimado restante: 14.5min
+
+----------------------------------------------------------------------
+[105/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 4 | Mejor fitness: 0.375860 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 9 | Mejor fitness: 0.479605 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 8 | Mejor fitness: 0.520638 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 0.527018 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.348976 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 18.0s
+    Progreso: 105/120 | Tiempo total: 94.3min | Estimado restante: 13.5min
+
+----------------------------------------------------------------------
+[106/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.396129 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 7 | Mejor fitness: 0.650169 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.237783 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.659597 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 1.476095 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 33.5s
+    Progreso: 106/120 | Tiempo total: 94.9min | Estimado restante: 12.5min
+
+----------------------------------------------------------------------
+[107/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.221131 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.245001 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.069549 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.157701 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 3.195281 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 76574.9s
+    Progreso: 107/120 | Tiempo total: 1371.1min | Estimado restante: 166.6min
+
+----------------------------------------------------------------------
+[108/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=margin | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.988738542132602
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 22 | Mejor fitness: 6.646208 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 21 | Mejor fitness: 7.280486 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.8579954258832587
+IT:  1 	Best cost:  0.8052038961011823
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 23 | Mejor fitness: 6.807138 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  1.0563059285756018
+IT:  1 	Best cost:  0.09417452267276749
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 23 | Mejor fitness: 6.645589 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.4619698782142333
+IT:  1 	Best cost:  0.4619698782142333
+IT:  2 	Best cost:  0.3919875081879327
+IT:  3 	Best cost:  0.3919875081879327
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+IT:  23 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    -> Parada en gen 25 | Mejor fitness: 6.379887 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 55.3s
+    Progreso: 108/120 | Tiempo total: 1372.0min | Estimado restante: 152.4min
+
+----------------------------------------------------------------------
+[109/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0017218990423846744
+IT:  1 	Best cost:  0.0016436628415527734
+IT:  2 	Best cost:  0.0015899266345666008
+IT:  3 	Best cost:  0.0015767636980284416
+IT:  4 	Best cost:  0.001576737534563765
+IT:  5 	Best cost:  0.001576737534563765
+IT:  6 	Best cost:  0.00157673029826647
+IT:  7 	Best cost:  0.00157673029826647
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.309864 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.001936021609327757
+IT:  1 	Best cost:  0.0018742117988087416
+IT:  2 	Best cost:  0.0016353574477514367
+IT:  3 	Best cost:  0.0015773454493110274
+IT:  4 	Best cost:  0.0015767965050759382
+IT:  5 	Best cost:  0.0015767379026460388
+IT:  6 	Best cost:  0.0015767328751419365
+IT:  7 	Best cost:  0.0015767302982201007
+IT:  8 	Best cost:  0.0015767302982119832
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+IT:  12 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.361049 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0016353491775337745
+IT:  1 	Best cost:  0.0016353491775337745
+IT:  2 	Best cost:  0.0015923832385131551
+IT:  3 	Best cost:  0.001576788150512003
+IT:  4 	Best cost:  0.0015767341055155106
+IT:  5 	Best cost:  0.0015767341055155106
+IT:  6 	Best cost:  0.0015767302986187436
+IT:  7 	Best cost:  0.0015767302982136512
+IT:  8 	Best cost:  0.0015767302982136512
+IT:  9 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 12 | Mejor fitness: 0.414925 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0017175113325900479
+IT:  1 	Best cost:  0.0016525429922326501
+IT:  2 	Best cost:  0.0016023729382239546
+IT:  3 	Best cost:  0.0015769411656414388
+IT:  4 	Best cost:  0.0015769411656414388
+IT:  5 	Best cost:  0.0015767921390623376
+IT:  6 	Best cost:  0.0015767303027222647
+IT:  7 	Best cost:  0.0015767303004925325
+IT:  8 	Best cost:  0.0015767302982522366
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+IT:  12 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.307027 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para SOFTMAX: <= 0.0101
+Iniciando optimización...
+IT:  0 	Best cost:  0.0021356177723068524
+IT:  1 	Best cost:  0.0016244245898392174
+IT:  2 	Best cost:  0.0015826653888147124
+IT:  3 	Best cost:  0.0015773465124362166
+IT:  4 	Best cost:  0.001576731483374655
+IT:  5 	Best cost:  0.001576731483374655
+IT:  6 	Best cost:  0.001576730299352091
+IT:  7 	Best cost:  0.001576730298220323
+IT:  8 	Best cost:  0.0015767302982145407
+IT:  9 	Best cost:  0.0015767302982119832
+IT:  10 	Best cost:  0.0015767302982119832
+IT:  11 	Best cost:  0.0015767302982119832
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 0.293535 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 23.2s
+    Progreso: 109/120 | Tiempo total: 1372.4min | Estimado restante: 138.5min
+
+----------------------------------------------------------------------
+[110/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.0297603427308975
+IT:  1 	Best cost:  0.00714143776602608
+IT:  2 	Best cost:  0.00714143776602608
+IT:  3 	Best cost:  0.004183222951880607
+IT:  4 	Best cost:  0.003219371142787057
+IT:  5 	Best cost:  0.003219371142787057
+IT:  6 	Best cost:  0.003219371142787057
+IT:  7 	Best cost:  0.003219371142787057
+IT:  8 	Best cost:  0.003219371142787057
+IT:  9 	Best cost:  0.003219371142787057
+IT:  10 	Best cost:  0.003211115945684127
+IT:  11 	Best cost:  0.003211115945684127
+IT:  12 	Best cost:  0.003211115945684127
+IT:  13 	Best cost:  0.003211115945684127
+IT:  14 	Best cost:  0.003211115945684127
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 0.959319 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.003888273113985279
+IT:  1 	Best cost:  0.0034748273623662392
+IT:  2 	Best cost:  0.0034748273623662392
+IT:  3 	Best cost:  0.003173215970718631
+IT:  4 	Best cost:  0.0031537600519909448
+IT:  5 	Best cost:  0.003153462447917598
+IT:  6 	Best cost:  0.0031534606049312417
+IT:  7 	Best cost:  0.0031534606049312417
+IT:  8 	Best cost:  0.0031534605964922417
+IT:  9 	Best cost:  0.0031534605964239665
+IT:  10 	Best cost:  0.0031534605964239665
+IT:  11 	Best cost:  0.0031534605964239665
+IT:  12 	Best cost:  0.0031534605964239665
+IT:  13 	Best cost:  0.0031534605964239665
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 0.672279 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.05409501130461672
+IT:  1 	Best cost:  0.005508366135485436
+IT:  2 	Best cost:  0.005508366135485436
+IT:  3 	Best cost:  0.005508366135485436
+IT:  4 	Best cost:  0.005508366135485436
+IT:  5 	Best cost:  0.004338045538082462
+IT:  6 	Best cost:  0.003754688755522433
+IT:  7 	Best cost:  0.003754688755522433
+IT:  8 	Best cost:  0.003754688755522433
+IT:  9 	Best cost:  0.0016240821828424018
+IT:  10 	Best cost:  0.0016240821828424018
+IT:  11 	Best cost:  0.0016240821828424018
+IT:  12 	Best cost:  0.0016240821828424018
+IT:  13 	Best cost:  0.0016240821828424018
+IT:  14 	Best cost:  0.0016240821828424018
+IT:  15 	Best cost:  0.0016240821828424018
+IT:  16 	Best cost:  0.0016240821828424018
+IT:  17 	Best cost:  0.0016240821828424018
+IT:  18 	Best cost:  0.0016240821828424018
+IT:  19 	Best cost:  0.0016240821828424018
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 21 | Mejor fitness: 0.835147 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.00489916862238552
+IT:  1 	Best cost:  0.00489916862238552
+IT:  2 	Best cost:  0.00489916862238552
+IT:  3 	Best cost:  0.00489916862238552
+IT:  4 	Best cost:  0.00489916862238552
+IT:  5 	Best cost:  0.00489916862238552
+IT:  6 	Best cost:  0.00403784962157831
+IT:  7 	Best cost:  0.00403784962157831
+IT:  8 	Best cost:  0.00403784962157831
+IT:  9 	Best cost:  0.00403784962157831
+IT:  10 	Best cost:  0.00403784962157831
+IT:  11 	Best cost:  0.00403784962157831
+IT:  12 	Best cost:  0.00403784962157831
+IT:  13 	Best cost:  0.00403784962157831
+IT:  14 	Best cost:  0.00403784962157831
+IT:  15 	Best cost:  0.00403784962157831
+IT:  16 	Best cost:  0.00403784962157831
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 18 | Mejor fitness: 1.017865 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para SOFTMAX: <= 0.0201
+Iniciando optimización...
+IT:  0 	Best cost:  0.09198484749477158
+IT:  1 	Best cost:  0.011475055547140343
+IT:  2 	Best cost:  0.008569267957570698
+IT:  3 	Best cost:  0.008569267957570698
+IT:  4 	Best cost:  0.0031674716730376844
+IT:  5 	Best cost:  0.0031674716730376844
+IT:  6 	Best cost:  0.0031674716730376844
+IT:  7 	Best cost:  0.0031674716730376844
+IT:  8 	Best cost:  0.0031674716730376844
+IT:  9 	Best cost:  0.0031674716730376844
+IT:  10 	Best cost:  0.0031674716730376844
+IT:  11 	Best cost:  0.0031674716730376844
+IT:  12 	Best cost:  0.0031674716730376844
+IT:  13 	Best cost:  0.0031674716730376844
+IT:  14 	Best cost:  0.0031674716730376844
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 1.077520 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 25.7s
+    Progreso: 110/120 | Tiempo total: 1372.8min | Estimado restante: 124.8min
+
+----------------------------------------------------------------------
+[111/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.3444444434517609
+IT:  1 	Best cost:  0.04972943217178751
+IT:  2 	Best cost:  0.04972943217178751
+IT:  3 	Best cost:  0.04972943217178751
+IT:  4 	Best cost:  0.04972943217178751
+IT:  5 	Best cost:  0.04972943217178751
+IT:  6 	Best cost:  0.04972943217178751
+IT:  7 	Best cost:  0.04972943217178751
+IT:  8 	Best cost:  0.043376977813949905
+IT:  9 	Best cost:  0.043376977813949905
+IT:  10 	Best cost:  0.043376977813949905
+IT:  11 	Best cost:  0.04300169831586058
+IT:  12 	Best cost:  0.04300169831586058
+IT:  13 	Best cost:  0.04300169831586058
+IT:  14 	Best cost:  0.04300169831586058
+IT:  15 	Best cost:  0.04300169831586058
+IT:  16 	Best cost:  0.04300169831586058
+IT:  17 	Best cost:  0.04300169831586058
+IT:  18 	Best cost:  0.04300169831586058
+IT:  19 	Best cost:  0.04300169831586058
+IT:  20 	Best cost:  0.04300169831586058
+IT:  21 	Best cost:  0.04300169831586058
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 23 | Mejor fitness: 2.354016 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.40459468764186407
+IT:  1 	Best cost:  0.18328341961732592
+IT:  2 	Best cost:  0.09945405086506716
+IT:  3 	Best cost:  0.09945405086506716
+IT:  4 	Best cost:  0.09945405086506716
+IT:  5 	Best cost:  0.045240713400066565
+IT:  6 	Best cost:  0.045240713400066565
+IT:  7 	Best cost:  0.045240713400066565
+IT:  8 	Best cost:  0.025354238218822343
+IT:  9 	Best cost:  0.025354238218822343
+IT:  10 	Best cost:  0.025354238218822343
+IT:  11 	Best cost:  0.025354238218822343
+IT:  12 	Best cost:  0.025354238218822343
+IT:  13 	Best cost:  0.025354238218822343
+IT:  14 	Best cost:  0.025354238218822343
+IT:  15 	Best cost:  0.025354238218822343
+IT:  16 	Best cost:  0.025354238218822343
+IT:  17 	Best cost:  0.025354238218822343
+IT:  18 	Best cost:  0.025354238218822343
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 20 | Mejor fitness: 2.295185 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.14272596953989233
+IT:  1 	Best cost:  0.06563352468060578
+IT:  2 	Best cost:  0.06563352468060578
+IT:  3 	Best cost:  0.06563352468060578
+IT:  4 	Best cost:  0.06563352468060578
+IT:  5 	Best cost:  0.06563352468060578
+IT:  6 	Best cost:  0.06563352468060578
+IT:  7 	Best cost:  0.06563352468060578
+IT:  8 	Best cost:  0.06563352468060578
+IT:  9 	Best cost:  0.06563352468060578
+IT:  10 	Best cost:  0.06563352468060578
+IT:  11 	Best cost:  0.06563352468060578
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 1.671155 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.125893687953333
+IT:  1 	Best cost:  0.12510084150118456
+IT:  2 	Best cost:  0.12510084150118456
+IT:  3 	Best cost:  0.12510084150118456
+IT:  4 	Best cost:  0.10907332403093987
+IT:  5 	Best cost:  0.10907332403093987
+IT:  6 	Best cost:  0.10907332403093987
+IT:  7 	Best cost:  0.08139128026088949
+IT:  8 	Best cost:  0.08139128026088949
+IT:  9 	Best cost:  0.08139128026088949
+IT:  10 	Best cost:  0.08139128026088949
+IT:  11 	Best cost:  0.08139128026088949
+IT:  12 	Best cost:  0.08139128026088949
+IT:  13 	Best cost:  0.08139128026088949
+IT:  14 	Best cost:  0.08139128026088949
+IT:  15 	Best cost:  0.08139128026088949
+IT:  16 	Best cost:  0.08139128026088949
+IT:  17 	Best cost:  0.08139128026088949
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 19 | Mejor fitness: 2.254843 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para SOFTMAX: <= 0.0402
+Iniciando optimización...
+IT:  0 	Best cost:  0.4296862385353479
+IT:  1 	Best cost:  0.4213363732399743
+IT:  2 	Best cost:  0.24306985690995292
+IT:  3 	Best cost:  0.23973333813900183
+IT:  4 	Best cost:  0.07032619364138384
+IT:  5 	Best cost:  0.029707197003343094
+IT:  6 	Best cost:  0.029707197003343094
+IT:  7 	Best cost:  0.029707197003343094
+IT:  8 	Best cost:  0.029707197003343094
+IT:  9 	Best cost:  0.029707197003343094
+IT:  10 	Best cost:  0.029707197003343094
+IT:  11 	Best cost:  0.029707197003343094
+IT:  12 	Best cost:  0.029707197003343094
+IT:  13 	Best cost:  0.029707197003343094
+IT:  14 	Best cost:  0.029707197003343094
+IT:  15 	Best cost:  0.029707197003343094
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 2.368446 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 32.6s
+    Progreso: 111/120 | Tiempo total: 1373.4min | Estimado restante: 111.4min
+
+----------------------------------------------------------------------
+[112/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=softmax | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  0.9147102344209905
+IT:  1 	Best cost:  0.6059174024219862
+IT:  2 	Best cost:  0.21916234699699808
+IT:  3 	Best cost:  0.21916234699699808
+IT:  4 	Best cost:  0.21916234699699808
+IT:  5 	Best cost:  0.21916234699699808
+IT:  6 	Best cost:  0.21916234699699808
+IT:  7 	Best cost:  0.21916234699699808
+IT:  8 	Best cost:  0.21916234699699808
+IT:  9 	Best cost:  0.21916234699699808
+IT:  10 	Best cost:  0.21916234699699808
+IT:  11 	Best cost:  0.21916234699699808
+IT:  12 	Best cost:  0.21916234699699808
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 5.148909 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.7915845120895653
+IT:  1 	Best cost:  0.9184244330111666
+IT:  2 	Best cost:  0.7939051905965596
+IT:  3 	Best cost:  0.7939051905965596
+IT:  4 	Best cost:  0.7939051905965596
+IT:  5 	Best cost:  0.7939051905965596
+IT:  6 	Best cost:  0.7939051905965596
+IT:  7 	Best cost:  0.7939051905965596
+IT:  8 	Best cost:  0.7939051905965596
+IT:  9 	Best cost:  0.7939051905965596
+IT:  10 	Best cost:  0.7939051905965596
+IT:  11 	Best cost:  0.7939051905965596
+IT:  12 	Best cost:  0.7939051905965596
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 5.031095 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.5799007745885894
+IT:  1 	Best cost:  1.4469958511738799
+IT:  2 	Best cost:  0.8248439503159664
+IT:  3 	Best cost:  0.8248439503159664
+IT:  4 	Best cost:  0.8248439503159664
+IT:  5 	Best cost:  0.8248439503159664
+IT:  6 	Best cost:  0.8248439503159664
+IT:  7 	Best cost:  0.8248439503159664
+IT:  8 	Best cost:  0.8248439503159664
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 11 | Mejor fitness: 4.111293 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  0.4757457158847374
+IT:  1 	Best cost:  0.4757457158847374
+IT:  2 	Best cost:  0.4757457158847374
+IT:  3 	Best cost:  0.2130511484416544
+IT:  4 	Best cost:  0.2130511484416544
+IT:  5 	Best cost:  0.2130511484416544
+IT:  6 	Best cost:  0.2130511484416544
+IT:  7 	Best cost:  0.2130511484416544
+IT:  8 	Best cost:  0.2130511484416544
+IT:  9 	Best cost:  0.2130511484416544
+IT:  10 	Best cost:  0.2130511484416544
+IT:  11 	Best cost:  0.2130511484416544
+IT:  12 	Best cost:  0.2130511484416544
+IT:  13 	Best cost:  0.2130511484416544
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 5.056101 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: SOFTMAX
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para SOFTMAX: <= 0.0804
+Iniciando optimización...
+IT:  0 	Best cost:  1.0256903624476483
+IT:  1 	Best cost:  0.999610827922825
+IT:  2 	Best cost:  0.9391730270839291
+IT:  3 	Best cost:  0.9254195008244716
+IT:  4 	Best cost:  0.6829835877617968
+IT:  5 	Best cost:  0.6829835877617968
+IT:  6 	Best cost:  0.6829835877617968
+IT:  7 	Best cost:  0.6829835877617968
+IT:  8 	Best cost:  0.6829835877617968
+IT:  9 	Best cost:  0.6829835877617968
+IT:  10 	Best cost:  0.6829835877617968
+IT:  11 	Best cost:  0.6829835877617968
+IT:  12 	Best cost:  0.6829835877617968
+IT:  13 	Best cost:  0.6829835877617968
+IT:  14 	Best cost:  0.6829835877617968
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 4.892889 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 36.6s
+    Progreso: 112/120 | Tiempo total: 1374.0min | Estimado restante: 98.1min
+
+----------------------------------------------------------------------
+[113/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.577450 | Mejor accuracy: 95.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.490354 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.169126 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.163419 | Mejor accuracy: 85.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 2 | Mejor fitness: 0.128395 | Mejor accuracy: 85.0%
+
+  OK Combinación completada en 3.1s
+    Progreso: 113/120 | Tiempo total: 1374.1min | Estimado restante: 85.1min
+
+----------------------------------------------------------------------
+[114/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.216848 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 1 | Mejor fitness: 0.964824 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 4 | Mejor fitness: 0.528391 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.389288 | Mejor accuracy: 95.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 3 | Mejor fitness: 0.249795 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 4.9s
+    Progreso: 114/120 | Tiempo total: 1374.1min | Estimado restante: 72.3min
+
+----------------------------------------------------------------------
+[115/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 6 | Mejor fitness: 0.400385 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 5 | Mejor fitness: 0.436883 | Mejor accuracy: 95.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 8 | Mejor fitness: 0.710669 | Mejor accuracy: 95.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 9 | Mejor fitness: 0.556093 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 7 | Mejor fitness: 0.480556 | Mejor accuracy: 95.0%
+
+  OK Combinación completada en 13.9s
+    Progreso: 115/120 | Tiempo total: 1374.4min | Estimado restante: 59.8min
+
+----------------------------------------------------------------------
+[116/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=regret | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 0.638961 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 10 | Mejor fitness: 0.577886 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 10 | Mejor fitness: 0.871233 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 11 | Mejor fitness: 0.703917 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+    -> Parada en gen 12 | Mejor fitness: 0.552160 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 16.9s
+    Progreso: 116/120 | Tiempo total: 1374.6min | Estimado restante: 47.4min
+
+----------------------------------------------------------------------
+[117/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=1 (5%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0029888712357247437
+IT:  1 	Best cost:  0.0028607530596961818
+IT:  2 	Best cost:  0.0027725388173324844
+IT:  3 	Best cost:  0.002750902601678767
+IT:  4 	Best cost:  0.0027508595851871557
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0351
+    -> Parada en gen 7 | Mejor fitness: 0.283526 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.00333772288218116
+IT:  1 	Best cost:  0.00323727956816909
+IT:  2 	Best cost:  0.0028471305249100653
+IT:  3 	Best cost:  0.0027518590729770434
+IT:  4 	Best cost:  0.0027509565411122363
+IT:  5 	Best cost:  0.0027508601903675238
+IT:  6 	Best cost:  0.002750851924424166
+IT:  7 	Best cost:  0.0027508476901421256
+IT:  8 	Best cost:  0.0027508476876063354
+IT:  9 	Best cost:  0.0027508476875782767
+IT:  10 	Best cost:  0.0027508476875782767
+IT:  11 	Best cost:  0.0027508476875782767
+IT:  12 	Best cost:  0.0027508476875782767
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.393233 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0028471169579523488
+IT:  1 	Best cost:  0.0028471169579523488
+IT:  2 	Best cost:  0.0027765755718450373
+IT:  3 	Best cost:  0.0027509428050321557
+IT:  4 	Best cost:  0.002750853947336338
+IT:  5 	Best cost:  0.002750853947336338
+IT:  6 	Best cost:  0.0027508476882471154
+IT:  7 	Best cost:  0.0027508476875811576
+IT:  8 	Best cost:  0.0027508476875811576
+IT:  9 	Best cost:  0.002750847687578278
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 12 | Mejor fitness: 0.486936 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.002981695660228533
+IT:  1 	Best cost:  0.0028753136257676456
+IT:  2 	Best cost:  0.002792986967444855
+IT:  3 	Best cost:  0.0027511943827526744
+IT:  4 	Best cost:  0.0027511943827526744
+IT:  5 	Best cost:  0.0027509493627713108
+IT:  6 	Best cost:  0.00275084769499397
+IT:  7 	Best cost:  0.0027508476913279045
+IT:  8 	Best cost:  0.002750847687644605
+IT:  9 	Best cost:  0.0027508476875782767
+IT:  10 	Best cost:  0.0027508476875782767
+IT:  11 	Best cost:  0.0027508476875782767
+IT:  12 	Best cost:  0.0027508476875782767
+IT:  13 	Best cost:  0.0027508476875782767
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 0.400942 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Meta de Fitness ajustada para ENTROPY: <= 0.0351
+Iniciando optimización...
+IT:  0 	Best cost:  0.0036607421072351177
+IT:  1 	Best cost:  0.0028291919184137513
+IT:  2 	Best cost:  0.002760604710107199
+IT:  3 	Best cost:  0.0027518608208668676
+IT:  4 	Best cost:  0.0027508496361574406
+IT:  5 	Best cost:  0.0027508496361574406
+IT:  6 	Best cost:  0.0027508476894529173
+IT:  7 	Best cost:  0.002750847687592133
+IT:  8 	Best cost:  0.002750847687582275
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0351
+    -> Parada en gen 11 | Mejor fitness: 0.345780 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 18.6s
+    Progreso: 117/120 | Tiempo total: 1375.0min | Estimado restante: 35.3min
+
+----------------------------------------------------------------------
+[118/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=2 (10%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.0201335598066016
+IT:  1 	Best cost:  0.010026984023007545
+IT:  2 	Best cost:  0.008595639757958656
+IT:  3 	Best cost:  0.005576443989849834
+IT:  4 	Best cost:  0.005576443989849834
+IT:  5 	Best cost:  0.00553406234120569
+IT:  6 	Best cost:  0.005502216439625771
+IT:  7 	Best cost:  0.005502216439625771
+IT:  8 	Best cost:  0.005502216439625771
+IT:  9 	Best cost:  0.00550169537520908
+IT:  10 	Best cost:  0.005501695375156558
+IT:  11 	Best cost:  0.005501695375156558
+IT:  12 	Best cost:  0.005501695375156553
+IT:  13 	Best cost:  0.005501695375156553
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 1.158946 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.006701790056273617
+IT:  1 	Best cost:  0.006701790056273617
+IT:  2 	Best cost:  0.0055038587942473904
+IT:  3 	Best cost:  0.005502131864436672
+IT:  4 	Best cost:  0.005501962106895069
+IT:  5 	Best cost:  0.005501962106895069
+IT:  6 	Best cost:  0.005501700869141852
+IT:  7 	Best cost:  0.005501700869141852
+IT:  8 	Best cost:  0.005501700869141852
+IT:  9 	Best cost:  0.005501695375156556
+IT:  10 	Best cost:  0.005501695375156553
+IT:  11 	Best cost:  0.005501695375156553
+IT:  12 	Best cost:  0.005501695375156553
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 14 | Mejor fitness: 0.941712 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.04757067174492824
+IT:  1 	Best cost:  0.029094701478408848
+IT:  2 	Best cost:  0.005185702407335571
+IT:  3 	Best cost:  0.005185702407335571
+IT:  4 	Best cost:  0.005185702407335571
+IT:  5 	Best cost:  0.005185702407335571
+IT:  6 	Best cost:  0.0046924646142861995
+IT:  7 	Best cost:  0.0046924646142861995
+IT:  8 	Best cost:  0.0046924646142861995
+IT:  9 	Best cost:  0.0046924646142861995
+IT:  10 	Best cost:  0.0046924646142861995
+IT:  11 	Best cost:  0.0046924646142861995
+IT:  12 	Best cost:  0.0046924646142861995
+IT:  13 	Best cost:  0.0046924646142861995
+IT:  14 	Best cost:  0.0046924646142861995
+IT:  15 	Best cost:  0.0046924646142861995
+IT:  16 	Best cost:  0.0046924646142861995
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 18 | Mejor fitness: 0.953003 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.030353285853978874
+IT:  1 	Best cost:  0.0205256858828022
+IT:  2 	Best cost:  0.01643557318474343
+IT:  3 	Best cost:  0.01643557318474343
+IT:  4 	Best cost:  0.008104856492317576
+IT:  5 	Best cost:  0.008104856492317576
+IT:  6 	Best cost:  0.008104856492317576
+IT:  7 	Best cost:  0.005906393469344349
+IT:  8 	Best cost:  0.005906393469344349
+IT:  9 	Best cost:  0.005906393469344349
+IT:  10 	Best cost:  0.005906393469344349
+IT:  11 	Best cost:  0.005906393469344349
+IT:  12 	Best cost:  0.005906393469344349
+IT:  13 	Best cost:  0.005906393469344349
+IT:  14 	Best cost:  0.005906393469344349
+IT:  15 	Best cost:  0.005906393469344349
+IT:  16 	Best cost:  0.005906393469344349
+IT:  17 	Best cost:  0.005906393469344349
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 19 | Mejor fitness: 1.158559 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Meta de Fitness ajustada para ENTROPY: <= 0.0701
+Iniciando optimización...
+IT:  0 	Best cost:  0.1371729240869552
+IT:  1 	Best cost:  0.08456777646348358
+IT:  2 	Best cost:  0.07209460910037584
+IT:  3 	Best cost:  0.06968443262425159
+IT:  4 	Best cost:  0.015132178417630381
+IT:  5 	Best cost:  0.015132178417630381
+IT:  6 	Best cost:  0.015132178417630381
+IT:  7 	Best cost:  0.015132178417630381
+IT:  8 	Best cost:  0.015132178417630381
+IT:  9 	Best cost:  0.015132178417630381
+IT:  10 	Best cost:  0.015132178417630381
+IT:  11 	Best cost:  0.015132178417630381
+IT:  12 	Best cost:  0.015132178417630381
+IT:  13 	Best cost:  0.015132178417630381
+IT:  14 	Best cost:  0.015132178417630381
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 1.039312 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 25.2s
+    Progreso: 118/120 | Tiempo total: 1375.4min | Estimado restante: 23.3min
+
+----------------------------------------------------------------------
+[119/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=4 (20%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.4502253926973326
+IT:  1 	Best cost:  0.1406756845288685
+IT:  2 	Best cost:  0.1406756845288685
+IT:  3 	Best cost:  0.02510300454131469
+IT:  4 	Best cost:  0.02510300454131469
+IT:  5 	Best cost:  0.02510300454131469
+IT:  6 	Best cost:  0.02510300454131469
+IT:  7 	Best cost:  0.02510300454131469
+IT:  8 	Best cost:  0.02510300454131469
+IT:  9 	Best cost:  0.02510300454131469
+IT:  10 	Best cost:  0.02510300454131469
+IT:  11 	Best cost:  0.02510300454131469
+IT:  12 	Best cost:  0.02510300454131469
+IT:  13 	Best cost:  0.02510300454131469
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 2.318329 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.49381368739744236
+IT:  1 	Best cost:  0.23564269186257522
+IT:  2 	Best cost:  0.2187514283666741
+IT:  3 	Best cost:  0.2187514283666741
+IT:  4 	Best cost:  0.21591278898103788
+IT:  5 	Best cost:  0.0796096742957463
+IT:  6 	Best cost:  0.0796096742957463
+IT:  7 	Best cost:  0.0796096742957463
+IT:  8 	Best cost:  0.0796096742957463
+IT:  9 	Best cost:  0.0796096742957463
+IT:  10 	Best cost:  0.0796096742957463
+IT:  11 	Best cost:  0.0796096742957463
+IT:  12 	Best cost:  0.0796096742957463
+IT:  13 	Best cost:  0.0796096742957463
+IT:  14 	Best cost:  0.0796096742957463
+IT:  15 	Best cost:  0.0796096742957463
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 2.406220 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.1401942812170971
+IT:  1 	Best cost:  0.1401942812170971
+IT:  2 	Best cost:  0.1401942812170971
+IT:  3 	Best cost:  0.1349318061796192
+IT:  4 	Best cost:  0.1349318061796192
+IT:  5 	Best cost:  0.1349318061796192
+IT:  6 	Best cost:  0.1349318061796192
+IT:  7 	Best cost:  0.1349318061796192
+IT:  8 	Best cost:  0.1349318061796192
+IT:  9 	Best cost:  0.1349318061796192
+IT:  10 	Best cost:  0.1349318061796192
+IT:  11 	Best cost:  0.1349318061796192
+IT:  12 	Best cost:  0.1349318061796192
+IT:  13 	Best cost:  0.1349318061796192
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 15 | Mejor fitness: 2.185591 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.25644922478639515
+IT:  1 	Best cost:  0.25644922478639515
+IT:  2 	Best cost:  0.25644922478639515
+IT:  3 	Best cost:  0.24553029334659898
+IT:  4 	Best cost:  0.08876126284622436
+IT:  5 	Best cost:  0.08876126284622436
+IT:  6 	Best cost:  0.08876126284622436
+IT:  7 	Best cost:  0.08876126284622436
+IT:  8 	Best cost:  0.08876126284622436
+IT:  9 	Best cost:  0.08876126284622436
+IT:  10 	Best cost:  0.08876126284622436
+IT:  11 	Best cost:  0.08876126284622436
+IT:  12 	Best cost:  0.08876126284622436
+IT:  13 	Best cost:  0.08876126284622436
+IT:  14 	Best cost:  0.08876126284622436
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 16 | Mejor fitness: 2.528077 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Meta de Fitness ajustada para ENTROPY: <= 0.1402
+Iniciando optimización...
+IT:  0 	Best cost:  0.2720166500809094
+IT:  1 	Best cost:  0.21898080564287378
+IT:  2 	Best cost:  0.2169222841884297
+IT:  3 	Best cost:  0.20997740300319895
+IT:  4 	Best cost:  0.20997740300319895
+IT:  5 	Best cost:  0.11402649460330823
+IT:  6 	Best cost:  0.11402649460330823
+IT:  7 	Best cost:  0.11402649460330823
+IT:  8 	Best cost:  0.11402649460330823
+IT:  9 	Best cost:  0.11402649460330823
+IT:  10 	Best cost:  0.11402649460330823
+IT:  11 	Best cost:  0.11402649460330823
+IT:  12 	Best cost:  0.11402649460330823
+IT:  13 	Best cost:  0.11402649460330823
+IT:  14 	Best cost:  0.11402649460330823
+IT:  15 	Best cost:  0.11402649460330823
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 2.682561 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 33.0s
+    Progreso: 119/120 | Tiempo total: 1375.9min | Estimado restante: 11.6min
+
+----------------------------------------------------------------------
+[120/120] mode=chance_only | sampling=symmetric | Tc=1.0 | Tu=1.0 | fitness=entropy | stop=top50 | rules=8 (40%)
+----------------------------------------------------------------------
+
+  > Repetición 1/5 (seed=42)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.3597441169550226
+IT:  1 	Best cost:  0.8174753960345043
+IT:  2 	Best cost:  0.33222684241421313
+IT:  3 	Best cost:  0.33222684241421313
+IT:  4 	Best cost:  0.33222684241421313
+IT:  5 	Best cost:  0.26879807239041076
+IT:  6 	Best cost:  0.26879807239041076
+IT:  7 	Best cost:  0.26879807239041076
+IT:  8 	Best cost:  0.26879807239041076
+IT:  9 	Best cost:  0.26879807239041076
+IT:  10 	Best cost:  0.26879807239041076
+IT:  11 	Best cost:  0.26879807239041076
+IT:  12 	Best cost:  0.26879807239041076
+IT:  13 	Best cost:  0.26879807239041076
+IT:  14 	Best cost:  0.26879807239041076
+IT:  15 	Best cost:  0.26879807239041076
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 5.130493 | Mejor accuracy: 100.0%
+
+  > Repetición 2/5 (seed=43)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  2.0059892854288113
+IT:  1 	Best cost:  2.0059892854288113
+IT:  2 	Best cost:  2.0059892854288113
+IT:  3 	Best cost:  1.393834201490456
+IT:  4 	Best cost:  1.2937965056473588
+IT:  5 	Best cost:  1.2937965056473588
+IT:  6 	Best cost:  0.7264815656008361
+IT:  7 	Best cost:  0.7264815656008361
+IT:  8 	Best cost:  0.7264815656008361
+IT:  9 	Best cost:  0.7264815656008361
+IT:  10 	Best cost:  0.7264815656008361
+IT:  11 	Best cost:  0.7264815656008361
+IT:  12 	Best cost:  0.7264815656008361
+IT:  13 	Best cost:  0.7264815656008361
+IT:  14 	Best cost:  0.7264815656008361
+IT:  15 	Best cost:  0.7264815656008361
+IT:  16 	Best cost:  0.7264815656008361
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 18 | Mejor fitness: 5.480315 | Mejor accuracy: 100.0%
+
+  > Repetición 3/5 (seed=44)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.6914675001356578
+IT:  1 	Best cost:  1.6914675001356578
+IT:  2 	Best cost:  0.980889234627575
+IT:  3 	Best cost:  0.980889234627575
+IT:  4 	Best cost:  0.980889234627575
+IT:  5 	Best cost:  0.8775430276019531
+IT:  6 	Best cost:  0.8775430276019531
+IT:  7 	Best cost:  0.8775430276019531
+IT:  8 	Best cost:  0.8775430276019531
+IT:  9 	Best cost:  0.8775430276019531
+IT:  10 	Best cost:  0.8775430276019531
+IT:  11 	Best cost:  0.8775430276019531
+IT:  12 	Best cost:  0.8775430276019531
+IT:  13 	Best cost:  0.8775430276019531
+IT:  14 	Best cost:  0.8775430276019531
+IT:  15 	Best cost:  0.8775430276019531
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 17 | Mejor fitness: 4.948520 | Mejor accuracy: 100.0%
+
+  > Repetición 4/5 (seed=45)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  1.1427307551112036
+IT:  1 	Best cost:  0.32850556813224396
+IT:  2 	Best cost:  0.32850556813224396
+IT:  3 	Best cost:  0.32850556813224396
+IT:  4 	Best cost:  0.32850556813224396
+IT:  5 	Best cost:  0.32850556813224396
+IT:  6 	Best cost:  0.32850556813224396
+IT:  7 	Best cost:  0.32850556813224396
+IT:  8 	Best cost:  0.32850556813224396
+IT:  9 	Best cost:  0.32850556813224396
+IT:  10 	Best cost:  0.32850556813224396
+IT:  11 	Best cost:  0.32850556813224396
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 13 | Mejor fitness: 5.327028 | Mejor accuracy: 100.0%
+
+  > Repetición 5/5 (seed=46)
+Optimizador: KEDA
+Modo de Fitness: ENTROPY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 8
+Meta de Fitness ajustada para ENTROPY: <= 0.2804
+Iniciando optimización...
+IT:  0 	Best cost:  0.9962015062885693
+IT:  1 	Best cost:  0.9962015062885693
+IT:  2 	Best cost:  0.9962015062885693
+IT:  3 	Best cost:  0.9962015062885693
+IT:  4 	Best cost:  0.9962015062885693
+IT:  5 	Best cost:  0.9962015062885693
+IT:  6 	Best cost:  0.9962015062885693
+IT:  7 	Best cost:  0.9962015062885693
+IT:  8 	Best cost:  0.9962015062885693
+IT:  9 	Best cost:  0.8760724641400939
+IT:  10 	Best cost:  0.8760724641400939
+IT:  11 	Best cost:  0.8760724641400939
+IT:  12 	Best cost:  0.8760724641400939
+IT:  13 	Best cost:  0.8760724641400939
+IT:  14 	Best cost:  0.8760724641400939
+IT:  15 	Best cost:  0.8760724641400939
+IT:  16 	Best cost:  0.8760724641400939
+IT:  17 	Best cost:  0.8760724641400939
+IT:  18 	Best cost:  0.8760724641400939
+IT:  19 	Best cost:  0.8760724641400939
+
+¡PARADA ANTICIPADA! Estancamiento: 10 generaciones seguidas sin mejorar al menos 0.0001.
+    -> Parada en gen 21 | Mejor fitness: 5.185164 | Mejor accuracy: 100.0%
+
+  OK Combinación completada en 28.7s
+    Progreso: 120/120 | Tiempo total: 1376.4min | Estimado restante: 0.0min
+
+======================================================================
+  GRID SEARCH FINALIZADO
+  Resultados: example\bypass2\grid_search_results_KEDA.csv
+  Curvas:     example\bypass2\grid_search_curves_KEDA.csv
+  Tiempo total: 1376.4 minutos
+======================================================================
