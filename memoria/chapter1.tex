@@ -13,9 +13,11 @@ A \emph{Decision Support System} (DSS) is an interactive
 computational tool designed to assist a decision-maker in the analysis
 of unstructured problems by combining data, formal models and
 analytical techniques~\cite{insua2005,howard2008foundations}. Within
-this broad family, \emph{Influence
-Diagrams}~(IDs)\cite{howard2005influence,koller2009pgm,shenoy2009eolss}
-have become a particularly compact graphical formalism:
+this broad family, \emph{Influence Diagrams}~(IDs)
+\cite{howard2005influence,koller2009pgm,shenoy2009eolss} have become
+the de-facto standard for representing Bayesian decision
+problems~\cite{bielza2011review} and offer a particularly compact
+graphical formalism:
 a single directed acyclic graph encodes simultaneously the
 probabilistic structure of the problem (chance nodes), the
 controllable choices of the agent (decision nodes) and her
@@ -41,6 +43,25 @@ and over a hundred utility values had to be elicited from clinicians
 before the model could be deployed, and the very same effort is
 documented as the dominant cost of the project in the companion
 analysis of Bielza et al.~\cite{bielza2000issues}.
+
+To put these numbers in perspective, the SRI elicitation
+protocol — still the reference in the field — requires roughly
+\emph{thirty minutes per parameter}~\cite{bielza2010modeling},
+which makes the direct estimation of a model with thousands of
+entries impractical. The community has responded with a battery of
+techniques to reduce the parameter count — divorcing parents,
+sequential refinements, canonical Noisy-OR / Noisy-AND
+models — and the same authors report that on the jaundice ID itself
+Noisy-OR achieves a \emph{77\,\% global reduction} of the
+probabilistic parameters and up to 97\,\% on individual
+distributions~\cite{bielza2010modeling}. The utility node is in
+general even harder to elicit: a single utility function with five
+attributes already requires of the order of 5\,400 entries and the
+corresponding pairwise-comparison protocol would demand more than
+14 million expert judgements~\cite{bielza2010modeling}. These
+figures, far from being anecdotal, are what makes the
+parameter-elicitation problem the dominant cost of any ID-based
+DSS deployment.
 
 This thesis addresses precisely this parameter-elicitation problem.
 We assume that the structure of the ID is given, that all variables
@@ -129,8 +150,17 @@ contribution focused, the work in this thesis is restricted to:
     \item supervision signals consisting of a finite set of
           \emph{partial decision rules} produced by a domain expert.
 \end{enumerate}
-Extensions to dynamic IDs, multi-agent settings (MAIDs) and
-continuous variables are discussed only in the perspectives chapter.
+A wealth of representational extensions has been proposed in the
+ID literature — asymmetric decision problems (conditional
+distribution trees, sequential decision diagrams, sequential
+valuation networks), continuous and hybrid IDs (Gaussian IDs,
+mixtures of truncated exponentials and polynomials), unconstrained
+IDs and multi-agent extensions (MAIDs) — and the review of Bielza,
+G{\'o}mez and Shenoy~\cite{bielza2011review} offers a thorough
+catalogue of them. The present thesis deliberately restricts
+itself to the regular, discrete, single-value setting described
+above; the extensions are revisited only in the perspectives
+chapter.
 
 % --------------------------------------------------------------
 \section{State of the Art}
@@ -166,9 +196,17 @@ canonical models (Noisy-OR, Noisy-AND, additive utilities)
 making, including the doctoral work of Shahzad on the integration of
 Bayesian networks and MCDM~\cite{shahzad2022mcdm}, has produced a
 mature catalogue of methods to reduce the cognitive load on the
-expert. The bottleneck nevertheless persists: every CPT row and
-every utility entry has to be confirmed by a human, and the size of
-the table grows exponentially with the number of parents.
+expert. Even with these aids, however, the resulting judgements are
+known to be systematically biased: the experimental psychology of
+probability assessment has identified three robust distortions —
+\emph{availability}, \emph{representativeness} and
+\emph{anchoring} — that all degrade the quality of expert-supplied
+numbers regardless of the analyst's
+training~\cite{bielza2010modeling}. The bottleneck therefore
+persists on two fronts at once: every CPT row and every utility
+entry must be confirmed by a human, the size of the table grows
+exponentially with the number of parents, and what is finally
+written down is itself an unreliable estimate.
 
 \subsection{Evolutionary algorithms and metaheuristics}
 
