@@ -32,8 +32,62 @@ for the vector that maximises that score.
 
 \begin{figure}[H]
     \centering
-    % Replace by the actual figure once available
-    \caption{High-level architecture of the proof-of-concept system.}
+    \begin{tikzpicture}[
+        >=Stealth, font=\small,
+        box/.style={draw, rounded corners, align=center, inner sep=6pt,
+                    text width=52mm, minimum height=9mm},
+        io/.style={draw, align=center, inner sep=5pt, fill=black!5,
+                   text width=30mm, minimum height=8mm},
+        arr/.style={->, thick}
+    ]
+        % --- inputs ---
+        \node[io] (xdsl) {\texttt{.xdsl} influence diagram};
+        \node[io, right=12mm of xdsl] (csv) {expert rules (CSV)};
+
+        % --- loading ---
+        \node[box, below=8mm of xdsl, xshift=21mm] (load)
+            {Load model and rules\\[2pt]
+             node tables $\mathcal{N}$ \;+\; (evidence, decision,
+             action) triples};
+
+        % --- optimisation loop ---
+        \node[box, below=9mm of load, fill=blue!8] (eda)
+            {EDA optimiser (\texttt{UMDAc})\\[2pt]
+             sample raw vectors $\{\boldsymbol{\phi}\}$};
+        \node[box, below=9mm of eda] (dec)
+            {Decoder\\[2pt]
+             softmax $\to$ CPTs,\quad sigmoid $\to$ utility};
+        \node[box, below=9mm of dec] (smile)
+            {SMILE / Shachter evaluation\\[2pt]
+             optimal action for each rule};
+        \node[box, below=9mm of smile, fill=red!8] (cost)
+            {Cost\; $c(\boldsymbol{\phi}) = 1 - \text{rule accuracy}$};
+
+        % --- output ---
+        \node[io, right=20mm of eda] (out)
+            {best model $\boldsymbol{\Theta}^{\star}$};
+
+        % --- edges ---
+        \draw[arr] (xdsl) -- (load);
+        \draw[arr] (csv)  -- (load);
+        \draw[arr] (load) -- (eda);
+        \draw[arr] (eda)  -- (dec);
+        \draw[arr] (dec)  -- (smile);
+        \draw[arr] (smile)-- (cost);
+        \draw[arr] (eda)  -- (out)
+            node[midway, above, font=\scriptsize] {on convergence};
+        % feedback loop
+        \draw[arr] (cost.west) -- ++(-3.0,0) |- (eda.west)
+            node[pos=0.55, left, align=right, font=\scriptsize]
+            {select elite,\\ refit marginals};
+    \end{tikzpicture}
+    \caption{High-level architecture of the proof-of-concept system.
+             The model and the rules are loaded once; the optimiser then
+             repeats the \emph{sample\,--\,decode\,--\,evaluate\,--\,score}
+             cycle, refitting its probabilistic model from the best
+             individuals each generation, and returns the parameter
+             vector $\boldsymbol{\Theta}^{\star}$ of minimum cost when it
+             converges.}
     \label{fig:architecture}
 \end{figure}
 
@@ -62,38 +116,69 @@ step will check one by one.
 % ==============================================================
 
 The EDA searches over plain real vectors, but the parameters of an ID
-are constrained: every CPT row is a probability distribution and the
-utilities live on a bounded scale. The encoding bridges the two. All the
-free entries of the CPTs and of the utility table are concatenated into a
-single vector $\boldsymbol{\phi}\in[0,1]^{d}$, which is exactly the kind
-of box-bounded space the continuous UMDA samples from; a fixed node
-ordering lets the decoder recover which slice of $\boldsymbol{\phi}$
-belongs to each table.
+are constrained: every CPT row must be a probability distribution and
+the utilities must stay on a bounded scale. The encoding keeps the two
+worlds apart. The optimiser works on a \emph{raw} vector
+$\boldsymbol{\phi}$ whose entries it samples freely within symmetric
+bounds — in our runs $[-5,5]$ for the CPT entries and $[-10,10]$ for the
+utilities — and a \emph{decoder} turns that raw vector into a legal
+model. A fixed node ordering tells the decoder which slice of
+$\boldsymbol{\phi}$ belongs to each table.
 
-Decoding is where the constraints are enforced, so that \emph{every}
-vector the EDA produces maps to a legal model and the Shachter engine can
-always be called:
+Decoding is where the constraints are enforced, through two squashing
+functions applied row by row:
 
 \begin{itemize}
-  \item \textbf{Chance nodes.} Each CPT row is obtained by passing the
-        corresponding entries of $\boldsymbol{\phi}$ through a softmax,
+  \item \textbf{Chance nodes --- softmax.} Each CPT row is the softmax of
+        its raw entries,
+        $\hat{\theta}(\cdot\mid\mathbf{pa}) =
+        \operatorname{softmax}(\boldsymbol{\phi}_{\text{row}}/T_c)$,
         which always returns non-negative values that sum to one.
-  \item \textbf{Utility node.} Each free utility entry is mapped through
-        a sigmoid onto a bounded range (here $[0,10]$), and two entries
-        are pinned to the best and worst outcomes declared by the expert.
+  \item \textbf{Utility node --- sigmoid.} Each free utility entry is the
+        sigmoid of its raw value, rescaled to the chosen range
+        $[u_{\min},u_{\max}]$ (here $[0,10]$):
+        $\hat{u} = \sigma(\phi/T_u)\,(u_{\max}-u_{\min}) + u_{\min}$. Two
+        entries are then pinned to the best and worst outcomes declared
+        by the expert.
 \end{itemize}
 
 \begin{proposition}[Validity of the decoded model]
 \label{prop:valid-cpt}
-For every $\boldsymbol{\phi}\in[0,1]^{d}$ the decoded tables form a valid
-parameterisation: each CPT row lies on the probability simplex
-$\Delta(\Omega_{C_i})$ and every utility lies in the chosen range. Hence
-the Shachter engine can be evaluated unconditionally, with no need to
-reject or repair samples.
+For every raw vector $\boldsymbol{\phi}$ the decoded tables form a valid
+parameterisation: softmax guarantees that each CPT row is non-negative
+and sums to one, and the rescaled sigmoid keeps every utility inside
+$[u_{\min},u_{\max}]$. The Shachter engine can therefore be evaluated
+unconditionally, with no need to reject or repair samples.
 \end{proposition}
 
-The two pinned utility entries are not cosmetic. Because the optimal
-policy depends only on the \emph{ordering} of the utilities, $u$ is
+These two squashing functions are not innocuous; their consequences are
+worth spelling out:
+
+\begin{itemize}
+  \item \textbf{No repair step.} Because softmax and sigmoid land on the
+        feasible set by construction, the EDA can roam an
+        \emph{unconstrained} real space while the decoded model is always
+        legal — there is never a sample to clip, project or discard.
+        This is what makes the row-wise validity of
+        Proposition~\ref{prop:valid-cpt} come for free.
+  \item \textbf{Temperatures control sharpness.} The temperatures
+        $T_c, T_u$ rescale the raw values before squashing. A low $T_c$
+        pushes a CPT row towards a near-deterministic distribution (all
+        the mass on one state); a high $T_c$ flattens it towards the
+        uniform. The sigmoid behaves analogously for the utilities,
+        sharpening or softening the contrast between outcomes.
+  \item \textbf{Monotonicity and saturation of the utility.} The sigmoid
+        is monotone, so the \emph{ordering} of the raw utility values
+        carries over to the decoded utilities — which is all that
+        matters, since the optimal policy depends only on that ordering.
+        Its saturation, however, means that most of the sensitivity is
+        concentrated near the midpoint of the range: extreme raw values
+        barely move the decoded utility, so the optimiser has fine
+        control over close calls and coarse control at the extremes.
+\end{itemize}
+
+Finally, the two pinned utility entries are not cosmetic. Because the
+optimal policy depends only on the ordering of the utilities, $u$ is
 identifiable only up to a positive affine transformation; fixing the
 best and worst outcomes removes that ambiguity and stops the EDA from
 drifting along a direction that does not change the policy. The same
@@ -104,11 +189,22 @@ Metelli~\cite{lazzati2025utilities} for utility learning in MDPs.
 \section{Scoring a candidate}
 % ==============================================================
 
-A candidate is judged by how many expert rules it reproduces. Since
-\textsc{EDAspy} minimises, we use the complementary \emph{cost}:
+A candidate is scored by how well the policy it induces reproduces the
+expert rules. This is the mean per-rule loss
+$\mathcal{L}(\boldsymbol{\Theta})$ of
+Definition~\ref{def:fitness}, which \textsc{EDAspy} minimises directly.
+A central point is that this loss is \emph{not unique}: the per-rule
+term $\ell$ is a configurable choice, and the implementation exposes the
+whole family introduced in Chapter~\ref{ch:framework} — the $0$--$1$
+\textsc{binary} loss, \textsc{regret}, \textsc{margin}, \textsc{softmax}
+and \textsc{entropy} — whose effect on convergence and final accuracy is
+compared experimentally in Chapter~4. The simplest member is the
+$0$--$1$ loss, whose mean is just the fraction of rules the model gets
+wrong:
 
-\begin{definition}[Cost function]
+\begin{definition}[Rule-accuracy cost]
 \label{def:cost}
+With the $0$--$1$ per-rule loss, the objective reduces to
 \[
    c(\boldsymbol{\phi}) = 1 -
    \frac{1}{|\mathcal{R}|}
@@ -118,20 +214,18 @@ A candidate is judged by how many expert rules it reproduces. Since
 \]
 where $\boldsymbol{\Theta}(\boldsymbol{\phi})$ is the decoded vector and
 $\delta^{*}_{i_l}$ is the action the Shachter engine returns under the
-evidence $\mathbf{x}^{(l)}$.
+evidence $\mathbf{x}^{(l)}$. The smoother variants replace the
+indicator by the corresponding $\ell$ of
+Chapter~\ref{ch:framework}, exposing more gradient-like information to
+the search.
 \end{definition}
 
-Evaluating one candidate therefore means decoding it into the tables
-and, for each rule, entering its evidence, running the diagram and
-checking whether the recommended action matches the expert's; the
-fraction of matches gives the score. Degenerate tables sampled in the
+Whatever the loss, evaluating one candidate means decoding it into the
+tables and, for each rule, entering its evidence, running the diagram and
+inspecting the recommended action. Degenerate tables sampled in the
 early generations can occasionally make the engine fail numerically;
 those rules are simply skipped rather than penalised, since the share of
-unevaluable candidates vanishes quickly as the search progresses. The
-$0$--$1$ indicator above is the simplest choice of per-rule loss; the
-implementation also supports the smoother variants (regret, margin,
-softmax, entropy) introduced in Chapter~\ref{ch:framework}, compared
-experimentally in Chapter~4.
+unevaluable candidates vanishes quickly as the search progresses.
 
 % ==============================================================
 \section{The optimiser}
@@ -178,12 +272,23 @@ avoids wasting time once the population has converged.
 \label{tab:hyperparams}
 \end{table}
 
-The population is initialised by uniform sampling in $[0,1]^{d}$, the
-\textsc{EDAspy} default. Two natural extensions, both supported by the
-library and discussed in the perspectives chapter, are an LLM-generated
-warm start~\cite{nafar2025llm4bn} and parallel fitness
-evaluation~\cite{mendiburu2005parallel}; neither is used here, to keep
-the experiments single-threaded and reproducible.
+The first population is drawn \emph{uniformly} within the symmetric raw
+bounds. This choice is deliberate. Because the bounds are centred at
+zero and both squashing functions are symmetric about it, a raw value of
+zero decodes to a uniform CPT row and to the mid-range utility: the
+search therefore starts \emph{unbiased}, with no built-in preference for
+any state of a chance node or any action of a decision. Uniform sampling
+also scatters the initial individuals across the whole raw space rather
+than around a single guess, so the EDA explores broadly before its model
+contracts — which matters on the multimodal, degenerate landscape of
+this problem, where many parameter vectors reproduce the same rules and
+an early commitment to one region would be premature.
+
+Two natural extensions, both supported by \textsc{EDAspy} and discussed
+in the perspectives chapter, replace this uninformed start or speed it
+up: an LLM-generated warm start~\cite{nafar2025llm4bn} and parallel
+fitness evaluation~\cite{mendiburu2005parallel}. Neither is used here, to
+keep the experiments single-threaded and reproducible.
 
 % ==============================================================
 \section{Summary}
@@ -191,10 +296,11 @@ the experiments single-threaded and reproducible.
 
 The pipeline turns the formal problem of Chapter~\ref{ch:framework} into
 an executable loop: the diagram and the expert rules are loaded once, a
-candidate parameter vector in $[0,1]^{d}$ is decoded into a valid model
-(Proposition~\ref{prop:valid-cpt}), the diagram is evaluated against
-every rule to produce the cost of Definition~\ref{def:cost}, and the
-continuous UMDA of \textsc{EDAspy} searches for the vector of minimum
-cost. The next chapter puts this pipeline to work on the
+raw candidate vector is decoded through softmax and sigmoid into a valid
+model (Proposition~\ref{prop:valid-cpt}), the diagram is evaluated
+against every rule to produce the loss of
+Definition~\ref{def:fitness} (in its simplest form the rule-accuracy
+cost of Definition~\ref{def:cost}), and the continuous UMDA of
+\textsc{EDAspy} searches for the vector of minimum cost. The next chapter puts this pipeline to work on the
 neonatal-jaundice benchmark of G{\'o}mez et
 al.~\cite{gomez2007jaundice}.

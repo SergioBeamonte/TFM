@@ -72,12 +72,10 @@ $\Omega_{C_i}$:
 where $\Delta(\Omega_{C_i})$ denotes the probability simplex over the
 states of $C_i$. The utility node carries a real-valued mapping
 \[
-   u : \!\!\prod_{C\in\mathrm{Pa}(V)\cap\mathbf{C}}\!\!\Omega_C
-       \;\times\!\!\prod_{D\in\mathrm{Pa}(V)\cap\mathbf{D}}\!\!\mathcal{A}_D
-       \;\longrightarrow\; \mathbb{R},
+   u : \prod_{X\in\mathrm{Pa}(V)}\Omega_X \longrightarrow \mathbb{R},
 \]
-ranging over the states of its chance parents and the actions of its
-decision parents. The function $u$ encodes the preferences of the decision-maker in
+where $\Omega_{D_i}\equiv\mathcal{A}_{D_i}$ for any decision parent.
+The function $u$ encodes the preferences of the decision-maker in
 the sense of Multi-Attribute Utility Theory, and when its arguments
 satisfy the usual independence conditions it admits an additive or
 multiplicative decomposition that drastically simplifies its
@@ -97,7 +95,7 @@ necessary.
 \end{remark}
 
 A \emph{decision rule} for $D_i$ is a mapping
-$\delta_i : \prod_{C_j\in\mathrm{Pa}_{\text{info}}(D_i)}\Omega_{C_j}
+$\delta_i : \prod_{C_j\in\mathrm{Pa}(D_i)}\Omega_{C_j}
 \longrightarrow \mathcal{A}_{D_i}$
 that prescribes an action for every observable context. The
 collection $\boldsymbol{\delta}=(\delta_1,\ldots,\delta_k)$ over all
@@ -111,15 +109,12 @@ policy under a parameter vector $\boldsymbol{\Theta}$ is
    \prod_{C_i\in\mathbf{C}}
    \theta_{C_i}\!\bigl(c_i \mid \mathbf{pa}(c_i)\bigr),
 \end{equation}
-where $\mathbf{c}=(c_1,\ldots,c_n)$ is a complete \emph{scenario} — a
-joint instantiation of all the chance nodes, with $c_i\in\Omega_{C_i}$
-— and the sum ranges over the set of all possible scenarios
-$\prod_{C_i\in\mathbf{C}}\Omega_{C_i}$. For each scenario,
+where $\mathbf{c}=(c_1,\ldots,c_n)$ is a complete \emph{scenario}. For each scenario,
 $\mathbf{pa}(c_i)$ denotes the values its parents take within that same
 scenario and $\boldsymbol{\delta}(\mathbf{c})$ the actions prescribed
 by the policy. Thus each scenario is weighted by its joint probability
 (the product of CPTs) and scored by its utility, and the expectation
-sums these contributions over every possible state of the world.
+sums these contributions over every possible state of the space.
 The \emph{optimal policy} is
 $\boldsymbol{\delta}^{\!*}(\boldsymbol{\Theta}) =
 \arg\max_{\boldsymbol{\delta}}
@@ -147,9 +142,7 @@ exponentially with the connectivity of the diagram, so an exhaustive
 elicitation is unrealistic for any diagram of practical size.
 
 We assume instead that the expert can provide a \emph{small set of
-decision rules} that need only be partial: some variables can be
-declared irrelevant, in which case the rule applies for every value
-of those variables.
+decision rules}.
 
 \begin{definition}[Expert rule base]
 \label{def:rules}
@@ -170,18 +163,35 @@ vector with the expert by a simple accuracy:
 
 \begin{definition}[Fitness function]
 \label{def:fitness}
-The fitness of $\boldsymbol{\Theta}$ on $\mathcal{R}$ is
+Defined the vector of expected utilities of decision $D_{i_l}$ under
+$\boldsymbol{\Theta}$ and evidence $\mathbf{x}^{(l)}$ as
 \[
-   f(\boldsymbol{\Theta}) =
-   \frac{1}{|\mathcal{R}|} \sum_{(\mathbf{x}^{(l)},D_{i_l},a^{(l)})\in\mathcal{R}}
-   \mathbb{1}\!\left[\delta^{*}_{i_l}(\boldsymbol{\Theta},
-                                       \mathbf{x}^{(l)}) = a^{(l)}\right]
-   \;\in\;[0,1],
+   \mathbf{u}^{(l)}(\boldsymbol{\Theta}) =
+   \bigl(\mathrm{EU}(a \mid \boldsymbol{\Theta}, \mathbf{x}^{(l)})\bigr)_{a\in\mathcal{A}_{D_{i_l}}}.
 \]
-where $\delta^{*}_{i_l}(\boldsymbol{\Theta},\mathbf{x}^{(l)})$ is the
-action prescribed by the optimal policy of the ID under
-$\boldsymbol{\Theta}$ when the evidence $\mathbf{x}^{(l)}$ is
-entered. Irrelevant components are averaged over.
+The generic loss minimised by the EDA is then
+\[
+   \mathcal{L}(\boldsymbol{\Theta}) =
+   \sum_{(\mathbf{x}^{(l)},\,D_{i_l},\,a^{(l)})\in\mathcal{R}}
+   \ell\!\left(\mathbf{u}^{(l)}(\boldsymbol{\Theta}),\; a^{(l)}\right),
+\]
+where $\ell$ is a per-rule loss that compares the expected-utility
+vector of the target decision with the action prescribed by the
+expert. Different choices of $\ell$ recover the fitness variants used
+in this work:
+\[
+\begin{aligned}
+   \ell_{\mathrm{binary}}(\mathbf{u}, a)  &= \mathbb{1}\!\left[\textstyle\arg\max_{a'} u_{a'} \neq a\right], \\[4pt]
+   \ell_{\mathrm{regret}}(\mathbf{u}, a)  &= \max_{a'} u_{a'} - u_a, \\[4pt]
+   \ell_{\mathrm{margin}}(\mathbf{u}, a)  &= \max\!\bigl(0,\; \max_{a'\neq a} u_{a'} + m - u_a\bigr), \\[4pt]
+   \ell_{\mathrm{softmax}}(\mathbf{u}, a) &= -\log \operatorname{softmax}(\mathbf{u})_a, \\[4pt]
+   \ell_{\mathrm{entropy}}(\mathbf{u}, a) &= -\log \operatorname{softmax}(\mathbf{u})_a + \alpha\, H\!\bigl(\operatorname{softmax}(\mathbf{u})\bigr),
+\end{aligned}
+\]
+where $m$ is the margin, $\alpha$ the entropy-regularisation weight, and
+$H(\mathbf{p}) = -\sum_{a'} p_{a'}\log p_{a'}$ the Shannon entropy of the
+softmax distribution over actions.
+
 \end{definition}
 
 The parameter-recovery problem is then the constrained search
@@ -194,25 +204,49 @@ CPTs and utility tables. The next proposition justifies the use of
 a derivative-free metaheuristic instead of a gradient-based
 optimiser.
 
-\begin{proposition}[Non-smoothness of $f$]
+\begin{proposition}[Irregularity of the objective]
 \label{prop:nonsmooth}
-The fitness $f$ of Definition~\ref{def:fitness} is in general
-non-convex and not differentiable with respect to
-$\boldsymbol{\Theta}$.
+The objective $\mathcal{L}$ of Definition~\ref{def:fitness} is
+non-convex with respect to $\boldsymbol{\Theta}$ for every per-rule
+loss $\ell$ considered in this work. For the $0$--$1$ (\textsc{binary})
+loss it is, in addition, piecewise constant and discontinuous; for the
+\textsc{regret} and \textsc{margin} losses it is continuous but
+non-differentiable on the set where the optimal action of a decision
+switches; for \textsc{softmax} and \textsc{entropy} it is piecewise
+smooth.
 \end{proposition}
 
 \begin{proof}[Sketch]
-The optimal policy is obtained through an $\arg\max$ over a sum of
-products of the parameters. Any infinitesimal perturbation of
-$\boldsymbol{\Theta}$ that flips the $\arg\max$ at some rule causes
-a unit jump in the indicator of Definition~\ref{def:fitness}; hence
-$f$ is piecewise constant and discontinuous. Non-convexity follows
-from the non-linearity introduced by the $\arg\max$.
+\textbf{\emph{Non-convexity.}} For a chain of two chance nodes the expected
+utility contains a term proportional to the product of two parameters,
+$p\,q$. The map $(p,q)\mapsto p\,q$ is not convex: at $(1,0)$ and
+$(0,1)$ it equals $0$, yet at the midpoint $(\tfrac12,\tfrac12)$ it
+equals $\tfrac14>0$, violating the convexity inequality. Since
+$\mathbf{u}^{(l)}(\boldsymbol{\Theta})$ generically involves such
+products (a node multiplies the probabilities of its parents) and a
+normalisation by the probability of the evidence, $\mathcal{L}$ is
+non-convex.
+
+\textbf{\emph{Regularity.}} Within any region of $\boldsymbol{\Theta}$ where the
+optimal action of every decision is fixed, $\mathbf{u}^{(l)}$ is a
+rational function of the parameters and is therefore smooth. At the
+boundaries between regions the maximising action switches: the value of the optimal policy has a non$-$differentiable there. Composing with the per-rule loss,
+the $0$--$1$ loss jumps discontinuously at those boundaries, the
+\textsc{regret} and \textsc{margin} losses stay continuous but
+non-differentiable, and the \textsc{softmax} and \textsc{entropy} losses
+are smooth away from them.
 \end{proof}
 
-\noindent Proposition~\ref{prop:nonsmooth} rules out gradient-based
-estimators and motivates the population-based, derivative-free
-strategy adopted in the rest of the document.
+\noindent A gradient of $\mathcal{L}$ thus exists almost everywhere
+(except for the discontinuous \textsc{binary} loss) and could in
+principle be obtained by finite differences. We nevertheless adopt a
+population-based, derivative-free strategy for three reasons: the
+landscape is strongly non-convex and highly degenerated (many parameter vectors reproduce the same rules) so local gradient information does not
+lead to the global optimum; the evaluation engine returns only utility
+values, so each numerical gradient would cost $O(d)$ additional
+evaluations in a space of dimension $d=|\boldsymbol{\Theta}|$; and for the
+\textsc{binary} loss the gradient is identically zero almost everywhere.
+
 
 % ==============================================================
 \section{Estimation of Distribution Algorithms}
@@ -227,19 +261,18 @@ of the search space. At every generation a probability distribution
 is fitted to the best individuals of the current population and used
 to generate the next generation. Algorithm~\ref{alg:eda} states the
 generic scheme.
+\newpage
 
-\begin{algorithm}[H]
-\caption{Generic EDA}
+\begin{algorithm}[Generic EDA]\hfill
 \label{alg:eda}
 \begin{algorithmic}[1]
-\State Initialise $\mathcal{P}_0$ of $N$ individuals from a prior on
-       the search space.
+\State Initialise a population $\mathcal{P}_0$ of $N$ individuals from a prior on the search space.
 \State $t \leftarrow 0$
 \Repeat
     \State Evaluate $f$ on every $\boldsymbol{\Theta}\in\mathcal{P}_t$.
-    \State Select the top-$S$ individuals
-           $\mathcal{P}_t^{\text{sel}}$.
-    \State Estimate a probabilistic model $\hat{p}_t$ on
+    \State Select the top-$S$ individuals 
+           $\rightarrow \mathcal{P}_t^{\text{sel}}$.
+    \State Estimate a probabilistic model $\hat{p}_t$ based on
            $\mathcal{P}_t^{\text{sel}}$.
     \State Sample $N$ new individuals from $\hat{p}_t$ to form
            $\mathcal{P}_{t+1}$.
@@ -260,7 +293,7 @@ Because the parameter vector of an ID lives in a continuous space
 continuous EDAs are relevant. The three variants considered in this
 thesis are:
 
-\paragraph{UMDA\textsubscript{c}.} In the continuous Univariate
+\paragraph*{UMDA\textsubscript{c}:} In the continuous Univariate
 Marginal Distribution Algorithm~\cite{larranaga2002eda} each dimension
 is modelled by an independent Gaussian:
 \[
@@ -271,14 +304,14 @@ with mean and variance estimated by the sample moments of the
 selected individuals. UMDA\textsubscript{c} is the cheapest and most
 scalable variant but cannot capture inter-variable dependencies.
 
-\paragraph{EGNA.} The Estimation of Gaussian Networks
+\paragraph*{EGNA:} The Estimation of Gaussian Networks
 Algorithm~\cite{larranaga2002eda} fits a Gaussian Bayesian network
 to $\mathcal{P}_t^{\text{sel}}$ and samples from it. It captures
 pairwise (and higher-order) linear dependencies between the
 parameters of the model but pays a cost of $O(d^2 N)$ per generation
 for a $d$-dimensional problem with $N$ individuals.
 
-\paragraph{KEDA and SPEDA.} Recent variants replace the Gaussian
+\paragraph*{KEDA and SPEDA.} Recent variants replace the Gaussian
 assumption by kernel density estimators (KEDA) or mix Gaussian and
 non-parametric nodes (SPEDA)~\cite{soloviev2023speda}. They are of
 interest for multi-modal problems and are listed in the perspectives
@@ -322,35 +355,22 @@ problem is that every sampled individual be turned into a valid set of
 CPTs — each row a probability distribution — which is handled at the
 decoding stage described in Chapter~\ref{ch:implementation}.
 
-\subsection{Comparison with classical Genetic Algorithms}
 
-It is illuminating to compare an EDA with the standard Genetic
-Algorithm (GA) approach used in the predecessor of this
-work~\cite{henriquez2024tfm}. A univariate EDA with Gaussian
-marginals performs, in effect, an \emph{implicit uniform crossover}
-over the selected population: sampling independently from each
-marginal is equivalent to drawing each gene from a uniformly chosen
-parent. The main advantage of an EDA over a GA is that the
-probabilistic model is built and inspected \emph{explicitly}, which
-makes the dependency structure of the search space visible and
-exploitable. A second advantage, crucial in our setting, is that
-the EDA needs no problem-specific crossover operator; designing such
-an operator for vectors constrained to a product of simplices is far
-from trivial.
 
-% ==============================================================
-\section{Summary}
-% ==============================================================
+% % ==============================================================
 
-We have introduced the formal machinery needed to state the
-parameter-recovery problem: the definition of an Influence Diagram,
-its quantitative parameterisation and the notion of an optimal
-policy obtained by the Shachter algorithm. We have then formalised
-the expert rule base, the fitness function and shown
-(Proposition~\ref{prop:nonsmooth}) that the resulting optimisation
-problem is non-convex and non-smooth — hence the choice of a
-derivative-free method. Finally, we have presented the EDA family
-with the variants used in this work, an intuitive account of why the
-search converges, and a comparison with classical genetic algorithms.
-The next chapter turns these theoretical pieces into an executable
-implementation.
+% \section{Summary}
+
+
+% We have introduced the formal machinery needed to state the
+% parameter-recovery problem: the definition of an Influence Diagram,
+% its quantitative parameterisation and the notion of an optimal
+% policy obtained by the Shachter algorithm. We have then formalised
+% the expert rule base, the fitness function and shown
+% (Proposition~\ref{prop:nonsmooth}) that the resulting optimisation
+% problem is non-convex and non-smooth — hence the choice of a
+% derivative-free method. Finally, we have presented the EDA family
+% with the variants used in this work, an intuitive account of why the
+% search converges, and a comparison with classical genetic algorithms.
+% The next chapter turns these theoretical pieces into an executable
+% implementation.
