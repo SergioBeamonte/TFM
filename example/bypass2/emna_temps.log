@@ -1,0 +1,2678 @@
+C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pgmpy\estimators\__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in a future release. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\EDAspy\optimization\custom\probabilistic_models\multivariate_gaussian.py:42: RuntimeWarning: covariance is not symmetric positive-semidefinite.
+  return np.random.multivariate_normal(self.pm_means, self.pm_cov, size)
+======================================================================
+  EXPLORE TEMPS — EMNA
+  fitness=margin | rules=4 (20%) | sg=50
+  combos=22 x 5 reps | ya hechas=0
+======================================================================
+
+[1/22] mode=both sampling=non_symmetric Tc=0.5 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.9094193179870249
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8880797874820949
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=22 acc=90.0%
+    OK (0.3 min acumulado)
+
+[2/22] mode=both sampling=non_symmetric Tc=0.5 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.42244696629809697
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=23 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.6646664672470246
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.1854980950998977
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=23 acc=95.0%
+    OK (0.4 min acumulado)
+
+[3/22] mode=both sampling=non_symmetric Tc=0.5 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.7650263360333618
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.46215080307591894
+IT:  1 	Best cost:  0.1784468920459661
+IT:  2 	Best cost:  0.07297533605619044
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=12 acc=85.0%
+    OK (0.4 min acumulado)
+
+[4/22] mode=both sampling=non_symmetric Tc=1.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.41282511013838175
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.7756220746211309
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=16 acc=95.0%
+    OK (0.5 min acumulado)
+
+[5/22] mode=both sampling=non_symmetric Tc=1.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=15 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.3902733357452375
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 3/5: gen=15 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.2568551027756705
+IT:  1 	Best cost:  0.1173277467757643
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=12 acc=80.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.07346367881463967
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=9 acc=95.0%
+    OK (0.6 min acumulado)
+
+[6/22] mode=both sampling=non_symmetric Tc=2.0 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=6 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.4897373042547919
+IT:  1 	Best cost:  0.13534886110441757
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=10 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=75.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.40802962331953463
+IT:  1 	Best cost:  0.13891512309288867
+IT:  2 	Best cost:  0.06909990001501498
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=18 acc=95.0%
+    OK (0.7 min acumulado)
+
+[7/22] mode=both sampling=non_symmetric Tc=2.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=10 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.5740584389343208
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=9 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.1999913533966895
+IT:  1 	Best cost:  0.1999913533966895
+IT:  2 	Best cost:  0.08492015586373824
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=25 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.13312678014584556
+IT:  1 	Best cost:  0.13312678014584556
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8205823819809259
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=12 acc=95.0%
+    OK (0.8 min acumulado)
+
+[8/22] mode=both sampling=non_symmetric Tc=2.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=9 acc=80.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.3430011839743452
+IT:  1 	Best cost:  0.3430011839743452
+IT:  2 	Best cost:  0.24495836533713744
+IT:  3 	Best cost:  0.24495836533713744
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 3/5: gen=12 acc=80.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=11 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=13 acc=95.0%
+    OK (0.9 min acumulado)
+
+[9/22] mode=both sampling=non_symmetric Tc=5.0 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.31216072440428544
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=7 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.7278492786741113
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=12 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.38291838704189374
+IT:  1 	Best cost:  0.38291838704189374
+IT:  2 	Best cost:  0.38291838704189374
+IT:  3 	Best cost:  0.38291838704189374
+IT:  4 	Best cost:  0.31228201786912724
+IT:  5 	Best cost:  0.03678770349276306
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=28 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.361249264518301
+IT:  1 	Best cost:  0.10220637056554338
+IT:  2 	Best cost:  0.10220637056554338
+IT:  3 	Best cost:  0.10199887717692313
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=14 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.2149563084491986
+IT:  1 	Best cost:  1.0328522235389466
+IT:  2 	Best cost:  0.5578310288829007
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=13 acc=85.0%
+    OK (1.0 min acumulado)
+
+[10/22] mode=both sampling=non_symmetric Tc=5.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.694011853129112
+IT:  1 	Best cost:  0.694011853129112
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=8 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.1104738941438352
+IT:  1 	Best cost:  0.7854876491019578
+IT:  2 	Best cost:  0.005285451659943874
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 3/5: gen=13 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8133092092307477
+IT:  1 	Best cost:  0.8133092092307477
+IT:  2 	Best cost:  0.20229311486760793
+IT:  3 	Best cost:  0.20229311486760793
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=14 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.561268907969719
+IT:  1 	Best cost:  0.711133300205006
+IT:  2 	Best cost:  0.5941109687635144
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=11 acc=95.0%
+    OK (1.1 min acumulado)
+
+[11/22] mode=both sampling=non_symmetric Tc=5.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.9458434638732109
+IT:  1 	Best cost:  0.3401199973410787
+IT:  2 	Best cost:  0.21670551329626253
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=11 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.33017128732338286
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=8 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8978306364476749
+IT:  1 	Best cost:  0.039424113286010254
+IT:  2 	Best cost:  0.039424113286010254
+IT:  3 	Best cost:  0.039424113286010254
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 3/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.778882587618722
+IT:  1 	Best cost:  0.271337398009007
+IT:  2 	Best cost:  0.271337398009007
+IT:  3 	Best cost:  0.22766562352045838
+IT:  4 	Best cost:  0.02336027020149878
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=10 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.2839492728230306
+IT:  1 	Best cost:  1.1403114562311458
+IT:  2 	Best cost:  0.241922773951055
+IT:  3 	Best cost:  0.241922773951055
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=12 acc=95.0%
+    OK (1.2 min acumulado)
+
+[12/22] mode=both sampling=symmetric Tc=0.5 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=100.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=100.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.3800407794813
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.2508974230434369
+IT:  1 	Best cost:  0.2508974230434369
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=24 acc=95.0%
+    OK (1.3 min acumulado)
+
+[13/22] mode=both sampling=symmetric Tc=0.5 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.6646664672470246
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.048629904136805235
+IT:  1 	Best cost:  0.048629904136805235
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=24 acc=95.0%
+    OK (1.4 min acumulado)
+
+[14/22] mode=both sampling=symmetric Tc=0.5 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.03341286909779839
+IT:  1 	Best cost:  0.03341286909779839
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=24 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.9796109575498049
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.2549059545362793
+IT:  1 	Best cost:  0.2549059545362793
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=24 acc=95.0%
+    OK (1.5 min acumulado)
+
+[15/22] mode=both sampling=symmetric Tc=1.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=100.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.41282511013838175
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8178325488412455
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=23 acc=95.0%
+    OK (1.6 min acumulado)
+
+[16/22] mode=both sampling=symmetric Tc=1.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=16 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=20 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.5410193572526323
+IT:  1 	Best cost:  0.5410193572526323
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=24 acc=80.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=22 acc=95.0%
+    OK (1.7 min acumulado)
+
+[17/22] mode=both sampling=symmetric Tc=2.0 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 1/5: gen=22 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=22 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.38584763931399024
+IT:  1 	Best cost:  0.38584763931399024
+IT:  2 	Best cost:  0.012669146461657732
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=25 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.9536644968009558
+IT:  1 	Best cost:  0.24761842908165477
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=24 acc=85.0%
+    OK (1.8 min acumulado)
+
+[18/22] mode=both sampling=symmetric Tc=2.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=14 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.161413792400234
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=15 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.13312678014584556
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8205823819809259
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=23 acc=95.0%
+    OK (1.9 min acumulado)
+
+[19/22] mode=both sampling=symmetric Tc=2.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=10 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.6600635724727724
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 2/5: gen=23 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=22 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.7879806269981038
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=23 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 5/5: gen=22 acc=85.0%
+    OK (2.0 min acumulado)
+
+[20/22] mode=both sampling=symmetric Tc=5.0 Tu=1.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.2989380476540422
+IT:  1 	Best cost:  0.020035058490908142
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=9 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=9 acc=90.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.3041321813794857
+IT:  1 	Best cost:  0.3041321813794857
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=24 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.8295095769736642
+IT:  1 	Best cost:  0.5940345964732554
+IT:  2 	Best cost:  0.37541662415938326
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 4/5: gen=25 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.5281586503581233
+IT:  1 	Best cost:  0.5281586503581233
+IT:  2 	Best cost:  0.22943884124830483
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=12 acc=95.0%
+    OK (2.1 min acumulado)
+
+[21/22] mode=both sampling=symmetric Tc=5.0 Tu=2.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=12 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.3637095054263888
+IT:  1 	Best cost:  0.0166528488226243
+IT:  2 	Best cost:  0.0166528488226243
+IT:  3 	Best cost:  0.0166528488226243
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=11 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.6757926252766602
+IT:  1 	Best cost:  0.301500397163192
+IT:  2 	Best cost:  0.301500397163192
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=25 acc=75.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.8133092092307477
+IT:  1 	Best cost:  0.8133092092307477
+IT:  2 	Best cost:  0.4383960232655628
+IT:  3 	Best cost:  0.3683580973586169
+IT:  4 	Best cost:  0.10725005668651644
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=14 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.7527534901195807
+IT:  1 	Best cost:  0.7527534901195807
+IT:  2 	Best cost:  0.35647226107760055
+IT:  3 	Best cost:  0.35647226107760055
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=23 acc=90.0%
+    OK (2.1 min acumulado)
+
+[22/22] mode=both sampling=symmetric Tc=5.0 Tu=5.0 fitness=margin rules=4
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.9458434638732109
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 1/5: gen=10 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.33017128732338286
+IT:  1 	Best cost:  0.33017128732338286
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 2/5: gen=13 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  1.453685791617234
+IT:  1 	Best cost:  0.5108091995900548
+IT:  2 	Best cost:  0.5108091995900548
+IT:  3 	Best cost:  0.34171333878607424
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+IT:  20 	Best cost:  0.0
+IT:  21 	Best cost:  0.0
+IT:  22 	Best cost:  0.0
+IT:  23 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+    rep 3/5: gen=26 acc=95.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.778882587618722
+IT:  1 	Best cost:  0.778882587618722
+IT:  2 	Best cost:  0.5804843078267439
+IT:  3 	Best cost:  0.35326868273313217
+IT:  4 	Best cost:  0.007246305845757917
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 4/5: gen=19 acc=85.0%
+Optimizador: EMNA
+Modo de Fitness: MARGIN
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.16886583569757807
+IT:  1 	Best cost:  0.16886583569757807
+IT:  2 	Best cost:  0.16886583569757807
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+    rep 5/5: gen=15 acc=95.0%
+    OK (2.2 min acumulado)
+
+=== DONE en 2.2 min ===
+Resultados: example\bypass2\grid_search_results_EMNA_temps.csv
+Curvas:     example\bypass2\grid_search_curves_EMNA_temps.csv

@@ -1,0 +1,1067 @@
+C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pgmpy\estimators\__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in a future release. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Cargados 0 runs previos; pendientes...
+Total plan: 120 runs (120 pendientes)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[1/120] bypass2/umda/mmu=True rep=0: acc=85% gen=11  (0.0min / ETA 0.9min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[2/120] bypass2/umda/mmu=True rep=1: acc=95% gen=16  (0.0min / ETA 1.2min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[3/120] bypass2/umda/mmu=True rep=2: acc=90% gen=11  (0.0min / ETA 1.1min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[4/120] bypass2/umda/mmu=True rep=3: acc=75% gen=11  (0.0min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[5/120] bypass2/umda/mmu=True rep=4: acc=85% gen=14  (0.0min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[6/120] bypass2/umda/mmu=True rep=5: acc=85% gen=12  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[7/120] bypass2/umda/mmu=True rep=6: acc=95% gen=15  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[8/120] bypass2/umda/mmu=True rep=7: acc=95% gen=13  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[9/120] bypass2/umda/mmu=True rep=8: acc=90% gen=12  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[10/120] bypass2/umda/mmu=True rep=9: acc=95% gen=10  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[11/120] bypass2/umda/mmu=False rep=0: acc=80% gen=14  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[12/120] bypass2/umda/mmu=False rep=1: acc=85% gen=12  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[13/120] bypass2/umda/mmu=False rep=2: acc=95% gen=17  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[14/120] bypass2/umda/mmu=False rep=3: acc=95% gen=12  (0.1min / ETA 1.0min)C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\EDAspy\optimization\custom\probabilistic_models\multivariate_gaussian.py:42: RuntimeWarning: covariance is not symmetric positive-semidefinite.
+  return np.random.multivariate_normal(self.pm_means, self.pm_cov, size)
+
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[15/120] bypass2/umda/mmu=False rep=4: acc=85% gen=20  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[16/120] bypass2/umda/mmu=False rep=5: acc=85% gen=14  (0.1min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[17/120] bypass2/umda/mmu=False rep=6: acc=85% gen=14  (0.2min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[18/120] bypass2/umda/mmu=False rep=7: acc=85% gen=17  (0.2min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[19/120] bypass2/umda/mmu=False rep=8: acc=85% gen=11  (0.2min / ETA 1.0min)
+Optimizador: UMDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[20/120] bypass2/umda/mmu=False rep=9: acc=95% gen=17  (0.2min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[21/120] bypass2/emna/mmu=True rep=0: acc=85% gen=10  (0.2min / ETA 0.9min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[22/120] bypass2/emna/mmu=True rep=1: acc=100% gen=20  (0.2min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[23/120] bypass2/emna/mmu=True rep=2: acc=100% gen=17  (0.2min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+[24/120] bypass2/emna/mmu=True rep=3: acc=100% gen=22  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[25/120] bypass2/emna/mmu=True rep=4: acc=100% gen=20  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[26/120] bypass2/emna/mmu=True rep=5: acc=85% gen=17  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[27/120] bypass2/emna/mmu=True rep=6: acc=100% gen=19  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[28/120] bypass2/emna/mmu=True rep=7: acc=100% gen=17  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[29/120] bypass2/emna/mmu=True rep=8: acc=85% gen=19  (0.3min / ETA 1.0min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[30/120] bypass2/emna/mmu=True rep=9: acc=90% gen=22  (0.4min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[31/120] bypass2/emna/mmu=False rep=0: acc=100% gen=21  (0.4min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+[32/120] bypass2/emna/mmu=False rep=1: acc=100% gen=22  (0.4min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+Optimización terminada por fin natural (max_iter o dead_iter interno del optimizador).
+[33/120] bypass2/emna/mmu=False rep=2: acc=85% gen=22  (0.4min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[34/120] bypass2/emna/mmu=False rep=3: acc=100% gen=20  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[35/120] bypass2/emna/mmu=False rep=4: acc=100% gen=19  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[36/120] bypass2/emna/mmu=False rep=5: acc=100% gen=19  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[37/120] bypass2/emna/mmu=False rep=6: acc=100% gen=18  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[38/120] bypass2/emna/mmu=False rep=7: acc=85% gen=21  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[39/120] bypass2/emna/mmu=False rep=8: acc=100% gen=17  (0.5min / ETA 1.1min)
+Optimizador: EMNA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+IT:  6 	Best cost:  0.0
+IT:  7 	Best cost:  0.0
+IT:  8 	Best cost:  0.0
+IT:  9 	Best cost:  0.0
+IT:  10 	Best cost:  0.0
+IT:  11 	Best cost:  0.0
+IT:  12 	Best cost:  0.0
+IT:  13 	Best cost:  0.0
+IT:  14 	Best cost:  0.0
+IT:  15 	Best cost:  0.0
+IT:  16 	Best cost:  0.0
+IT:  17 	Best cost:  0.0
+IT:  18 	Best cost:  0.0
+IT:  19 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=25 individuos) alcanzó un Score <= 0.0000
+[40/120] bypass2/emna/mmu=False rep=9: acc=100% gen=22  (0.6min / ETA 1.1min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[41/120] bypass2/keda/mmu=True rep=0: acc=100% gen=6  (0.6min / ETA 1.2min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[42/120] bypass2/keda/mmu=True rep=1: acc=100% gen=6  (0.6min / ETA 1.2min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[43/120] bypass2/keda/mmu=True rep=2: acc=100% gen=8  (0.7min / ETA 1.3min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[44/120] bypass2/keda/mmu=True rep=3: acc=100% gen=8  (0.8min / ETA 1.3min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[45/120] bypass2/keda/mmu=True rep=4: acc=100% gen=7  (0.8min / ETA 1.3min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[46/120] bypass2/keda/mmu=True rep=5: acc=100% gen=7  (0.8min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[47/120] bypass2/keda/mmu=True rep=6: acc=100% gen=7  (0.9min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[48/120] bypass2/keda/mmu=True rep=7: acc=100% gen=6  (0.9min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[49/120] bypass2/keda/mmu=True rep=8: acc=100% gen=6  (0.9min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[50/120] bypass2/keda/mmu=True rep=9: acc=100% gen=8  (1.0min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[51/120] bypass2/keda/mmu=False rep=0: acc=100% gen=6  (1.0min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[52/120] bypass2/keda/mmu=False rep=1: acc=100% gen=6  (1.1min / ETA 1.4min)
+Optimizador: KEDA
+Modo de Fitness: REGRET
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0.0
+IT:  1 	Best cost:  0.0
+IT:  2 	Best cost:  0.0
+IT:  3 	Best cost:  0.0
+IT:  4 	Best cost:  0.0
+IT:  5 	Best cost:  0.0
+
+¡PARADA ANTICIPADA! El Top 50% (>=200 individuos) alcanzó un Score <= 0.0000
+[53/120] bypass2/keda/mmu=False rep=2: acc=100% gen=8  (1.1min / ETA 1.4min)
