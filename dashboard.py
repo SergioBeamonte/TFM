@@ -80,6 +80,10 @@ def _normalize_results(df: pd.DataFrame) -> pd.DataFrame:
         df['chance_temperature'] = 1.0
     if 'utility_temperature' not in df.columns:
         df['utility_temperature'] = 1.0
+    # size_gen (tamaño de población) lo introduce explore_size_gen.py; en el
+    # resto de CSVs queda como NaN y se ignora en los filtros.
+    if 'size_gen' not in df.columns:
+        df['size_gen'] = pd.NA
     return df
 
 
@@ -93,6 +97,8 @@ def _fill_new_param_defaults(df: pd.DataFrame) -> pd.DataFrame:
         df['chance_temperature'] = 1.0
     if 'utility_temperature' not in df.columns:
         df['utility_temperature'] = 1.0
+    if 'size_gen' not in df.columns:
+        df['size_gen'] = pd.NA
     return df
 
 
@@ -229,9 +235,20 @@ _CATEGORICAL_COLS = [
     "model", "mode", "sampling_mode", "fitness_type", "stop_mode", "n_decision_rules_pct",
     "chance_temperature", "utility_temperature",
 ]
+# size_gen solo aparece si algún CSV cargado lo trae con datos (explore_size_gen).
+_HAS_SIZE_GEN = (
+    not df_results_all.empty
+    and "size_gen" in df_results_all.columns
+    and df_results_all["size_gen"].notna().any()
+)
+if _HAS_SIZE_GEN:
+    _CATEGORICAL_COLS.append("size_gen")
+
 _NUMERIC_COLS = (
     [c for c in df_results_all.columns
-     if c not in _CATEGORICAL_COLS and pd.api.types.is_numeric_dtype(df_results_all[c])]
+     if c not in _CATEGORICAL_COLS
+        and c != "size_gen"
+        and pd.api.types.is_numeric_dtype(df_results_all[c])]
     if not df_results_all.empty else []
 )
 
@@ -251,6 +268,10 @@ with st.sidebar:
     all_pct     = sorted(ref["n_decision_rules_pct"].unique())
     all_ct      = sorted(ref["chance_temperature"].unique())
     all_ut      = sorted(ref["utility_temperature"].unique())
+    all_sg      = (
+        sorted(int(v) for v in ref["size_gen"].dropna().unique())
+        if "size_gen" in ref.columns else []
+    )
 
     sel_models  = st.multiselect("Modelos",              all_models,  default=all_models)
     sel_mode    = st.multiselect("Modo (both/util/cpt)", all_mode,    default=all_mode)
@@ -260,6 +281,10 @@ with st.sidebar:
     sel_pct     = st.multiselect("% Reglas de Decisión", all_pct,     default=all_pct)
     sel_ct      = st.multiselect("T softmax (CPTs)",     all_ct,      default=all_ct)
     sel_ut      = st.multiselect("T sigmoid (Util.)",    all_ut,      default=all_ut)
+    if all_sg:
+        sel_sg = st.multiselect("Tamaño de Generación", all_sg, default=all_sg)
+    else:
+        sel_sg = None
 
     st.divider()
     st.subheader("📊 Explorador de Variables")
@@ -274,7 +299,7 @@ avail_cat = [c for c in _CATEGORICAL_COLS if c not in excluded_cat]
 def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
         return df
-    return df[
+    mask = (
         df["model"].isin(sel_models)
         & df["mode"].isin(sel_mode)
         & df["sampling_mode"].isin(sel_samp)
@@ -283,7 +308,12 @@ def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
         & df["n_decision_rules_pct"].isin(sel_pct)
         & df["chance_temperature"].isin(sel_ct)
         & df["utility_temperature"].isin(sel_ut)
-    ].copy()
+    )
+    # size_gen: filtra solo las filas que sí lo tienen; las que no, pasan.
+    if sel_sg is not None and "size_gen" in df.columns:
+        sg_num = pd.to_numeric(df["size_gen"], errors="coerce")
+        mask &= sg_num.isna() | sg_num.isin(sel_sg)
+    return df[mask].copy()
 
 
 df_r = apply_filters(df_results_all)
@@ -306,13 +336,15 @@ with tab_results:
         best = df_r.loc[df_r["accuracy_mean"].idxmax()]
         k1, k2, k3, k4, k5 = st.columns(5)
         k1.metric("Configuraciones totales", len(df_r))
+        _best_sg = best.get("size_gen") if "size_gen" in best.index else None
+        _sg_part = f" · sg={int(_best_sg)}" if pd.notna(_best_sg) else ""
         k2.metric(
             "Mejor Accuracy (media)",
             f"{best['accuracy_mean']:.1f}%",
             delta=(
                 f"{best['model']} · mode={best['mode']} · samp={best['sampling_mode']} · "
                 f"{best['fitness_type']} · {best['stop_mode']} · {best['n_decision_rules_pct']}% · "
-                f"Tc={best['chance_temperature']} · Tu={best['utility_temperature']}"
+                f"Tc={best['chance_temperature']} · Tu={best['utility_temperature']}{_sg_part}"
             ),
         )
         k3.metric(
@@ -498,7 +530,7 @@ with tab_results:
 
         ordered_cols = [
             "model", "mode", "sampling_mode", "fitness_type", "stop_mode", "n_decision_rules_pct",
-            "chance_temperature", "utility_temperature",
+            "chance_temperature", "utility_temperature", "size_gen",
             "accuracy_mean", "accuracy_std", "accuracy_min", "accuracy_max",
             "mse_chance_mean", "mse_chance_std",
             "mse_utility_mean", "mse_utility_std",
@@ -526,6 +558,7 @@ with tab_results:
                 "n_decision_rules_pct":st.column_config.NumberColumn("% Reglas",       format="%.0f %%"),
                 "chance_temperature":  st.column_config.NumberColumn("T softmax",      format="%.2f"),
                 "utility_temperature": st.column_config.NumberColumn("T sigmoid",      format="%.2f"),
+                "size_gen":            st.column_config.NumberColumn("Tamaño Gen.",    format="%.0f"),
                 "accuracy_mean":       st.column_config.NumberColumn("Accuracy Media",  format="%.1f %%"),
                 "accuracy_std":        st.column_config.NumberColumn("Accuracy σ",      format="%.2f"),
                 "accuracy_min":        st.column_config.NumberColumn("Accuracy Min",    format="%.1f %%"),
