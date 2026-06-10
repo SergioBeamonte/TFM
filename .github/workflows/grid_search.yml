@@ -64,10 +64,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Python 3.13
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.11"
 
       - name: Install dependencies
         shell: pwsh
@@ -75,8 +75,7 @@ jobs:
           python -m pip install --upgrade pip
           # EDAspy importa varios paquetes transitivamente pero no los declara como deps:
           # pandas, pybnesian, pgmpy, matplotlib, networkx. Los instalamos explicitos.
-          pip install numpy scipy pandas pybnesian pgmpy matplotlib networkx EDAspy
-          pip install vendor/pysmile-2.4.0-cp313-cp313-win_amd64.whl
+          pip install numpy scipy pandas pybnesian pgmpy matplotlib networkx EDAspy pysmile
 
       - name: Smoke test (pysmile + EDAspy cargan)
         shell: pwsh

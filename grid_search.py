@@ -25,11 +25,11 @@ import numpy as np
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # --- Red y reglas ---
-# BASE_FOLDER = r"example\nhlv1"
-BASE_FOLDER = r"example\bypass2"
+BASE_FOLDER = r"example\nhlv1"
+# BASE_FOLDER = r"example\bypass2"
 
-XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
-# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
+# XDSL_PATH = os.path.join(BASE_FOLDER, r"network-bypass2.xdsl")
+XDSL_PATH = os.path.join(BASE_FOLDER, r"network-nhlv1.xdsl")
 RULES_CSV = os.path.join(BASE_FOLDER, r"reglas_generadas.csv")
 
 # --- Parámetros fijos del optimizador ---
@@ -51,7 +51,7 @@ TARGET_FITNESS = 1e-5
 # bypass2 mode='both' tenemos 95 vars; truncation_length (SIZE_GEN*alpha) debe
 # ser > 95. Con sg=200 (trunc=100) seguía abortando ~46% de runs por degeneración
 # de la población tardía. Subimos a 400 (trunc=200) para dejar margen sobrado.
-SIZE_GEN_PER_OPTIMIZER = {'keda': 400}
+SIZE_GEN_PER_OPTIMIZER = {'umda': 50, 'egna': 50, 'emna': 50, 'keda': 400}
 
 # --- Grid de búsqueda ---
 # GRID INICIAL del modelo pequeño: barrido amplio para evaluar el método y aislar
@@ -62,16 +62,16 @@ FITNESS_TYPES = ["binary", "margin", "softmax", "regret", "entropy"]
 STOP_MODES = ["top50"]
 CHANCE_TEMPERATURES = [1.0]
 UTILITY_TEMPERATURES = [1.0]
-MODES = ['both', 'utility_only', 'chance_only']
-SAMPLING_MODES = ['non_symmetric', 'symmetric']
+MODES = ['utility_only']
+SAMPLING_MODES = ['non_symmetric']
 
 # --- Repeticiones ---
-N_REPETITIONS = 5
+N_REPETITIONS = 10
 BASE_SEED = 42
 
 # --- Archivos de salida ---
-RESULTS_CSV = os.path.join(BASE_FOLDER, r"grid_search_results.csv")
-CURVES_CSV = os.path.join(BASE_FOLDER, r"grid_search_curves.csv")
+RESULTS_CSV = os.path.join(BASE_FOLDER, f"grid_search_results_{BASE_CONFIG['optimizer_type']}.csv")
+CURVES_CSV = os.path.join(BASE_FOLDER, f"grid_search_curves_{BASE_CONFIG['optimizer_type']}.csv")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
