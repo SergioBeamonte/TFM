@@ -73,38 +73,49 @@ Figure~\ref{fig:bypass-id}.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    node distance=1.5cm and 2cm,
     every node/.style={font=\sffamily\scriptsize, align=center},
-    ellipse_node/.style={ellipse, draw=blue!50, fill=cyan!10, minimum width=2.5cm, minimum height=1cm},
-    rect_node/.style={rectangle, draw=black, fill=orange!30, minimum width=3cm, minimum height=1cm},
-    hex_node/.style={regular polygon, regular polygon sides=6, draw=black, fill=purple!30, minimum width=3cm, minimum height=1cm, rotate=90},
-    arrow/.style={-{Stealth[scale=1.2]}, draw=blue!50!black},
-    dashed_arrow/.style={-{Stealth[scale=1.2]}, draw=blue!50!black, dashed}
+    chance/.style={ellipse, draw=blue!50, fill=cyan!10,
+                   minimum width=2.4cm, minimum height=0.9cm},
+    decision/.style={rectangle, draw=black, fill=orange!30,
+                     minimum width=2.6cm, minimum height=0.9cm},
+    utility/.style={regular polygon, regular polygon sides=6,
+                    shape border rotate=90,
+                    draw=black, fill=purple!30,
+                    minimum width=2.6cm, minimum height=1.1cm,
+                    inner sep=2pt},
+    arr/.style={-{Stealth[scale=1.0]}, draw=blue!50!black},
+    info/.style={-{Stealth[scale=1.0]}, draw=blue!50!black, dashed}
 ]
-    \node[ellipse_node] (HD) {HEARTDISEASE};
-    \node[ellipse_node, below left=1cm and 1cm of HD] (ANG) {ANGIOGRAM};
-    \node[ellipse_node, right=2cm of HD] (PAIN) {PAIN};
-    \node[ellipse_node, below left=1.5cm and 1cm of ANG] (ER) {EARLYRESULTS};
-    \node[rect_node, below left=1.5cm and 0.5cm of ER] (HS) {HEARTSURGERY};
-    \node[rect_node, below right=1.5cm and 0.5cm of ANG] (HP) {HEARTPHARMA};
-    \node[ellipse_node, below=1cm of HS] (LQ) {LIFEQ};
-    \node[ellipse_node, below=1cm of HP] (EC) {ECONOMICCALC};
-    \node[hex_node, below=1.5cm of EC] (UT) {UTILITY};
+    % --- Node positions ---
+    \node[chance]   (HD)   at ( 0,    5)    {HEARTDISEASE};
+    \node[chance]   (ANG)  at (-4.5,  3.5)  {ANGIOGRAM};
+    \node[chance]   (PAIN) at ( 4.5,  3.5)  {PAIN};
+    \node[decision] (HS)   at (-4.5,  1.5)  {HEARTSURGERY};
+    \node[chance]   (ER)   at ( 0,    1.5)  {EARLYRESULTS};
+    \node[decision] (HP)   at ( 4.5,  1.5)  {HEARTPHARMA};
+    \node[chance]   (LQ)   at (-3,   -0.5)  {LIFEQ};
+    \node[chance]   (EC)   at ( 3,   -0.5)  {ECONOMICALC};
+    \node[utility]  (UT)   at ( 0,   -2.6)  {UTILITY};
 
-    \draw[arrow] (HD) -- (ANG);
-    \draw[arrow] (HD) -- (PAIN);
-    \draw[arrow] (ANG) -- (ER);
-    \draw[dashed_arrow] (ANG) -- (HP);
-    \draw[dashed_arrow] (PAIN) -- (HS);
-    \draw[dashed_arrow] (PAIN) -- (HP);
-    \draw[arrow] (HS) -- (ER);
-    \draw[dashed_arrow] (ER) -- (HS);
-    \draw[arrow] (HS) -- (LQ);
-    \draw[arrow] (HS) -- (EC);
-    \draw[arrow] (HP) -- (EC);
-    \draw[arrow] (LQ) -- (UT);
-    \draw[arrow] (EC) -- (UT);
-    \draw[dashed_arrow] (ER) -- (HP);
+    % --- Probabilistic / functional arcs (solid) ---
+    \draw[arr] (HD) -- (ANG);
+    \draw[arr] (HD) -- (PAIN);
+    \draw[arr] (HD.west) to[bend right=70] (LQ.north west);
+    \draw[arr] (ANG) -- (ER);
+    \draw[arr] (HS) -- (ER);
+    \draw[arr] (HS) -- (LQ);
+    \draw[arr] (HS.south) to[out=-30,in=180] (EC.west);
+    \draw[arr] (HP) -- (EC);
+    \draw[arr] (ER) -- (EC);
+    \draw[arr] (LQ) -- (UT);
+    \draw[arr] (EC) -- (UT);
+
+    % --- Informational arcs (dashed, into decisions) ---
+    \draw[info] (ANG) -- (HS);
+    \draw[info] (ANG.south east) to[out=-25,in=130] (HP.north west);
+    \draw[info] (PAIN.south west) to[out=-155,in=50] (HS.north east);
+    \draw[info] (PAIN) -- (HP);
+    \draw[info] (ER) -- (HP);
 \end{tikzpicture}
 \caption{Influence diagram of the \emph{bypass} model. Chance nodes
 are ellipses, decision nodes rectangles and the utility node a
