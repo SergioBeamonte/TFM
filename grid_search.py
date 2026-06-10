@@ -138,6 +138,8 @@ def run_single_experiment(config, g, i, target_fitness):
             'best_mse_utility':   float('nan'),
             'best_entropy_norm':  float('nan'),
             'best_util_dev':      float('nan'),
+            'gen_time_mean':      float('nan'),
+            'wall_time':          float('nan'),
         }
 
     # Extraer métricas de la última generación del historial
@@ -150,6 +152,12 @@ def run_single_experiment(config, g, i, target_fitness):
         best_mse_utility  = float(np.min(last_gen['errors_utility']))
         best_entropy_norm = float(np.min(last_gen['entropy_norm']))
         best_util_dev     = float(np.max(last_gen['util_dev']))
+        # Tiempos por generación (segundos). gen_time mide muestreo + fitness
+        # de toda la población. Útil para comparar costes entre EDAs sin que
+        # un mayor size_gen oculte el tiempo extra por iteración.
+        gen_times = [float(h.get('gen_time', float('nan'))) for h in exp.history]
+        gen_time_mean = float(np.nanmean(gen_times)) if gen_times else float('nan')
+        wall_time = float(np.nansum(gen_times)) if gen_times else float('nan')
     else:
         stop_generation = 0
         best_fitness      = float(exp.best_historical_fitness) if exp.best_historical_fitness != float('inf') else float('nan')
@@ -158,6 +166,8 @@ def run_single_experiment(config, g, i, target_fitness):
         best_mse_utility  = float('nan')
         best_entropy_norm = float('nan')
         best_util_dev     = float('nan')
+        gen_time_mean     = float('nan')
+        wall_time         = float('nan')
 
     results = {
         'stop_generation':    stop_generation,
@@ -167,6 +177,8 @@ def run_single_experiment(config, g, i, target_fitness):
         'best_mse_utility':   best_mse_utility,
         'best_entropy_norm':  best_entropy_norm,
         'best_util_dev':      best_util_dev,
+        'gen_time_mean':      gen_time_mean,
+        'wall_time':          wall_time,
     }
 
     return exp, results
@@ -195,6 +207,7 @@ def average_histories(experiments):
         gen_accs_list = []
         gen_ent_list = []
         gen_dev_list = []
+        gen_time_list = []
 
         for exp in experiments:
             hist_idx = min(gen_idx, len(exp.history) - 1)
@@ -207,6 +220,7 @@ def average_histories(experiments):
             gen_accs_list.append(float(np.mean(gen_data['accuracies'])))
             gen_ent_list.append(float(np.mean(gen_data['entropy_norm'])))
             gen_dev_list.append(float(np.mean(gen_data['util_dev'])))
+            gen_time_list.append(float(gen_data.get('gen_time', float('nan'))))
 
         avg_history.append({
             'generation': gen_idx + 1,
@@ -216,6 +230,7 @@ def average_histories(experiments):
             'mean_error_utility': float(np.mean(gen_err_utility_list)),
             'mean_entropy_norm': float(np.mean(gen_ent_list)),
             'mean_util_dev': float(np.mean(gen_dev_list)),
+            'mean_gen_time': float(np.nanmean(gen_time_list)),
         })
 
     return avg_history
@@ -236,13 +251,17 @@ RESULTS_HEADER = [
     'mse_utility_mean', 'mse_utility_std',
     'entropy_norm_mean', 'entropy_norm_std',
     'util_dev_mean', 'util_dev_std',
+    # Tiempos (segundos): coste por generación y coste total de la corrida.
+    'gen_time_mean', 'gen_time_std',
+    'wall_time_mean', 'wall_time_std',
 ]
 
 CURVES_HEADER = [
     'mode', 'sampling_mode', 'chance_temperature', 'utility_temperature',
     'fitness_type', 'stop_mode', 'n_decision_rules', 'n_decision_rules_pct',
     'generation', 'mean_fitness', 'mean_accuracy',
-    'mean_error_chance', 'mean_error_utility', 'mean_entropy_norm', 'mean_util_dev']
+    'mean_error_chance', 'mean_error_utility', 'mean_entropy_norm', 'mean_util_dev',
+    'mean_gen_time']
 
 
 def ensure_csv_header(filepath, header):
@@ -408,6 +427,8 @@ def main():
         mse_utilities = [r['best_mse_utility']   for r in all_results]
         entropy_norms = [r['best_entropy_norm']  for r in all_results]
         util_devs     = [r['best_util_dev']      for r in all_results]
+        gen_times     = [r['gen_time_mean']      for r in all_results]
+        wall_times    = [r['wall_time']          for r in all_results]
 
         row = {
             'mode':                mode,
@@ -437,6 +458,10 @@ def main():
             'entropy_norm_std':    f"{np.std(entropy_norms):.6f}",
             'util_dev_mean':       f"{np.mean(util_devs):.6f}",
             'util_dev_std':        f"{np.std(util_devs):.6f}",
+            'gen_time_mean':       f"{np.nanmean(gen_times):.4f}",
+            'gen_time_std':        f"{np.nanstd(gen_times):.4f}",
+            'wall_time_mean':      f"{np.nanmean(wall_times):.4f}",
+            'wall_time_std':       f"{np.nanstd(wall_times):.4f}",
         }
 
         append_results_row(results_csv, row)
@@ -461,7 +486,7 @@ def main():
                 'mean_error_utility': f"{point['mean_error_utility']:.6f}",
                 'mean_entropy_norm':  f"{point['mean_entropy_norm']:.6f}",
                 'mean_util_dev':      f"{point['mean_util_dev']:.6f}",
-                                  
+                'mean_gen_time':      f"{point['mean_gen_time']:.4f}",
             })
 
         append_curves_rows(curves_csv, curve_rows)

@@ -91,6 +91,7 @@ def run_one(net_name, optimizer, min_max_ut, rep, seed):
     if not exp.history:
         return None
     last = exp.history[-1]
+    gen_times = [float(h.get('gen_time', float('nan'))) for h in exp.history]
     return {
         'net':            net_name,
         'optimizer':      optimizer,
@@ -106,6 +107,8 @@ def run_one(net_name, optimizer, min_max_ut, rep, seed):
         'mean_accuracy':   float(np.mean(last['accuracies'])),
         'mse_chance':      float(np.min(last['errors_chance'])),
         'mse_utility':     float(np.min(last['errors_utility'])),
+        'gen_time_mean':   float(np.nanmean(gen_times)) if gen_times else float('nan'),
+        'wall_time':       float(np.nansum(gen_times)) if gen_times else float('nan'),
     }
 
 
