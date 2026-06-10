@@ -57,56 +57,61 @@ For the ID to admit a well-defined evaluation procedure the graph
 must be \emph{regular}. That is, a DAG where the value node has no successors and the decisions can be linearly ordered by a directed path that traverses all of them. Throughout this work all IDs are
 assumed to be regular.
 
-\subsubsection*{A canonical example: the oil wildcatter}
-\label{sec:oil-wildcatter}
+\subsubsection*{A concrete example: the bypass influence diagram}
+\label{sec:bypass-id-intro}
 
-To make the formalism concrete we adopt the canonical \emph{oil
-wildcatter} problem of Howard and Matheson~\cite{howard2005influence},
-also reproduced in the review of Bielza, G{\'o}mez and
-Shenoy~\cite{bielza2011review}. A prospector must decide whether to
-drill at a given site. Before drilling, she may pay for a seismic
-test whose result is informative about the underlying amount of oil.
-The graphical structure is shown in Figure~\ref{fig:oilid}.
+We illustrate every notion introduced below on the \emph{bypass}
+influence diagram, a small clinical model for the management of
+coronary heart disease that we use throughout the rest of the
+thesis. It contains six chance nodes
+(\texttt{HeartDisease}, \texttt{Angiogram}, \texttt{Pain},
+\texttt{EarlyResults}, \texttt{LifeQ}, \texttt{Economicalc}), two
+decision nodes (\texttt{HeartSurgery}, \texttt{HeartPharma}) and a
+single utility node. Its qualitative structure is shown in
+Figure~\ref{fig:bypass-id}.
 
 \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}[
-        >=Stealth, node distance=14mm and 18mm, font=\small,
-        chance/.style={draw, ellipse, minimum width=18mm, minimum height=8mm},
-        decision/.style={draw, rectangle, minimum width=18mm, minimum height=8mm},
-        utility/.style={draw, diamond, aspect=2, minimum width=14mm,
-                        inner sep=2pt},
-        arr/.style={->, thick},
-        infoarr/.style={->, thick, dashed}
-    ]
-        \node[decision] (T)              {Test?};
-        \node[chance,   right=of T]  (S) {Seismic};
-        \node[decision, right=of S]  (D) {Drill?};
-        \node[chance,   above=of S]  (O) {Oil};
-        \node[utility,  below=10mm of S] (V) {Profit};
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm and 2cm,
+    every node/.style={font=\sffamily\scriptsize, align=center},
+    ellipse_node/.style={ellipse, draw=blue!50, fill=cyan!10, minimum width=2.5cm, minimum height=1cm},
+    rect_node/.style={rectangle, draw=black, fill=orange!30, minimum width=3cm, minimum height=1cm},
+    hex_node/.style={regular polygon, regular polygon sides=6, draw=black, fill=purple!30, minimum width=3cm, minimum height=1cm, rotate=90},
+    arrow/.style={-{Stealth[scale=1.2]}, draw=blue!50!black},
+    dashed_arrow/.style={-{Stealth[scale=1.2]}, draw=blue!50!black, dashed}
+]
+    \node[ellipse_node] (HD) {HEARTDISEASE};
+    \node[ellipse_node, below left=1cm and 1cm of HD] (ANG) {ANGIOGRAM};
+    \node[ellipse_node, right=2cm of HD] (PAIN) {PAIN};
+    \node[ellipse_node, below left=1.5cm and 1cm of ANG] (ER) {EARLYRESULTS};
+    \node[rect_node, below left=1.5cm and 0.5cm of ER] (HS) {HEARTSURGERY};
+    \node[rect_node, below right=1.5cm and 0.5cm of ANG] (HP) {HEARTPHARMA};
+    \node[ellipse_node, below=1cm of HS] (LQ) {LIFEQ};
+    \node[ellipse_node, below=1cm of HP] (EC) {ECONOMICCALC};
+    \node[hex_node, below=1.5cm of EC] (UT) {UTILITY};
 
-        \draw[arr] (T) -- (S);
-        \draw[arr] (O) -- (S);
-        \draw[infoarr] (T) -- (D);
-        \draw[infoarr] (S) -- (D);
-        \draw[arr] (T) -- (V);
-        \draw[arr] (D) -- (V);
-        \draw[arr] (O.east) to[bend left=20] (V.east);
-    \end{tikzpicture}
-    \caption{Influence diagram for the oil-wildcatter problem.
-    Ellipses are chance nodes, rectangles are decision nodes, the
-    diamond is the utility node. Solid arrows denote probabilistic
-    or functional dependencies, dashed arrows denote informational
-    precedence (what is known when each decision is taken).}
-    \label{fig:oilid}
+    \draw[arrow] (HD) -- (ANG);
+    \draw[arrow] (HD) -- (PAIN);
+    \draw[arrow] (ANG) -- (ER);
+    \draw[dashed_arrow] (ANG) -- (HP);
+    \draw[dashed_arrow] (PAIN) -- (HS);
+    \draw[dashed_arrow] (PAIN) -- (HP);
+    \draw[arrow] (HS) -- (ER);
+    \draw[dashed_arrow] (ER) -- (HS);
+    \draw[arrow] (HS) -- (LQ);
+    \draw[arrow] (HS) -- (EC);
+    \draw[arrow] (HP) -- (EC);
+    \draw[arrow] (LQ) -- (UT);
+    \draw[arrow] (EC) -- (UT);
+    \draw[dashed_arrow] (ER) -- (HP);
+\end{tikzpicture}
+\caption{Influence diagram of the \emph{bypass} model. Chance nodes
+are ellipses, decision nodes rectangles and the utility node a
+hexagon. Solid arcs are probabilistic or functional, dashed arcs
+are informational.}
+\label{fig:bypass-id}
 \end{figure}
-
-The qualitative structure is read off the picture: the seismic test
-result depends on whether the test was performed and on the true
-amount of oil; the drilling decision is taken after observing both;
-the profit depends on the drilling action, on the true amount of oil
-(success or dry well) and on whether the seismic test was paid for.
-The next subsection puts numbers to this skeleton.
 
 \subsection{Quantitative parameterisation}
 
@@ -178,109 +183,100 @@ for any fixed $\boldsymbol{\Theta}$ by successively reversing arcs
 and eliminating nodes from the graph.
 
 \subsubsection*{What the parameters and their evaluation look like}
-\label{sec:oil-tables}
+\label{sec:bypass-tables}
 
-To make the three pieces of $\boldsymbol{\Theta}$ concrete we add
-illustrative numbers to the oil-wildcatter problem of
-Figure~\ref{fig:oilid}. The chance node \textsf{Oil} takes three
-states (\textsc{dry}, \textsc{wet}, \textsc{soaking}); the chance
-node \textsf{Seismic} takes three states (\textsc{none},
-\textsc{open}, \textsc{closed}) and depends on the true \textsf{Oil}
-amount and on whether the test was performed. The CPT of
-\textsf{Seismic} conditioned on $\mathsf{Test}=\textsc{yes}$ is shown
-in Table~\ref{tab:oil-cpt}; we omit the trivial column
-$\mathsf{Test}=\textsc{no}$, in which the test returns a fixed
-\textsc{none}.
-
-\begin{table}[H]
-\centering\small
-\begin{tabular}{l|ccc}
-\hline
-$P(\mathsf{Seismic} \mid \mathsf{Oil}, \mathsf{Test}=\textsc{yes})$
-              & \textsc{none} & \textsc{open} & \textsc{closed} \\
-\hline
-$\mathsf{Oil}=\textsc{dry}$     & 0.60 & 0.30 & 0.10 \\
-$\mathsf{Oil}=\textsc{wet}$     & 0.30 & 0.40 & 0.30 \\
-$\mathsf{Oil}=\textsc{soaking}$ & 0.10 & 0.30 & 0.60 \\
-\hline
-\end{tabular}
-\caption{Conditional probability table of the chance node
-\textsf{Seismic} given its parents. Each row is a probability
-distribution over the three possible test outcomes.}
-\label{tab:oil-cpt}
-\end{table}
-
-The utility node \textsf{Profit} depends on \textsf{Drill},
-\textsf{Oil} and \textsf{Test}; Table~\ref{tab:oil-util} lists its
-values on an arbitrary monetary scale (in our convention, the
-utility lies in $[0,10]$).
-
-\begin{table}[H]
-\centering\small
-\begin{tabular}{lcc|cc}
-\hline
-& & & $\mathsf{Test}=\textsc{no}$ & $\mathsf{Test}=\textsc{yes}$\\
-\hline
-$\mathsf{Drill}=\textsc{no}$  & & $\mathsf{Oil}=$ any       & 5.0 & 4.0 \\
-\hline
-$\mathsf{Drill}=\textsc{yes}$ & & $\mathsf{Oil}=\textsc{dry}$     & 0.0 & 0.0 \\
-                              & & $\mathsf{Oil}=\textsc{wet}$     & 6.0 & 5.0 \\
-                              & & $\mathsf{Oil}=\textsc{soaking}$ & 10.0& 9.0 \\
-\hline
-\end{tabular}
-\caption{Utility table of \textsf{Profit} on the $[0,10]$ scale.
-Drilling a dry well loses money; drilling a soaking well is the most
-profitable outcome; the test reduces the utility by a constant cost
-(here, one unit).}
-\label{tab:oil-util}
-\end{table}
-
-Given these two ingredients and a prior on \textsf{Oil}
-(say $P(\textsc{dry}) = 0.5,\, P(\textsc{wet}) = 0.3,\,
-P(\textsc{soaking}) = 0.2$), running the Shachter algorithm produces
-a third table: the expected utility of each action of $\mathsf{Drill}$
-\emph{conditioned on the information available at that point} (the
-seismic result, if a test was paid for). Table~\ref{tab:oil-eu} shows
-this evaluation output. The action of larger expected utility in each
-row is the optimal one for that information state, which is what
-makes the table the carrier of the \emph{decision rules} of the model.
+The three pieces of the parameterisation become tangible when one
+looks at concrete tables of the bypass model of
+Figure~\ref{fig:bypass-id}. Table~\ref{tab:bypass-cpt} shows a real
+CPT extracted from the model: $P(\textsf{Angiogram}\mid
+\textsf{HeartDisease})$, which encodes the standard
+sensitivity/specificity of the test.
 
 \begin{table}[H]
 \centering\small
 \begin{tabular}{l|cc}
 \hline
-$\mathsf{EU}\bigl(\mathsf{Drill}\mid \mathsf{Test}, \mathsf{Seismic}\bigr)$
-                                 & $\mathsf{Drill}=\textsc{no}$ & $\mathsf{Drill}=\textsc{yes}$\\
+$P(\textsf{Angiogram} \mid \textsf{HeartDisease})$
+              & \textsc{negative} & \textsc{positive}\\
 \hline
-$\mathsf{Test}=\textsc{no}$      & 5.00 & \textbf{4.40}\\[2pt]
-\hline
-$\mathsf{Test}=\textsc{yes},\;\mathsf{Seismic}=\textsc{none}$
-                                 & 4.00 & \textbf{2.36}\\
-$\mathsf{Test}=\textsc{yes},\;\mathsf{Seismic}=\textsc{open}$
-                                 & 4.00 & \textbf{4.94}\\
-$\mathsf{Test}=\textsc{yes},\;\mathsf{Seismic}=\textsc{closed}$
-                                 & 4.00 & \textbf{6.65}\\
+$\textsf{HeartDisease} = \textsc{absent}$  & 0.95 & 0.05\\
+$\textsf{HeartDisease} = \textsc{present}$ & 0.14 & 0.86\\
 \hline
 \end{tabular}
-\caption{Expected utilities produced by the Shachter evaluation of
-the oil-wildcatter ID under the parameters of
-Tables~\ref{tab:oil-cpt}--\ref{tab:oil-util}.
-The values in bold are the optimal action of $\mathsf{Drill}$ for
-that information state. The whole rightmost column is what a domain
-expert would summarise as ``decision rules'': drill if and only if
-the seismic test is open or closed, otherwise abstain.}
-\label{tab:oil-eu}
+\caption{Real CPT extracted from the bypass model: angiogram
+sensitivity and specificity given the true heart-disease status.
+Each row is a probability distribution over the two test outcomes.}
+\label{tab:bypass-cpt}
 \end{table}
 
-The point of this thesis is precisely the \emph{inverse} of this
-procedure. The expert does \emph{not} provide
-Tables~\ref{tab:oil-cpt} and~\ref{tab:oil-util}: instead, she only
-supplies a few entries of Table~\ref{tab:oil-eu} as decision rules
-(``drill if the seismic is closed'', ``don't drill if the seismic is
-none''). The optimiser must recover a pair of tables
-$(\theta_{C_i}, u)$ \emph{compatible} with those rules, in the sense
-that re-running Shachter on the recovered parameters reproduces the
-expert's choices.
+The utility node \textsf{Utility} of the bypass diagram depends on
+the quality-of-life node \textsf{LifeQ} and the cost node
+\textsf{Economicalc}; Table~\ref{tab:bypass-util} shows its full set
+of values, taken directly from the model. As one would expect, the
+best outcome (high quality of life, low cost) takes the maximum
+value, while death together with high cost takes the minimum.
+
+\begin{table}[H]
+\centering\small
+\begin{tabular}{l|ccc}
+\hline
+$u(\textsf{LifeQ}, \textsf{Economicalc})$
+                                 & \textsc{low} & \textsc{medium} & \textsc{high}\\
+\hline
+$\textsf{LifeQ} = \textsc{dead}$     & 2.00 & 0.70 & 0.05\\
+$\textsf{LifeQ} = \textsc{live2alq}$ & 3.10 & 2.90 & 2.80\\
+$\textsf{LifeQ} = \textsc{live2ahq}$ & 7.80 & 4.80 & 2.80\\
+\hline
+\end{tabular}
+\caption{Utility table of the bypass model. The values come
+directly from the \texttt{.xdsl} file and lie roughly in the
+$[0,10]$ scale adopted throughout this work.}
+\label{tab:bypass-util}
+\end{table}
+
+Given the two tables above (and the rest of the CPTs of the model,
+not shown), the Shachter algorithm produces a third one: the
+expected utility of each action of a decision node \emph{conditioned
+on the information available when that decision is taken}.
+Table~\ref{tab:bypass-eu} shows this output for the
+\textsf{HeartSurgery} decision, whose informational parents are
+\textsf{Pain} and \textsf{Angiogram}.
+
+\begin{table}[H]
+\centering\small
+\begin{tabular}{ll|cc}
+\hline
+\textsf{Pain} & \textsf{Angiogram}
+              & $\mathrm{EU}(\textsc{no})$
+              & $\mathrm{EU}(\textsc{yes})$\\
+\hline
+\textsc{absent}  & \textsc{negative} & \textbf{6.98} & 3.73 \\
+\textsc{absent}  & \textsc{positive} & \textbf{5.34} & 3.91 \\
+\textsc{present} & \textsc{negative} & \textbf{6.66} & 3.78 \\
+\textsc{present} & \textsc{positive} & 3.43          & \textbf{4.18}\\
+\hline
+\end{tabular}
+\caption{Expected utility of each action of \textsf{HeartSurgery}
+under the parameters of the bypass model, as produced by the
+Shachter evaluation. The bold value in each row is the optimal
+action for that information state. Read as a decision rule:
+\emph{operate only when pain is present and the angiogram is
+positive; abstain otherwise}.}
+\label{tab:bypass-eu}
+\end{table}
+
+Schematically, the standard use of an ID flows from CPTs and the
+utility function towards the optimal policy:
+$(\theta_{C_i},\, u) \xrightarrow{\text{Shachter}} \mathrm{EU}
+\xrightarrow{\arg\max} \boldsymbol{\delta}^{\!*}$. The problem this
+thesis addresses runs the arrows backwards. The expert does
+\emph{not} supply Tables~\ref{tab:bypass-cpt}
+and~\ref{tab:bypass-util}; she supplies only a few entries of
+Table~\ref{tab:bypass-eu} as \emph{decision rules} (``do not operate
+when pain is absent and the angiogram is negative''). The optimiser
+must recover a pair $(\theta_{C_i},\, u)$ \emph{compatible} with
+those rules, in the sense that re-running Shachter on the recovered
+parameters reproduces the expert's choices.
 
 % ==============================================================
 \section{The Knowledge-Acquisition Problem}

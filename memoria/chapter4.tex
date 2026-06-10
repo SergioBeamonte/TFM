@@ -37,15 +37,88 @@ EDA-based recovery the only practical route to populating the
 network.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/nhlv1.png}
-    \caption{Influence diagram of the \emph{NHLv1} model for the
-    management of gastric non-Hodgkin lymphoma. Chance nodes are
-    ellipses, decision nodes rectangles and the utility node a
-    hexagon. Dashed arcs are informational, solid arcs are
-    probabilistic or functional. The model is the main benchmark of
-    this work.}
-    \label{fig:nhlv1-id}
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm and 1.5cm,
+    every node/.style={font=\sffamily\scriptsize, align=center, draw=black, inner sep=2pt},
+    oval/.style={ellipse, fill=cyan!20, minimum width=2cm, minimum height=1cm},
+    rect/.style={rectangle, fill=orange!30, minimum width=1.8cm, minimum height=1.2cm},
+    hex/.style={regular polygon, regular polygon sides=6, fill=purple!30, minimum width=1.5cm},
+    arrow/.style={-{Stealth[scale=1.2]}, draw=blue!70!black},
+    dashedarrow/.style={-{Stealth[scale=1.2]}, draw=blue!70!black, dashed}
+]
+
+% Nodes
+\node[oval] (age) {AGE};
+\node[rect, right=2cm of age] (ctrt) {CT RT\\SCHEDULE};
+\node[oval, right=3cm of ctrt] (hem) {HEMORRHAGE};
+\node[oval, right=2cm of hem] (ther) {THERAPY\\ADJUSTMENT};
+\node[oval, below=0.5cm of hem] (bm) {BM DEPRESSION};
+\node[oval, below=0.5cm of bm] (postct) {POST CT RT\\SURVIVAL};
+\node[oval, below=0.5cm of postct] (perf) {PERFORATION};
+
+\node[oval, below=2cm of age] (ghs) {GENERAL HEALTH\\STATUS};
+\node[rect, right=1.5cm of ghs] (surg) {SURGERY};
+\node[oval, right=1.5cm of surg] (psurv) {POST SURGICAL\\SURVIVAL};
+\node[oval, below=0.5cm of psurv] (clin) {CLINICAL\\PRESENTATION};
+\node[oval, below=0.5cm of clin] (imm) {IMMEDIATE\\SURVIVAL};
+
+\node[rect, below=2cm of surg] (h-treat) {HELICOBACTER\\TREATMENT};
+\node[hex, right=1.5cm of h-treat] (util) {UTILITY};
+\node[oval, below=0.5cm of util] (hist) {HISTOLOGICAL\\CLASSIFICATION};
+\node[oval, below=0.5cm of hist] (clin-stage) {CLINICAL STAGE};
+\node[oval, below=0.5cm of clin-stage] (bulky) {BULKY DISEASE};
+
+\node[oval, below=2cm of h-treat] (h-pyl) {HELICOBACTER\\PYLORI};
+\node[oval, right=1.5cm of h-pyl] (erad) {ERADICATION};
+
+\node[oval, right=10cm of clin] (early) {EARLY RESULT};
+\node[oval, below=1cm of early] (five) {FIVE YEAR\\RESULT};
+
+% Arrows
+\draw[arrow] (age) -- (ghs);
+\draw[arrow] (age) -- (surg);
+\draw[arrow] (age) -- (ctrt);
+\draw[arrow] (age) -- (psurv);
+\draw[arrow] (age) -- (bm);
+\draw[dashedarrow] (ctrt) -- (surg);
+\draw[arrow] (ctrt) -- (bm);
+\draw[arrow] (ctrt) -- (postct);
+\draw[arrow] (ctrt) -- (util);
+\draw[arrow] (hem) -- (ther);
+\draw[arrow] (bm) -- (ther);
+\draw[arrow] (bm) -- (imm);
+\draw[arrow] (postct) -- (ther);
+\draw[arrow] (postct) -- (perf);
+\draw[arrow] (perf) -- (ther);
+\draw[dashedarrow] (ghs) -- (surg);
+\draw[arrow] (ghs) -- (psurv);
+\draw[arrow] (surg) -- (psurv);
+\draw[arrow] (surg) -- (util);
+\draw[arrow] (psurv) -- (imm);
+\draw[arrow] (psurv) -- (early);
+\draw[arrow] (clin) -- (psurv);
+\draw[arrow] (clin) -- (early);
+\draw[arrow] (imm) -- (early);
+\draw[dashedarrow] (h-pyl) -- (h-treat);
+\draw[arrow] (h-pyl) -- (erad);
+\draw[arrow] (erad) -- (h-treat);
+\draw[dashedarrow] (h-treat) -- (hist);
+\draw[arrow] (h-treat) -- (util);
+\draw[arrow] (hist) -- (bulky);
+\draw[arrow] (hist) -- (clin-stage);
+\draw[arrow] (bulky) -- (early);
+\draw[arrow] (clin-stage) -- (five);
+\draw[arrow] (early) -- (five);
+\draw[arrow] (ther) -- (early);
+
+\end{tikzpicture}
+\caption{Influence diagram of the \emph{NHLv1} model for the
+management of gastric non-Hodgkin lymphoma. Chance nodes are
+ellipses, decision nodes rectangles and the utility node a hexagon.
+Solid arcs are probabilistic or functional, dashed arcs are
+informational. This is the main benchmark of this work.}
+\label{fig:nhlv1-id}
 \end{figure}
 
 \subsection{Bypass: management of coronary heart disease}

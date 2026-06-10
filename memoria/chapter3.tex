@@ -54,52 +54,16 @@ a target decision are kept. The result is a list of
 \emph{(evidence, decision, expected action)} triples that the scoring
 step will check one by one.
 
-\subsection{A real example: the \emph{bypass} influence diagram}
+\subsection{A real rule from the bypass model}
 \label{sec:bypass-example}
 
 Throughout the rest of the chapter we ground the description on the
-\emph{bypass} ID, a small clinical model that we adopt as the
-illustrative network of this work. It contains six chance nodes
-(\textsf{HeartDisease}, \textsf{Angiogram}, \textsf{Pain},
-\textsf{EarlyResults}, \textsf{LifeQ}, \textsf{Economicalc}), two
-decision nodes (\textsf{HeartSurgery}, \textsf{HeartPharma}) and a
-single utility node. Its qualitative structure is shown in
-Figure~\ref{fig:bypass-id}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\linewidth]{figures/bypass.png}
-    \caption{Influence diagram of the \emph{bypass} model. Chance
-    nodes are ellipses, decision nodes rectangles and the utility
-    node a hexagon; dashed arcs are informational, solid arcs are
-    probabilistic or functional.}
-    \label{fig:bypass-id}
-\end{figure}
-
-To make explicit what kind of objects the algorithm manipulates, we
-extract one CPT directly from the model. The chance node
-\textsf{Angiogram} (test result) depends only on \textsf{HeartDisease}
-(the true underlying condition), and its table is reproduced in
-Table~\ref{tab:bypass-cpt}: it amounts to the standard
-sensitivity/specificity of the test.
-
-\begin{table}[H]
-\centering\small
-\begin{tabular}{l|cc}
-\hline
-$P(\textsf{Angiogram} \mid \textsf{HeartDisease})$
-              & \textsc{negative} & \textsc{positive}\\
-\hline
-$\textsf{HeartDisease} = \textsc{absent}$  & 0.95 & 0.05\\
-$\textsf{HeartDisease} = \textsc{present}$ & 0.14 & 0.86\\
-\hline
-\end{tabular}
-\caption{Real CPT extracted from the bypass model: angiogram
-sensitivity and specificity given the true heart-disease status.
-This is one of the rows of the parameter vector $\boldsymbol{\Theta}$
-that the EDA must recover when it is unknown.}
-\label{tab:bypass-cpt}
-\end{table}
+\emph{bypass} influence diagram already introduced in
+Chapter~\ref{ch:framework} (Figure~\ref{fig:bypass-id},
+Tables~\ref{tab:bypass-cpt}--\ref{tab:bypass-eu}). Here we focus on
+the operational side that Chapter~\ref{ch:framework} does not
+discuss: how a single line of the expert rule base is turned into a
+constraint the optimiser can check.
 
 The rule base is a CSV file with one row per rule and one column per
 node of the diagram. Sign convention: a positive integer
@@ -110,7 +74,7 @@ for it; the value $0$ marks the node as irrelevant for that
 particular rule (in practice, it is a node that is not an
 informational parent of the target decision). For the bypass model
 the eight columns are
-\textsf{ANGIOGRAM, EARLYRESULTS, ECONOMICALC, HEARTDISEASE, LIFEQ,
+\texttt{ANGIOGRAM, EARLYRESULTS, ECONOMICALC, HEARTDISEASE, LIFEQ,
 PAIN, HEARTPHARMA, HEARTSURGERY},
 and the very first row of \texttt{reglas\_generadas.csv} reads
 \begin{center}
@@ -119,14 +83,14 @@ and the very first row of \texttt{reglas\_generadas.csv} reads
 which, decoded with the state mappings of the model, becomes the
 explicit rule
 \begin{quote}
-\emph{If \textsf{Angiogram}~$=$~\textsc{negative} \;and\;
-\textsf{EarlyResults}~$=$~\textsc{CoRem} \;and\;
-\textsf{Pain}~$=$~\textsc{absent},
-\quad then \;\textsf{HeartPharma}~$=$~\textsc{no}.}
+\emph{If \texttt{Angiogram}~$=$~\textsc{negative} \;and\;
+\texttt{EarlyResults}~$=$~\textsc{CoRem} \;and\;
+\texttt{Pain}~$=$~\textsc{absent},
+\quad then \;\texttt{HeartPharma}~$=$~\textsc{no}.}
 \end{quote}
 Evaluating this rule means: write the decoded $\boldsymbol{\Theta}$
 into the model, enter the three observed states as evidence, run
-Shachter on \textsf{HeartPharma} and check that its optimal action is
+Shachter on \texttt{HeartPharma} and check that its optimal action is
 \textsc{no}. The fitness of the candidate is the aggregated per-rule
 loss over the whole \texttt{reglas\_generadas.csv}, computed in the
 next section.
