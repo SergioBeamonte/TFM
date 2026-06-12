@@ -36,90 +36,151 @@ discussed in Chapter~\ref{ch:introduction} fully tangible and the
 EDA-based recovery the only practical route to populating the
 network.
 
-\begin{figure}[H]
+% Requires: \usepackage{pdflscape} (or lscape)
+\begin{landscape}
+\begin{figure}[p]
 \centering
 \begin{tikzpicture}[
-    node distance=1.2cm and 1.5cm,
-    every node/.style={font=\sffamily\scriptsize, align=center, draw=black, inner sep=2pt},
-    oval/.style={ellipse, fill=cyan!20, minimum width=2cm, minimum height=1cm},
-    rect/.style={rectangle, fill=orange!30, minimum width=1.8cm, minimum height=1.2cm},
-    hex/.style={regular polygon, regular polygon sides=6, fill=purple!30, minimum width=1.5cm},
-    arrow/.style={-{Stealth[scale=1.2]}, draw=blue!70!black},
-    dashedarrow/.style={-{Stealth[scale=1.2]}, draw=blue!70!black, dashed}
+    scale=0.85, transform shape,
+    every node/.style={font=\sffamily\scriptsize, align=center, inner sep=2pt},
+    chance/.style={ellipse, draw=blue!50, fill=cyan!15,
+                   minimum width=2.2cm, minimum height=0.9cm},
+    decision/.style={rectangle, draw=black, fill=orange!30,
+                     minimum width=2.2cm, minimum height=1.0cm},
+    utility/.style={regular polygon, regular polygon sides=6,
+                    shape border rotate=90,
+                    draw=black, fill=purple!30,
+                    minimum width=2.4cm, minimum height=1.0cm, inner sep=2pt},
+    arr/.style={-{Stealth[scale=1.0]}, draw=blue!60!black},
+    info/.style={-{Stealth[scale=1.0]}, draw=blue!60!black, dashed}
 ]
+    % ==========================================
+    %  Node positions (laid out left-to-right
+    %  following the temporal flow of the model)
+    % ==========================================
 
-% Nodes
-\node[oval] (age) {AGE};
-\node[rect, right=2cm of age] (ctrt) {CT RT\\SCHEDULE};
-\node[oval, right=3cm of ctrt] (hem) {HEMORRHAGE};
-\node[oval, right=2cm of hem] (ther) {THERAPY\\ADJUSTMENT};
-\node[oval, below=0.5cm of hem] (bm) {BM DEPRESSION};
-\node[oval, below=0.5cm of bm] (postct) {POST CT RT\\SURVIVAL};
-\node[oval, below=0.5cm of postct] (perf) {PERFORATION};
+    %  --- Sources / observations ---
+    \node[chance]   (AGE)    at ( 0,     5)    {AGE};
+    \node[chance]   (HPYL)   at ( 0,    -7)    {HELICOBACTER\\PYLORI};
+    \node[chance]   (CLIN)   at ( 4,    -2)    {CLINICAL\\PRESENTATION};
 
-\node[oval, below=2cm of age] (ghs) {GENERAL HEALTH\\STATUS};
-\node[rect, right=1.5cm of ghs] (surg) {SURGERY};
-\node[oval, right=1.5cm of surg] (psurv) {POST SURGICAL\\SURVIVAL};
-\node[oval, below=0.5cm of psurv] (clin) {CLINICAL\\PRESENTATION};
-\node[oval, below=0.5cm of clin] (imm) {IMMEDIATE\\SURVIVAL};
+    %  --- Derived from AGE ---
+    \node[chance]   (GHS)    at ( 0,     2.5)  {GENERAL HEALTH\\STATUS};
+    \node[chance]   (HIST)   at ( 6,    -4.5)  {HISTOLOGICAL\\CLASSIFICATION};
+    \node[chance]   (CSTG)   at ( 9,    -6)    {CLINICAL STAGE};
+    \node[chance]   (BULKY)  at ( 9,    -3)    {BULKY DISEASE};
 
-\node[rect, below=2cm of surg] (h-treat) {HELICOBACTER\\TREATMENT};
-\node[hex, right=1.5cm of h-treat] (util) {UTILITY};
-\node[oval, below=0.5cm of util] (hist) {HISTOLOGICAL\\CLASSIFICATION};
-\node[oval, below=0.5cm of hist] (clin-stage) {CLINICAL STAGE};
-\node[oval, below=0.5cm of clin-stage] (bulky) {BULKY DISEASE};
+    %  --- Decisions (in temporal order) ---
+    \node[decision] (HTRT)   at ( 3,    -4.5)  {HELICOBACTER\\TREATMENT};
+    \node[decision] (SURG)   at ( 4,     0.5)  {SURGERY};
+    \node[decision] (CTRT)   at ( 8,     5)    {CT RT\\SCHEDULE};
 
-\node[oval, below=2cm of h-treat] (h-pyl) {HELICOBACTER\\PYLORI};
-\node[oval, right=1.5cm of h-pyl] (erad) {ERADICATION};
+    %  --- Surgical chain ---
+    \node[chance]   (ERAD)   at ( 5,    -7)    {ERADICATION};
+    \node[chance]   (PSRV)   at ( 8,     2)    {POST SURGICAL\\SURVIVAL};
 
-\node[oval, right=10cm of clin] (early) {EARLY RESULT};
-\node[oval, below=1cm of early] (five) {FIVE YEAR\\RESULT};
+    %  --- CT-RT chain ---
+    \node[chance]   (HEM)    at (11,     6)    {HEMORRHAGE};
+    \node[chance]   (BM)     at (11,     4)    {BM\\DEPRESSION};
+    \node[chance]   (PERF)   at (11,     2.5)  {PERFORATION};
+    \node[chance]   (POCT)   at (13.5,   4.5)  {POST CT RT\\SURVIVAL};
+    \node[chance]   (THER)   at (14,     6.5)  {THERAPY\\ADJUSTMENT};
 
-% Arrows
-\draw[arrow] (age) -- (ghs);
-\draw[arrow] (age) -- (surg);
-\draw[arrow] (age) -- (ctrt);
-\draw[arrow] (age) -- (psurv);
-\draw[arrow] (age) -- (bm);
-\draw[dashedarrow] (ctrt) -- (surg);
-\draw[arrow] (ctrt) -- (bm);
-\draw[arrow] (ctrt) -- (postct);
-\draw[arrow] (ctrt) -- (util);
-\draw[arrow] (hem) -- (ther);
-\draw[arrow] (bm) -- (ther);
-\draw[arrow] (bm) -- (imm);
-\draw[arrow] (postct) -- (ther);
-\draw[arrow] (postct) -- (perf);
-\draw[arrow] (perf) -- (ther);
-\draw[dashedarrow] (ghs) -- (surg);
-\draw[arrow] (ghs) -- (psurv);
-\draw[arrow] (surg) -- (psurv);
-\draw[arrow] (surg) -- (util);
-\draw[arrow] (psurv) -- (imm);
-\draw[arrow] (psurv) -- (early);
-\draw[arrow] (clin) -- (psurv);
-\draw[arrow] (clin) -- (early);
-\draw[arrow] (imm) -- (early);
-\draw[dashedarrow] (h-pyl) -- (h-treat);
-\draw[arrow] (h-pyl) -- (erad);
-\draw[arrow] (erad) -- (h-treat);
-\draw[dashedarrow] (h-treat) -- (hist);
-\draw[arrow] (h-treat) -- (util);
-\draw[arrow] (hist) -- (bulky);
-\draw[arrow] (hist) -- (clin-stage);
-\draw[arrow] (bulky) -- (early);
-\draw[arrow] (clin-stage) -- (five);
-\draw[arrow] (early) -- (five);
-\draw[arrow] (ther) -- (early);
+    %  --- Late survival ---
+    \node[chance]   (IMM)    at (12,     1.5)  {IMMEDIATE\\SURVIVAL};
 
+    %  --- Endpoints ---
+    \node[chance]   (EARLY)  at (16,    -2)    {EARLY\\RESULT};
+    \node[chance]   (FIVE)   at (16,    -6)    {FIVE YEAR\\RESULT};
+    \node[utility]  (UTIL)   at (12,    -3)    {UTILITY};
+
+    % ==========================================
+    %  Probabilistic / functional arcs (solid)
+    % ==========================================
+    %  AGE -> ...
+    \draw[arr] (AGE) -- (GHS);
+    \draw[arr] (AGE.south east) to[bend left=10]  (BM.west);
+    \draw[arr] (AGE.east)       to[bend left=8]   (HIST.north west);
+    \draw[arr] (AGE.south east) to[bend right=12] (CSTG.north west);
+    \draw[arr] (AGE.east)       to[bend left=15]  (BULKY.north west);
+    \draw[arr] (AGE.south east) to[bend right=20] (FIVE.north west);
+
+    %  GHS / CLIN / SURG -> PSRV
+    \draw[arr] (GHS)  -- (PSRV);
+    \draw[arr] (CLIN) -- (PSRV);
+    \draw[arr] (SURG) -- (PSRV);
+
+    %  CTRT -> ...
+    \draw[arr] (CTRT) -- (HEM);
+    \draw[arr] (CTRT) -- (BM);
+    \draw[arr] (CTRT) -- (PERF);
+    \draw[arr] (CTRT.east) to[bend left=12] (EARLY.north);
+
+    %  Complications -> THER / POCT
+    \draw[arr] (BM)   -- (THER);
+    \draw[arr] (HEM)  -- (THER);
+    \draw[arr] (PERF) to[bend right=10] (THER);
+    \draw[arr] (HEM.south east)  to[bend left=10]  (POCT);
+    \draw[arr] (PERF.east)       to[bend right=10] (POCT);
+
+    %  Survival chain
+    \draw[arr] (POCT) to[bend left=10]  (IMM);
+    \draw[arr] (PSRV) -- (IMM);
+
+    %  Surgery / decisions -> outcomes
+    \draw[arr] (SURG.east) to[bend right=8] (EARLY);
+    \draw[arr] (THER.south east) to[bend left=15] (EARLY);
+
+    %  HTRT chain
+    \draw[arr] (HPYL) -- (ERAD);
+    \draw[arr] (HTRT) -- (ERAD);
+    \draw[arr] (ERAD.east) to[bend right=8] (EARLY);
+
+    %  Classification / staging -> outcomes
+    \draw[arr] (HIST.east)   -- (BULKY.west);
+    \draw[arr] (CSTG.north)  -- (BULKY.south);
+    \draw[arr] (BULKY) -- (EARLY);
+    \draw[arr] (HIST.south east)  to[bend right=15] (EARLY);
+    \draw[arr] (CSTG.east)        to[bend right=10] (EARLY);
+
+    %  EARLY -> FIVE and parents of FIVE
+    \draw[arr] (EARLY) -- (FIVE);
+    \draw[arr] (CSTG)  -- (FIVE);
+    \draw[arr] (BULKY.south east) to[bend left=15] (FIVE);
+    \draw[arr] (HIST.south)       to[bend right=20] (FIVE);
+    \draw[arr] (IMM.south east)   to[bend left=15]  (FIVE);
+
+    %  Utility parents
+    \draw[arr] (HTRT) -- (UTIL);
+    \draw[arr] (SURG.south east) to[bend left=8]  (UTIL.north);
+    \draw[arr] (CTRT.south east) to[bend left=20] (UTIL.north east);
+    \draw[arr] (GHS.south)       to[bend right=45](UTIL.west);
+    \draw[arr] (FIVE.west)       to[bend left=15] (UTIL.east);
+
+    % ==========================================
+    %  Informational arcs (dashed, into decisions)
+    % ==========================================
+    %  Into HTRT
+    \draw[info] (HPYL.east) to[bend right=10] (HTRT.south west);
+    \draw[info] (CSTG.west) to[bend left=10]  (HTRT.east);
+    \draw[info] (HIST.west) to[bend left=5]   (HTRT.east);
+    \draw[info] (BULKY.south west) to[bend left=10] (HTRT.north east);
+    %  Into SURG
+    \draw[info] (GHS) -- (SURG);
+    \draw[info] (CLIN.north) -- (SURG.south);
+    \draw[info] (HTRT.north) to[bend left=10] (SURG.south west);
+    %  Into CTRT
+    \draw[info] (SURG.north) to[bend left=10] (CTRT.west);
 \end{tikzpicture}
 \caption{Influence diagram of the \emph{NHLv1} model for the
 management of gastric non-Hodgkin lymphoma. Chance nodes are
 ellipses, decision nodes rectangles and the utility node a hexagon.
 Solid arcs are probabilistic or functional, dashed arcs are
-informational. This is the main benchmark of this work.}
+informational (they encode the information available when each
+decision is taken). This is the main benchmark of this work.}
 \label{fig:nhlv1-id}
 \end{figure}
+\end{landscape}
 
 \subsection{Bypass: management of coronary heart disease}
 \label{sec:bypass-bench}
