@@ -37,19 +37,19 @@ NETS = {
     },
 }
 
-OPTIMIZERS = ['umda', 'emna', 'keda']
+OPTIMIZERS = ['umda', 'emna', 'keda', 'egna']
 
 # Mismos overrides de tamaño que en grid_search.py (KEDA necesita más por la
 # covarianza singular en gaussian_kde).
-SIZE_GEN_PER_OPT = {'umda': 50, 'emna': 50, 'keda': 400}
+SIZE_GEN_PER_OPT = {'umda': 50, 'emna': 50, 'egna': 50, 'keda': 400}
 
 COMMON = {
     'u_range':            (0, 10),
     'alpha':              0.5,
     'elite_factor':       0.0,
-    'fitness_type':       'regret',
+    'fitness_type':       'binary',
     'stop_mode':          'top50',
-    'symmetric_sampling': True,
+    'symmetric_sampling': False,
     'chance_temperature': 1.0,
     'utility_temperature': 1.0,
 }
@@ -58,7 +58,7 @@ N_REPS         = 10
 MAX_ITER       = 60
 TARGET_FITNESS = 1e-5
 BASE_SEED      = 42
-RULES_PCT      = 20
+RULES_PCT      = 10
 
 RAW_CSV = r'example\explore_minmax_ut.csv'
 
@@ -91,7 +91,7 @@ def run_one(net_name, optimizer, min_max_ut, rep, seed):
     if not exp.history:
         return None
     last = exp.history[-1]
-    gen_times = [float(h.get('gen_time', float('nan'))) for h in exp.history]
+    gen_cpus = [float(h.get('gen_cpu_time', float('nan'))) for h in exp.history]
     return {
         'net':            net_name,
         'optimizer':      optimizer,
@@ -107,8 +107,8 @@ def run_one(net_name, optimizer, min_max_ut, rep, seed):
         'mean_accuracy':   float(np.mean(last['accuracies'])),
         'mse_chance':      float(np.min(last['errors_chance'])),
         'mse_utility':     float(np.min(last['errors_utility'])),
-        'gen_time_mean':   float(np.nanmean(gen_times)) if gen_times else float('nan'),
-        'wall_time':       float(np.nansum(gen_times)) if gen_times else float('nan'),
+        'cpu_per_gen':     float(np.nanmean(gen_cpus)) if gen_cpus else float('nan'),
+        'cpu_total':       float(np.nansum(gen_cpus)) if gen_cpus else float('nan'),
     }
 
 

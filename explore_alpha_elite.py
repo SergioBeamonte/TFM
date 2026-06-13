@@ -56,7 +56,7 @@ def main():
 
                 if exp.history:
                     last = exp.history[-1]
-                    gen_times = [float(h.get('gen_time', float('nan'))) for h in exp.history]
+                    gen_cpus = [float(h.get('gen_cpu_time', float('nan'))) for h in exp.history]
                     rows.append({
                         'alpha': alpha,
                         'elite_factor': elite,
@@ -68,8 +68,8 @@ def main():
                         'mean_accuracy': float(np.mean(last['accuracies'])),
                         'mse_chance':  float(np.min(last['errors_chance'])),
                         'mse_utility': float(np.min(last['errors_utility'])),
-                        'gen_time_mean': float(np.nanmean(gen_times)) if gen_times else float('nan'),
-                        'wall_time':     float(np.nansum(gen_times)) if gen_times else float('nan'),
+                        'cpu_per_gen': float(np.nanmean(gen_cpus)) if gen_cpus else float('nan'),
+                        'cpu_total':   float(np.nansum(gen_cpus)) if gen_cpus else float('nan'),
                     })
                 done += 1
                 elapsed = time.time() - t0

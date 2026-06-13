@@ -14,8 +14,25 @@ import numpy as np
 import random
 import csv
 import time
+import psutil
 from scipy.special import expit
 from EDAspy.optimization import UMDAc, EGNA, EMNA, UnivariateKEDA
+
+
+_PROC = psutil.Process()
+
+
+def _cpu_seconds():
+    """Tiempo de CPU (user + system) consumido por el proceso, en segundos.
+
+    A diferencia de time.perf_counter() (reloj de pared), esto mide solo el
+    tiempo en que la CPU trabaja para este proceso, ignorando esperas y la
+    contención con otros procesos. Es la métrica correcta para comparar el
+    coste computacional real de cada EDA. cpu_times() es process-wide (suma
+    todos los hilos, incluido el código nativo de pysmile y el BLAS de numpy).
+    """
+    t = _PROC.cpu_times()
+    return t.user + t.system
 
 
 def _wrap_antithetic_sampling(pm, get_mean_fn):
@@ -52,7 +69,8 @@ class IDRecovery:
                  alpha=0.5, elite_factor=0.0, n_decision_rules=-1,
                  fitness_type='regret', stop_mode='best', optimizer_type='umda',
                  chance_temperature=1.0, utility_temperature=1.0,
-                 mode='both', symmetric_sampling=False, random_seed=42):
+                 mode='both', symmetric_sampling=False, random_seed=42,
+                 incremental_rules=False, incremental_start_with=1):
 
         self.net = pysmile.Network()
         self.net.read_file(xdsl_path)
@@ -133,13 +151,29 @@ class IDRecovery:
         random.seed(random_seed)
         np.random.seed(random_seed)
         n_all = len(self.all_rules)
-        if 0 < self.n_decision_rules < n_all:
+        # --- MODO CURRICULUM (incremental_rules) ---
+        # Empezamos con `incremental_start_with` reglas y, cada vez que el stop_mode
+        # se cumpla, añadimos otra del pool hasta agotar n_decision_rules (o todas
+        # si n_decision_rules <= 0). El stop final ocurre cuando ya no hay reglas
+        # nuevas y la condición de parada vuelve a cumplirse.
+        self.incremental_rules = incremental_rules
+        if incremental_rules:
+            pool_size = self.n_decision_rules if 0 < self.n_decision_rules <= n_all else n_all
+            candidates = random.sample(self.all_rules, pool_size)
+            start_k = max(1, min(int(incremental_start_with), pool_size))
+            self.train_rules = list(candidates[:start_k])
+            self.train_pool_remaining = list(candidates[start_k:])
+            train_id_set = {id(r) for r in self.train_rules}
+            self.train_mask = [id(r) in train_id_set for r in self.all_rules]
+        elif 0 < self.n_decision_rules < n_all:
             self.train_rules = random.sample(self.all_rules, self.n_decision_rules)
             train_id_set = {id(r) for r in self.train_rules}
             self.train_mask = [id(r) in train_id_set for r in self.all_rules]
+            self.train_pool_remaining = []
         else:
             self.train_rules = self.all_rules
             self.train_mask = [True] * n_all
+            self.train_pool_remaining = []
 
         print(f"Optimizador: {self.optimizer_type.upper()}")
         print(f"Modo de Fitness: {self.fitness_type.upper()}")
@@ -149,10 +183,11 @@ class IDRecovery:
         self.eval_count = 0
         self.current_gen = 1
         self.evals_this_gen = 0
-        # Cronómetro por generación: incluye el muestreo del EDA + todas las
-        # evaluaciones de fitness de esa población. Se cierra en el push a
-        # history y se reinicia al arrancar la siguiente generación.
-        self.gen_start_time = time.perf_counter()
+        # Cronómetro de CPU por generación: incluye el muestreo del EDA + todas
+        # las evaluaciones de fitness de esa población. Mide tiempo de CPU
+        # (no de pared) para reflejar el coste computacional real. Se cierra en
+        # el push a history y se reinicia al arrancar la siguiente generación.
+        self.gen_cpu_start = _cpu_seconds()
 
         self.gen_fitness = []
         self.gen_errors_chance = []
@@ -385,7 +420,7 @@ class IDRecovery:
             
             errors_chance_arr = np.array(self.gen_errors_chance)
             errors_utility_arr = np.array(self.gen_errors_utility)
-            gen_elapsed = time.perf_counter() - self.gen_start_time
+            gen_cpu = _cpu_seconds() - self.gen_cpu_start
             self.history.append({
                 'gen': self.current_gen,
                 'errors_chance': errors_chance_arr,
@@ -395,7 +430,11 @@ class IDRecovery:
                 'accuracies': np.array(self.gen_accuracies),
                 'entropy_norm': np.array(self.gen_entropy_norm),
                 'util_dev': np.array(self.gen_util_dev),
-                'gen_time': gen_elapsed,
+                'gen_cpu_time': gen_cpu,
+                'n_train_rules': len(self.train_rules),
+                # Se marca a True abajo si tras evaluar el stop_mode añadimos
+                # una nueva regla al pool de entrenamiento (modo curriculum).
+                'rule_added_after_gen': False,
             })
             
             sorted_fitness = np.sort(self.gen_fitness)
@@ -442,7 +481,7 @@ class IDRecovery:
             
             self.current_gen += 1
             self.evals_this_gen = 0
-            self.gen_start_time = time.perf_counter()
+            self.gen_cpu_start = _cpu_seconds()
             self.gen_fitness = []
             self.gen_errors_chance = []
             self.gen_errors_utility = []
@@ -451,9 +490,47 @@ class IDRecovery:
             self.gen_accuracies = []
 
             if value_to_check <= self.target_fitness:
-                raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness:.4f}")
+                # Modo curriculum: si aún quedan reglas en el pool, añadimos una
+                # nueva al conjunto de entrenamiento y seguimos optimizando con
+                # la población actual (distribución intacta del EDA). Solo
+                # paramos cuando ya hemos incluido todas y la condición se
+                # vuelve a cumplir con el pool completo.
+                if self.incremental_rules and self.train_pool_remaining:
+                    new_rule = self.train_pool_remaining.pop(
+                        random.randrange(len(self.train_pool_remaining)))
+                    self.train_rules.append(new_rule)
+                    train_id_set = {id(r) for r in self.train_rules}
+                    self.train_mask = [id(r) in train_id_set for r in self.all_rules]
+                    # softmax/entropy: el target escala con n_train_rules → recompute.
+                    self.target_fitness = self._compute_target(len(self.train_rules))
+                    # Reset del estancamiento: con el nuevo target todavía no hay
+                    # mejor histórico válido contra el que comparar paciencia.
+                    if self.fitness_type in ['softmax', 'entropy']:
+                        self.best_stagnation_fitness = float('inf')
+                        self.stagnation_counter = 0
+                    # Marca el evento en la generación que acabamos de cerrar
+                    # (el "punto gordo" de la curva).
+                    self.history[-1]['rule_added_after_gen'] = True
+                elif not self.incremental_rules:
+                    raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness:.4f}")
             
         return penalty_score
+
+    def _compute_target(self, n_train_rules):
+        """Calcula target_fitness para el nº actual de reglas de entrenamiento.
+
+        - binary             → 0.0 (fitness=0 ⇔ todas las train_rules satisfechas).
+        - softmax/entropy    → escala con n_train_rules (NLL acumulada).
+        - resto (regret/...) → respeta el target_fitness pasado a run().
+        """
+        if self.fitness_type == 'binary':
+            return 0.0
+        if self.fitness_type in ['softmax', 'entropy']:
+            confianza_deseada = 0.99
+            nll_esperado = -np.log(confianza_deseada)
+            margen_entropia = (self.alpha * 0.05) if self.fitness_type == 'entropy' else 0.0
+            return n_train_rules * (nll_esperado + margen_entropia)
+        return self._external_target_fitness
 
     def run(self, g=100, i=100, target_fitness=1e-5, patience=10, min_delta=1e-4):
         self.size_gen = g
@@ -465,20 +542,12 @@ class IDRecovery:
         self.best_stagnation_fitness = float('inf')
         
         # --- AJUSTE DINÁMICO DE TARGET FITNESS ---
-        if self.fitness_type == 'binary':
-            self.target_fitness = 0.0
-            
-        elif self.fitness_type in ['softmax', 'entropy']:
-            # Buscamos un ~99% de confianza media. -log(0.99) = 0.01005
-            confianza_deseada = 0.99
-            nll_esperado = -np.log(confianza_deseada)
-            margen_entropia = (self.alpha * 0.05) if self.fitness_type == 'entropy' else 0.0
-            
-            self.target_fitness = len(self.train_rules) * (nll_esperado + margen_entropia)
+        # Guardamos el target externo para que _compute_target() pueda reusarlo
+        # cuando el modo curriculum añade reglas y necesitamos recomputar.
+        self._external_target_fitness = target_fitness
+        self.target_fitness = self._compute_target(len(self.train_rules))
+        if self.fitness_type in ['softmax', 'entropy']:
             print(f"Meta de Fitness ajustada para {self.fitness_type.upper()}: <= {self.target_fitness:.4f}")
-            
-        else:
-            self.target_fitness = target_fitness
         
         self.best_historical_ind = None
         self.best_historical_fitness = float('inf')
@@ -497,7 +566,7 @@ class IDRecovery:
         optimizer_kwargs = {
             'size_gen': g,
             'max_iter': i,
-            'dead_iter': min(20, i),
+            'dead_iter': i,
             'n_variables': self.total_vars,
             'lower_bound': lower_bounds,
             'upper_bound': upper_bounds,
