@@ -70,7 +70,8 @@ class IDRecovery:
                  fitness_type='regret', stop_mode='best', optimizer_type='umda',
                  chance_temperature=1.0, utility_temperature=1.0,
                  mode='both', symmetric_sampling=False, random_seed=42,
-                 incremental_rules=False, incremental_start_with=1):
+                 incremental_rules=False, incremental_start_with=1,
+                 incremental_trigger='success', incremental_patience=5):
 
         self.net = pysmile.Network()
         self.net.read_file(xdsl_path)
@@ -157,6 +158,12 @@ class IDRecovery:
         # si n_decision_rules <= 0). El stop final ocurre cuando ya no hay reglas
         # nuevas y la condición de parada vuelve a cumplirse.
         self.incremental_rules = incremental_rules
+        # Disparador para añadir una nueva regla al pool de entrenamiento:
+        #   'success'    → cuando el stop_mode se cumple (modo clásico).
+        #   'stagnation' → cuando la accuracy real (sobre TODAS las reglas) deja
+        #                  de mejorar durante `incremental_patience` generaciones.
+        self.incremental_trigger = incremental_trigger
+        self.incremental_patience = int(incremental_patience)
         if incremental_rules:
             pool_size = self.n_decision_rules if 0 < self.n_decision_rules <= n_all else n_all
             candidates = random.sample(self.all_rules, pool_size)
@@ -489,30 +496,46 @@ class IDRecovery:
             self.gen_util_dev = []
             self.gen_accuracies = []
 
-            if value_to_check <= self.target_fitness:
-                # Modo curriculum: si aún quedan reglas en el pool, añadimos una
-                # nueva al conjunto de entrenamiento y seguimos optimizando con
-                # la población actual (distribución intacta del EDA). Solo
-                # paramos cuando ya hemos incluido todas y la condición se
-                # vuelve a cumplir con el pool completo.
-                if self.incremental_rules and self.train_pool_remaining:
-                    new_rule = self.train_pool_remaining.pop(
-                        random.randrange(len(self.train_pool_remaining)))
-                    self.train_rules.append(new_rule)
-                    train_id_set = {id(r) for r in self.train_rules}
-                    self.train_mask = [id(r) in train_id_set for r in self.all_rules]
-                    # softmax/entropy: el target escala con n_train_rules → recompute.
-                    self.target_fitness = self._compute_target(len(self.train_rules))
-                    # Reset del estancamiento: con el nuevo target todavía no hay
-                    # mejor histórico válido contra el que comparar paciencia.
-                    if self.fitness_type in ['softmax', 'entropy']:
-                        self.best_stagnation_fitness = float('inf')
-                        self.stagnation_counter = 0
-                    # Marca el evento en la generación que acabamos de cerrar
-                    # (el "punto gordo" de la curva).
-                    self.history[-1]['rule_added_after_gen'] = True
-                elif not self.incremental_rules:
-                    raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness:.4f}")
+            # --- CURRICULUM: ¿añadimos una nueva regla al pool de entrenamiento? ---
+            # Modo curriculum: si aún quedan reglas en el pool, añadimos una nueva
+            # y seguimos optimizando con la población actual (distribución intacta
+            # del EDA). El disparador depende de incremental_trigger:
+            #   'success'    → cuando el stop_mode se cumple (value_to_check<=target).
+            #   'stagnation' → cuando la accuracy real deja de mejorar durante
+            #                  `incremental_patience` generaciones seguidas.
+            add_rule = False
+            if self.incremental_rules and self.train_pool_remaining:
+                if self.incremental_trigger == 'stagnation':
+                    gen_best_acc = float(np.max(self.history[-1]['accuracies']))
+                    if gen_best_acc > self.acc_stagnation_best + 1e-9:
+                        self.acc_stagnation_best = gen_best_acc
+                        self.acc_stagnation_counter = 0
+                    else:
+                        self.acc_stagnation_counter += 1
+                    add_rule = self.acc_stagnation_counter >= self.incremental_patience
+                else:
+                    add_rule = value_to_check <= self.target_fitness
+
+            if add_rule:
+                new_rule = self.train_pool_remaining.pop(
+                    random.randrange(len(self.train_pool_remaining)))
+                self.train_rules.append(new_rule)
+                train_id_set = {id(r) for r in self.train_rules}
+                self.train_mask = [id(r) in train_id_set for r in self.all_rules]
+                # softmax/entropy: el target escala con n_train_rules → recompute.
+                self.target_fitness = self._compute_target(len(self.train_rules))
+                # Reset del estancamiento: con el nuevo target/regla todavía no hay
+                # mejor histórico válido contra el que comparar paciencia.
+                if self.fitness_type in ['softmax', 'entropy']:
+                    self.best_stagnation_fitness = float('inf')
+                    self.stagnation_counter = 0
+                self.acc_stagnation_best = -float('inf')
+                self.acc_stagnation_counter = 0
+                # Marca el evento en la generación que acabamos de cerrar
+                # (el "punto gordo" de la curva).
+                self.history[-1]['rule_added_after_gen'] = True
+            elif not self.incremental_rules and value_to_check <= self.target_fitness:
+                raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness:.4f}")
             
         return penalty_score
 
@@ -540,7 +563,10 @@ class IDRecovery:
         self.min_delta = min_delta
         self.stagnation_counter = 0
         self.best_stagnation_fitness = float('inf')
-        
+        # Estancamiento de ACCURACY real (curriculum por estancamiento).
+        self.acc_stagnation_best = -float('inf')
+        self.acc_stagnation_counter = 0
+
         # --- AJUSTE DINÁMICO DE TARGET FITNESS ---
         # Guardamos el target externo para que _compute_target() pueda reusarlo
         # cuando el modo curriculum añade reglas y necesitamos recomputar.

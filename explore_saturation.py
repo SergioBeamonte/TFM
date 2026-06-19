@@ -1,18 +1,25 @@
-"""Estudio: curriculum incremental de reglas.
+"""Estudio: SATURACION por estancamiento (cuantas reglas se NECESITAN).
 
-Arrancamos con 1 regla, entrenamos hasta que el stop_mode (top80 por fitness)
-se cumple, añadimos otra regla aleatoria y seguimos. Iteramos hasta cubrir
-todas las reglas (o hasta agotar generaciones). La curva (accuracy vs gen)
-debe tener forma de S por tramos, con "puntos gordos" justo en las
-generaciones donde se introduce una nueva regla.
+Hermano del curriculum incremental, pero con disparador distinto:
 
-Salida: 1 fila por (red, eda, rep, gen) con accuracy, n_train_rules,
-rule_added_after_gen y gen_cpu_time. La curva promedio entre reps y los
-markers de adición se calculan a posteriori desde este CSV.
+  - explore_incremental: se añade una regla cuando el modelo HA APRENDIDO
+    (el stop_mode se cumple). Mide nº de GENERACIONES.
+  - explore_saturation (este): se añade una regla cuando el modelo DEJA DE
+    APRENDER: `incremental_patience` generaciones seguidas sin mejorar la
+    accuracy real (sobre TODAS las reglas). Mide nº de REGLAS necesarias,
+    independientemente de cuantas generaciones cueste.
 
-Plan: 2 redes × 4 EDAs × 10 reps = 80 corridas.
-  - bypass2: mode='both', regret, symmetric, T=1, top80, sg per opt
-  - nhlv1  : mode='utility_only', resto igual
+Arrancamos con 1 regla. Cada vez que la accuracy real se estanca 5 gens,
+metemos otra regla aleatoria (le damos mas señal para escapar del plateau).
+La corrida se corta cuando TODAS las reglas reales se cumplen para el 50%
+de los individuos de la poblacion.
+
+El "punto gordo" (rule_added_after_gen) marca cada adicion: si tras el
+punto la accuracy salta, la regla era necesaria; si no salta, el plateau
+era del optimizador.
+
+Salida: example/explore_saturation.csv (1 fila por red, eda, rep, fit, gen).
+Solo bypass2 (nhlv1 descartado por coste, igual que en el incremental).
 """
 import os
 import time
@@ -28,12 +35,6 @@ NETS = {
         'rules_csv': r'example\bypass2\reglas_generadas.csv',
         'mode': 'both',
     },
-    # nhlv1 descartado: tardaba demasiado. Solo corremos bypass2.
-    # 'nhlv1': {
-    #     'xdsl_path': r'example\nhlv1\network-nhlv1.xdsl',
-    #     'rules_csv': r'example\nhlv1\reglas_generadas.csv',
-    #     'mode': 'utility_only',
-    # },
 }
 
 OPTIMIZERS = ['umda', 'emna', 'egna', 'keda']
@@ -45,19 +46,25 @@ COMMON = {
     'min_max_ut':         True,
     'alpha':              0.5,
     'elite_factor':       0.0,
-    'stop_mode':          'top80',
+    'stop_mode':          'top50',   # informativo: el disparo real es por estancamiento
     'symmetric_sampling': False,
     'chance_temperature': 1.0,
     'utility_temperature': 1.0,
+    'incremental_rules':    True,
+    'incremental_start_with': 1,
+    'incremental_trigger':  'stagnation',
+    'incremental_patience': 5,        # 5 gens sin mejorar accuracy -> +1 regla
 }
 
-# Damos margen para que entren todas las reglas (techo n_decision_rules=-1 → todas).
+# Fraccion de individuos que deben cumplir TODAS las reglas reales para cortar.
+STOP_PERFECT_RATIO = 0.50
+
 MAX_ITER       = 500
 TARGET_FITNESS = 1e-5
 N_REPS         = 10
 BASE_SEED      = 42
 
-RAW_CSV = r'example\explore_incremental.csv'
+RAW_CSV = r'example\explore_saturation.csv'
 
 
 def run_one(net_name, optimizer, fitness_type, rep, seed):
@@ -68,37 +75,32 @@ def run_one(net_name, optimizer, fitness_type, rep, seed):
         'xdsl_path': cfg['xdsl_path'],
         'rules_csv': cfg['rules_csv'],
         'mode':      cfg['mode'],
-        'fitness_type':             fitness_type,
-        'n_decision_rules':         -1,       # pool = todas las reglas
-        'optimizer_type':           optimizer,
-        'random_seed':              seed,
-        'incremental_rules':        True,
-        'incremental_start_with':   1,
+        'fitness_type':     fitness_type,
+        'n_decision_rules': -1,       # pool = todas las reglas
+        'optimizer_type':   optimizer,
+        'random_seed':      seed,
     })
     exp = IDRecovery(**params)
-    
+
     original_fitness = exp.fitness
-    consecutive_success = [0]
     def custom_fitness(v):
         val = original_fitness(v)
+        # Justo al cerrar una generacion: evals_this_gen vuelve a 0 y hay history.
         if exp.evals_this_gen == 0 and len(exp.history) > 0:
             accs = exp.history[-1]['accuracies']
             perfect_ratio = np.sum(accs >= 99.999) / len(accs)
-            if perfect_ratio >= 0.999:
-                consecutive_success[0] += 1
-                if consecutive_success[0] >= 3:
-                    raise StopIteration("El 100% de los individuos aciertan todas las reglas (3 gens seguidas)")
-            else:
-                consecutive_success[0] = 0
+            if perfect_ratio >= STOP_PERFECT_RATIO:
+                raise StopIteration(
+                    f"El {STOP_PERFECT_RATIO*100:.0f}% de los individuos cumple "
+                    f"TODAS las reglas reales.")
         return val
     exp.fitness = custom_fitness
 
     try:
         exp.run(g=sg, i=MAX_ITER, target_fitness=TARGET_FITNESS, patience=float('inf'))
     except (ValueError, np.linalg.LinAlgError) as e:
-        # KEDA (gaussian_kde) suele reventar por covarianza singular DESPUES de
-        # converger (la poblacion colapsa al optimo). En ese caso la historia
-        # acumulada es valida: la conservamos en vez de descartar la corrida.
+        # KEDA puede reventar por covarianza singular tras converger: conservamos
+        # la historia acumulada (es valida hasta ese punto).
         n_done = len(exp.history)
         print(f"    !! {net_name}/{optimizer}/{fitness_type} rep={rep} "
               f"{type(e).__name__} tras gen={n_done} (se conservan esas {n_done} gens)")
@@ -132,9 +134,6 @@ def run_one(net_name, optimizer, fitness_type, rep, seed):
 def load_existing():
     if os.path.exists(RAW_CSV):
         df = pd.read_csv(RAW_CSV)
-        # Compat con CSVs viejos sin fitness_type: tratarlos como regret.
-        if 'fitness_type' not in df.columns:
-            df['fitness_type'] = 'regret'
         done = set(zip(df['net'], df['optimizer'], df['fitness_type'], df['rep']))
         return df.to_dict('records'), done
     return [], set()
@@ -163,15 +162,18 @@ def main():
             rows.extend(new_rows)
             last = new_rows[-1]
             final_acc = last['mean_accuracy']
-            final_k   = last['n_train_rules']
-            n_gens    = last['gen']
-            n_events  = sum(1 for r in new_rows if r['rule_added_after_gen'])
+            rules_needed = last['n_train_rules']
+            n_gens = last['gen']
+            n_events = sum(1 for r in new_rows if r['rule_added_after_gen'])
+            final_perfect = last['pct_success_indv']
         else:
-            final_acc, final_k, n_gens, n_events = float('nan'), 0, 0, 0
+            final_acc, rules_needed, n_gens, n_events, final_perfect = (
+                float('nan'), 0, 0, 0, float('nan'))
         elapsed = time.time() - t0
         eta = elapsed / completed_now * (todo - completed_now) if completed_now else 0
         print(f"[{completed_now}/{todo}] {net_name}/{opt}/{fit} rep={rep}: "
-              f"gens={n_gens} reglas={final_k} eventos={n_events} mean_acc={final_acc:.0f}%  "
+              f"REGLAS_NECESARIAS={rules_needed} gens={n_gens} eventos={n_events} "
+              f"perfectos={final_perfect:.0f}% mean_acc={final_acc:.0f}%  "
               f"({elapsed/60:.1f}min / ETA {eta/60:.1f}min)")
         pd.DataFrame(rows).to_csv(RAW_CSV, index=False)
 
@@ -179,12 +181,10 @@ def main():
     df = pd.DataFrame(rows)
     if df.empty:
         return
-    summary = (df.sort_values('gen').groupby(['net','optimizer','fitness_type','rep']).tail(1)
-                 [['net','optimizer','fitness_type','rep','gen','n_train_rules','max_accuracy','mean_accuracy','pct_success_indv']])
-    print("\n=== Resumen final por corrida ===")
-    print(summary.groupby(['net','optimizer','fitness_type'])
-                 [['gen','n_train_rules','max_accuracy','mean_accuracy','pct_success_indv']]
-                 .mean().round(1).to_string())
+    last = df.sort_values('gen').groupby(['net','optimizer','fitness_type','rep']).tail(1)
+    print("\n=== REGLAS NECESARIAS (media) por (optimizer, fitness) ===")
+    print(last.groupby(['optimizer','fitness_type'])['n_train_rules'].mean()
+              .unstack().round(1).to_string())
 
 
 if __name__ == '__main__':
