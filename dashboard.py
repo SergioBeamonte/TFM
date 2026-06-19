@@ -232,7 +232,8 @@ def _register_theme():
 _register_theme()
 
 _CATEGORICAL_COLS = [
-    "model", "mode", "sampling_mode", "fitness_type", "stop_mode", "n_decision_rules_pct",
+    "model", "mode", "sampling_mode", "fitness_type", "stop_mode",
+    "n_decision_rules", "n_decision_rules_pct", "total_rules",
     "chance_temperature", "utility_temperature",
 ]
 # size_gen solo aparece si algún CSV cargado lo trae con datos (explore_size_gen).
@@ -265,7 +266,15 @@ with st.sidebar:
     all_samp    = sorted(ref["sampling_mode"].unique())
     all_fitness = sorted(ref["fitness_type"].unique())
     all_stop    = sorted(ref["stop_mode"].unique())
+    all_ndr     = (
+        sorted(int(v) for v in ref["n_decision_rules"].dropna().unique())
+        if "n_decision_rules" in ref.columns else []
+    )
     all_pct     = sorted(ref["n_decision_rules_pct"].unique())
+    all_tr      = (
+        sorted(int(v) for v in ref["total_rules"].dropna().unique())
+        if "total_rules" in ref.columns else []
+    )
     all_ct      = sorted(ref["chance_temperature"].unique())
     all_ut      = sorted(ref["utility_temperature"].unique())
     all_sg      = (
@@ -278,7 +287,9 @@ with st.sidebar:
     sel_samp    = st.multiselect("Muestreo (sym/non)",   all_samp,    default=all_samp)
     sel_fitness = st.multiselect("Tipo de Fitness",      all_fitness, default=all_fitness)
     sel_stop    = st.multiselect("Modo de Parada",       all_stop,    default=all_stop)
+    sel_ndr     = st.multiselect("Nº Reglas de Decisión", all_ndr, default=all_ndr) if all_ndr else None
     sel_pct     = st.multiselect("% Reglas de Decisión", all_pct,     default=all_pct)
+    sel_tr      = st.multiselect("Total de Reglas",      all_tr, default=all_tr) if all_tr else None
     sel_ct      = st.multiselect("T softmax (CPTs)",     all_ct,      default=all_ct)
     sel_ut      = st.multiselect("T sigmoid (Util.)",    all_ut,      default=all_ut)
     if all_sg:
@@ -309,6 +320,14 @@ def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
         & df["chance_temperature"].isin(sel_ct)
         & df["utility_temperature"].isin(sel_ut)
     )
+    # n_decision_rules / total_rules: presentes en resultados (total_rules no en
+    # curvas). Filtra solo las filas que sí tienen la columna; el resto pasan.
+    if sel_ndr is not None and "n_decision_rules" in df.columns:
+        ndr_num = pd.to_numeric(df["n_decision_rules"], errors="coerce")
+        mask &= ndr_num.isna() | ndr_num.isin(sel_ndr)
+    if sel_tr is not None and "total_rules" in df.columns:
+        tr_num = pd.to_numeric(df["total_rules"], errors="coerce")
+        mask &= tr_num.isna() | tr_num.isin(sel_tr)
     # size_gen: filtra solo las filas que sí lo tienen; las que no, pasan.
     if sel_sg is not None and "size_gen" in df.columns:
         sg_num = pd.to_numeric(df["size_gen"], errors="coerce")
@@ -537,6 +556,7 @@ with tab_results:
             "entropy_norm_mean", "entropy_norm_std",
             "util_dev_mean", "util_dev_std",
             "stop_gen_mean", "stop_gen_std", "stop_gen_min", "stop_gen_max",
+            "gen_time_mean", "gen_time_std", "wall_time_mean", "wall_time_std",
             "best_fitness_mean", "best_fitness_std",
             "total_rules", "n_decision_rules",
         ]
@@ -575,6 +595,10 @@ with tab_results:
                 "stop_gen_std":        st.column_config.NumberColumn("Gen. σ",          format="%.2f"),
                 "stop_gen_min":        st.column_config.NumberColumn("Gen. Min",        format="%.0f"),
                 "stop_gen_max":        st.column_config.NumberColumn("Gen. Max",        format="%.0f"),
+                "gen_time_mean":       st.column_config.NumberColumn("CPU Time/Gen (s)", format="%.3f"),
+                "gen_time_std":        st.column_config.NumberColumn("CPU Time/Gen σ",  format="%.3f"),
+                "wall_time_mean":      st.column_config.NumberColumn("CPU Time Total (s)", format="%.2f"),
+                "wall_time_std":       st.column_config.NumberColumn("CPU Time Total σ", format="%.2f"),
                 "best_fitness_mean":   st.column_config.NumberColumn("Best Fitness",    format="%.4f"),
                 "best_fitness_std":    st.column_config.NumberColumn("Best Fitness σ",  format="%.4f"),
                 "total_rules":         st.column_config.NumberColumn("Total Reglas"),
@@ -594,6 +618,7 @@ CURVE_METRICS = {
     "MSE Utility":     "mean_error_utility",
     "Entropía Norm.":  "mean_entropy_norm",
     "Util Dev":        "mean_util_dev",
+    "CPU Time/Gen (s)":"mean_gen_time",
 }
 
 with tab_curves:
