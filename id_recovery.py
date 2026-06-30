@@ -35,6 +35,24 @@ def _cpu_seconds():
     return t.user + t.system
 
 
+def _majority_accuracy(dec_mat, true_actions):
+    """Accuracy (%) de la decisión por MAYORÍA entre individuos.
+
+    `dec_mat` es (n_individuos, n_reglas) con la acción (argmax de la utilidad)
+    que cada individuo asigna a cada regla. Para cada regla se toma la acción
+    mayoritaria entre los individuos y se compara con la acción verdadera. Es la
+    métrica operativa real: en una elicitación no se conoce el ground truth, así
+    que no se puede elegir "el mejor individuo"; se toma la decisión mayoritaria
+    de la población (o de los que cumplen las reglas elicitadas)."""
+    if dec_mat.size == 0:
+        return float('nan')
+    correct = 0
+    for j in range(dec_mat.shape[1]):
+        if np.bincount(dec_mat[:, j]).argmax() == true_actions[j]:
+            correct += 1
+    return 100.0 * correct / dec_mat.shape[1]
+
+
 def _wrap_antithetic_sampling(pm, get_mean_fn):
     """Envuelve pm.sample para devolver muestras espejo (antithetic sampling).
 
@@ -72,7 +90,7 @@ class IDRecovery:
                  mode='both', symmetric_sampling=False, random_seed=42,
                  incremental_rules=False, incremental_start_with=1,
                  incremental_trigger='success', incremental_patience=5,
-                 identifiable_chance=True):
+                 identifiable_chance=True, rule_noise=0.0):
 
         self.net = pysmile.Network()
         self.net.read_file(xdsl_path)
@@ -190,6 +208,22 @@ class IDRecovery:
             self.train_mask = [True] * n_all
             self.train_pool_remaining = []
 
+        # --- RUIDO EN LAS REGLAS DE ENTRENAMIENTO ---
+        # Corrompemos una fraccion `rule_noise` de las reglas de entrenamiento
+        # cambiando su accion objetivo de fitness (fit_a_idx) por una ERRONEA
+        # aleatoria. La accion verdadera (a_idx) se conserva, asi que la accuracy
+        # se sigue midiendo contra la politica REAL: vemos si la EDA la recupera
+        # pese a entrenar con supervision parcialmente equivocada.
+        self.rule_noise = float(rule_noise)
+        self.n_noisy_rules = 0
+        if self.rule_noise > 0 and self.train_rules:
+            n_noisy = int(round(len(self.train_rules) * self.rule_noise))
+            for r in random.sample(self.train_rules, min(n_noisy, len(self.train_rules))):
+                if r['n_act'] > 1:
+                    alternativas = [a for a in range(r['n_act']) if a != r['a_idx']]
+                    r['fit_a_idx'] = random.choice(alternativas)
+                    self.n_noisy_rules += 1
+
         print(f"Optimizador: {self.optimizer_type.upper()}")
         print(f"Modo de Fitness: {self.fitness_type.upper()}")
         print(f"Reglas totales para evaluar precisión: {len(self.all_rules)}")
@@ -208,6 +242,10 @@ class IDRecovery:
         self.gen_errors_chance = []
         self.gen_errors_utility = []
         self.gen_accuracies = []
+        # Decisión (argmax) por regla de cada individuo, para el voto mayoritario.
+        self.gen_decisions = []
+        # Acción verdadera de cada regla (orden de all_rules), para el voto mayoritario.
+        self._true_actions = np.array([r['a_idx'] for r in self.all_rules], dtype=int)
         # Diagnósticos de sesgo en la parametrización logit/sigmoide:
         #   gen_entropy_norm: suma de H(p)/log(k) sobre todas las filas de todas las CPTs.
         #                     Bajo => CPTs casi determinísticas. Alto => CPTs uniformes (sesgo).
@@ -297,7 +335,11 @@ class IDRecovery:
                 for p in reversed(self.net.get_parents(h)):
                     c_idx += ev[self.net.get_node_id(p)] * mult
                     mult *= self.net.get_outcome_count(p)
-                compiled.append({'node': target, 'c_idx': c_idx, 'a_idx': act_idx, 'n_act': self.net.get_outcome_count(h)})
+                # a_idx     = accion VERDADERA de la regla (se usa para medir accuracy).
+                # fit_a_idx = accion que ve el FITNESS (igual salvo que la regla se
+                #             haya corrompido con ruido; ver rule_noise en __init__).
+                compiled.append({'node': target, 'c_idx': c_idx, 'a_idx': act_idx,
+                                 'fit_a_idx': act_idx, 'n_act': self.net.get_outcome_count(h)})
         return compiled
 
     def _decode_vector(self, vector):
@@ -385,6 +427,7 @@ class IDRecovery:
 
         penalty_score = 0
         rules_fulfilled = 0
+        decisions = []                       # acción (argmax) de este individuo por regla
         ftype = self.fitness_type
         train_mask = self.train_mask
 
@@ -393,6 +436,7 @@ class IDRecovery:
                 utils = self.net.get_node_value(r['node'])[r['c_idx']*r['n_act'] : (r['c_idx']+1)*r['n_act']]
                 max_u = max(utils)
                 rule_u = utils[r['a_idx']]
+                decisions.append(int(np.argmax(utils)))
 
                 if (max_u - rule_u) <= 1e-5:
                     rules_fulfilled += 1
@@ -400,28 +444,34 @@ class IDRecovery:
                 if not train_mask[idx]:
                     continue
 
+                # El FITNESS optimiza hacia fit_a_idx (= a_idx salvo que la regla
+                # este corrompida por ruido). La accuracy de arriba ya se midio
+                # contra la accion VERDADERA (a_idx), no contra la corrompida.
+                fit_idx = r['fit_a_idx']
+                fit_u = utils[fit_idx]
+
                 if ftype == 'binary':
-                    if (max_u - rule_u) > 0:
+                    if (max_u - fit_u) > 0:
                         penalty_score += 1
 
                 elif ftype == 'regret' or ftype == 'regret_reg':
-                    penalty_score += (max_u - rule_u)
+                    penalty_score += (max_u - fit_u)
 
                 elif ftype == 'margin':
                     margen = 1.0
-                    utilidades_alternativas = [u for i, u in enumerate(utils) if i != r['a_idx']]
+                    utilidades_alternativas = [u for i, u in enumerate(utils) if i != fit_idx]
                     mejor_alternativa = max(utilidades_alternativas) if utilidades_alternativas else 0
-                    penalty_score += max(0, (mejor_alternativa + margen) - rule_u)
+                    penalty_score += max(0, (mejor_alternativa + margen) - fit_u)
 
                 elif ftype == 'softmax':
                     exp_utils = np.exp(np.array(utils) - max_u)
-                    prob_rule = exp_utils[r['a_idx']] / np.sum(exp_utils)
+                    prob_rule = exp_utils[fit_idx] / np.sum(exp_utils)
                     penalty_score += -np.log(prob_rule + 1e-9)
 
                 elif ftype == 'entropy':
                     exp_utils = np.exp(np.array(utils) - max_u)
                     probs = exp_utils / np.sum(exp_utils)
-                    prob_rule = probs[r['a_idx']]
+                    prob_rule = probs[fit_idx]
                     nll_loss = -np.log(prob_rule + 1e-9)
                     entropy = -np.sum(probs * np.log(probs + 1e-9))
                     alpha = 0.1
@@ -445,6 +495,7 @@ class IDRecovery:
         self.gen_entropy_norm.append(entropy_norm)
         self.gen_util_dev.append(util_dev)
         self.gen_accuracies.append(accuracy)
+        self.gen_decisions.append(decisions)
         self.eval_count += 1
         self.evals_this_gen += 1
 
@@ -455,6 +506,14 @@ class IDRecovery:
             errors_chance_arr = np.array(self.gen_errors_chance)
             errors_utility_arr = np.array(self.gen_errors_utility)
             gen_cpu = _cpu_seconds() - self.gen_cpu_start
+            # Voto mayoritario: decisión por mayoría sobre TODA la población y sobre
+            # los que cumplen todas las reglas de entrenamiento (fitness == 0 en binary).
+            dec_mat = np.asarray(self.gen_decisions, dtype=int)
+            fit_arr = np.array(self.gen_fitness)
+            maj_acc_pop = _majority_accuracy(dec_mat, self._true_actions)
+            _sat = fit_arr <= 1e-9
+            maj_acc_sat = (_majority_accuracy(dec_mat[_sat], self._true_actions)
+                           if _sat.any() else float('nan'))
             self.history.append({
                 'gen': self.current_gen,
                 'errors_chance': errors_chance_arr,
@@ -464,6 +523,8 @@ class IDRecovery:
                 'accuracies': np.array(self.gen_accuracies),
                 'entropy_norm': np.array(self.gen_entropy_norm),
                 'util_dev': np.array(self.gen_util_dev),
+                'maj_acc_pop': maj_acc_pop,
+                'maj_acc_sat': maj_acc_sat,
                 'gen_cpu_time': gen_cpu,
                 'n_train_rules': len(self.train_rules),
                 # Se marca a True abajo si tras evaluar el stop_mode añadimos
@@ -482,7 +543,7 @@ class IDRecovery:
                 else:
                     self.stagnation_counter += 1 # Gasta paciencia
                     
-                if self.stagnation_counter >= self.patience:
+                if self.stagnation_counter >= self.patience and len(self.history) >= self.min_iter:
                     raise StopIteration(f"Estancamiento: {self.patience} generaciones seguidas sin mejorar al menos {self.min_delta}.")
             
             # --- LÓGICA DE PARADA ORIGINAL ---
@@ -522,6 +583,7 @@ class IDRecovery:
             self.gen_entropy_norm = []
             self.gen_util_dev = []
             self.gen_accuracies = []
+            self.gen_decisions = []
 
             # --- CURRICULUM: ¿añadimos una nueva regla al pool de entrenamiento? ---
             # Modo curriculum: si aún quedan reglas en el pool, añadimos una nueva
@@ -561,7 +623,8 @@ class IDRecovery:
                 # Marca el evento en la generación que acabamos de cerrar
                 # (el "punto gordo" de la curva).
                 self.history[-1]['rule_added_after_gen'] = True
-            elif not self.incremental_rules and value_to_check <= self.target_fitness:
+            elif (not self.incremental_rules and value_to_check <= self.target_fitness
+                  and len(self.history) >= self.min_iter):
                 raise StopIteration(f"{msg_parada} un Score <= {self.target_fitness:.4f}")
             
         return penalty_score
@@ -582,11 +645,14 @@ class IDRecovery:
             return n_train_rules * (nll_esperado + margen_entropia)
         return self._external_target_fitness
 
-    def run(self, g=100, i=100, target_fitness=1e-5, patience=10, min_delta=1e-4):
+    def run(self, g=100, i=100, target_fitness=1e-5, patience=10, min_delta=1e-4, min_iter=1):
         self.size_gen = g
         
         # --- INICIALIZAR VARIABLES DE ESTANCAMIENTO ---
         self.patience = patience
+        # Mínimo de generaciones antes de permitir la parada por criterio top (no por
+        # max_iter). Útil para que las curvas no se queden cortas si converge muy pronto.
+        self.min_iter = min_iter
         self.min_delta = min_delta
         self.stagnation_counter = 0
         self.best_stagnation_fitness = float('inf')

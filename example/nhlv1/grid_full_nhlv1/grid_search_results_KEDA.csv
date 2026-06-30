@@ -1,0 +1,7 @@
+mode,sampling_mode,chance_temperature,utility_temperature,fitness_type,stop_mode,n_decision_rules,n_decision_rules_pct,total_rules,stop_gen_mean,stop_gen_std,stop_gen_min,stop_gen_max,fitness_mean,fitness_std,accuracy_mean,accuracy_std,accuracy_min,accuracy_max,mse_chance_mean,mse_chance_std,mse_utility_mean,mse_utility_std,entropy_norm_mean,entropy_norm_std,util_dev_mean,util_dev_std,cpu_per_gen_mean,cpu_per_gen_std,cpu_total_mean,cpu_total_std
+utility_only,non_symmetric,1.0,1.0,regret,top50,3,5,67,4.00,1.79,2,6,0.168738,0.146381,89.55,4.90,85.07,95.52,0.000000,0.000000,26.429061,2.607125,1062.290878,0.000000,690.969558,21.880824,104.9495,0.2790,419.7281,187.6526
+utility_only,non_symmetric,1.0,1.0,regret,top50,13,20,67,11.00,7.72,0,22,nan,nan,nan,nan,95.52,100.00,nan,nan,nan,nan,nan,nan,nan,nan,106.9364,1.2029,1477.6211,665.2898
+utility_only,non_symmetric,1.0,1.0,regret,top50,27,40,67,0.00,0.00,0,0,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+utility_only,non_symmetric,1.0,1.0,binary,top50,3,5,67,6.00,3.58,2,10,0.728000,0.299568,91.34,6.70,83.58,98.51,0.000000,0.000000,27.610365,1.738405,1062.290878,0.000000,698.338955,22.233197,184.8779,42.4636,1175.8563,884.7811
+utility_only,non_symmetric,1.0,1.0,binary,top50,13,20,67,10.00,9.10,0,24,nan,nan,nan,nan,98.51,100.00,nan,nan,nan,nan,nan,nan,nan,nan,106.3577,0.5063,1775.1406,561.3687
+utility_only,non_symmetric,1.0,1.0,binary,top50,27,40,67,4.20,8.40,0,21,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109.2812,0.0000,2294.9062,0.0000

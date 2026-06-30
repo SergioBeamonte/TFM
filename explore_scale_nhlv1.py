@@ -32,7 +32,7 @@ NET = {
     'mode': 'utility_only',
 }
 
-OPTIMIZERS = ['umda', 'emna', 'keda']        # EGNA fuera por coste
+OPTIMIZERS = ['umda', 'emna']                # EGNA y KEDA fuera por coste en nhlv1 (keda=400pob -> ~28h)
 SIZE_GEN_PER_OPT = {'umda': 50, 'emna': 50, 'keda': 400}
 TRIGGERS = ['success', 'stagnation']
 FITNESS = 'regret'
@@ -53,7 +53,7 @@ COMMON = {
 }
 
 STOP_PERFECT_RATIO = 0.50     # corte para el trigger 'stagnation'
-MAX_ITER       = 600
+MAX_ITER       = 100   # nhlv1 es lento (~70x bypass2); la parada por exito/estancamiento suele llegar antes
 TARGET_FITNESS = 1e-5
 N_REPS         = 5            # menos reps: la red es cara
 BASE_SEED      = 42

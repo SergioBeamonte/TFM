@@ -13,7 +13,7 @@ st.caption(
     "la población cumpla todas las reglas reales. Las estrellas marcan cada nueva regla."
 )
 
-csv_path = r"example\explore_saturation.csv"
+csv_path = r"example\explore_capacity.csv"
 
 if not os.path.exists(csv_path):
     st.error(f"No se encuentra el archivo: {csv_path}. Ejecuta explore_saturation.py primero.")

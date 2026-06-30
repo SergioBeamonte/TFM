@@ -1,0 +1,4087 @@
+C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pgmpy\estimators\__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in a future release. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 20
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 67
+Reglas usadas para entrenar (Fitness): 67
+Reglas totales por red: {'bypass': 20, 'nhlv1': 67}
+Plan total: 200 runs · ya hechos: 440 · pendientes: 80
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[1/80] bypass egna 5% top90 rep=0: sat=46/50 sat_acc[min/mean/max]=45/73/95 gen=50  (0.4min / ETA 33.3min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[2/80] bypass egna 5% top90 rep=1: sat=50/50 sat_acc[min/mean/max]=35/57/95 gen=50  (0.9min / ETA 34.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[3/80] bypass egna 5% top90 rep=2: sat=50/50 sat_acc[min/mean/max]=55/72/90 gen=50  (1.3min / ETA 33.2min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[4/80] bypass egna 5% top90 rep=3: sat=47/50 sat_acc[min/mean/max]=55/74/90 gen=50  (1.7min / ETA 33.2min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[5/80] bypass egna 5% top90 rep=4: sat=46/50 sat_acc[min/mean/max]=40/65/95 gen=50  (2.2min / ETA 32.3min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[6/80] bypass egna 5% top90 rep=5: sat=47/50 sat_acc[min/mean/max]=35/70/95 gen=50  (2.6min / ETA 31.5min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[7/80] bypass egna 5% top90 rep=6: sat=47/50 sat_acc[min/mean/max]=35/58/85 gen=50  (3.1min / ETA 32.2min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[8/80] bypass egna 5% top90 rep=7: sat=49/50 sat_acc[min/mean/max]=35/61/90 gen=51  (3.6min / ETA 32.2min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[9/80] bypass egna 5% top90 rep=8: sat=47/50 sat_acc[min/mean/max]=35/58/80 gen=50  (4.0min / ETA 31.8min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[10/80] bypass egna 5% top90 rep=9: sat=50/50 sat_acc[min/mean/max]=15/50/80 gen=50  (4.5min / ETA 31.4min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[11/80] bypass egna 10% top90 rep=0: sat=49/50 sat_acc[min/mean/max]=35/55/75 gen=50  (5.0min / ETA 31.1min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[12/80] bypass egna 10% top90 rep=1: sat=48/50 sat_acc[min/mean/max]=55/69/95 gen=50  (5.4min / ETA 30.7min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[13/80] bypass egna 10% top90 rep=2: sat=50/50 sat_acc[min/mean/max]=55/82/85 gen=50  (5.9min / ETA 30.3min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[14/80] bypass egna 10% top90 rep=3: sat=49/50 sat_acc[min/mean/max]=45/68/85 gen=50  (6.4min / ETA 30.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[15/80] bypass egna 10% top90 rep=4: sat=47/50 sat_acc[min/mean/max]=35/66/85 gen=50  (6.8min / ETA 29.7min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[16/80] bypass egna 10% top90 rep=5: sat=45/50 sat_acc[min/mean/max]=45/68/85 gen=50  (7.3min / ETA 29.2min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[17/80] bypass egna 10% top90 rep=6: sat=48/50 sat_acc[min/mean/max]=35/62/80 gen=50  (7.8min / ETA 28.9min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[18/80] bypass egna 10% top90 rep=7: sat=49/50 sat_acc[min/mean/max]=45/75/95 gen=50  (8.3min / ETA 28.5min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[19/80] bypass egna 10% top90 rep=8: sat=49/50 sat_acc[min/mean/max]=55/73/95 gen=50  (8.8min / ETA 28.1min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[20/80] bypass egna 10% top90 rep=9: sat=49/50 sat_acc[min/mean/max]=65/86/95 gen=50  (9.2min / ETA 27.7min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[21/80] bypass egna 20% top90 rep=0: sat=50/50 sat_acc[min/mean/max]=45/75/95 gen=50  (9.7min / ETA 27.3min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[22/80] bypass egna 20% top90 rep=1: sat=48/50 sat_acc[min/mean/max]=45/76/95 gen=50  (10.2min / ETA 26.8min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[23/80] bypass egna 20% top90 rep=2: sat=48/50 sat_acc[min/mean/max]=35/48/65 gen=51  (10.7min / ETA 26.4min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[24/80] bypass egna 20% top90 rep=3: sat=46/50 sat_acc[min/mean/max]=45/61/85 gen=50  (11.1min / ETA 26.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[25/80] bypass egna 20% top90 rep=4: sat=47/50 sat_acc[min/mean/max]=65/77/95 gen=50  (11.6min / ETA 25.6min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+IT:  49 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[26/80] bypass egna 20% top90 rep=5: sat=46/50 sat_acc[min/mean/max]=65/83/85 gen=52  (12.1min / ETA 25.1min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+IT:  49 	Best cost:  0
+IT:  50 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[27/80] bypass egna 20% top90 rep=6: sat=45/50 sat_acc[min/mean/max]=55/79/95 gen=53  (12.6min / ETA 24.8min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[28/80] bypass egna 20% top90 rep=7: sat=47/50 sat_acc[min/mean/max]=45/63/85 gen=51  (13.1min / ETA 24.4min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[29/80] bypass egna 20% top90 rep=8: sat=47/50 sat_acc[min/mean/max]=55/65/85 gen=50  (13.6min / ETA 24.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[30/80] bypass egna 20% top90 rep=9: sat=48/50 sat_acc[min/mean/max]=35/59/75 gen=50  (14.1min / ETA 23.5min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  1
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[31/80] bypass egna 30% top90 rep=0: sat=49/50 sat_acc[min/mean/max]=75/77/95 gen=50  (14.6min / ETA 23.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[32/80] bypass egna 30% top90 rep=1: sat=48/50 sat_acc[min/mean/max]=65/83/95 gen=50  (15.1min / ETA 22.6min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost: C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pgmpy\estimators\__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in a future release. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 20
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 67
+Reglas usadas para entrenar (Fitness): 67
+Reglas totales por red: {'bypass': 20, 'nhlv1': 67}
+Plan total: 200 runs · ya hechos: 477 · pendientes: 43
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[1/43] bypass egna 30% top90 rep=7: sat=50/50 sat_acc[min/mean/max]=50/70/85 gen=50  (0.3min / ETA 14.0min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[2/43] bypass egna 30% top90 rep=8: sat=48/50 sat_acc[min/mean/max]=60/77/85 gen=50  (0.7min / ETA 14.3min)
+Optimizador: EGNA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=45 individuos) alcanzó un Score <= 0.0000
+[3/43] bypass egna 30% top90 rep=9: sat=45/50 sat_acc[min/mean/max]=50/61/80 gen=50  (1.1min / ETA 14.2min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[4/43] bypass keda 5% top90 rep=0: sat=390/400 sat_acc[min/mean/max]=35/69/95 gen=50  (1.4min / ETA 14.1min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[5/43] bypass keda 5% top90 rep=1: sat=394/400 sat_acc[min/mean/max]=25/76/100 gen=50  (1.8min / ETA 14.0min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[6/43] bypass keda 5% top90 rep=2: sat=392/400 sat_acc[min/mean/max]=25/65/100 gen=50  (2.2min / ETA 13.8min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[7/43] bypass keda 5% top90 rep=3: sat=394/400 sat_acc[min/mean/max]=30/75/100 gen=50  (2.6min / ETA 13.5min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[8/43] bypass keda 5% top90 rep=4: sat=393/400 sat_acc[min/mean/max]=35/79/100 gen=50  (3.0min / ETA 13.2min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[9/43] bypass keda 5% top90 rep=5: sat=399/400 sat_acc[min/mean/max]=25/69/100 gen=50  (3.5min / ETA 13.3min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[10/43] bypass keda 5% top90 rep=6: sat=387/400 sat_acc[min/mean/max]=25/69/100 gen=50  (4.0min / ETA 13.3min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\stats\_kde.py:483: RuntimeWarning: covariance is not symmetric positive-semidefinite.
+  norm = transpose(random_state.multivariate_normal(
+ 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[11/43] bypass keda 5% top90 rep=7: sat=392/400 sat_acc[min/mean/max]=35/74/100 gen=50  (4.5min / ETA 13.2min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[12/43] bypass keda 5% top90 rep=8: sat=394/400 sat_acc[min/mean/max]=35/73/100 gen=50  (5.0min / ETA 13.0min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 1
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[13/43] bypass keda 5% top90 rep=9: sat=387/400 sat_acc[min/mean/max]=40/77/100 gen=50  (5.6min / ETA 12.8min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[14/43] bypass keda 10% top90 rep=0: sat=387/400 sat_acc[min/mean/max]=45/77/100 gen=50  (6.1min / ETA 12.6min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[15/43] bypass keda 10% top90 rep=1: sat=391/400 sat_acc[min/mean/max]=25/70/100 gen=50  (6.5min / ETA 12.1min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[16/43] bypass keda 10% top90 rep=2: sat=373/400 sat_acc[min/mean/max]=45/79/100 gen=50  (7.0min / ETA 11.8min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[17/43] bypass keda 10% top90 rep=3: sat=391/400 sat_acc[min/mean/max]=35/67/100 gen=50  (7.5min / ETA 11.5min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[18/43] bypass keda 10% top90 rep=4: sat=396/400 sat_acc[min/mean/max]=45/78/100 gen=50  (8.0min / ETA 11.1min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[19/43] bypass keda 10% top90 rep=5: sat=393/400 sat_acc[min/mean/max]=35/75/100 gen=50  (8.5min / ETA 10.7min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[20/43] bypass keda 10% top90 rep=6: sat=384/400 sat_acc[min/mean/max]=55/78/100 gen=50  (8.9min / ETA 10.3min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[21/43] bypass keda 10% top90 rep=7: sat=394/400 sat_acc[min/mean/max]=35/69/100 gen=50  (9.5min / ETA 9.9min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[22/43] bypass keda 10% top90 rep=8: sat=394/400 sat_acc[min/mean/max]=30/65/100 gen=50  (10.0min / ETA 9.5min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 2
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[23/43] bypass keda 10% top90 rep=9: sat=381/400 sat_acc[min/mean/max]=35/70/95 gen=50  (10.5min / ETA 9.1min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[24/43] bypass keda 20% top90 rep=0: sat=386/400 sat_acc[min/mean/max]=40/81/100 gen=50  (11.0min / ETA 8.7min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[25/43] bypass keda 20% top90 rep=1: sat=391/400 sat_acc[min/mean/max]=45/77/100 gen=50  (11.5min / ETA 8.3min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[26/43] bypass keda 20% top90 rep=2: sat=381/400 sat_acc[min/mean/max]=55/81/95 gen=50  (12.0min / ETA 7.9min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[27/43] bypass keda 20% top90 rep=3: sat=390/400 sat_acc[min/mean/max]=45/63/100 gen=50  (12.5min / ETA 7.4min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[28/43] bypass keda 20% top90 rep=4: sat=391/400 sat_acc[min/mean/max]=55/76/100 gen=50  (13.0min / ETA 7.0min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[29/43] bypass keda 20% top90 rep=5: sat=382/400 sat_acc[min/mean/max]=55/69/100 gen=50  (13.5min / ETA 6.5min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[30/43] bypass keda 20% top90 rep=6: sat=391/400 sat_acc[min/mean/max]=55/87/100 gen=50  (14.0min / ETA 6.1min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[31/43] bypass keda 20% top90 rep=7: sat=386/400 sat_acc[min/mean/max]=50/72/100 gen=50  (14.5min / ETA 5.6min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[32/43] bypass keda 20% top90 rep=8: sat=392/400 sat_acc[min/mean/max]=45/83/100 gen=50  (15.0min / ETA 5.2min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 4
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost: C:\Users\sergi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pgmpy\estimators\__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in a future release. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 20
+Optimizador: UMDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 67
+Reglas usadas para entrenar (Fitness): 67
+Reglas totales por red: {'bypass': 20, 'nhlv1': 67}
+Plan total: 200 runs · ya hechos: 515 · pendientes: 5
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[1/5] bypass keda 30% top90 rep=5: sat=388/400 sat_acc[min/mean/max]=65/73/100 gen=50  (0.4min / ETA 1.6min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[2/5] bypass keda 30% top90 rep=6: sat=391/400 sat_acc[min/mean/max]=75/85/95 gen=50  (0.8min / ETA 1.2min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[3/5] bypass keda 30% top90 rep=7: sat=389/400 sat_acc[min/mean/max]=65/80/100 gen=50  (1.2min / ETA 0.8min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[4/5] bypass keda 30% top90 rep=8: sat=379/400 sat_acc[min/mean/max]=65/83/100 gen=50  (1.6min / ETA 0.4min)
+Optimizador: KEDA
+Modo de Fitness: BINARY
+Reglas totales para evaluar precisión: 20
+Reglas usadas para entrenar (Fitness): 6
+Iniciando optimización...
+IT:  0 	Best cost:  0
+IT:  1 	Best cost:  0
+IT:  2 	Best cost:  0
+IT:  3 	Best cost:  0
+IT:  4 	Best cost:  0
+IT:  5 	Best cost:  0
+IT:  6 	Best cost:  0
+IT:  7 	Best cost:  0
+IT:  8 	Best cost:  0
+IT:  9 	Best cost:  0
+IT:  10 	Best cost:  0
+IT:  11 	Best cost:  0
+IT:  12 	Best cost:  0
+IT:  13 	Best cost:  0
+IT:  14 	Best cost:  0
+IT:  15 	Best cost:  0
+IT:  16 	Best cost:  0
+IT:  17 	Best cost:  0
+IT:  18 	Best cost:  0
+IT:  19 	Best cost:  0
+IT:  20 	Best cost:  0
+IT:  21 	Best cost:  0
+IT:  22 	Best cost:  0
+IT:  23 	Best cost:  0
+IT:  24 	Best cost:  0
+IT:  25 	Best cost:  0
+IT:  26 	Best cost:  0
+IT:  27 	Best cost:  0
+IT:  28 	Best cost:  0
+IT:  29 	Best cost:  0
+IT:  30 	Best cost:  0
+IT:  31 	Best cost:  0
+IT:  32 	Best cost:  0
+IT:  33 	Best cost:  0
+IT:  34 	Best cost:  0
+IT:  35 	Best cost:  0
+IT:  36 	Best cost:  0
+IT:  37 	Best cost:  0
+IT:  38 	Best cost:  0
+IT:  39 	Best cost:  0
+IT:  40 	Best cost:  0
+IT:  41 	Best cost:  0
+IT:  42 	Best cost:  0
+IT:  43 	Best cost:  0
+IT:  44 	Best cost:  0
+IT:  45 	Best cost:  0
+IT:  46 	Best cost:  0
+IT:  47 	Best cost:  0
+IT:  48 	Best cost:  0
+IT:  49 	Best cost:  0
+IT:  50 	Best cost:  0
+IT:  51 	Best cost:  0
+IT:  52 	Best cost:  0
+IT:  53 	Best cost:  0
+IT:  54 	Best cost:  0
+IT:  55 	Best cost:  0
+IT:  56 	Best cost:  0
+IT:  57 	Best cost:  0
+IT:  58 	Best cost:  0
+IT:  59 	Best cost:  0
+IT:  60 	Best cost:  0
+IT:  61 	Best cost:  0
+IT:  62 	Best cost:  0
+IT:  63 	Best cost:  0
+IT:  64 	Best cost:  0
+IT:  65 	Best cost:  0
+IT:  66 	Best cost:  0
+IT:  67 	Best cost:  0
+IT:  68 	Best cost:  0
+IT:  69 	Best cost:  0
+IT:  70 	Best cost:  0
+IT:  71 	Best cost:  0
+IT:  72 	Best cost:  0
+IT:  73 	Best cost:  0
+IT:  74 	Best cost:  0
+IT:  75 	Best cost:  0
+IT:  76 	Best cost:  0
+
+¡PARADA ANTICIPADA! El Top 90% (>=360 individuos) alcanzó un Score <= 0.0000
+[5/5] bypass keda 30% top90 rep=9: sat=363/400 sat_acc[min/mean/max]=50/69/100 gen=79  (2.2min / ETA 0.0min)
+
+=== DONE en 2.2 min ===
+
+=== Resumen: accuracy de los que cumplen las reglas (pooled) ===
+network optimizer  pct stop_mode  mean_n_satisfiers  sat_pool_worst  sat_pool_mean  sat_pool_best  pop_acc_worst  stop_gen_mean
+ bypass      egna    5     top90               47.9            15.0      63.726514           95.0      34.500000           50.1
+ bypass      egna   10     top90               48.3            35.0      70.414079           95.0      46.000000           50.0
+ bypass      egna   20     top90               47.2            35.0      68.538136           95.0      45.000000           50.7
+ bypass      egna   30     top90               47.3            50.0      77.304440          100.0      62.000000           50.3
+ bypass      emna    5     top10               46.6             NaN            NaN            NaN      33.500000           50.0
+ bypass      emna    5     top30               46.6             NaN            NaN            NaN      33.500000           50.0
+ bypass      emna    5     top50               46.6             NaN            NaN            NaN      33.500000           50.0
+ bypass      emna    5     top70               46.6             NaN            NaN            NaN      33.500000           50.0
+ bypass      emna    5     top90               47.3             NaN            NaN            NaN      34.500000           50.6
+ bypass      emna   10     top10               44.3             NaN            NaN            NaN      34.500000           50.0
+ bypass      emna   10     top30               44.3             NaN            NaN            NaN      34.500000           50.0
+ bypass      emna   10     top50               44.3             NaN            NaN            NaN      34.500000           50.0
+ bypass      emna   10     top70               44.3             NaN            NaN            NaN      34.500000           50.0
+ bypass      emna   10     top90               47.0             NaN            NaN            NaN      35.000000           51.6
+ bypass      emna   20     top10               44.2             NaN            NaN            NaN      41.500000           50.0
+ bypass      emna   20     top30               44.2             NaN            NaN            NaN      41.500000           50.0
+ bypass      emna   20     top50               44.2             NaN            NaN            NaN      41.500000           50.0
+ bypass      emna   20     top70               45.3             NaN            NaN            NaN      40.500000           50.1
+ bypass      emna   20     top90               46.4             NaN            NaN            NaN      43.500000           52.3
+ bypass      emna   30     top10               40.7             NaN            NaN            NaN      55.000000           50.4
+ bypass      emna   30     top30               41.5             NaN            NaN            NaN      56.000000           52.2
+ bypass      emna   30     top50               43.6             NaN            NaN            NaN      55.000000           52.8
+ bypass      emna   30     top70               43.6             NaN            NaN            NaN      55.000000           52.8
+ bypass      emna   30     top90               47.4             NaN            NaN            NaN      57.500000           58.9
+ bypass      keda    5     top90              392.2            25.0      72.567568          100.0      30.000000           50.0
+ bypass      keda   10     top90              388.4            25.0      72.738157          100.0      37.500000           50.0
+ bypass      keda   20     top90              387.0            40.0      76.593023          100.0      45.000000           50.0
+ bypass      keda   30     top90              381.9            50.0      80.964912          100.0      52.000000           53.0
+ bypass      umda    5     top10               49.7             NaN            NaN            NaN      37.000000           50.0
+ bypass      umda    5     top30               49.7             NaN            NaN            NaN      37.000000           50.0
+ bypass      umda    5     top50               49.7             NaN            NaN            NaN      37.000000           50.0
+ bypass      umda    5     top70               49.7             NaN            NaN            NaN      37.000000           50.0
+ bypass      umda    5     top90               49.7             NaN            NaN            NaN      37.000000           50.0
+ bypass      umda   10     top10               49.9             NaN            NaN            NaN      44.500000           50.0
+ bypass      umda   10     top30               49.9             NaN            NaN            NaN      44.500000           50.0
+ bypass      umda   10     top50               49.9             NaN            NaN            NaN      44.500000           50.0
+ bypass      umda   10     top70               49.9             NaN            NaN            NaN      44.500000           50.0
+ bypass      umda   10     top90               49.9             NaN            NaN            NaN      44.500000           50.0
+ bypass      umda   20     top10               49.9             NaN            NaN            NaN      55.500000           50.0
+ bypass      umda   20     top30               49.9             NaN            NaN            NaN      55.500000           50.0
+ bypass      umda   20     top50               49.9             NaN            NaN            NaN      55.500000           50.0
+ bypass      umda   20     top70               49.9             NaN            NaN            NaN      55.500000           50.0
+ bypass      umda   20     top90               49.9             NaN            NaN            NaN      55.500000           50.0
+ bypass      umda   30     top10               44.7             NaN            NaN            NaN      60.500000           55.0
+ bypass      umda   30     top30               44.7             NaN            NaN            NaN      60.500000           55.0
+ bypass      umda   30     top50               44.7             NaN            NaN            NaN      60.500000           55.0
+ bypass      umda   30     top70               44.7             NaN            NaN            NaN      60.500000           55.0
+ bypass      umda   30     top90               44.7             NaN            NaN            NaN      60.500000           55.0
+  nhlv1      emna    5     top90               48.2             NaN            NaN            NaN      62.985075           51.0
+  nhlv1      emna   10     top90               46.0             NaN            NaN            NaN      47.462687           50.0
+  nhlv1      emna   20     top90               46.4             NaN            NaN            NaN      82.089552           53.4
+  nhlv1      emna   30     top90               36.6             NaN            NaN            NaN      85.373134           75.4
+  nhlv1      umda    5     top90               50.0             NaN            NaN            NaN      69.253731           50.0
+  nhlv1      umda   10     top90               50.0             NaN            NaN            NaN      72.835821           50.0
+  nhlv1      umda   20     top90               39.6             NaN            NaN            NaN      73.432836           60.0
+  nhlv1      umda   30     top90               19.6             NaN            NaN            NaN      78.507463           80.0

@@ -289,6 +289,26 @@ def append_curves_rows(filepath, rows):
         writer.writerows(rows)
 
 
+# CSV crudo: una fila por (combinación, repetición). Conserva los valores
+# individuales de cada inicialización de reglas para poder hacer estadística
+# por-rep (distribuciones, boxplots, tests) que los agregados mean/std no permiten.
+RAW_HEADER = [
+    'mode', 'sampling_mode', 'chance_temperature', 'utility_temperature',
+    'fitness_type', 'stop_mode', 'n_decision_rules', 'n_decision_rules_pct',
+    'total_rules', 'rep', 'seed',
+    'stop_generation', 'best_fitness', 'best_accuracy',
+    'best_mse_chance', 'best_mse_utility', 'best_entropy_norm', 'best_util_dev',
+    'cpu_per_gen', 'cpu_total',
+]
+
+
+def append_raw_rows(filepath, rows):
+    """Añade múltiples filas crudas (una por repetición) al CSV crudo."""
+    with open(filepath, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=RAW_HEADER)
+        writer.writerows(rows)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 #  MAIN
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -405,6 +425,7 @@ def run_grid_for_optimizer(effective_config, base_folder):
     suffix = f"_{effective_config['optimizer_type'].upper()}"
     results_csv = os.path.join(base_folder, f"grid_search_results{suffix}.csv")
     curves_csv = os.path.join(base_folder, f"grid_search_curves{suffix}.csv")
+    raw_csv = os.path.join(base_folder, f"grid_search_raw{suffix}.csv")
 
     # Tamaño de población efectivo (override por optimizador si está mapeado).
     effective_size_gen = SIZE_GEN_PER_OPTIMIZER.get(effective_config['optimizer_type'], SIZE_GEN)
@@ -449,6 +470,7 @@ def run_grid_for_optimizer(effective_config, base_folder):
     # Preparar CSVs
     ensure_csv_header(results_csv, RESULTS_HEADER)
     ensure_csv_header(curves_csv, CURVES_HEADER)
+    ensure_csv_header(raw_csv, RAW_HEADER)
 
     # Cargar combinaciones ya completadas
     completed = get_completed_combinations(results_csv)
@@ -553,6 +575,28 @@ def run_grid_for_optimizer(effective_config, base_folder):
         }
 
         append_results_row(results_csv, row)
+
+        # --- Guardar las repeticiones CRUDAS (una fila por inicialización) ---
+        raw_rows = []
+        for rep_idx, rep_res in enumerate(all_results):
+            raw_rows.append({
+                'mode': mode, 'sampling_mode': sampling_mode,
+                'chance_temperature': chance_t, 'utility_temperature': utility_t,
+                'fitness_type': fitness_type, 'stop_mode': stop_mode,
+                'n_decision_rules': n_rules, 'n_decision_rules_pct': rules_pct,
+                'total_rules': total_rules,
+                'rep': rep_idx, 'seed': BASE_SEED + rep_idx,
+                'stop_generation':  rep_res['stop_generation'],
+                'best_fitness':     f"{rep_res['best_fitness']:.6f}",
+                'best_accuracy':    f"{rep_res['best_accuracy']:.2f}",
+                'best_mse_chance':  f"{rep_res['best_mse_chance']:.6f}",
+                'best_mse_utility': f"{rep_res['best_mse_utility']:.6f}",
+                'best_entropy_norm':f"{rep_res['best_entropy_norm']:.6f}",
+                'best_util_dev':    f"{rep_res['best_util_dev']:.6f}",
+                'cpu_per_gen':      f"{rep_res['cpu_per_gen']:.4f}",
+                'cpu_total':        f"{rep_res['cpu_total']:.4f}",
+            })
+        append_raw_rows(raw_csv, raw_rows)
 
         # --- Calcular y guardar curvas promediadas ---
         avg_curves = average_histories(experiments)
