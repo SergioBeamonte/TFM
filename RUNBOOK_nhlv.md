@@ -47,28 +47,38 @@ Notas:
   instalar el `pysmile` de BayesFusion para esa plataforma (necesita licencia).
 - Si ya tenías el repo clonado, basta `git pull` en vez del clone.
 
-## Ejecutar
+## Ejecutar (recomendado: corre Y devuelve resultados solo)
 
 ```
-python explore_variance_nhlv.py
+python run_nhlv_and_return.py
+```
+Corre el experimento y, al terminar, hace `commit + pull --rebase + push`
+automáticamente, para que la máquina principal recoja los datos con `git pull`.
+Es reanudable: si se corta, relanzarlo continúa y reintenta la devolución.
+
+Requisito para la devolución: **identidad de git configurada** en este equipo (una
+sola vez):
+```
+git config user.name  "Tu Nombre"
+git config user.email "tu@email"
 ```
 
-- Es **reanudable**: escribe `example\explore_variance_nhlv.csv` tras cada run; si se
-  corta, relanzar el mismo comando continúa donde iba.
-- Ver progreso sin parar nada: contar filas de ese CSV (llega hasta 90).
-- Al terminar, la descomposición:
-  ```
-  python explore_variance_nhlv.py --summary
-  ```
-
-## Devolver resultados a la máquina principal
-
+### Alternativa manual (si prefieres no auto-pushear)
 ```
+python explore_variance_nhlv.py            # reanudable; escribe example\explore_variance_nhlv.csv tras cada run
+python explore_variance_nhlv.py --summary  # descomposición al terminar
 git add example\explore_variance_nhlv.csv example\explore_variance_nhlv_summary.csv
 git commit -m "nhlv variance: resultados del segundo equipo"
-git push
+git pull --rebase && git push
 ```
-(La máquina principal luego hace `git pull` y ya tiene los datos de NHLv.)
+Ver progreso sin parar nada: contar filas de `example\explore_variance_nhlv.csv` (llega a 90).
+
+## Recoger en la máquina principal
+Cuando el segundo equipo haya hecho push, en la principal:
+```
+git pull
+python explore_variance_nhlv.py --summary   # ver la descomposición ya con los datos
+```
 
 ## Con Claude Code en este equipo
 
