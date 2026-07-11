@@ -7,9 +7,11 @@ alcance recortado para caber en una noche (Plan B):
     utilidades. Por eso NO hay MSE a las probabilidades (no es medible): aquí solo
     descomponemos la varianza del ACCURACY.
   - 10% de reglas (7 de 67), como el histórico de NHLv.
-  - 3 conjuntos de reglas  x  3 semillas de init  x  5 fitness  x  {umda, emna} = 90 runs.
+  - 3 tamaños de poblacion (50, 100, 200 individuos)  x  3 conjuntos de reglas  x
+    3 semillas de init  x  5 fitness  x  {umda, emna} = 270 runs.
   - parada top90, min_iter=1, con CAP de generaciones (MAX_ITER=40) para acotar la
-    cola de runs largos, que es lo que dispara el coste en NHLv (~18 s/gen).
+    cola de runs largos, que es lo que dispara el coste en NHLv (~18 s/gen a pop=50;
+    el coste por generacion crece ~lineal con la poblacion).
 
 Lanzar:
     python explore_variance_nhlv.py            # corre (reanudable)
@@ -28,7 +30,7 @@ from id_recovery import IDRecovery
 STOP_MODE = 'top90'
 MIN_ITER  = 1
 MAX_ITER  = 40         # CAP de generaciones (acota el coste en NHLv)
-SIZE_GEN  = 50
+SIZE_GENS = [50, 100, 200]   # tamaños de población (individuos por generación)
 TARGET_FITNESS = 1e-5
 
 FITNESS_TYPES = ['binary', 'margin', 'softmax', 'regret', 'entropy']
@@ -63,14 +65,14 @@ def n_rules_for_pct(total, pct):
     return max(1, int(round(pct / 100.0 * total)))
 
 
-def run_one(net, opt, fit, rule_seed, init_seed, n_rules, total):
+def run_one(net, opt, fit, rule_seed, init_seed, size_gen, n_rules, total):
     exp = IDRecovery(
         xdsl_path=net['xdsl_path'], rules_csv=net['rules_csv'], mode=net['mode'],
         n_decision_rules=n_rules, stop_mode=STOP_MODE, optimizer_type=opt,
         fitness_type=fit, random_seed=init_seed, rule_seed=rule_seed, **COMMON,
     )
     try:
-        exp.run(g=SIZE_GEN, i=MAX_ITER, target_fitness=TARGET_FITNESS, min_iter=MIN_ITER)
+        exp.run(g=size_gen, i=MAX_ITER, target_fitness=TARGET_FITNESS, min_iter=MIN_ITER)
     except (ValueError, np.linalg.LinAlgError) as e:
         print(f"    !! {opt} {fit} rule={rule_seed} init={init_seed} aborted: {type(e).__name__}")
         return None
@@ -85,7 +87,7 @@ def run_one(net, opt, fit, rule_seed, init_seed, n_rules, total):
 
     return {
         'network': net['name'], 'optimizer': opt, 'fitness_type': fit,
-        'rule_seed': rule_seed, 'init_seed': init_seed, 'size_gen': SIZE_GEN,
+        'rule_seed': rule_seed, 'init_seed': init_seed, 'size_gen': size_gen,
         'pct': PCT, 'n_decision_rules': n_rules, 'total_rules': total,
         'acc_best': float(np.max(pop_acc)), 'acc_mean': float(np.mean(pop_acc)),
         'acc_worst': float(np.min(pop_acc)),
@@ -102,7 +104,8 @@ def load_existing():
     except Exception as e:
         print(f"  !! CSV ilegible ({e}); se empieza de cero.")
         return [], set()
-    done = set((r['optimizer'], r['fitness_type'], r['rule_seed'], r['init_seed']) for r in rows)
+    done = set((r['optimizer'], r['fitness_type'], int(r['rule_seed']), int(r['init_seed']),
+                int(r['size_gen'])) for r in rows)
     return rows, done
 
 
@@ -118,7 +121,10 @@ def main():
     n_rules = n_rules_for_pct(total, PCT)
     print(f"Reglas totales NHLv: {total} · usando {PCT}% = {n_rules} reglas")
 
-    plan = [(opt, fit, rs, iseed)
+    # size_gen es la dimensión MÁS EXTERNA: se completa toda la población 50 antes
+    # de pasar a 100 y luego a 200 (más barato reanudable y ordena por coste creciente).
+    plan = [(opt, fit, rs, iseed, sg)
+            for sg in SIZE_GENS
             for opt in OPTIMIZERS
             for fit in FITNESS_TYPES
             for rs in RULE_SEEDS
@@ -127,8 +133,8 @@ def main():
     print(f"Plan total: {len(plan)} runs · hechos: {len(done)} · pendientes: {len(todo)}")
 
     t0 = time.time()
-    for k, (opt, fit, rs, iseed) in enumerate(todo, 1):
-        row = run_one(NET, opt, fit, rs, iseed, n_rules, total)
+    for k, (opt, fit, rs, iseed, sg) in enumerate(todo, 1):
+        row = run_one(NET, opt, fit, rs, iseed, sg, n_rules, total)
         if row is not None:
             rows.append(row)
             msg = (f"acc[w/m/b]={row['acc_worst']:.0f}/{row['acc_mean']:.0f}/{row['acc_best']:.0f} "
@@ -137,7 +143,7 @@ def main():
             msg = 'ABORTED'
         elapsed = time.time() - t0
         eta = elapsed / k * (len(todo) - k)
-        print(f"[{k}/{len(todo)}] {opt} {fit} rule={rs} init={iseed}: {msg}  "
+        print(f"[{k}/{len(todo)}] pop={sg} {opt} {fit} rule={rs} init={iseed}: {msg}  "
               f"({elapsed/60:.1f}min / ETA {eta/60:.1f}min)")
         _atomic_write(RAW_CSV, pd.DataFrame(rows))
 
@@ -149,16 +155,16 @@ def summary():
     (En utility_only no hay MSE a probabilidades: las CPTs están fijas.)"""
     df = pd.read_csv(RAW_CSV)
     out = []
-    for (opt, fit), g in df.groupby(['optimizer', 'fitness_type']):
+    for (sg, opt, fit), g in df.groupby(['size_gen', 'optimizer', 'fitness_type']):
         piv = g.pivot_table('acc_mean', 'rule_seed', 'init_seed')  # reglas x init
         out.append({
-            'optimizer': opt, 'fitness_type': fit, 'n': len(g),
+            'size_gen': sg, 'optimizer': opt, 'fitness_type': fit, 'n': len(g),
             'acc_mean': piv.values.mean(),
             'acc_std_rules': piv.std(axis=0, ddof=1).mean(),   # entre conjuntos de reglas
             'acc_std_init':  piv.std(axis=1, ddof=1).mean(),   # entre semillas de init
             'acc_std_total': piv.values.flatten().std(ddof=1),
         })
-    res = pd.DataFrame(out).sort_values(['optimizer', 'fitness_type'])
+    res = pd.DataFrame(out).sort_values(['size_gen', 'optimizer', 'fitness_type'])
     pd.set_option('display.width', 200, 'display.max_columns', 30)
     print("\n=== Descomposición de la varianza del accuracy (NHLv utility_only, 10% reglas) ===\n")
     print(res.round(2).to_string(index=False))

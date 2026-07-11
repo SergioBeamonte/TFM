@@ -11,10 +11,13 @@ recuperación en NHLv (`utility_only`) según dos fuentes:
 - **qué reglas** se eliciten (`rule_seed`), y
 - **la semilla de inicialización** del EDA (`random_seed`).
 
-Diseño (Plan B): 3 conjuntos de reglas × 3 inits × 5 fitness × {UMDA, EMNA} =
-**90 runs**, 10% de reglas (7 de 67), parada `top90`, `min_iter=1`, cap 40 gen.
-ETA ≈ 11–13 h. En `utility_only` las CPTs están fijas → **no hay MSE a
-probabilidades**, solo varianza de accuracy.
+Diseño: 3 tamaños de población (50, 100, 200) × 3 conjuntos de reglas × 3 inits ×
+5 fitness × {UMDA, EMNA} = **270 runs**, 10% de reglas (7 de 67), parada `top90`,
+`min_iter=1`, cap 40 gen. El coste por generación crece ~lineal con la población
+(~18 s/gen a pop=50), así que la barrida completa lleva **varios días** (pop=50
+≈ 11–13 h; 100 y 200 proporcionalmente más). Es reanudable run a run. En
+`utility_only` las CPTs están fijas → **no hay MSE a probabilidades**, solo
+varianza de accuracy.
 
 ## Setup desde cero (equipo que "no tiene nada")
 
