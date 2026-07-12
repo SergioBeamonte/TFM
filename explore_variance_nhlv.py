@@ -40,14 +40,14 @@ from id_recovery import IDRecovery
 STOP_MODE = 'top90'
 MIN_ITER  = 1
 MAX_ITER  = 40         # CAP de generaciones (acota el coste en NHLv)
-SIZE_GENS = [50, 100, 200]   # tamaños de población (individuos por generación)
+SIZE_GENS = [50, 75, 100, 200]   # tamaños de población (individuos por generación)
 TARGET_FITNESS = 1e-5
 
 FITNESS_TYPES = ['binary', 'margin', 'softmax', 'regret', 'entropy']  # pop=50 (todos)
 FITNESS_BIG   = ['binary', 'regret']   # pop=100 y 200: recorte para acotar coste
 # Fitness por tamaño de población: pop pequeña explora los 5; las grandes (caras)
 # se ciñen a binary+regret.
-FITNESS_BY_POP = {50: FITNESS_TYPES, 100: FITNESS_BIG, 200: FITNESS_BIG}
+FITNESS_BY_POP = {50: FITNESS_TYPES, 75: FITNESS_BIG, 100: FITNESS_BIG, 200: FITNESS_BIG}
 OPTIMIZERS    = ['umda', 'emna']
 RULE_SEEDS    = [0, 1, 2]              # 3 conjuntos de reglas
 INIT_SEEDS    = [0, 1, 2]              # 3 inicializaciones uniformes
