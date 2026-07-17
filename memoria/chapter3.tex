@@ -1,293 +1,709 @@
 % ==============================================================
-%  Chapter 3 -- Implementation
+%  Chapter 2 -- Theoretical Framework
 % ==============================================================
 
-\chapter{Implementation}
-\label{ch:implementation}
+\chapter{Theoretical Framework}
+\label{ch:framework}
 
-This chapter describes the implementation used to estimate the parameter vector $\boldsymbol{\Theta}$ of a regular
-Influence Diagram from a partial expert rule base $\mathcal{R}$.
-The system is built on top of two external components: the
-\textsc{SMILE} reasoning engine and its \texttt{pysmile} Python library,
-which provide the \texttt{.xdsl} parser and the Shachter evaluation
-algorithm~\cite{shachter1986evaluating,genie}; and
-\textsc{EDAspy}, the open-source library of Soloviev et al.~\cite{soloviev2024edaspy} that implements the EDA variants
-discussed in Chapter~\ref{ch:framework}. Around these dependencies the
-system is organised in four functional layers:
-
-\begin{enumerate}
-    \item \textbf{Model loading and structural extraction.}
-          The \texttt{.xdsl} file is parsed into an internal node
-          dictionary that holds the graph structure and a
-          \texttt{NumPy} reference to every numerical table.
-    \item \textbf{Rule-base parsing.}
-          The expert rule base is read from a CSV file and translated
-          into a list of $(\mathbf{evidence},\, D_{i_l},\, a^{(l)})$
-          triples.
-    \item \textbf{Fitness evaluation.}
-          For each candidate parameter vector, the Shachter engine is
-          invoked once per rule and the losses are aggregated
-          into the score the EDA tries to minimise.
-    \item \textbf{EDA-based optimisation.}
-          The continuous EDA variants of \textsc{EDAspy} drive
-          the search over an encoded parameter vector
-          $\boldsymbol{\phi}$.
-\end{enumerate}
-
-
+This chapter introduces the theoretical background on which the rest of
+the thesis relies. We start with Decision Support Systems and their graphical formulation as Influence Diagrams, fix the formal
+definitions that are used in subsequent chapters and motivate the
+parameter-estimation problem that we tackle. We then present
+Estimation of Distribution Algorithms, justify our design choices, including the specific
+variants and the convergence guarantees that ground the empirical study of Chapter~\ref{ch:experiments}.
 
 % ==============================================================
-\section{Model structural extraction and rule parsing}
+\section{Decision Support Systems and Influence Diagrams}
 % ==============================================================
 
-The diagram is read once with the \texttt{pysmile} library, which exposes every
-node, its parents and its CPT. The pipeline keeps a reference to each table so that a candidate solution can be written back
-in place from the parameter vector and the diagram re-evaluated without rebuilding the network every time; the evaluation is by far the most expensive operation, so it
-is repeated as little as possible.
+A \emph{Decision Support System} (DSS) is a model or piece of
+software designed to assist decision-makers by facilitating access to
+relevant data and by applying analytical techniques to
+poorly structured problems~\cite{insua2005,shenoy2009eolss}.
+The role of a DSS is not to replace the decision-maker but to provide
+structured access to information and a systematic way of evaluating
+alternatives before a final decision is reached.
 
-The expert rules are synthetically created by evaluating the network multiple times, each with a different possible combination of events. Then they are stored in a CSV file with one rule per row. Each row
-records the observed state of the relevant variables and the action the
-expert considers optimal for the target decision; a sign convention
-distinguishes the observed variables from the target decision and marks
-the columns that play no role in that rule (any node that is not a parent of the decision node). Only rows that actually name
-a target decision are kept. The result is a list of
-\emph{(evidence, decision, expected action)} triples that the scoring
-step will check one by one.
+Among the many graphical formalisms available, \emph{Influence
+Diagrams} (IDs) have established themselves as one of the most
+compact and expressive
+representations~\cite{howard2005influence,koller2009pgm}. An ID
+is a directed acyclic graph (DAG) whose nodes encode the three fundamental
+ingredients of a sequential decision problem: random variables,
+controllable choices and preferences, and whose arcs encode
+conditional dependencies and informational precedence.
 
-\subsection{A real rule from the bypass model}
-\label{sec:bypass-example}
+\subsection{Formal definition}
 
-Throughout the rest of the chapter we ground the description on the
-\emph{bypass} influence diagram already introduced in
-Chapter~\ref{ch:framework} (Figure~\ref{fig:bypass-id},
-Tables~\ref{tab:bypass-cpt}--\ref{tab:bypass-eu}). Here we focus on
-the operational side that Chapter~\ref{ch:framework} does not
-discuss: how a single line of the expert rule base is turned into a
-constraint the optimiser can check.
-
-The rule base is a CSV file with one row per rule and one column per
-node of the diagram. Sign convention: a positive integer
-$+v$ encodes that the corresponding chance node is observed in its
-$(v{-}1)$-th state; a negative integer $-v$ identifies the target
-decision node and the action $(\lvert v\rvert{-}1)$ the expert prescribes
-for it; the value $0$ marks the node as irrelevant for that
-particular rule (in practice, it is a node that is not an
-informational parent of the target decision). For the bypass model
-the eight columns are
-\texttt{ANGIOGRAM, EARLYRESULTS, ECONOMICALC, HEARTDISEASE, LIFEQ,
-PAIN, HEARTPHARMA, HEARTSURGERY},
-and the very first row of \texttt{reglas\_generadas.csv} reads
-\begin{center}
-\texttt{1, 1, 0, 0, 0, 1, -1, 0}
-\end{center}
-which, decoded with the state mappings of the model, becomes the
-explicit rule
-\begin{quote}
-\emph{If \texttt{Angiogram}~$=$~\textsc{negative} \;and\;
-\texttt{EarlyResults}~$=$~\textsc{CoRem} \;and\;
-\texttt{Pain}~$=$~\textsc{absent},
-\quad then \;\texttt{HeartPharma}~$=$~\textsc{no}.}
-\end{quote}
-Evaluating this rule means: write the decoded $\boldsymbol{\Theta}$
-into the model, enter the three observed states as evidence, run
-Shachter on \texttt{HeartPharma} and check that its optimal action is
-\textsc{no}. The fitness of the candidate is the aggregated per-rule
-loss over the whole \texttt{reglas\_generadas.csv}, computed in the
-next section.
-
-% ==============================================================
-\section{Encoding and decoding the parameters}
-% ==============================================================
-
-The EDA searches over plain real vectors, but the parameters of an ID
-are constrained: every CPT row must be a probability distribution and
-the utilities must stay on a bounded scale. The encoding keeps the two
-worlds apart. The optimiser works on a \emph{raw} vector
-$\boldsymbol{\phi}$ whose entries it samples freely within symmetric
-bounds — in our runs $[-5,5]$ for the CPT entries and $[-10,10]$ for the
-utilities — and a \emph{decoder} turns that raw vector into a valid
-model. As mentioned earlier, a fixed node ordering encoded in a dictionary tells the decoder which slice of
-$\boldsymbol{\phi}$ belongs to each table.
-
-Decoding is where the constraints are enforced, through two squashing
-functions applied row by row:
-
+\begin{definition}[Influence Diagram]
+\label{def:id}
+An \emph{Influence Diagram} is a tuple
+$\mathcal{D} = (\mathbf{C}, \mathbf{D}, V, \mathcal{E})$ where:
 \begin{itemize}
-  \item \textbf{Chance nodes --- softmax with $\varepsilon$-floor.}
-        Each CPT row is first softened by the softmax,
-        $\tilde{\theta}_j = \operatorname{softmax}(\boldsymbol{\phi}_{\text{row}}/T_c)_j$,
-        which already returns non-negative values that sum to one. To
-        prevent any entry from being exactly $0$ or $1$ (degenerate
-        CPTs that make subsequent evaluations brittle and forbid
-        recovery from a wrong commitment), we additionally floor each
-        entry at a small constant $\varepsilon$ and renormalise the
-        row:
-        \[
-            \hat{\theta}_j = \frac{\max(\varepsilon,\,\tilde{\theta}_j)}
-                                  {\sum_k \max(\varepsilon,\,\tilde{\theta}_k)}.
-        \]
-        With $\varepsilon = 10^{-3}$ this guarantees
-        $\hat{\theta}_j \in [\varepsilon',\, 1-\varepsilon']$ for some
-        small $\varepsilon'>0$ depending on $\varepsilon$ and the row
-        cardinality, while preserving the simplex constraint.
-  \item \textbf{Utility node --- sigmoid.} Each free utility entry is the
-        sigmoid of its raw value, rescaled to the chosen range
-        $[u_{\min},u_{\max}]$ (here $[0,10]$):
-        $\hat{u} = \sigma(\phi/T_u)\,(u_{\max}-u_{\min}) + u_{\min}$. Two
-        entries are then pinned to the best and worst outcomes declared
-        by the expert. Because the raw values are clipped to a bounded
-        box before squashing, the sigmoid never saturates fully and the
-        decoded utilities stay strictly inside the interior of the
-        $[u_{\min},u_{\max}]$ range, i.e.\ they never reach exactly
-        $u_{\min}$ nor $u_{\max}$ except at the two pinned entries.
+    \item $\mathbf{C} = \{C_1,\ldots,C_n\}$ is a finite set of
+          \emph{chance nodes}, each modelling a discrete random
+          variable with finite domain $\Omega_{C_i}$;
+    \item $\mathbf{D} = \{D_1,\ldots,D_k\}$ is a finite set of
+          \emph{decision nodes}, each with a finite action set
+          $\mathcal{A}_{D_i}$;
+    \item $V$ is a single \emph{utility} (value) node encoding the
+          preferences of the decision-maker;
+    \item $\mathcal{E}$ is a set of directed arcs split into
+          probabilistic, informational and functional arcs.
 \end{itemize}
-
-\begin{proposition}[Validity of the decoded model]
-\label{prop:valid-cpt}
-For every raw vector $\boldsymbol{\phi}$ the decoded tables form a valid
-parameterisation: softmax guarantees that each CPT row is non-negative
-and sums to one, and the rescaled sigmoid keeps every utility inside
-$[u_{\min},u_{\max}]$. The Shachter engine can therefore be evaluated
-unconditionally, with no need to reject or repair samples.
-\end{proposition}
-
-However, these two squashing functions are not innocuous; their consequences are
-worth explaining in detail:
-
-\begin{itemize}
-  \item \textbf{No repair step.} Because softmax and sigmoid land on the
-        feasible set by construction, the EDA can explore an
-        \emph{unconstrained} real space while the decoded model will remain always
-        valid (there will never be a sample to clip or discard).
-        This is what makes the row-wise validity of
-        Proposition~\ref{prop:valid-cpt} come for free.
-  \item \textbf{Temperatures control sharpness.} The temperatures
-        $T_c, T_u$ rescale the raw values before squashing. A low $T_c$
-        pushes a CPT row towards a near-deterministic distribution (all
-        the mass on one state); a high $T_c$ flattens it towards the
-        uniform. The sigmoid behaves analogously for the utilities,
-        sharpening or softening the contrast between outcomes. In summary, the temperature controls the entropy of the parameter vector and, as we will see later, introduces a trade-off effect for certain fitness functions.
-        
-  \item \textbf{Monotonicity and saturation of the utility.} The sigmoid
-        is monotone, so the \emph{ordering} of the raw utility values
-        is preserved in the decoded utilities (which is all that
-        matters, since the optimal policy depends only on that ordering).
-        Its saturation, however, means that most of the sensitivity is
-        concentrated near the midpoint of the range: extreme raw values
-        barely move the decoded utility, so the optimiser has fine
-        control over close calls and coarse control at the extremes.
-\end{itemize}
-
-Finally, the two pinned utility entries are not cosmetic. Because the
-optimal policy depends only on the ordering of the utilities, $u$ is
-identifiable only up to a positive affine transformation; fixing the
-best and worst outcomes removes that ambiguity and stops the EDA from
-drifting along a direction that does not change the policy. 
-
-% ==============================================================
-\section{Scoring a candidate}
-% ==============================================================
-
-A candidate is scored by how well the policy it induces reproduces the
-expert rules. This is the mean per-rule loss
-$\mathcal{L}(\boldsymbol{\Theta})$ of
-Definition~\ref{def:fitness}, which \textsc{EDAspy} minimises directly.
-A central point is that this loss is \emph{not unique}: the per-rule
-term $\ell$ is a configurable choice, and the implementation exposes the
-whole family introduced in Chapter~\ref{ch:framework} — the $0$--$1$
-\textsc{binary} loss, \textsc{regret}, \textsc{margin}, \textsc{softmax}
-and \textsc{entropy} — whose effect on convergence and final accuracy is
-compared experimentally in Chapter~4. The simplest member is the
-$0$--$1$ loss, whose mean is just the fraction of rules the model gets
-wrong:
-
-\begin{definition}[Rule-accuracy loss]
-\label{def:cost}
-With the $0$--$1$ per-rule loss, the objective reduces to
-\[
-   \mathcal{L}\bigl(\boldsymbol{\Theta}(\boldsymbol{\phi})\bigr) =
-   \frac{1}{|\mathcal{R}|}
-   \sum_{(\mathbf{x}^{(l)}, D_{i_l}, a^{(l)})\in\mathcal{R}}
-   \mathbb{1}\!\left[\delta^{*}_{i_l}\!\left(\boldsymbol{\Theta}
-   (\boldsymbol{\phi}),\mathbf{x}^{(l)}\right) \neq a^{(l)}\right],
-\]
-where $\boldsymbol{\Theta}(\boldsymbol{\phi})$ is the decoded vector and
-$\delta^{*}_{i_l}$ is the action the Shachter engine returns under the
-evidence $\mathbf{x}^{(l)}$. The smoother variants replace the
-indicator by the corresponding $\ell$ of
-Chapter~\ref{ch:framework}, exposing more gradient-like information to
-the search.
 \end{definition}
 
-Whatever the loss, evaluating one candidate means decoding it into the
-tables and, for each rule, entering its evidence, running the diagram and
-inspecting the recommended action.
+For the ID to admit a well-defined evaluation procedure the graph
+must be \emph{regular}. That is, a DAG where the value node has no successors and the decisions can be linearly ordered by a directed path that traverses all of them. Throughout this work all IDs are
+assumed to be regular.
 
-% ==============================================================
-\section{The optimiser}
-% ==============================================================
+\subsubsection*{A concrete example: the bypass influence diagram}
+\label{sec:bypass-id-intro}
 
-\textsc{EDAspy}~\cite{soloviev2024edaspy} is the reference open-source
-EDA library of the UPM CIG group; it implements the univariate and
-multivariate variants reviewed in Chapter~\ref{ch:framework} behind a
-common interface. The pipeline plugs into this library and exposes
-four of its continuous variants:
-\begin{itemize}
-  \item \texttt{UMDAc} — independent Gaussian marginals (no
-        cross-parameter dependencies).
-  \item \texttt{EMNA} — multivariate Gaussian with full covariance
-        (all pairwise dependencies, no structure).
-  \item \texttt{EGNA} — Gaussian Bayesian network with structure
-        learnt every generation (a sparse multivariate model).
-  \item \texttt{KEDA (univariate)} — kernel-density marginals (no
-        Gaussian assumption per dimension).
-\end{itemize}
-Together they form a spectrum from fully factorised to fully
-multivariate, and from parametric to non-parametric. Which one is
-preferable for the parameter-recovery problem is not obvious a priori
-(full covariance is more expressive but more costly to estimate). We therefore leave the
-choice to the empirical comparison of Chapter~4. Richer variants such
-as SPEDA, also implemented in \textsc{EDAspy}, are left to the
-perspectives chapter.
+We illustrate every notion introduced below on the \emph{bypass}
+influence diagram, a small clinical model for the management of
+coronary heart disease that we use throughout the rest of the
+thesis. It contains six chance nodes
+(\texttt{HeartDisease}, \texttt{Angiogram}, \texttt{Pain},
+\texttt{EarlyResults}, \texttt{LifeQ}, \texttt{Economicalc}), two
+decision nodes (\texttt{HeartSurgery}, \texttt{HeartPharma}) and a
+single utility node. Its qualitative structure is shown in
+Figure~\ref{fig:bypass-id}.
 
-The run is governed by the few hyperparameters of
-Table~\ref{tab:hyperparams}. The search stops early when the best cost
-does not improve for $T_{\text{dead}}$ consecutive generations, which
-avoids wasting time once the population has converged.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    every node/.style={font=\sffamily\scriptsize, align=center},
+    chance/.style={ellipse, draw=blue!50, fill=cyan!10,
+                   minimum width=2.4cm, minimum height=0.9cm},
+    decision/.style={rectangle, draw=black, fill=orange!30,
+                     minimum width=2.6cm, minimum height=0.9cm},
+    utility/.style={regular polygon, regular polygon sides=6,
+                    shape border rotate=90,
+                    draw=black, fill=purple!30,
+                    minimum width=2.6cm, minimum height=1.1cm,
+                    inner sep=2pt},
+    arr/.style={-{Stealth[scale=1.0]}, draw=blue!50!black},
+    info/.style={-{Stealth[scale=1.0]}, draw=blue!50!black, dashed}
+]
+    % --- Node positions ---
+    \node[chance]   (HD)   at ( 0,    5)    {HEARTDISEASE};
+    \node[chance]   (ANG)  at (-4.5,  3.5)  {ANGIOGRAM};
+    \node[chance]   (PAIN) at ( 4.5,  3.5)  {PAIN};
+    \node[decision] (HS)   at (-4.5,  1.5)  {HEARTSURGERY};
+    \node[chance]   (ER)   at ( 0,    1.5)  {EARLYRESULTS};
+    \node[decision] (HP)   at ( 4.5,  1.5)  {HEARTPHARMA};
+    \node[chance]   (LQ)   at (-3,   -0.5)  {LIFEQ};
+    \node[chance]   (EC)   at ( 3,   -0.5)  {ECONOMICALC};
+    \node[utility]  (UT)   at ( 0,   -2.6)  {UTILITY};
+
+    % --- Probabilistic / functional arcs (solid) ---
+    \draw[arr] (HD) -- (ANG);
+    \draw[arr] (HD) -- (PAIN);
+    \draw[arr] (HD) -- (LQ.north);
+    \draw[arr] (ANG) -- (ER);
+    \draw[arr] (HS) -- (ER);
+    \draw[arr] (HS) -- (LQ);
+    \draw[arr] (HS) -- (EC.west);
+    \draw[arr] (HP) -- (EC);
+    \draw[arr] (ER) -- (EC);
+    \draw[arr] (LQ) -- (UT);
+    \draw[arr] (EC) -- (UT);
+
+    % --- Informational arcs (dashed, into decisions) ---
+    \draw[info] (ANG) -- (HS);
+    \draw[info] (ANG.south east) -- (HP.north west);
+    \draw[info] (PAIN.south west) -- (HS.north east);
+    \draw[info] (PAIN) -- (HP);
+    \draw[info] (ER) -- (HP);
+\end{tikzpicture}
+\caption{Influence diagram of the \emph{bypass} model. Chance nodes
+are ellipses, decision nodes rectangles and the utility node a
+hexagon. Solid arcs are probabilistic or functional, dashed arcs
+are informational.}
+\label{fig:bypass-id}
+\end{figure}
+
+The Influence Diagram illustrated in Figure~\ref{fig:bypass-id} models a problem with two sequential decisions: first, \texttt{Heart Surgery (HS)}, and second, \texttt{Heart Pharma (HP)}. 
+
+\texttt{Angiogram (ANG)} is a diagnostic test and \texttt{Pain (PA)} is a symptom; both variables are observed prior to making the decisions. \texttt{Early Results (ER)} is conditioned by \texttt{ANG} and \texttt{HS}, and constitutes known information for the \texttt{HP} decision. 
+
+The preferences depend on \texttt{Life Quality (LQ)} and \texttt{Economic Calculation (EC)}. These are conditioned, respectively, by \texttt{HS} and \texttt{HD} (\texttt{Heart Disease)} for \texttt{LQ}; and by \texttt{ER}, \texttt{HS}, and \texttt{HP} for \texttt{EC}.
+
+The model is regular. Variables \texttt{LQ} and \texttt{EC} have 3 levels, while the rest of the variables are binary. 
+
+Regarding the parameterization, there are 9 utility parameters and $2 + 4 + 4 + 8 + 12 + 24 = 56$ parameters modeling the probability distributions. Consequently, there are $56 - 21 = 35$ degrees of freedom. In total, the model is defined by $35 + 9 = 44$ parameters.
+
+\subsection{Quantitative parameterisation}
+
+Each chance node $C_i$ carries a \emph{conditional probability
+table} (CPT) $\theta_{C_i}$ that assigns to every configuration of
+its probabilistic parents $\mathrm{Pa}(C_i)$ a probability distribution over
+$\Omega_{C_i}$:
+\[
+   \theta_{C_i}\bigl(\cdot \mid \mathbf{pa}\bigr) \;\in\;
+   \Delta(\Omega_{C_i})
+   \qquad
+   \forall \mathbf{pa}\in\prod_{C_j\in\mathrm{Pa}(C_i)}\Omega_{C_j},
+\]
+where $\Delta(\Omega_{C_i})$ denotes the probability simplex over the
+states of $C_i$. The utility node carries a real-valued mapping
+\[
+   u : \prod_{X\in\mathrm{Pa}(V)}\Omega_X \longrightarrow \mathbb{R},
+\]
+where $\Omega_{D_i}\equiv\mathcal{A}_{D_i}$ for any decision parent.
+The function $u$ encodes the preferences of the decision-maker in
+the sense of Multi-Attribute Utility Theory, and when its arguments
+satisfy the usual independence conditions it admits an additive or
+multiplicative decomposition that drastically simplifies its
+elicitation~\cite{riosinsua2002maut}. The collection of all CPTs
+and the utility table is the \emph{parameter vector} of the
+diagram, written $\boldsymbol{\Theta}$.
+
+\begin{remark}[Combinatorial explosion]
+\label{rem:explosion}
+The number of free entries of a CPT grows multiplicatively with the
+parents: a node with $m$ parents, each taking $r$ states, and $r$
+own states contributes $r^{m}(r-1)$ free parameters. This
+exponential growth is the source of the elicitation bottleneck
+discussed in Chapter~\ref{ch:introduction} and the reason why
+parameter optimisation rather than exhaustive elicitation is
+necessary.
+\end{remark}
+
+A \emph{decision rule} for $D_i$ is a mapping
+$\delta_i : \prod_{C_j\in\mathrm{Pa}(D_i)}\Omega_{C_j}
+\longrightarrow \mathcal{A}_{D_i}$
+that prescribes an action for every observable context. The
+collection $\boldsymbol{\delta}=(\delta_1,\ldots,\delta_k)$ over all
+decisions is called a \emph{policy}. The expected utility of a
+policy under a parameter vector $\boldsymbol{\Theta}$ is
+\begin{equation}
+\label{eq:eu}
+   \mathrm{EU}(\boldsymbol{\delta}\mid\boldsymbol{\Theta}) =
+   \sum_{\mathbf{c}} u\!\bigl(\mathbf{c},
+                              \boldsymbol{\delta}(\mathbf{c})\bigr)
+   \prod_{C_i\in\mathbf{C}}
+   \theta_{C_i}\!\bigl(c_i \mid \mathbf{pa}(c_i)\bigr),
+\end{equation}
+where $\mathbf{c}=(c_1,\ldots,c_n)$ is a complete \emph{scenario}. For each scenario,
+$\mathbf{pa}(c_i)$ denotes the values its parents take within that same
+scenario and $\boldsymbol{\delta}(\mathbf{c})$ the actions prescribed
+by the policy. Thus each scenario is weighted by its joint probability
+(the product of CPTs) and scored by its utility, and the expectation
+sums these contributions over every possible state of the space.
+The \emph{optimal policy} is
+$\boldsymbol{\delta}^{\!*}(\boldsymbol{\Theta}) =
+\arg\max_{\boldsymbol{\delta}}
+\mathrm{EU}(\boldsymbol{\delta}\mid\boldsymbol{\Theta})$.
+
+\noindent The time complexity of Shachter’s node-reduction and arc-reversal algorithm is actually exponential in the worst case, but 
+the classical algorithm of
+Shachter~\cite{shachter1986evaluating} computes
+$\boldsymbol{\delta}^{\!*}(\boldsymbol{\Theta})$ in polynomial time relative to the size of the graph for any fixed $\boldsymbol{\Theta}$ by successively reversing arcs
+and eliminating nodes from it.
+
+\subsubsection*{What the parameters and their evaluation look like}
+\label{sec:bypass-tables}
+
+The three pieces of the parameterisation become clear when one
+looks at the tables of the bypass model of
+Figure~\ref{fig:bypass-id}. Table~\ref{tab:bypass-cpt} shows a real
+CPT extracted from the model: $P(\texttt{Angiogram}\mid
+\texttt{HeartDisease})$, which encodes the standard
+sensitivity/specificity of the angiogram test.
 
 \begin{table}[h]
 \centering\small
-\begin{tabular}{lll}
+\begin{tabular}{l|cc}
 \hline
-\textbf{Hyperparameter} & \textbf{Symbol} & \textbf{Role}\\
+$P(\texttt{Angiogram} \mid \texttt{HeartDisease})$
+              & \textsc{negative} & \textsc{positive}\\
 \hline
-\texttt{optimizer\_type} & --- & UMDA, EMNA, EGNA or KEDA\\
-\texttt{size\_gen}       & $N$ & Individuals per generation\\
-\texttt{max\_iter}       & $T$ & Maximum number of generations\\
-\texttt{dead\_iter}      & $T_{\text{dead}}$ & Early-stopping patience\\
-\texttt{alpha}           & $\mu$ & Truncation selection ratio\\
-\texttt{elite\_factor}   & $\mu_{el}$ & Fraction of best individuals preserved\\
+$\texttt{HeartDisease} = \textsc{absent}$  & 0.95 & 0.05\\
+$\texttt{HeartDisease} = \textsc{present}$ & 0.14 & 0.86\\
 \hline
 \end{tabular}
-\caption{Main hyperparameters used in this work.}
-\label{tab:hyperparams}
+\caption{Real CPT extracted from the bypass model.
+Each row is a probability distribution over the two test outcomes.}
+\label{tab:bypass-cpt}
 \end{table}
 
-The first population is drawn \emph{uniformly} within the symmetric raw
-bounds. This choice is deliberate. Because the bounds are centred at
-zero and both squashing functions are symmetric, a raw value of
-zero decodes to a uniform CPT row and to the mid-range utility. The
-search therefore starts \emph{unbiased}, with no built-in preference for
-any state of a chance node or any action of a decision. Uniform sampling
-also scatters the initial individuals across the whole raw space rather
-than around a single guess, so the EDA explores broadly before its model
-contracts — which matters on the multimodal, degenerate landscape of
-this problem, where many parameter vectors reproduce the same rules and
-an early commitment to one region would be premature.
+The utility node \texttt{Utility} of the bypass diagram depends on
+the quality-of-life node \texttt{LifeQ} and the cost node
+\texttt{Economicalc}; Table~\ref{tab:bypass-util} shows its full set
+of values, taken directly from the model. As one would expect, the
+best outcome (high quality of life, low cost) takes the maximum
+value, while death together with high cost takes the minimum.
 
-A natural extension, supported by \textsc{EDAspy} and discussed
-in the perspectives chapter, replaces this uninformed start: an
-LLM-generated warm start~\cite{nafar2025llm4bn}.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{l|ccc}
+\hline
+$u(\texttt{LifeQ}, \texttt{Economicalc})$
+                                 & \textsc{low} & \textsc{medium} & \textsc{high}\\
+\hline
+$\texttt{LifeQ} = \textsc{dead}$     & 2.00 & 0.70 & 0.05\\
+$\texttt{LifeQ} = \textsc{live2alq}$ & 3.10 & 2.90 & 2.80\\
+$\texttt{LifeQ} = \textsc{live2ahq}$ & 7.80 & 4.80 & 2.80\\
+\hline
+\end{tabular}
+\caption{Utility table of the bypass model.}
+\label{tab:bypass-util}
+\end{table}
+
+Given the two tables above (and the rest of the CPTs of the model,
+not shown), the Shachter algorithm produces a third one: the
+expected utility of each action of a decision node \emph{conditioned
+on the information available when that decision is taken}.
+Table~\ref{tab:bypass-eu} shows this output for the
+\texttt{HeartSurgery} decision, whose informational parents are
+\texttt{Pain} and \texttt{Angiogram}.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{ll|cc}
+\hline
+\texttt{Pain} & \texttt{Angiogram}
+              & $\mathrm{EU}(\textsc{no})$
+              & $\mathrm{EU}(\textsc{yes})$\\
+\hline
+\textsc{absent}  & \textsc{negative} & \textbf{6.98} & 3.73 \\
+\textsc{absent}  & \textsc{positive} & \textbf{5.34} & 3.91 \\
+\textsc{present} & \textsc{negative} & \textbf{6.66} & 3.78 \\
+\textsc{present} & \textsc{positive} & 3.43          & \textbf{4.18}\\
+\hline
+\end{tabular}
+\caption{Expected utility (EU) of each action of \texttt{HeartSurgery}
+under the parameters of the bypass model, as produced by the
+Shachter evaluation. The bold value in each row is the optimal
+action for that information state. Read as a decision rule:
+\emph{operate only when pain is present and the angiogram is
+positive; abstain otherwise}.}
+\label{tab:bypass-eu}
+\end{table}
+
+Schematically, the standard use of an ID flows from CPTs and the
+utility function towards the optimal policy:
+\[
+  (\theta_{C_i},\, u) \xrightarrow{\text{Shachter}} \mathrm{EU}
+  \xrightarrow{\arg\max} \boldsymbol{\delta}^{\!*}.
+\]
+The problem this
+thesis addresses runs the arrows backwards. The expert does
+\emph{not} supply Tables~\ref{tab:bypass-cpt}
+and~\ref{tab:bypass-util}; he supplies only a few entries of
+Table~\ref{tab:bypass-eu} as \emph{decision rules} (for example:\textit{ do not operate
+when pain is absent and the angiogram is negative}). The optimizer
+must recover a pair $(\theta_{C_i},\, u)$ \emph{compatible} with
+those rules, in the sense that re-running Shachter on the recovered
+parameters reproduces the expert's choices.
+
+Preference is represented using lotteries for comparisons between uncertain consequences, for example:
+\[
+(\texttt{LQ} = \text{Dead}, \text{EC} = \text{High}; 0.25) \leq (\texttt{LQ} = \text{Live2AHQ}, \texttt{EC} = \text{Low}; 7.5)
+\]
+
+The very possibility of summarizing the expert's preferences by a
+single utility function is not gratuitous: it rests on the classical
+axioms of rational choice.
 
 
 
+\begin{definition}[von Neumann--Morgenstern axioms]
+\label{def:vnm-axioms}
+A preference relation $\succeq$ over lotteries (probability
+distributions over outcomes) admits a representation by
+\emph{expected utility} (i.e.\ there exists a function $u$ such that
+$L_1 \succeq L_2 \iff \mathbb{E}_{L_1}[u] \ge \mathbb{E}_{L_2}[u]$)
+\emph{if and only if} it satisfies the following
+axioms~\cite{vonneumann1944theory}:
+\begin{itemize}
+  \item \textbf{Completeness (orderability).} For any two lotteries
+        $L_1$ and $L_2$, exactly one of $L_1 \succ L_2$,
+        $L_2 \succ L_1$ or $L_1 \sim L_2$ holds; the agent is never
+        unable to compare two alternatives.
+  \item \textbf{Transitivity.} If $L_1 \succeq L_2$ and
+        $L_2 \succeq L_3$, then $L_1 \succeq L_3$.
+  \item \textbf{Continuity.} If $L_1 \succeq L_2 \succeq L_3$, there
+        exists a probability $p \in [0,1]$ such that the agent is
+        indifferent between $L_2$ and the mixed lottery
+        $p\,L_1 + (1-p)\,L_3$.
+  \item \textbf{Independence (substitutability).} If
+        $L_1 \succeq L_2$, then for any third lottery $L_3$ and any
+        $p \in (0,1]$ we have
+        $p\,L_1 + (1-p)\,L_3 \succeq p\,L_2 + (1-p)\,L_3$; mixing both
+        options with a common third lottery cannot reverse the
+        preference.
+\end{itemize}
+\end{definition}
+
+The relevance of the axioms here is conceptual: whenever the
+recovered pair $(\theta_{C_i},\, u)$ induces a policy through the
+maximum-expected-utility rule, that policy is \emph{rational} in the
+von Neumann--Morgenstern sense by construction. The expert rules, by
+contrast, carry no such guarantee: they are isolated \emph{if--then}
+prescriptions that need not derive from any coherent underlying
+preference order.
+
+This gap raises what we regard as a central theoretical open question
+behind the whole recovery program:
+
+\begin{quote}\itshape
+It remains to be seen whether the algorithm can find, for \emph{any} set of expert rules, a parameterization $(\theta_{C_i},\, u)$ that is simultaneously consistent with those
+rules and with the axioms of utility theory; or whether some rule
+sets are intrinsically incoherent, admitting no rational Influence
+Diagram able to reproduce them.
+\end{quote}
+
+% ==============================================================
+\section{The Knowledge-Acquisition Problem}
+% ==============================================================
+
+In practice the structure of the ID is elicited from the expert in a
+small number of modelling sessions, but the numerical
+parameterisation $\boldsymbol{\Theta}$ is far harder to obtain. The
+classical cycle of~\cite{bielza2000issues,bielza2010modeling} proceeds in
+five stages — problem identification, enumeration of alternatives,
+modelling, evaluation and sensitivity analysis — and the modelling
+stage alone accounts for the bulk of the cost. As anticipated in
+Remark~\ref{rem:explosion}, the size of $\boldsymbol{\Theta}$ grows
+exponentially with the connectivity of the diagram, so an exhaustive
+elicitation is unrealistic for any diagram of practical size.
+
+We assume instead that the expert can provide a \emph{small set of
+decision rules}.
+
+\begin{definition}[Expert rule base]
+\label{def:rules}
+A \emph{rule base} is a finite set
+\[
+   \mathcal{R} = \bigl\{(\mathbf{x}^{(l)}, D_{i_l}, a^{(l)})\bigr\}_{l=1}^{L},
+\]
+where $\mathbf{x}^{(l)}$ is a (possibly partial) observation vector
+on the informational parents of decision $D_{i_l}$, and
+$a^{(l)}\in\mathcal{A}_{D_{i_l}}$ is the action the expert deems
+optimal under $\mathbf{x}^{(l)}$. Components marked as
+``irrelevant'' contribute no constraint and the rule must hold for
+every value they may take.
+\end{definition}
+
+Given such a rule base we measure the consistency of a parameter
+vector with the expert by a simple accuracy:
+
+\begin{definition}[Fitness function]
+\label{def:fitness}
+Define the vector of expected utilities of decision $D_{i_l}$ under
+$\boldsymbol{\Theta}$ and evidence $\mathbf{x}^{(l)}$ as
+\[
+   \mathbf{u}^{(l)}(\boldsymbol{\Theta}) =
+   \bigl(\mathrm{EU}(a \mid \boldsymbol{\Theta}, \mathbf{x}^{(l)})\bigr)_{a\in\mathcal{A}_{D_{i_l}}}.
+\]
+The generic loss minimised by the EDA is then
+\[
+   \mathcal{L}(\boldsymbol{\Theta}) =
+   \sum_{(\mathbf{x}^{(l)},\,D_{i_l},\,a^{(l)})\in\mathcal{R}}
+   \ell\!\left(\mathbf{u}^{(l)}(\boldsymbol{\Theta}),\; a^{(l)}\right),
+\]
+where $\ell$ is a per-rule loss that compares the expected-utility
+vector of the target decision with the action prescribed by the
+expert. Different choices of $\ell$ recover the fitness variants used
+in this work:
+\begin{itemize}
+   \item \textbf{Binary} ($0$--$1$ loss):
+         $\ell_{\mathrm{binary}}(\mathbf{u}, a) = \mathbf{1}\!\left[\textstyle\arg\max_{a'} u_{a'} \neq a\right]$.
+   \item \textbf{Regret}:
+         $\ell_{\mathrm{regret}}(\mathbf{u}, a) = \max_{a'} \left( u_{a'} - u_a \right)$.
+   \item \textbf{Margin}:
+         $\ell_{\mathrm{margin}}(\mathbf{u}, a) = \max\!\bigl(0,\; \max_{a'\neq a} u_{a'} + m - u_a\bigr)$.
+   \item \textbf{Softmax} (cross-entropy):
+         $\ell_{\mathrm{softmax}}(\mathbf{u}, a) = -\log \operatorname{softmax}(\mathbf{u})_a$.
+   \item \textbf{Entropy-regularized}:
+         $\ell_{\mathrm{entropy}}(\mathbf{u}, a) = -\log \operatorname{softmax}(\mathbf{u})_a + \alpha\, H\!\bigl(\operatorname{softmax}(\mathbf{u})\bigr)$.
+\end{itemize}
+where $m$ is the margin, $\alpha$ the entropy-regularization weight, and
+$H(\mathbf{p}) = -\sum_{a'} p_{a'}\log p_{a'}$ the Shannon entropy of the
+softmax distribution over actions.
+
+\end{definition}
+
+The parameter-recovery problem is then the constrained search
+\[
+   \boldsymbol{\Theta}^{\star} =
+   \arg\min_{\boldsymbol{\Theta}} \mathcal{L}(\boldsymbol{\Theta}),
+\]
+with $\boldsymbol{\Theta}$ ranging over the product of all valid
+CPTs and utility tables. The next proposition justifies the use of
+a derivative-free metaheuristic instead of a gradient-based
+optimiser.
+
+\begin{proposition}[Irregularity of the objective]
+\label{prop:nonsmooth}
+The objective $\mathcal{L}$ of Definition~\ref{def:fitness} is
+non-convex with respect to $\boldsymbol{\Theta}$ for every per-rule
+loss $\ell$ considered in this work. For the $0$--$1$ (\textsc{binary})
+loss it is, in addition, piecewise constant and discontinuous; for the
+\textsc{regret} and \textsc{margin} losses it is continuous but
+non-differentiable on the set where the optimal action of a decision
+switches; for \textsc{softmax} and \textsc{entropy} it is piecewise
+smooth.
+\end{proposition}
+
+\begin{proof}[Sketch]
+\textbf{\emph{Non-convexity.}} For a chain of two chance nodes the expected
+utility contains a term proportional to the product of two parameters,
+$p\,q$. The map $(p,q)\mapsto p\,q$ is not convex: at $(1,0)$ and
+$(0,1)$ it equals $0$, yet at the midpoint $(\tfrac12,\tfrac12)$ it
+equals $\tfrac14>0$, violating the convexity inequality. Since
+$\mathbf{u}^{(l)}(\boldsymbol{\Theta})$ generically involves such
+products (a node multiplies the probabilities of its parents) and a
+normalisation by the probability of the evidence, $\mathcal{L}$ is
+non-convex.
+
+\textbf{\emph{Regularity.}} Within any region of $\boldsymbol{\Theta}$ where the
+optimal action of every decision is fixed, $\mathbf{u}^{(l)}$ is a
+rational function of the parameters and is therefore smooth. At the
+boundaries between regions the maximising action switches: the value of the optimal policy is non-differentiable there. Composing with the per-rule loss,
+the $0$--$1$ loss jumps discontinuously at those boundaries, the
+\textsc{regret} and \textsc{margin} losses stay continuous but
+non-differentiable, and the \textsc{softmax} and \textsc{entropy} losses
+are smooth away from them.
+\end{proof}
+
+\noindent A gradient of $\mathcal{L}$ thus exists almost everywhere
+(except for the discontinuous \textsc{binary} loss) and could in
+principle be obtained by finite differences. We nevertheless adopt a
+population-based, derivative-free strategy for three reasons: 
+
+\begin{itemize}
+    \item The landscape is strongly non-convex and highly degenerate (many parameter vectors reproduce the same rules) so local gradient information does not
+lead to the global optimum.
+    \item The evaluation engine returns only utility
+values, so each numerical gradient would cost $O(d)$ additional
+evaluations in a space of dimension $d=|\boldsymbol{\Theta}|$.
+    \item And for the
+\textsc{binary} loss the gradient is identically zero almost everywhere.
+\end{itemize}
+
+
+% ==============================================================
+\section{Estimation of Distribution Algorithms}
+% ==============================================================
+
+Estimation of Distribution Algorithms
+(EDAs)~\cite{larranaga2002eda,larranaga2024edas} are a class of
+evolutionary metaheuristics in which the classical
+crossover-and-mutation operators are replaced by the
+\emph{construction and sampling of an explicit probabilistic model}
+of the search space. At every generation a probability distribution
+is fitted to the best individuals of the current population and used
+to generate the next generation. Algorithm~\ref{alg:eda} states the
+generic scheme.
+
+\begin{algorithm}[Generic EDA]\hfill
+\label{alg:eda}
+\begin{algorithmic}[1]
+\State Initialise a population $\mathcal{P}_0$ of $N$ individuals from a prior on the search space.
+\State $t \leftarrow 0$
+\Repeat
+    \State Evaluate $f$ on every $\boldsymbol{\Theta}\in\mathcal{P}_t$.
+    \State $\mathcal{P}_t^{\text{sel}} \leftarrow$ top-$S$ individuals of $\mathcal{P}_t$.
+    \State Estimate a probabilistic model $\hat{p}_t$ based on
+           $\mathcal{P}_t^{\text{sel}}$.
+    \State Sample $N$ new individuals from $\hat{p}_t$ to form
+           $\mathcal{P}_{t+1}$.
+    \State $t \leftarrow t+1$
+\Until{stopping criterion is met}
+\State \Return best individual found.
+\end{algorithmic}
+\end{algorithm}
+
+In words, the algorithm keeps a \emph{population} of candidate solutions and
+repeatedly (i)~scores each one with the fitness $f$, (ii)~keeps the top-$S$
+elite, (iii)~fits a probabilistic model $\hat{p}_t$ to that elite, and
+(iv)~samples the next generation from it. It thus replaces the crossover and
+mutation of a genetic algorithm by \emph{learning and sampling a distribution}
+over the good solutions, which is what lets it exploit statistical regularities
+of the search space.
+
+A candidate solution (an \emph{individual}) is a real-valued vector
+$\boldsymbol{\phi}=(\phi_1,\ldots,\phi_d)\in\mathbb{R}^d$ whose components stack,
+in a fixed order, the raw value of every free CPT entry and every utility entry
+of the diagram. The search itself is \emph{unconstrained} — each $\phi_j$ lives in the whole
+real line $\mathbb{R}$, and the bounds $[-5,5]$/$[-10,10]$ constrain only the
+initial sampling — and it is a decoder
+(Chapter~\ref{ch:implementation}) that turns $\boldsymbol{\phi}$ into a valid
+parameter vector $\boldsymbol{\Theta}$, enforcing the two constraints of the
+model: every CPT row must be a probability distribution (non-negative, summing to
+one) and every utility must lie inside the expert range $[u_{\min},u_{\max}]$.
+As an example, for a diagram with a single binary chance node conditioned on a
+binary parent ($2$ rows of $2$ entries) and $2$ utility values, one valid
+individual is
+\[
+  \boldsymbol{\phi} =
+  \bigl(\underbrace{1.2,\,-0.4}_{\text{CPT row }1},\;
+        \underbrace{0.1,\,0.3}_{\text{CPT row }2},\;
+        \underbrace{2.0,\,-1.5}_{\text{utilities}}\bigr),
+\]
+which the decoder maps (row-wise softmax and a rescaled sigmoid) to, e.g.,
+CPT rows $(0.83,0.17)$ and $(0.45,0.55)$ and utilities $(8.8,\,1.8)$ on the range
+$[0,10]$ — a fully valid model regardless of the raw values sampled.
+
+The defining choice of an EDA is the family used for $\hat{p}_t$:
+richer families capture more structure of the search space at the
+expense of a higher estimation cost.
+
+\subsection{Dependency Models in EDAs}
+
+Because the parameter vector of an ID lives in a continuous space
+(every CPT entry and every utility value is a real number), only
+continuous EDAs are relevant. The four models used in this work,
+all available through \textsc{EDAspy}~\cite{soloviev2024edaspy}, span the spectrum from a fully factorised parametric model to a
+full-covariance multivariate Gaussian, with a structured intermediate
+and a non-parametric alternative on the univariate side. We denote an individual by $\boldsymbol{\phi}=(\phi_1,\ldots,\phi_d)$
+and the size of the selected elite by
+$S=|\mathcal{P}_t^{\text{sel}}|$.
+
+\paragraph*{UMDA\textsubscript{c} --- Univariate Marginal Distribution
+Algorithm.} Each dimension is modeled by an independent
+Gaussian~\cite{larranaga2002eda}:
+\[
+    \hat{p}_t(\boldsymbol{\phi})
+    = \prod_{j=1}^{d}
+    \mathcal{N}\!\bigl(\phi_j;\,
+    \hat{\mu}_t^{j},\,(\hat{\sigma}_t^{j})^{2}\bigr),
+\]
+whose mean and variance are the sample moments of the selected individuals,
+\[
+    \hat{\mu}_t^{j}
+    = \frac{1}{S}\!\sum_{\boldsymbol{\phi}\in\mathcal{P}_t^{\text{sel}}}\!\phi_j,
+    \qquad
+    (\hat{\sigma}_t^{j})^{2}
+    = \frac{1}{S}\!\sum_{\boldsymbol{\phi}\in\mathcal{P}_t^{\text{sel}}}\!
+    (\phi_j - \hat{\mu}_t^{j})^{2}.
+\]
+The model is the cheapest of the family ($O(d\cdot S)$ per generation,
+both for fitting and for sampling) but its independence assumption
+means it cannot capture any dependency between the parameters of the
+diagram: the search effectively assumes that good values for one CPT
+entry give no information about good values for another.
+\paragraph*{EMNA --- Estimation of Multivariate Normal Algorithm.}
+The opposite end of the parametric spectrum: the whole population is
+modelled by a single multivariate Gaussian~\cite{larranaga2002eda},
+\[
+    \hat{p}_t(\boldsymbol{\phi}) =
+    \mathcal{N}\!\bigl(\boldsymbol{\phi};\,
+    \hat{\boldsymbol{\mu}}_t,\,
+    \hat{\boldsymbol{\Sigma}}_t\bigr),
+\]
+with sample mean and \emph{full covariance},
+\[
+    \hat{\boldsymbol{\mu}}_t
+    = \frac{1}{S}\!\sum_{\boldsymbol{\phi}\in\mathcal{P}_t^{\text{sel}}}\!\boldsymbol{\phi},
+    \qquad
+    \hat{\boldsymbol{\Sigma}}_t
+    = \frac{1}{S}\!\sum_{\boldsymbol{\phi}\in\mathcal{P}_t^{\text{sel}}}\!
+    (\boldsymbol{\phi} - \hat{\boldsymbol{\mu}}_t)
+    (\boldsymbol{\phi} - \hat{\boldsymbol{\mu}}_t)^{\!\top}.
+\]
+EMNA captures every pairwise linear dependency between parameters and
+is therefore strictly more expressive than UMDA. The price is
+double: the cost grows to $O(d^{2}\cdot S)$ for the covariance estimate,
+plus a $O(d^{3})$ Cholesky factorisation of $\hat{\Sigma}_t$ used to sample (and the
+truncated population must be large enough, $S>d$
+to keep $\hat{\boldsymbol{\Sigma}}_t$
+non-singular)~\cite{larranaga2002eda}.
+
+\paragraph*{EGNA --- Estimation of Gaussian Networks Algorithm.}
+A middle ground between UMDA and EMNA: a multivariate Gaussian whose
+factorisation is governed by a Bayesian network $\mathcal{G}$
+\emph{learnt from the elite at every
+generation}~\cite{larranaga2002eda}. Each variable conditions only
+on its parents in $\mathcal{G}$,
+\[
+    \hat{p}_t(\boldsymbol{\phi}) = \prod_{j=1}^{d}
+    \mathcal{N}\!\Bigl(\phi_j;\;
+    \beta_{j,0} + \!\!\!\!\sum_{k\,\in\,\mathrm{pa}_{\mathcal{G}}(j)}\!\!\!\!
+    \beta_{j,k}\,\phi_k,\;
+    \sigma_j^{2}\Bigr),
+\]
+i.e.\ a linear regression of $\phi_j$ on its graph parents with
+Gaussian residuals. The structure $\mathcal{G}$ is chosen with a
+score (typically BIC) and a greedy search over
+DAGs~\cite{larranaga2002eda}. EGNA recovers UMDA when $\mathcal{G}$
+has no edges and approaches EMNA when $\mathcal{G}$ becomes a
+complete DAG; in practice the learnt graph is sparse, which keeps
+the cost reduced and makes the model robust if 
+$S$ is not large enough for EMNA to estimate a full covariance
+reliably.
+
+\paragraph*{KEDA (Univariate) --- Kernel-density Estimation of
+Distribution Algorithm.} A non-parametric alternative on the
+univariate side: each marginal is fitted with a kernel density
+estimator from the elite~\cite{soloviev2024edaspy},
+\[
+    \hat{p}_t(\boldsymbol{\phi}) = \prod_{j=1}^{d}
+    \hat{p}_t^{\,j}(\phi_j),
+    \qquad
+    \hat{p}_t^{\,j}(\phi_j)
+    = \frac{1}{S\,h_j}\!\sum_{\boldsymbol{\phi}^{(s)}\in\mathcal{P}_t^{\text{sel}}}\!\!
+    K\!\Bigl(\frac{\phi_j - \phi_j^{(s)}}{h_j}\Bigr),
+\]
+where $K$ is a kernel (typically Gaussian) and $h_j$ is a bandwidth
+chosen, for instance, by Silverman's rule. Like UMDA it ignores
+cross-parameter dependencies, but it drops the Gaussian assumption
+per dimension and can therefore fit skewed or multi-modal marginals
+(a setting in which a single Gaussian would smear over distinct
+modes). Its cost is again $O(d\cdot S)$, with the bandwidth as an
+additional implicit hyperparameter that trades smoothness against
+detail.
+
+\medskip
+
+Together the four variants span the spectrum from \emph{fully
+factored} (UMDA\textsubscript{c}, KEDA) to \emph{fully joint} (EMNA),
+with EGNA as a structured intermediate, and from \emph{parametric}
+(UMDA\textsubscript{c}, EMNA, EGNA) to \emph{non-parametric} (KEDA)
+on the per-dimension side. Which combination suits the
+parameter-recovery problem of this work is far from obvious a
+priori.
+
+\subsection{Convergence of the Algorithm}
+
+The reason an EDA makes progress is intuitive and needs no heavy
+machinery. At each generation it keeps only the best fraction of the
+population — a \emph{truncation} selection that retains the top
+$\mu\in(0,1)$ of the individuals — and refits the probabilistic model
+$\hat{p}_t$ to that elite. Because the selected individuals
+concentrate in the better-scoring regions of the search space, the
+model fitted to them places its mass there, so the next population,
+sampled from $\hat{p}_t$, is on average better than the previous one.
+
+Repeating the loop has two coupled effects. The model \emph{drifts}
+towards regions of lower cost, generation after generation, while its
+variance \emph{contracts} as the surviving individuals become more
+alike. The drift is what improves the solutions; the contraction is
+what makes the search eventually settle on a concrete configuration.
+When the variance has shrunk to the point where new samples barely
+differ from one another, the population has converged.
+
+The selection ratio $\mu$ balances these two effects. A small $\mu$
+keeps only a handful of top individuals: the model contracts quickly
+and the search converges fast, but it may lock onto the first good
+region it finds. A large $\mu$ keeps almost the whole population, so
+little information is extracted from the cost function and the search
+behaves almost like random sampling. A useful value lies in between
+and is tuned empirically in Chapter~\ref{ch:experiments}.
+
+This argument is deliberately informal. It explains why the
+distribution concentrates on good regions, not that the region found
+is the global optimum — on the non-convex, degenerate landscape of
+Proposition~\ref{prop:nonsmooth} it generally need not be. What
+matters in practice is that the EDA reliably drives the cost down
+towards high-quality solutions, which is what the experiments of
+Chapter~\ref{ch:experiments} confirm. The only additional requirement specific to our
+problem is that every sampled individual be turned into a valid set of
+CPTs — each row a probability distribution — which is handled at the
+decoding stage described in Chapter~\ref{ch:implementation}.
+
+The solution reached must be validated by the expert and consider several iterations, revising/expanding the input rule base, adding constraints to the parameter space, and possibly revising the dependency graph.

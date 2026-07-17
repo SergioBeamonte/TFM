@@ -1,0 +1,107 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Influence Diagrams are a standard formalism for decision-making under
+uncertainty, but specifying their numerical parameters, the conditional
+probability tables and the utilities, demands a costly and exhaustive elicitation
+from domain experts, which is the main obstacle to their practical use. 
+
+This
+thesis investigates whether those parameters can instead be recovered
+automatically from a small set of expert decision rules, assuming the structure
+of the diagram is already known. The task is formulated as a constrained
+black-box optimisation and addressed with Estimation of Distribution Algorithms:
+the optimiser searches over an unconstrained real vector that a decoder always
+maps to a valid model, and each candidate is scored by how faithfully the policy
+it induces reproduces the given rules. A proof-of-concept system was built on the
+\textsc{SMILE} and \textsc{EDAspy} libraries and evaluated on two clinical
+diagrams of different size, comparing five loss functions and four EDA variants.
+
+
+The results show that recovery is feasible and improves as more rules are added,
+but that reproducing the training rules does not guarantee recovering the full
+policy: the problem is degenerate. The choice of optimiser is the dominant
+factor, and expressive variants that scale to the larger diagram are the
+limiting resource. The information carried by the rules resides in the utilities
+rather than in the probabilities, so recovering only the utilities is both
+cheaper and more accurate. Finally, the composition of the rule set matters as
+much as its size, and the most informative rules are the decisive ones. The work
+provides a working recovery method, a characterisation of its limits, and a set
+of concrete directions for future research.
+
+\vspace{1em}
+\noindent\textbf{Keywords:} Influence Diagrams; parameter elicitation; decision
+rules; Estimation of Distribution Algorithms; black-box optimisation; decision
+support systems; utility recovery.
+
+
+
+%%--------------
+\newpage
+%%--------------
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+Los \emph{Diagramas de Influencia} (DIs) son un formalismo gráfico compacto para
+la toma de decisiones bajo incertidumbre: un único grafo codifica las variables
+inciertas, las opciones disponibles para el agente y las preferencias sobre los
+resultados. Su principal obstáculo práctico no es el grafo, sino sus números.
+Rellenar cada tabla de probabilidad condicional (TPC) y cada valor de utilidad
+exige largas entrevistas con expertos escasos, y el esfuerzo crece tan rápido
+con el tamaño del modelo que se convierte en el coste dominante de desplegar un
+DI en dominios reales como la ayuda a la decisión clínica.
+
+Esta tesis estudia una alternativa a esta elicitación exhaustiva. Suponemos que
+la estructura del DI ya está dada y nos preguntamos si sus parámetros numéricos
+pueden \emph{recuperarse automáticamente} a partir de un pequeño conjunto de
+\emph{reglas de decisión} de la forma ``si se cumplen estas condiciones, toma
+esta acción''. Las reglas están mucho más cerca de la forma en que razonan los
+expertos que las probabilidades en bruto, y por lo general solo se necesitan unas
+pocas para describir una política. El problema se plantea como una optimización
+de caja negra con restricciones sobre el espacio conjunto de TPCs y utilidades,
+y se resuelve con \emph{Algoritmos de Estimación de Distribuciones} (EDAs), una
+familia de optimizadores evolutivos que guían la búsqueda con un modelo
+probabilístico de las mejores soluciones encontradas hasta el momento.
+
+El proceso de recuperación se implementó sobre el motor de inferencia
+\textsc{SMILE} y la biblioteca \textsc{EDAspy}. El optimizador busca sobre un
+vector real sin restricciones que un decodificador convierte siempre en un
+modelo válido (softmax para las tablas de probabilidad, sigmoide para las
+utilidades), de modo que ningún candidato tiene que repararse ni descartarse.
+Cada candidato se puntúa según lo bien que la política que induce reproduce las
+reglas del experto, empleando una de cinco funciones de pérdida, y se comparan
+cuatro variantes de EDA de expresividad creciente (UMDA, EMNA, EGNA y KEDA). El
+método se evalúa sobre dos diagramas clínicos de distinto tamaño: el pequeño
+\emph{bypass} (manejo de la cardiopatía coronaria) y el mayor \emph{NHLy}
+(manejo del linfoma no Hodgkin).
+
+El estudio experimental arroja cinco hallazgos principales. Primero, la
+recuperación es \emph{factible}: mostrar solo una fracción de las reglas eleva la
+política recuperada muy por encima del azar, y la precisión crece a medida que se
+añaden más reglas. Segundo, y de forma central, reproducir las reglas de
+entrenamiento \emph{no} es lo mismo que recuperar la política: muchos vectores de
+parámetros satisfacen las reglas mostradas pero discrepan en las no vistas, por
+lo que el problema está parcialmente condicionado. Tercero, el \emph{optimizador}
+es el factor dominante: KEDA es el más potente en la red pequeña pero escala mal,
+de modo que en el diagrama mayor solo los más económicos EMNA y UMDA resultan
+asequibles, con EMNA claramente por delante. Cuarto, lo que las reglas realmente
+determinan son las \emph{utilidades}, no las probabilidades: buscar solo las
+utilidades reproduce la política casi a la perfección, mientras que añadir las
+tablas de probabilidad a la búsqueda resulta incluso perjudicial. Quinto,
+\emph{qué} reglas se muestran importa tanto como cuántas: para un número fijo de
+reglas, la elección genera una amplia dispersión en la precisión, y las reglas
+más informativas son las decisivas, aquellas con la mayor diferencia de utilidad
+entre la acción recomendada y su alternativa.
+
+En resumen, el cuello de botella del método es la degeneración del problema y la
+expresividad de la búsqueda. La receta práctica que se deriva consiste en recuperar las
+utilidades manteniendo fijas las probabilidades, combinar un optimizador
+expresivo con una pérdida sencilla e invertir el esfuerzo del experto en un
+pequeño conjunto de reglas decisivas. El trabajo entrega una prueba de concepto
+validada y señala la selección activa de reglas, la explotación de la población
+degenerada y el escalado a diagramas mayores como las continuaciones más
+prometedoras.
+
+
+\newpage

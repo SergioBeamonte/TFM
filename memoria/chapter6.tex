@@ -1,0 +1,148 @@
+% ==============================================================
+%  Chapter 6 -- Conclusions and Future Work
+% ==============================================================
+
+\chapter{Conclusions and Future Work}
+\label{ch:conclusions}
+
+This thesis studied whether the numerical parameters of an Influence Diagram
+(its utilities and conditional probability tables) can be recovered from a set of decision rules describing an expert's policy, using Estimation of
+Distribution Algorithms (EDAs). Chapter~\ref{ch:framework} posed the problem,
+Chapter~\ref{ch:implementation} built the recovery pipeline, and
+Chapter~\ref{ch:experiments} tested it on two clinical diagrams, the small
+\emph{bypass} and the larger \emph{NHLy}. This chapter states what was found
+and what remains open.
+
+% --------------------------------------------------------------
+\section{Evaluation of the objetives}
+\label{sec:conclusions}
+% --------------------------------------------------------------
+
+\begin{enumerate}
+  \item \textbf{Recovery is feasible, and a small amount of supervision yields substantial reconstruction.} On every network and optimizer, showing only a fraction of the
+        rules lifts the recovered policy well above the random baseline, and
+        accuracy grows as more rules are added
+        (Section~\ref{sec:stopmode-degeneracy}).
+
+  \item \textbf{Reproducing the training rules is not the same as recovering
+        the policy.} Many parameter vectors satisfy the shown rules perfectly
+        yet disagree on the unseen ones: the problem is degenerate. This is the
+        central finding, and the rest follow from it
+        (Section~\ref{sec:stopmode-degeneracy}).
+
+  \item \textbf{The optimizer is the dominant factor.} The choice of EDA
+        matters more than any other setting. KEDA is the strongest and most
+        robust on \emph{bypass}, UMDA the weakest, but KEDA scales poorly and
+        only the cheaper UMDA and EMNA remain practical on \emph{NHLy}, where
+        EMNA clearly outperforms UMDA
+        (Sections~\ref{sec:stopmode-degeneracy} and~\ref{sec:saturation}).
+
+    \item \textbf{The loss election has low impact on the small network, but a utility-aware loss helps the large one.} On \emph{bypass} the five
+        losses are interchangeable in accuracy and the simple, cheap
+        \texttt{binary} loss is never clearly beaten; on \emph{NHLy} the
+        continuous \texttt{regret} loss lifts EMNA markedly (to $\sim\!90\%$).
+        The utility temperature $T_u$ further shapes the landscape and can be
+        tuned to speed convergence (Sections~\ref{sec:fitness}
+        and~\ref{sec:fitness-temperature}).
+
+  \item \textbf{Which rules are shown matters as much as how many.} A few rules
+        recover most of the policy and full recovery needs almost the whole base
+        (Section~\ref{sec:saturation}); but for a fixed count the \emph{choice}
+        of rules drives a wide spread in accuracy, cost and reconstruction
+        error, and the most informative rules are the \emph{decisive} ones (those with the largest expected-utility gap between the optimal action
+        and its alternative, Section~\ref{sec:greedy}).
+
+      \item \textbf{What is recovered is the utilities, not the probabilities.}
+        Searching only for the utilities reproduces the policy almost perfectly
+        ($\sim\!96\%$), whereas adding the conditional probability tables to the
+        search makes the recovery substantially more complex: joint recovery falls back near the chance-only level ($\sim\!68\%$), and rule accuracy is uncorrelated with
+        how well the CPTs are reconstructed. The policy is carried by the
+        utility structure, and introducing probability parameters only expands the dimensionality of an inherently degenerate search space (Section~\ref{sec:loss}).
+    
+\end{enumerate}
+
+In short, the bottleneck is the \emph{degeneracy} of the problem and the
+\emph{expressiveness of the search}. Because the policy is carried by the
+utilities, recovery should target them while trying to recover the probabilities from actual databases or estimations; on top
+of that, the practical recipe is to pair an expressive optimizer with a simple
+\texttt{binary} loss on small diagrams (a utility-aware loss such as
+\texttt{regret} on larger ones) and to invest elicitation effort in a small set
+of decisive, informative rules.
+
+% --------------------------------------------------------------
+\section{Limitations}
+\label{sec:limitations}
+% --------------------------------------------------------------
+
+Only two diagrams were tested, so the exact figures need not carry over to much
+larger or different models. The rules are synthetic, drawn from a known
+ground-truth diagram; real elicitation would add expert biases (inconsistent,
+correlated and unevenly distributed rules) that this study does not model.
+
+The estimates themselves rest on few samples. Each configuration was repeated
+only three, five or ten times, so the reported means and, above all, the
+standard deviations that we use as a reliability measure are noisy; they should
+be read as indicative trends rather than precise values.
+
+On the large network the cost forced a further simplification: only the
+utilities were searched (\texttt{utility\_only}), fixing the probability tables
+to their true values. The claims about the \emph{joint} recovery of
+probabilities, and the dominance of utilities over probabilities
+(Section~\ref{sec:loss}), therefore come almost entirely from the small
+\emph{bypass} and have not been confirmed on \emph{NHLy}.
+
+The hyperparameters were tuned one at a time. The stopping threshold, the
+population size and the utility temperature were each fixed on a single
+preliminary configuration and then held constant across the whole grid; their
+interactions were not explored, and a value that is good in isolation need not be
+optimal in every combination. The \texttt{top90} criterion, for instance, was
+calibrated on the \texttt{binary} loss and only \emph{assumed} to transfer to
+the others.
+
+Both diagrams use discrete variables, and \emph{bypass} reduces to two binary
+decisions. The pipeline was not tested on continuous variables or on decisions
+with many alternatives, where the decoding and the loss landscape may behave
+differently. Some findings are, moreover, explicitly network-specific: the
+effect of the utility temperature (Section~\ref{sec:fitness-temperature}) and the
+dominance of the utilities (Section~\ref{sec:loss}) were observed on
+\emph{bypass} and, as noted there, could change on a diagram with a different
+geometry.
+
+Because of the degeneracy, the utilities are identified only up to the decisions
+they induce, never as values. The greedy rule selection of
+Section~\ref{sec:greedy} is an \emph{oracle} that scores candidate rules against
+the ground-truth policy, so it bounds what an informed elicitation could achieve
+rather than providing a usable selection rule. The same reliance on the ground
+truth affects the evaluation itself: accuracy is measured against the
+\emph{whole} rule base, a signal that would not be available in a real
+elicitation.
+
+Finally, cost is reported as process CPU seconds of this particular
+implementation and hardware, so the optimizer trade-offs are implementation
+dependent; a more optimized version of the expensive optimizers could shift
+them. As it stands, the most accurate optimizers (KEDA, EGNA) are too costly for
+the large network, which caps the scale actually reached.
+% --------------------------------------------------------------
+\section{Future work}
+\label{sec:future}
+% --------------------------------------------------------------
+
+This study demonstrates that recovering an Influence Diagram from decision rules is feasible under controlled conditions using two specific networks. Consequently, these findings open several paths for future research. The following sections outline potential extensions, ranging from immediate applications to broader research directions. For each, we highlight the current contributions, limitations, and requirements for further investigation.
+
+\subsection{Active rule selection.} A key practical finding is that a few highly informative rules are significantly more valuable than many random ones. Specifically, decisive scenarios (those with the largest expected-utility gap) seem to be the most beneficial to elicit (Sections~\ref{sec:saturation} and~\ref{sec:greedy}). Although this study definitively demonstrates the substantial performance spread between a high-quality and a poor rule set, the hypothesis that this optimal sequence can be found simply by selecting the most decisive rules (those with the largest expected-utility gap) must be rigorously proven or refuted. Consequently, future work must validate this specific approach or explore alternative methodologies to identify these optimal sequences. One potential direction is to develop an independent scoring metric. 
+
+For example, selecting the rule that maximizes expected information gain (the one that most reduces the spread of the surviving population) would transform the recovery process into an active-elicitation loop. This directly addresses the elicitation bottleneck, as expert effort is measured by the number of rules provided rather than the accuracy achieved.
+
+\subsection{Exploiting the degenerate population instead of fighting it.} Although degeneracy has been treated as a primary obstacle, the search process generates a population of satisfying models that agree on the training rules but diverge elsewhere (the gap between the best and worst individuals shown in Sections~\ref{sec:stopmode-degeneracy} and~\ref{sec:stopmode-markov}). This study notes this diversity but ultimately discards it, reporting only the parameters of the single best individual or the mean of the satisfiers. However, this diverse population is potentially the most valuable byproduct of the method. Aggregating these models (e.g., through a majority vote on decisions or by characterizing the degenerate subspace) could produce a consensus policy more robust than any single model. 
+
+Furthermore, internal disagreement offers a model-free metric of how effectively the rules constrain the diagram, providing a natural stopping criterion for elicitation. Future research should formally define these aggregation methods, compare them against single-best policies, and analyze the relationship between residual disagreement and true off-rule error.
+
+\subsection{Scaling the search to realistic diagrams.} This study indicates that the most effective optimizer, KEDA, is also the least scalable. Consequently, for networks like \emph{NHLy}, only less computationally demanding methods like UMDA and EMNA are feasible (Section~\ref{sec:saturation}). This establishes a theoretical upper bound on quality that cannot yet be achieved at scale (precisely where decision models with thousands of parameters operate, making their recovery valuable). Bridging this scalability gap is a critical priority. Promising approaches include scalable multivariate or surrogate-assisted EDAs, hybrid methods combining EDAs with gradient-based refinement, and a balanced warm-starting strategy for sequential rule additions. Until these techniques can deliver KEDA-level accuracy on large networks, the optimal performance of this method remains proven only for smaller diagrams.
+
+\subsection{From synthetic rules to real elicitation.} The current methodology relies entirely on synthetic rules derived from a known ground truth, assuming complete accuracy. While this cleanly isolates the recovery mechanism, it represents a significant simplification. In practice, human experts provide rules that can be inconsistent, correlated, or erroneous. To address this, future models must explicitly account for rule reliability. This could involve assigning weights to rules, penalizing mutual inconsistencies during the search, and expanding the framework to handle continuous variables. Testing the pipeline with elicited expert rules is essential to confirm the real-world applicability of these findings.
+
+\subsection{Understanding identifiability, not only measuring it.} Underlying these practical challenges is a fundamental question addressed here only empirically: which specific rules determine which parameters. While degeneracy is frequently observed, its mathematical structure remains uncharacterized. Developing a theoretical framework for identifiability (defining the exact conditions under which a rule set fully determines a policy) would transform the current practical approach into a theoretically grounded methodology. This represents the most profound open question, linking the empirical results of Chapter~\ref{ch:experiments} to the fundamental conditions required for successful decision model recovery.
+
+% El codigo fuente y los experimentos estan disponibles en el repositorio publico
+% (entrada tfm_repo, al final de la bibliografia).
+\nocite{tfm_repo}

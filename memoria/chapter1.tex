@@ -5,6 +5,8 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
+This introductory chapter establishes the context, motivation, and core objectives of the thesis. It presents Influence Diagrams as the foundational framework for decision support systems and identifies the exhaustive parameter elicitation process as their primary practical bottleneck. To address this limitation, the chapter outlines the main proposal of this research: automating the recovery of quantitative parameters from a reduced set of expert decision rules using evolutionary optimization. Finally, it defines the scope of the study and provides a structural outline of the subsequent chapters.
+
 % --------------------------------------------------------------
 \section{Problem Definition}
 % --------------------------------------------------------------
@@ -15,8 +17,8 @@ of unstructured problems by combining data, formal models and
 analytical techniques~\cite{insua2005}. Within
 this broad family, \emph{Influence Diagrams}~(IDs)
 \cite{howard2005influence,koller2009pgm,shenoy2009eolss} have become
-the de-facto standard for representing Bayesian decision
-problems and offer a particularly compact
+the de-facto standard for representing decision
+problems under uncertainty and offer a particularly compact
 graphical formalism:
 a single directed acyclic graph encodes simultaneously the
 probabilistic structure of the problem (chance nodes), the
@@ -70,38 +72,50 @@ these assumptions, the question we tackle can be stated as follows:
 \begin{quote}\itshape
 Given the qualitative structure of an Influence Diagram and a small
 set of decision rules provided by a domain expert, can we
-automatically recover a parameter vector — CPTs and utilities — that
+automatically recover a parameter vector (CPTs and utilities) that
 reproduces those rules, thereby relieving the expert from the burden
 of specifying every numerical entry of the model?
 \end{quote}
 
-% --------------------------------------------------------------
-\section{Motivation and Importance}
-% --------------------------------------------------------------
+
+\section{Motivation}
+\label{sec:motivation}
 
 Several factors make this problem both timely and important.
 
-\paragraph*{The elicitation bottleneck.} Direct elicitation techniques (reference lotteries, indifference judgements, pairwise comparisons...)
-remain the de-facto standard for the construction of probabilistic
-decision models~\cite{bielza2010modeling}. They demand long interviews with scarce experts, are cognitively demanding for the interviewee and are well known to introduce inconsistencies that require subsequent revision. In domains such as clinical medicine,
-public-health planning or safety-critical engineering, the cost of expert time is the dominant factor preventing the wider adoption of
-ID-based decision tools.
+\begin{itemize}
+  \item \textbf{The elicitation bottleneck.} Direct elicitation techniques
+        (reference lotteries, indifference judgements, pairwise
+        comparisons\ldots) remain the de-facto standard for the construction of
+        probabilistic decision models~\cite{bielza2010modeling}. They demand
+        long interviews with scarce experts, are cognitively demanding for the
+        interviewee and are well known to introduce inconsistencies that require
+        subsequent revision. In domains such as clinical medicine, public-health
+        planning or safety-critical engineering, the cost of expert time is the
+        dominant factor preventing the wider adoption of ID-based decision
+        tools.
 
-\paragraph*{Scarcity of historical data.} A natural alternative to direct elicitation is to learn the parameters of the model from historical data via maximum-likelihood or expectation–maximisation estimators, as originally proposed by Ezawa and Gupta in the context of IDs~\cite{ezawa1997learning}. However, the regime in which most
-clinical and engineering problems live is precisely the opposite of
-what such statistical methods require: there are very few annotated
-historical cases, but a domain expert is usually able to verbalise a small number of high-level rules of the form
-``\textit{if condition $\mathbf{x}$ holds, then take action $a$}''.
+  \item \textbf{Scarcity of historical data.} A natural alternative to direct
+        elicitation is to learn the parameters of the model from historical data
+        via maximum-likelihood or expectation--maximisation estimators, as
+        originally proposed by Ezawa and Gupta in the context of
+        IDs~\cite{ezawa1997learning}. However, the regime in which most clinical
+        and engineering problems live is precisely the opposite of what such
+        statistical methods require: there are very few annotated historical
+        cases, but a domain expert is usually able to verbalise a small number
+        of high-level rules of the form ``\emph{if condition $\mathbf{x}$ holds,
+        then take action $a$}''.
 
-\paragraph*{Decisions instead of probabilities.} Eliciting rules is
-cognitively much closer to clinical or managerial practice than
-eliciting numerical probabilities. Practitioners reason naturally in
-terms of recommended actions under prototypical scenarios, and reach
-agreement on rules far more easily than on probability tables.
-Exploiting rules as a supervisory signal therefore aligns the
-elicitation process with the way experts actually think.
+  \item \textbf{Decisions instead of probabilities.} Eliciting rules is
+        cognitively much closer to clinical or managerial practice than
+        eliciting numerical probabilities. Practitioners reason naturally in
+        terms of recommended actions under prototypical scenarios, and reach
+        agreement on rules far more easily than on probability tables.
+        Exploiting rules as a supervisory signal therefore aligns the
+        elicitation process with the way experts actually think.
 
-\paragraph*{Use cases.} Concrete domains where the proposed approach
+
+\item \textbf{Use cases.} Concrete domains where the proposed approach
 is of immediate practical interest include:
 \begin{itemize}
     \item \textbf{Clinical decision support.}
@@ -113,32 +127,40 @@ is of immediate practical interest include:
     \item \textbf{Industrial maintenance and safety.}
           Inspection scheduling, replacement-vs-repair choices, and
           safety-critical operations in which expert rules are
-          available but historical incident data are sparse.
+          available but historical incident data are
+          sparse~\cite{machado2016maintenance}.
     \item \textbf{Public policy and emergency response.}
           Vaccination campaigns, evacuation plans and resource
           allocation under uncertainty, where domain rules exist but
-          full probabilistic models do not.
+          full probabilistic models do
+          not~\cite{kailiponi2010evacuation}.
     \item \textbf{Cyber-security and fraud detection.}
           Operational analysts maintain rule-based playbooks that can
           be turned into the supervisory signal of an ID-based
-          decision module.
-\end{itemize}
+          decision module~\cite{chockalingam2023cyber}.
+\end{itemize}\end{itemize}
 
-% --------------------------------------------------------------
 \section{Scope}
-% --------------------------------------------------------------
 
 The field of decision support systems is vast. To keep the
 contribution focused, the work in this thesis is restricted to:
 \begin{enumerate}
     \item Influence Diagrams with \emph{discrete} chance and decision
           variables;
-    \item a \emph{single} value (utility) node;
+    \item a \emph{single} value (utility) node on a normalized scale of utilities $[0,10]$;
     \item a \emph{pre-specified} dependency graph (the structure is
           provided as an input and is not subject to learning);
     \item supervision signals consisting of a finite set of
           \emph{partial decision rules} produced by a domain expert.
+    \item \emph{non-parametric} characteristics of the probability distributions; 
+          for example, $0 < p_i < 1$ for all $i$, skewness and monotonicity, in 
+          ordinal variables (low, medium, high) such as $p_{\text{low}} < p_{\text{med}} < p_{\text{high}}$ 
+          or $p_{\text{low}} > p_{\text{med}} > p_{\text{high}}$, mode identification, 
+          and other bounds like $a < p_i < b$.
 \end{enumerate}
+
+This input to the EDA is, in fact, a future line of research, and it should partially resolve the ill-conditioning of the problem that yields deficient or degenerate solutions.
+
 A wealth of representational extensions has been proposed in the ID literature: asymmetric decision problems (conditional
 distribution trees, sequential decision diagrams, sequential
 valuation networks), continuous and hybrid IDs (Gaussian IDs,
@@ -150,127 +172,20 @@ itself to the regular, discrete, single-value setting described
 above, the extensions are revisited only in the perspectives
 chapter.
 
-% --------------------------------------------------------------
-\section{State of the Art}
-\label{sec:state-of-the-art}
-% --------------------------------------------------------------
+\section{Deep Learning and Neural Networks}
 
-The problem of obtaining the numerical parameters of a graphical
-decision model has been approached from several angles. We organise
-the literature along four complementary lines and then position the
-present work within them.
+It is impossible to discuss modern artificial intelligence without acknowledging the profound impact of \emph{Deep Learning (DL)} and \emph{Neural Networks}. These architectures currently dominate the landscape of unstructured data processing, achieving unprecedented success in computer vision, natural language processing, and pattern recognition. However, despite their overwhelming popularity, they present severe limitations when applied to the types of decision-support scenarios targeted in this thesis.
 
-\subsection{Statistical learning from data (MLE / EM)}
+\begin{itemize}
+    \item First and most important is the issue of \emph{auditability and interpretability}. Neural networks function inherently as ``black boxes''; their knowledge is distributed across millions or billions of meaningless weights. In high-stakes domains such as clinical triage or safety-critical maintenance, a decision-maker cannot blindly trust an automated output. Influence Diagrams, in contrast, are inherently transparent. Every node, arc, and utility value possesses a clear, auditable semantic meaning that experts can inspect, debate, and mathematically validate.
 
-The classical route to parameterising any graphical model is
-maximum-likelihood estimation. When the data is fully observed the CPTs reduce to relative frequencies; with hidden variables or missing
-entries the Expectation$-$Maximisation algorithm is the standard
-choice. In the specific context of IDs, the work of Ezawa and Gupta~\cite{ezawa1997learning} combined EM for the CPTs with a
-greedy search for the causal structure, and extended the procedure to
-the utility node via regression on observed outcomes. The approach
-is already implemented but requires a sizeable corpus of labelled historical cases, which in many real applications is simply not available.
+    \item Secondly, Deep Learning exhibits an extreme \emph{hunger for data}. Training a robust neural network requires vast amounts of labeled historical records to avoid overfitting. As discussed in Section~\ref{sec:motivation}, the operational reality of many critical domains is characterized by a scarcity of historical data but an availability of expert heuristics. Neural networks are not suited for this data-deprived environment, whereas our proposed approach is explicitly designed to exploit these scarce but high-value expert rules.
 
-\subsection{Direct expert elicitation}
+    \item Finally, standard deep models predominantly solve prediction or classification tasks; they do not naturally embed a decision-theoretic framework. An ID explicitly separates the probabilistic beliefs (chance nodes) from the agent's interventions (decision nodes) and their preferences (utility nodes), providing a rigorous mechanism for rational decision-making under uncertainty. 
+\end{itemize}
 
-When historical data is scarce, the established alternative is the
-structured elicitation of probabilities and utilities through
-techniques such as reference lotteries, indifference judgements and
-canonical models (Noisy-OR, Noisy-AND, additive utilities)
-\cite{bielza2010modeling}. The literature on multi-criteria decision
-making, including the work of Shahzad on the integration of
-Bayesian networks and MCDM~\cite{shahzad2022mcdm}, has produced a comprehensive catalogue of methods to reduce the cognitive load on the
-expert. Even with these aids, however, the resulting judgements are known to be systematically biased: the experimental psychology of
-probability assessment has identified three robust distortions —
-\emph{availability}, \emph{representativeness} and
-\emph{anchoring} — that all degrade the quality of expert-supplied
-numbers regardless of the analyst's
-training~\cite{bielza2010modeling}. The bottleneck therefore
-persists on two fronts at once: every CPT row and every utility
-entry must be confirmed by a human, the size of the table grows
-exponentially with the number of parents, and what is finally
-written down is itself an unreliable estimate.
+For these reasons, this thesis deliberately steers away from the Deep Learning paradigm. We choose to retain the transparency, rigorous uncertainty management, and use the Influence Diagrams to solve their only major practical drawback: the parameter-elicitation bottleneck.
 
-\subsection{Evolutionary algorithms and metaheuristics}
-
-A third line of work treats parameter elicitation as an
-\emph{inverse optimisation} problem: rather than asking the expert
-for every parameter, one searches the parameter space for a
-configuration that reproduces a weak supervisory signal. Genetic
-Algorithms have been used inside the UPM CIG group for this very
-purpose~\cite{henriquez2024tfm}, and swarm-intelligence techniques
-(PSO, ACO) have been applied to the related problem of learning
-unknown behaviours in Interactive Dynamic IDs by Pan et
-al.~\cite{pan2025iddids}. Within evolutionary computation, the
-family of \emph{Estimation of Distribution Algorithms}
-(EDAs)~\cite{larranaga2002eda} has matured into a powerful framework
-that, instead of recombining individuals via crossover and mutation,
-explicitly learns a probabilistic model of the promising regions of
-the search space at every generation. Recent surveys
-\cite{larranaga2024edas} report consistent improvements over
-classical GAs in continuous, high-dimensional and constrained
-problems, and the open-source library
-\textsc{EDAspy}~\cite{soloviev2024edaspy} provides
-high-quality implementations of several EDAs, including UMDA, EGNA and KEDA.
-
-\subsection{Generative and LLM-based elicitation}
-
-The most recent trend exploits large language models as artificial experts. Prompted with the structure of the network
-and natural-language descriptions of the variables, models such as
-GPT-4o, Gemini Pro and Claude 3.5 have been shown to produce CPTs
-whose Kullback–Leibler divergence with respect to expert-elicited
-tables is comparable to the noise observed across different human
-experts~\cite{nafar2025llm4bn}. Closely related, Pan et al.~use
-Variational Auto-encoders to generate plausible models of the
-unobserved agents in Interactive Dynamic IDs~\cite{pan2024vae}.
-These methods are still in their infancy but already suggest powerful
-hybrid pipelines in which a generative model produces a promising initial
-configuration that is subsequently refined by a metaheuristic.
-
-\subsection{Beyond exact evaluation}
-
-The Shachter algorithm computes the optimal policy exactly, but only
-for regular discrete IDs like the one used in this work. When the
-diagram grows too large, mixes continuous and discrete variables, or
-carries constraints that the regular formalism cannot express, exact
-evaluation is no longer feasible. Two families of methods step in
-here: \emph{Decision Programming}~\cite{salo2022decisionprog}, which
-rewrites the diagram as an integer optimisation problem and hands it
-to a standard solver, and \emph{reinforcement
-learning}~\cite{gomez2024rl}, which approximates the optimal policy by
-trial and error on a simulator of the diagram. Both pursue the same
-goal — given the parameters, find the best decisions — which is the
-mirror image of the problem studied here, where the decisions (the
-expert rules) are given and the parameters are what we look for.
-These approaches fall outside the scope of this thesis, but they are
-closely related and are worth keeping in mind as the natural
-counterpart to the parameter-recovery problem we address.
-
-
-\subsection{The inverse problem: rules from CPTs}
-
-A complementary line of work, also originated at UPM, approaches the \emph{inverse} of the problem studied in this thesis. Fern{\'a}ndez del Pozo, Bielza and Lucas~\cite{fdezdelpozo2010cluster} propose the
-\textsc{Cluster-KBM2L} methodology, which starts from a fully
-specified CPT (more than 8\,000 entries in the case of their
-non-Hodgkin lymphoma ID) and extracts \emph{symbolic prognostic
-profiles} — qualitative rules of the form ``high-risk patient with
-favourable chemotherapy response'' — by clustering the conditional
-distributions and synthesising interpretable descriptions for each
-cluster. Both works thus address the same interface between the
-numerical and the symbolic representation of an ID, but from
-opposite directions: \cite{fdezdelpozo2010cluster} goes from CPTs
-to rules, whereas this thesis goes from rules to CPTs.
-
-\subsection{Research gap and positioning of this work}
-
-The systematic review summarised above leads to a clear conclusion:
-no published work combines \emph{modern EDAs} with the
-\emph{reconstruction of ID parameters from a small set of expert
-decision rules}. The closest precedent is the genetic-algorithm
-approach of Henr{\'\i}quez~\cite{henriquez2024tfm}. The contribution
-of the present thesis is to replace the GA with an EDA that
-\emph{explicitly} models the dependency structure of the parameter
-space, and to study empirically the impact of this richer
-probabilistic model on convergence and final accuracy.
 
 % --------------------------------------------------------------
 \section{Objectives and Contributions}
@@ -296,16 +211,23 @@ achieve this global goal we set the following specific objectives:
           hyperparameters (population size, selection ratio, dead iterations, convergence criteria...) as well as different loss functions on the quality of the recovered parameters and
           on the run-time of the algorithm.
     \item Discuss the limits of the proposed approach and outline a set of natural extensions (LLM-informed initialisation,
-          canonical-model parameterisation, SPEDA, parallel EDAs...).
+          canonical-model parameterisation, parallel EDAs...).
 \end{enumerate}
+
+Through a simple model, \emph{``bypass''}, work is done to define the computational estimation methodology for the parameters, and it is tested with a complex real model, \emph{``NHLy''}.
 
 % --------------------------------------------------------------
 \section{Thesis Outline}
 % --------------------------------------------------------------
 
-The remainder of the document is organised in four further chapters.
+The remainder of the document is organised in five further chapters.
 
 \begin{itemize}
+    \item \textbf{Chapter~\ref{ch:state-of-the-art}} reviews the state of the
+          art: statistical learning from data, direct expert elicitation,
+          evolutionary and generative approaches, and the inverse problem of
+          recovering parameters from rules, positioning the contribution of this
+          thesis.
     \item \textbf{Chapter~\ref{ch:framework}} develops the
           theoretical framework: Decision Support Systems, the
           formal definition of an Influence Diagram and its
@@ -318,12 +240,12 @@ The remainder of the document is organised in four further chapters.
           of the system, the encoding and decoding of the parameter
           vector, the design of the fitness function and the
           configuration of the EDA loop with \textsc{EDAspy}.
-    \item \textbf{Chapter~4} reports the experimental study: the
-          benchmark ID, the protocol of the hyperparameter sweep,
+    \item \textbf{Chapter~\ref{ch:experiments}} reports the experimental study:
+          the benchmark IDs, the protocol of the hyperparameter sweep,
           the comparison between the rules generated by the
           optimised model and those provided by the expert, and a
           discussion of the empirical results.
-    \item \textbf{Chapter~5} concludes the work, summarising the
+    \item \textbf{Chapter~\ref{ch:conclusions}} concludes the work, summarising the
           contributions and outlining the research directions
           identified in the state of the art that constitute
           natural lines of future work.
