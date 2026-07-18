@@ -142,7 +142,8 @@
   const M = DATA.meta, BIN = DATA.binmeta, G = M.grid;
   const nodesById = {}; DATA.nodes.forEach(n=>nodesById[n.id]=n);
   const SEQ = ['--s100','--s200','--s300','--s400','--s500','--s600','--s700'];
-  let state = {fitness:G.fitness[0], rules:G.rules[0].pct, temp:(G.temps.find(t=>t.tu===4)||G.temps[0]).tag, opt:G.optimizers[0], rep:0, node:null};
+  let state = {fitness:(G.fitness.includes('softmax')?'softmax':G.fitness[0]), rules:G.rules[0].pct,
+    temp:(G.temps.find(t=>t.tu===4)||G.temps[0]).tag, opt:(G.optimizers.includes('emna')?'emna':G.optimizers[0]), rep:0, node:null};
 
   const $ = id=>document.getElementById(id);
   const cssv = v=>getComputedStyle(document.querySelector('.viz-root')).getPropertyValue(v).trim();
@@ -355,8 +356,11 @@
         rc.onmouseleave=()=>tipOff();});});
   }
 
+  function modeAcc(){ const rec=DATA.rule_eu_rec[key()]; if(!rec) return null;
+    let c=0; rec.forEach(p=>{ if(p && p[0]>=p[1]) c++; }); return 100*c/rec.length; }  // % de las 20 reglas que la red modal decide bien
   function renderRunMeta(){
     const r=curRun(),isMean=!!(r&&r.mean),crashed=!r||!r.cellstats;
+    const ma=modeAcc();
     const bn=$('meanbanner');
     if(isMean && r.nfail){bn.className='banner on';
       bn.innerHTML=`<b>Mean view</b> — pooled over the ${r.ntot-r.nfail}/${r.ntot} reps that ran; ${r.nfail} crashed (singular KDE covariance). σ folds in the spread between initializations.`;}
@@ -370,10 +374,10 @@
     else if(isMean){const N=r.ntot||M.seeds.length, ok=N-(r.nfail||0);
       cells=[['reps pooled',ok+'/'+N],['individuals',ok*M.pop],
         ['avg. generations',r.n_gen],['avg. % pop. satisfies',(r.frac_satisfy_train*100).toFixed(0)+'%'],
-        ['avg. majority acc.',fmt(r.maj_acc_pop,0)+'%']];}
+        ['avg. acc. pop. (majority)',fmt(r.maj_acc_pop,0)+'%'],['acc. (mode)',ma==null?'—':fmt(ma,0)+'%']];}
     else cells=[['generations',r.n_gen],['stopping',r.stop==='top90'?'top90':(r.stop==='crash'?'crash':'max iter')],
       ['% pop. satisfies',(r.frac_satisfy_train*100).toFixed(0)+'%'],
-      ['majority acc. (20 rules)',fmt(r.maj_acc_pop,0)+'%'],['init seed',r.seed]];
+      ['acc. pop. (majority)',fmt(r.maj_acc_pop,0)+'%'],['acc. (mode)',ma==null?'—':fmt(ma,0)+'%'],['init seed',r.seed]];
     $('runmeta').innerHTML=cells.map(([k,v])=>`<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
   }
 
