@@ -31,7 +31,7 @@ random initialization). Selectors let you pick any combination:
 | Optimizer | EMNA · UMDA · KEDA |
 | Fitness | binary · regret · margin · softmax · entropy |
 | Rules elicited | 30% · 70% (of the 20 available) |
-| Temperature (utility, chance) | (4, 1) · (1, 1) |
+| Temperature (utility, chance) | (1, 1) · (4, 1) · (8, 1)|
 
 Fixed for all runs: population = 400, stopping criterion = **top90**, min/max
 utilities anchored to 0 / 10 (`min_max_ut = True`), evaluated on the
